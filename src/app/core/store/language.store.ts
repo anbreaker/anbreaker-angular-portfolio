@@ -27,6 +27,10 @@ export class LanguageStore {
   private readonly _currentLang = signal<SupportedLang>(resolveInitialLang());
   readonly currentLang = this._currentLang.asReadonly();
 
+  constructor() {
+    this.transloco.setActiveLang(this._currentLang());
+  }
+
   setLang(lang: SupportedLang): void {
     this._currentLang.set(lang);
     this.transloco.setActiveLang(lang);
