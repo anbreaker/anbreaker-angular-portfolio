@@ -1,0 +1,132 @@
+.hero {
+  min-height: 100svh;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  padding: 5rem 1rem 3rem;
+
+  @media (min-width: 1024px) {
+    padding: 6rem 2rem 4rem;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__tagline {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-brand-blue);
+  }
+
+  &__title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--color-text);
+
+    em {
+      font-style: normal;
+      color: var(--color-brand-blue);
+    }
+  }
+
+  &__subtitle {
+    font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    max-width: 48ch;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  &__cta {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    font-family: var(--font-display);
+    border-radius: var(--radius-card);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: opacity 200ms ease, transform 200ms ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &--primary {
+      background: var(--color-brand-blue);
+      color: #fff;
+      box-shadow: var(--glow-blue);
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    &--secondary {
+      background: transparent;
+      color: var(--color-text);
+      border-color: var(--color-brand-blue);
+
+      &:hover {
+        background: rgba(59, 130, 246, 0.08);
+      }
+    }
+  }
+
+  &__illustration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: -1;
+
+    @media (min-width: 1024px) {
+      order: 0;
+      justify-content: flex-end;
+    }
+  }
+
+  &__illustration-placeholder {
+    width: clamp(220px, 50vw, 400px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 2px dashed var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 700;
+    color: var(--color-brand-blue);
+    box-shadow: var(--glow-blue);
+  }
+}

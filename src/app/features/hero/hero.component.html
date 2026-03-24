@@ -1,0 +1,32 @@
+<ng-container *transloco="let t">
+  <section id="hero" class="hero" aria-labelledby="hero-heading">
+    <div class="hero__container">
+
+      <div class="hero__content">
+        <p class="hero__tagline">{{ t('hero.tagline') }}</p>
+
+        <h1 id="hero-heading" class="hero__title">
+          {{ t('hero.title') }}
+        </h1>
+
+        <p class="hero__subtitle">{{ t('hero.subtitle') }}</p>
+
+        <div class="hero__actions">
+          <button class="hero__cta hero__cta--primary" (click)="scrollToProjects()">
+            {{ t('hero.ctaPortfolio') }}
+          </button>
+          <button class="hero__cta hero__cta--secondary" (click)="scrollToContact()">
+            {{ t('hero.ctaContact') }}
+          </button>
+        </div>
+      </div>
+
+      <div class="hero__illustration" aria-hidden="true">
+        <div class="hero__illustration-placeholder">
+          <span>FJ</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</ng-container>
