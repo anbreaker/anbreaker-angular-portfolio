@@ -5,60 +5,60 @@
     "error": "Ha ocurrido un error",
     "loading": "Cargando..."
   },
-  "nav": {
-    "projects": "Proyectos",
-    "tech": "Tech",
-    "testimonials": "Testimonios",
-    "hireMe": "Contrátame"
+  "footer": {
+    "rights": "Todos los derechos reservados."
   },
   "hero": {
-    "tagline": "Creative Technologist",
-    "title": "& FullStack Master",
-    "subtitle": "Creando experiencias digitales de alto rendimiento con Angular 21, Signals y Node.js. Alta energía, baja latencia.",
+    "ctaContact": "Hablemos",
     "ctaPortfolio": "Ver Portfolio",
-    "ctaContact": "Hablemos"
+    "subtitle": "Creando experiencias digitales de alto rendimiento con Angular 21, Signals y Node.js. Alta energía, baja latencia.",
+    "tagline": "Creative Technologist",
+    "title": "& FullStack Master"
+  },
+  "nav": {
+    "hireMe": "Contrátame",
+    "projects": "Proyectos",
+    "tech": "Tech",
+    "testimonials": "Testimonios"
+  },
+  "projects": {
+    "label": "TRABAJO",
+    "mimacrame": {
+      "description": "Tienda online artesanal con catálogo multilingüe, carrito y experiencia visual premium.",
+      "title": "Mi Macramé Studio"
+    },
+    "neoflow": {
+      "description": "Visualización en tiempo real de cadena de suministro para líderes logísticos.",
+      "title": "NeoFlow Dashboard"
+    },
+    "title": "Proyectos Destacados",
+    "viewCode": "Código",
+    "viewDemo": "Demo"
   },
   "techStack": {
     "label": "TECH STACK",
     "title": "Modern Workflow"
   },
-  "projects": {
-    "label": "TRABAJO",
-    "title": "Proyectos Destacados",
-    "viewDemo": "Demo",
-    "viewCode": "Código",
-    "neoflow": {
-      "title": "NeoFlow Dashboard",
-      "description": "Visualización en tiempo real de cadena de suministro para líderes logísticos."
-    },
-    "rootCommerce": {
-      "title": "Root Commerce",
-      "description": "Motor de e-commerce construido para la próxima generación del retail."
-    }
-  },
   "testimonials": {
     "label": "FEEDBACK",
-    "title": "Trusted by RootDevs",
     "t1": {
-      "quote": "Francisco es un mago de Signals. Transformó nuestro dashboard lento en una experiencia ultrarrápida.",
       "author": "Alex Rivers",
-      "role": "CTO",
-      "handle": "@TechVision"
+      "handle": "@TechVision",
+      "quote": "Francisco es un mago de Signals. Transformó nuestro dashboard lento en una experiencia ultrarrápida.",
+      "role": "CTO"
     },
     "t2": {
-      "quote": "El mejor desarrollador con el que he trabajado. Su enfoque en Angular 21 está muy por delante de la curva.",
       "author": "Sofia Mendez",
-      "role": "Product Lead",
-      "handle": "@SofiaLeads"
+      "handle": "@SofiaLeads",
+      "quote": "El mejor desarrollador con el que he trabajado. Su enfoque en Angular 21 está muy por delante de la curva.",
+      "role": "Product Lead"
     },
     "t3": {
-      "quote": "Tecnólogo creativo es el título perfecto. Francisco aporta alma y estilo a cada línea de código.",
       "author": "Marcus Chen",
-      "role": "Founder",
-      "handle": "@MarcusCo"
-    }
-  },
-  "footer": {
-    "rights": "Todos los derechos reservados."
+      "handle": "@MarcusCo",
+      "quote": "Tecnólogo creativo es el título perfecto. Francisco aporta alma y estilo a cada línea de código.",
+      "role": "Founder"
+    },
+    "title": "Trusted by RootDevs"
   }
 }

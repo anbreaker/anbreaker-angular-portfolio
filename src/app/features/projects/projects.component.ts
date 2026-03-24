@@ -44,12 +44,12 @@ export class ProjectsComponent {
       codeUrl: '#',
     },
     {
-      id: 'root-commerce',
-      titleKey: 'projects.rootCommerce.title',
-      descriptionKey: 'projects.rootCommerce.description',
-      tags: ['Angular 21', 'TypeScript', 'Stripe', 'Firebase'],
-      demoUrl: '#',
-      codeUrl: '#',
+      id: 'mimacrame',
+      titleKey: 'projects.mimacrame.title',
+      descriptionKey: 'projects.mimacrame.description',
+      tags: ['Angular 21', 'Signals', 'Transloco', 'SCSS'],
+      demoUrl: 'https://mimacrame.com',
+      codeUrl: 'https://github.com/anbreaker/mimacrame-studio-2026',
     },
   ];
 
