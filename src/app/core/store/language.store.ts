@@ -6,7 +6,7 @@ import { TranslocoService } from '@jsverse/transloco';
 
 const STORAGE_KEY = 'portfolio-lang';
 const SUPPORTED_LANGS: SupportedLang[] = ['es', 'en', 'pt'];
-const DEFAULT_LANG: SupportedLang = 'es';
+const DEFAULT_LANG: SupportedLang = 'en';
 
 function resolveInitialLang(): SupportedLang {
   const stored = localStorage.getItem(STORAGE_KEY) as SupportedLang | null;
