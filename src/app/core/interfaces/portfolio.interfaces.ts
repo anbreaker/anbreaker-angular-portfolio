@@ -6,6 +6,7 @@ export interface TechItem {
   description: string;
   iconUrl: string;
   glowColor: 'blue' | 'purple' | 'orange' | 'green';
+  cardBg?: string;
 }
 
 export interface Project {
