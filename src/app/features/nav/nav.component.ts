@@ -1,16 +1,17 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+
+import { SupportedLang } from '../../core/interfaces/portfolio.interfaces';
+import { LanguageStore } from '../../core/store/language.store';
+
 import { TranslocoDirective } from '@jsverse/transloco';
 
-import { LanguageStore } from '../../core/store/language.store';
-import { SupportedLang } from '../../core/interfaces/portfolio.interfaces';
-
 @Component({
-  selector: 'app-nav',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [TranslocoDirective],
-  templateUrl: './nav.component.html',
+  selector: 'app-nav',
   styleUrl: './nav.component.scss',
+  templateUrl: './nav.component.html',
 })
 export class NavComponent {
   protected readonly languageStore = inject(LanguageStore);

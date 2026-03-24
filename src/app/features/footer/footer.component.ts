@@ -1,15 +1,16 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TranslocoDirective } from '@jsverse/transloco';
 
 import { SocialLink } from '../../core/interfaces/portfolio.interfaces';
 
+import { TranslocoDirective } from '@jsverse/transloco';
+
 @Component({
-  selector: 'app-footer',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [TranslocoDirective],
-  templateUrl: './footer.component.html',
+  selector: 'app-footer',
   styleUrl: './footer.component.scss',
+  templateUrl: './footer.component.html',
 })
 export class FooterComponent {
   protected readonly currentYear = new Date().getFullYear();

@@ -1,16 +1,17 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+import { Testimonial } from '../../core/interfaces/portfolio.interfaces';
+import { GlassCardComponent } from '../../shared/components/glass-card/glass-card.component';
+
 import { TranslocoDirective } from '@jsverse/transloco';
 
-import { GlassCardComponent } from '../../shared/components/glass-card/glass-card.component';
-import { Testimonial } from '../../core/interfaces/portfolio.interfaces';
-
 @Component({
-  selector: 'app-testimonials',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [GlassCardComponent, TranslocoDirective],
-  templateUrl: './testimonials.component.html',
+  selector: 'app-testimonials',
   styleUrl: './testimonials.component.scss',
+  templateUrl: './testimonials.component.html',
 })
 export class TestimonialsComponent {
   protected readonly testimonials: Testimonial[] = [

@@ -3,14 +3,15 @@ import {
   Component,
   ElementRef,
   QueryList,
-  ViewChildren,
   signal,
+  ViewChildren,
 } from '@angular/core';
-import { TranslocoDirective } from '@jsverse/transloco';
 
+import { Project } from '../../core/interfaces/portfolio.interfaces';
 import { BadgeComponent } from '../../shared/components/badge/badge.component';
 import { NeonCardComponent } from '../../shared/components/neon-card/neon-card.component';
-import { Project } from '../../core/interfaces/portfolio.interfaces';
+
+import { TranslocoDirective } from '@jsverse/transloco';
 
 interface TiltState {
   x: number;
@@ -18,12 +19,12 @@ interface TiltState {
 }
 
 @Component({
-  selector: 'app-projects',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [BadgeComponent, NeonCardComponent, TranslocoDirective],
-  templateUrl: './projects.component.html',
+  selector: 'app-projects',
   styleUrl: './projects.component.scss',
+  templateUrl: './projects.component.html',
 })
 export class ProjectsComponent {
   @ViewChildren('projectCard') projectCards!: QueryList<ElementRef<HTMLElement>>;
