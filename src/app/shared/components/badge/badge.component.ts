@@ -4,8 +4,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-badge',
-  templateUrl: './badge.component.html',
   styleUrl: './badge.component.scss',
+  templateUrl: './badge.component.html',
 })
 export class BadgeComponent {
   readonly color = input<'blue' | 'purple' | 'orange' | 'green'>('blue');

@@ -4,8 +4,8 @@ import { ChangeDetectionStrategy, Component, HostBinding, input } from '@angular
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-neon-card',
-  templateUrl: './neon-card.component.html',
   styleUrl: './neon-card.component.scss',
+  templateUrl: './neon-card.component.html',
 })
 export class NeonCardComponent {
   readonly color = input<'blue' | 'purple' | 'orange' | 'green'>('blue');
