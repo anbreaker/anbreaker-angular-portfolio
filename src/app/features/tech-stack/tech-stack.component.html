@@ -9,8 +9,12 @@
 
       <div class="tech-stack__grid">
         @for (item of techItems; track item.id) {
-          <app-neon-card [color]="item.glowColor">
-            <div class="tech-stack__item">
+          <app-neon-card
+            [color]="item.glowColor"
+            [style.--card-bg]="item.cardBg"
+            [style.--card-border]="'transparent'"
+          >
+            <div class="tech-stack__item" [class.tech-stack__item--solid]="item.cardBg">
               <div class="tech-stack__item-icon" aria-hidden="true">
                 <img
                   [src]="item.iconUrl"

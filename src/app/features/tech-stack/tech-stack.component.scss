@@ -21,7 +21,7 @@
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--color-brand-blue);
+    color: var(--color-brand-cyan);
     margin-bottom: 0.75rem;
   }
 
@@ -37,12 +37,11 @@
     gap: 1rem;
 
     @media (min-width: 768px) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.25rem;
     }
 
     @media (min-width: 1024px) {
-      grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
     }
   }
@@ -54,9 +53,25 @@
     text-align: center;
     gap: 0.75rem;
 
+    &--solid {
+      .tech-stack__item-name {
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      .tech-stack__item-desc {
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .tech-stack__item-fallback {
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+
     &-icon {
-      width: 56px;
-      height: 56px;
+      width: 64px;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -65,6 +80,7 @@
         width: 48px;
         height: 48px;
         object-fit: contain;
+        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
       }
     }
 
@@ -83,7 +99,7 @@
 
     &-name {
       font-size: 0.9375rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--color-text);
     }
 
