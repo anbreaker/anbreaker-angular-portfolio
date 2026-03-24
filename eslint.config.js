@@ -56,7 +56,7 @@ export default tseslint.config(
       '@angular-eslint/use-lifecycle-interface': 'error',
 
       // General rules
-      'no-console': 'warn',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
       'no-debugger': 'error',
       eqeqeq: ['error', 'always'],
 
