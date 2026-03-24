@@ -1,15 +1,16 @@
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import {
   ApplicationConfig,
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
 } from '@angular/core';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
-import { provideTransloco } from '@jsverse/transloco';
 
+import { routes } from './app.routes';
 import { authInterceptor } from './core/interceptor/auth.interceptor';
 import { I18nLoaderService } from './core/services/i18n-loader.service';
-import { routes } from './app.routes';
+
+import { provideTransloco } from '@jsverse/transloco';
 
 export const appConfig: ApplicationConfig = {
   providers: [
