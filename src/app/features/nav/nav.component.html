@@ -1,0 +1,83 @@
+<ng-container *transloco="let t">
+  <header class="nav">
+    <div class="nav__container">
+      <a class="nav__logo" (click)="scrollTo('main-content')" role="button" tabindex="0">
+        <span class="nav__logo-name">FJ</span>
+        <span class="nav__logo-handle">rootdevs</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Main navigation">
+        @for (link of navLinks; track link.anchor) {
+          <a
+            class="nav__link"
+            (click)="scrollTo(link.anchor)"
+            role="button"
+            tabindex="0"
+          >
+            {{ t(link.labelKey) }}
+          </a>
+        }
+      </nav>
+
+      <div class="nav__actions">
+        <div class="nav__lang" role="group" aria-label="Language selector">
+          @for (lang of languageStore.supportedLangs; track lang) {
+            <button
+              class="nav__lang-btn"
+              [class.nav__lang-btn--active]="languageStore.currentLang() === lang"
+              (click)="setLang(lang)"
+              [attr.aria-pressed]="languageStore.currentLang() === lang"
+            >
+              {{ lang.toUpperCase() }}
+            </button>
+          }
+        </div>
+
+        <a class="nav__hire-btn" (click)="scrollTo('footer')" role="button" tabindex="0">
+          {{ t('nav.hireMe') }}
+        </a>
+
+        <button
+          class="nav__hamburger"
+          (click)="toggleMenu()"
+          [attr.aria-expanded]="menuOpen()"
+          aria-label="Toggle menu"
+        >
+          <span class="nav__hamburger-bar"></span>
+          <span class="nav__hamburger-bar"></span>
+          <span class="nav__hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    @if (menuOpen()) {
+      <nav class="nav__mobile-menu" aria-label="Mobile navigation">
+        @for (link of navLinks; track link.anchor) {
+          <a
+            class="nav__mobile-link"
+            (click)="scrollTo(link.anchor)"
+            role="button"
+            tabindex="0"
+          >
+            {{ t(link.labelKey) }}
+          </a>
+        }
+        <a class="nav__mobile-hire-btn" (click)="scrollTo('footer')" role="button" tabindex="0">
+          {{ t('nav.hireMe') }}
+        </a>
+        <div class="nav__mobile-lang" role="group" aria-label="Language selector">
+          @for (lang of languageStore.supportedLangs; track lang) {
+            <button
+              class="nav__mobile-lang-btn"
+              [class.nav__mobile-lang-btn--active]="languageStore.currentLang() === lang"
+              (click)="setLang(lang)"
+              [attr.aria-pressed]="languageStore.currentLang() === lang"
+            >
+              {{ lang.toUpperCase() }}
+            </button>
+          }
+        </div>
+      </nav>
+    }
+  </header>
+</ng-container>
