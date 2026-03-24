@@ -1,3 +1,5 @@
+import './styles/styles.scss';
+
 import { bootstrapApplication } from '@angular/platform-browser';
 
 import { AppComponent } from './app/app';

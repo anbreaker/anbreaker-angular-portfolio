@@ -33,3 +33,15 @@ textarea,
 select {
   font: inherit;
 }
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-blue);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
