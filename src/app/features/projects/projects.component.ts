@@ -40,6 +40,8 @@ export class ProjectsComponent {
       titleKey: 'projects.neoflow.title',
       descriptionKey: 'projects.neoflow.description',
       tags: ['Angular 21', 'Signals', 'D3.js', 'Node.js'],
+      imageUrl:
+        'https://lh3.googleusercontent.com/aida-public/AB6AXuCY7ZJZHuIwuSEWY1JJVI_EbKEddgTV8ETWvLcOifExbM62CdHT8w9yjUote-iosalkY4HuaKF1O1fLVSqVPLnw6zzLjn8Jag_0p3tT_k-hE6pvRVq6fxoECWbo5MFd9tTaF5RMGe-KtrJAxtMCavFIY6vhwXShuoNz4smjHMnay4bFPNRnjJP4lrRzgfYC5r3GgUu7SxFMzyX7Bknbv8OKm0CCFyjQ82j1nA_BKCZKZRRtnNlmIgpqF_kOsVACcCz38qqYN6vISN4',
       demoUrl: '#',
       codeUrl: '#',
     },

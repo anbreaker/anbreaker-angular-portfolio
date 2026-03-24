@@ -19,7 +19,16 @@
             <app-neon-card color="blue">
               <div class="projects__card">
                 <div class="projects__card-image" aria-hidden="true">
-                  <span class="projects__card-image-placeholder">{{ project.id.charAt(0).toUpperCase() }}</span>
+                  @if (project.imageUrl) {
+                    <img
+                      [src]="project.imageUrl"
+                      [alt]="project.id"
+                      class="projects__card-screenshot"
+                      loading="lazy"
+                    />
+                  } @else {
+                    <span class="projects__card-image-placeholder">{{ project.id.charAt(0).toUpperCase() }}</span>
+                  }
                 </div>
 
                 <div class="projects__card-body">
