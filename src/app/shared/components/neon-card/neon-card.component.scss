@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  background: var(--color-surface-2);
+  border-radius: var(--radius-card);
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  transition: box-shadow 300ms ease, transform 300ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  &.neon-card--blue:hover {
+    box-shadow: var(--glow-blue);
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  &.neon-card--purple:hover {
+    box-shadow: var(--glow-purple);
+    border-color: rgba(168, 85, 247, 0.3);
+  }
+
+  &.neon-card--orange:hover {
+    box-shadow: var(--glow-orange);
+    border-color: rgba(249, 115, 22, 0.3);
+  }
+
+  &.neon-card--green:hover {
+    box-shadow: var(--glow-green);
+    border-color: rgba(34, 197, 94, 0.3);
+  }
+}
