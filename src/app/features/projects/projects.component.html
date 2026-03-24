@@ -1,0 +1,66 @@
+<ng-container *transloco="let t">
+  <section id="projects" class="projects" aria-labelledby="projects-heading">
+    <div class="projects__container">
+
+      <div class="projects__header">
+        <p class="projects__label">{{ t('projects.label') }}</p>
+        <h2 id="projects-heading" class="projects__title">{{ t('projects.title') }}</h2>
+      </div>
+
+      <div class="projects__grid">
+        @for (project of projects; track project.id; let index = $index) {
+          <div
+            #projectCard
+            class="projects__card-wrapper"
+            (mousemove)="onTilt($event, index)"
+            (mouseleave)="resetTilt(index)"
+            [style.transform]="'perspective(1000px) rotateX(' + tiltStates()[index].x + 'deg) rotateY(' + tiltStates()[index].y + 'deg)'"
+          >
+            <app-neon-card color="blue">
+              <div class="projects__card">
+                <div class="projects__card-image" aria-hidden="true">
+                  <span class="projects__card-image-placeholder">{{ project.id.charAt(0).toUpperCase() }}</span>
+                </div>
+
+                <div class="projects__card-body">
+                  <h3 class="projects__card-title">{{ t(project.titleKey) }}</h3>
+                  <p class="projects__card-desc">{{ t(project.descriptionKey) }}</p>
+
+                  <div class="projects__card-tags">
+                    @for (tag of project.tags; track tag) {
+                      <app-badge [label]="tag" color="blue" />
+                    }
+                  </div>
+
+                  <div class="projects__card-actions">
+                    @if (project.demoUrl) {
+                      <a
+                        [href]="project.demoUrl"
+                        class="projects__card-link projects__card-link--primary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {{ t('projects.viewDemo') }}
+                      </a>
+                    }
+                    @if (project.codeUrl) {
+                      <a
+                        [href]="project.codeUrl"
+                        class="projects__card-link projects__card-link--secondary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {{ t('projects.viewCode') }}
+                      </a>
+                    }
+                  </div>
+                </div>
+              </div>
+            </app-neon-card>
+          </div>
+        }
+      </div>
+
+    </div>
+  </section>
+</ng-container>
