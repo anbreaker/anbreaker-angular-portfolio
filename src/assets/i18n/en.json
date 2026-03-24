@@ -1,0 +1,64 @@
+{
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "error": "An error has occurred",
+    "loading": "Loading..."
+  },
+  "nav": {
+    "projects": "Projects",
+    "tech": "Tech",
+    "testimonials": "Testimonials",
+    "hireMe": "Hire Me"
+  },
+  "hero": {
+    "tagline": "Creative Technologist",
+    "title": "& FullStack Master",
+    "subtitle": "Engineering high-performance digital experiences with Angular 21, Signals, and Node.js. High energy, low latency.",
+    "ctaPortfolio": "View Portfolio",
+    "ctaContact": "Get in touch"
+  },
+  "techStack": {
+    "label": "TECH STACK",
+    "title": "Modern Workflow"
+  },
+  "projects": {
+    "label": "WORK",
+    "title": "Featured Projects",
+    "viewDemo": "Demo",
+    "viewCode": "Code",
+    "neoflow": {
+      "title": "NeoFlow Dashboard",
+      "description": "Real-time supply chain visualization for logistics leaders."
+    },
+    "rootCommerce": {
+      "title": "Root Commerce",
+      "description": "E-commerce engine built for the next generation of retail."
+    }
+  },
+  "testimonials": {
+    "label": "FEEDBACK",
+    "title": "Trusted by RootDevs",
+    "t1": {
+      "quote": "Francisco is a signals wizard. He turned our sluggish dashboard into a lightning-fast experience.",
+      "author": "Alex Rivers",
+      "role": "CTO",
+      "handle": "@TechVision"
+    },
+    "t2": {
+      "quote": "The best developer I've worked with. His approach in Angular 21 is truly ahead of the curve.",
+      "author": "Sofia Mendez",
+      "role": "Product Lead",
+      "handle": "@SofiaLeads"
+    },
+    "t3": {
+      "quote": "Creative technologist is the perfect title. Francisco brings soul and style to every line of code.",
+      "author": "Marcus Chen",
+      "role": "Founder",
+      "handle": "@MarcusCo"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}

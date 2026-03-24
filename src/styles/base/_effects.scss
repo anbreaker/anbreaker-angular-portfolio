@@ -1,0 +1,56 @@
+// Visual effects — neon glow, glassmorphism, tilt
+// Used as global utility classes across portfolio components
+
+.neon-glow-blue {
+  box-shadow: var(--glow-blue);
+  transition: box-shadow 300ms ease;
+
+  &:hover {
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.7), 0 0 30px rgba(59, 130, 246, 0.35);
+  }
+}
+
+.neon-glow-purple {
+  box-shadow: var(--glow-purple);
+  transition: box-shadow 300ms ease;
+
+  &:hover {
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.7), 0 0 30px rgba(168, 85, 247, 0.35);
+  }
+}
+
+.neon-glow-orange {
+  box-shadow: var(--glow-orange);
+  transition: box-shadow 300ms ease;
+
+  &:hover {
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.7), 0 0 30px rgba(249, 115, 22, 0.35);
+  }
+}
+
+.neon-glow-green {
+  box-shadow: var(--glow-green);
+  transition: box-shadow 300ms ease;
+
+  &:hover {
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.7), 0 0 30px rgba(34, 197, 94, 0.35);
+  }
+}
+
+.glass {
+  background: var(--color-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-card);
+}
+
+// Respect user motion preferences
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

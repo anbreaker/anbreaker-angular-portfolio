@@ -1,0 +1,23 @@
+// Portfolio design tokens — graffiti/urban dark theme
+:root {
+  --color-bg: #0a0a0c;
+  --color-surface: rgba(255, 255, 255, 0.05);
+  --color-surface-2: #111114;
+  --color-border: #27272a;
+  --color-text: #f4f4f5;
+  --color-text-muted: #a1a1aa;
+
+  // Brand accent colors
+  --color-brand-blue: #3b82f6;
+  --color-brand-purple: #a855f7;
+  --color-brand-orange: #f97316;
+  --color-brand-green: #22c55e;
+
+  // Glow shadows
+  --glow-blue: 0 0 8px rgba(59, 130, 246, 0.4), 0 0 20px rgba(59, 130, 246, 0.2);
+  --glow-purple: 0 0 8px rgba(168, 85, 247, 0.4), 0 0 20px rgba(168, 85, 247, 0.2);
+  --glow-orange: 0 0 8px rgba(249, 115, 22, 0.4), 0 0 20px rgba(249, 115, 22, 0.2);
+  --glow-green: 0 0 8px rgba(34, 197, 94, 0.4), 0 0 20px rgba(34, 197, 94, 0.2);
+
+  --radius-card: 0.75rem;
+}

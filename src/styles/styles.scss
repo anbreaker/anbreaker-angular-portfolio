@@ -1,0 +1,22 @@
+@use 'base/colors';
+@use 'base/fonts';
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/effects';
+@forward 'mixins/scroll';
+
+// Angular Material theme setup
+@use '@angular/material' as mat;
+
+$theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+    ),
+  )
+);
+
+html {
+  @include mat.all-component-themes($theme);
+}
