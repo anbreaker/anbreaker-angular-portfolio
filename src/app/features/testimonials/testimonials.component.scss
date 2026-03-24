@@ -1,5 +1,5 @@
 .testimonials {
-  background: var(--color-bg);
+  background: var(--color-surface-2);
   padding: 4rem 1rem;
 
   @media (min-width: 768px) {
@@ -7,34 +7,34 @@
   }
 
   &__container {
-    max-width: 1280px;
     margin: 0 auto;
+    max-width: 1280px;
   }
 
   &__header {
-    text-align: center;
     margin-bottom: 3rem;
+    text-align: center;
   }
 
   &__label {
+    color: var(--color-brand-pink);
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--color-brand-purple);
     margin-bottom: 0.75rem;
+    text-transform: uppercase;
   }
 
   &__title {
+    color: var(--color-text);
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
-    color: var(--color-text);
   }
 
   &__grid {
     display: grid;
-    grid-template-columns: 1fr;
     gap: 1.5rem;
+    grid-template-columns: 1fr;
 
     @media (min-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
@@ -46,47 +46,47 @@
   }
 
   &__quote {
-    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     height: 100%;
+    margin: 0;
   }
 
   &__quote-text {
-    font-size: 0.9375rem;
-    line-height: 1.7;
     color: var(--color-text-muted);
     flex: 1;
+    font-size: 0.9375rem;
     font-style: italic;
+    line-height: 1.7;
   }
 
   &__quote-footer {
-    display: flex;
     align-items: center;
+    display: flex;
     gap: 0.875rem;
   }
 
   &__avatar {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-brand-purple), var(--color-brand-blue));
-    display: flex;
     align-items: center;
-    justify-content: center;
+    background: linear-gradient(135deg, var(--color-brand-pink), var(--color-brand-blue));
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    flex-shrink: 0;
     font-size: 1rem;
     font-weight: 700;
-    color: #fff;
-    flex-shrink: 0;
+    height: 2.5rem;
+    justify-content: center;
     overflow: hidden;
+    width: 2.5rem;
   }
 
   &__avatar-img {
-    width: 100%;
+    display: block;
     height: 100%;
     object-fit: cover;
-    display: block;
+    width: 100%;
   }
 
   &__author-info {
@@ -96,14 +96,14 @@
   }
 
   &__author-name {
-    font-size: 0.875rem;
-    font-weight: 600;
     color: var(--color-text);
+    font-size: 0.875rem;
     font-style: normal;
+    font-weight: 600;
   }
 
   &__author-meta {
-    font-size: 0.75rem;
     color: var(--color-text-muted);
+    font-size: 0.75rem;
   }
 }

@@ -1,34 +1,34 @@
 .badge {
-  display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.625rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  display: inline-flex;
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  border-radius: 999px;
-  border: 1px solid transparent;
+  padding: 0.25rem 0.625rem;
 
   &--blue {
-    color: var(--color-brand-blue);
     background: rgba(59, 130, 246, 0.1);
     border-color: rgba(59, 130, 246, 0.25);
+    color: var(--color-brand-blue);
   }
 
   &--purple {
-    color: var(--color-brand-purple);
     background: rgba(168, 85, 247, 0.1);
     border-color: rgba(168, 85, 247, 0.25);
+    color: var(--color-brand-pink);
   }
 
   &--orange {
-    color: var(--color-brand-orange);
     background: rgba(249, 115, 22, 0.1);
     border-color: rgba(249, 115, 22, 0.25);
+    color: var(--color-brand-orange);
   }
 
   &--green {
-    color: var(--color-brand-green);
     background: rgba(34, 197, 94, 0.1);
     border-color: rgba(34, 197, 94, 0.25);
+    color: var(--color-brand-green);
   }
 }
