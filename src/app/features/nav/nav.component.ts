@@ -5,6 +5,12 @@ import { LanguageStore } from '../../core/store/language.store';
 
 import { TranslocoDirective } from '@jsverse/transloco';
 
+const LANG_FLAGS: Record<SupportedLang, string> = {
+  es: '🇪🇸',
+  en: '🇬🇧',
+  pt: '🇵🇹',
+};
+
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,6 +22,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
 export class NavComponent {
   protected readonly languageStore = inject(LanguageStore);
   protected readonly menuOpen = signal(false);
+  protected readonly langFlags = LANG_FLAGS;
 
   protected readonly navLinks = [
     { labelKey: 'nav.projects', anchor: 'projects' },

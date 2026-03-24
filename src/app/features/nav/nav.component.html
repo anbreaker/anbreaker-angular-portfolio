@@ -28,7 +28,7 @@
               (click)="setLang(lang)"
               [attr.aria-pressed]="languageStore.currentLang() === lang"
             >
-              {{ lang.toUpperCase() }}
+              {{ langFlags[lang] }} {{ lang.toUpperCase() }}
             </button>
           }
         </div>
@@ -73,7 +73,7 @@
               (click)="setLang(lang)"
               [attr.aria-pressed]="languageStore.currentLang() === lang"
             >
-              {{ lang.toUpperCase() }}
+              {{ langFlags[lang] }} {{ lang.toUpperCase() }}
             </button>
           }
         </div>
