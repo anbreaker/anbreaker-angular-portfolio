@@ -9,6 +9,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss',
   templateUrl: './app.html',
 })
-export class App {
+export class AppComponent {
   protected readonly title = signal('anbreaker-angular-portfolio');
 }

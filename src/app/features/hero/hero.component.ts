@@ -1,13 +1,14 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+
 import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
-  selector: 'app-hero',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [TranslocoDirective],
-  templateUrl: './hero.component.html',
+  selector: 'app-hero',
   styleUrl: './hero.component.scss',
+  templateUrl: './hero.component.html',
 })
 export class HeroComponent {
   scrollToProjects(): void {

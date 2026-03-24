@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, HostBinding, input } from '@angular/core';
 
 @Component({
-  selector: 'app-neon-card',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<ng-content />`,
+  selector: 'app-neon-card',
   styleUrl: './neon-card.component.scss',
+  templateUrl: './neon-card.component.html',
 })
 export class NeonCardComponent {
   readonly color = input<'blue' | 'purple' | 'orange' | 'green'>('blue');

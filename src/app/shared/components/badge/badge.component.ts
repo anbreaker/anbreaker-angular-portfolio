@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
-  selector: 'app-badge',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<span class="badge badge--{{ color() }}">{{ label() }}</span>`,
+  selector: 'app-badge',
   styleUrl: './badge.component.scss',
+  templateUrl: './badge.component.html',
 })
 export class BadgeComponent {
-  readonly label = input.required<string>();
   readonly color = input<'blue' | 'purple' | 'orange' | 'green'>('blue');
+  readonly label = input.required<string>();
 }

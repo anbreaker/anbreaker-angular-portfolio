@@ -1,16 +1,17 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+import { TechItem } from '../../core/interfaces/portfolio.interfaces';
+import { NeonCardComponent } from '../../shared/components/neon-card/neon-card.component';
+
 import { TranslocoDirective } from '@jsverse/transloco';
 
-import { NeonCardComponent } from '../../shared/components/neon-card/neon-card.component';
-import { TechItem } from '../../core/interfaces/portfolio.interfaces';
-
 @Component({
-  selector: 'app-tech-stack',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NeonCardComponent, TranslocoDirective],
-  templateUrl: './tech-stack.component.html',
+  selector: 'app-tech-stack',
   styleUrl: './tech-stack.component.scss',
+  templateUrl: './tech-stack.component.html',
 })
 export class TechStackComponent {
   protected readonly techItems: TechItem[] = [

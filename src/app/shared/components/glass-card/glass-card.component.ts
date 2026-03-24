@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'app-glass-card',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<ng-content />`,
+  selector: 'app-glass-card',
   styleUrl: './glass-card.component.scss',
+  templateUrl: './glass-card.component.html',
 })
 export class GlassCardComponent {
   @HostBinding('class') readonly hostClass = 'glass-card';

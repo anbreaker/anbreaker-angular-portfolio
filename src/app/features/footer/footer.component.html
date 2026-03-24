@@ -1,0 +1,29 @@
+<ng-container *transloco="let t">
+  <footer class="footer" role="contentinfo">
+    <div class="footer__container">
+
+      <div class="footer__signature-wrap">
+        <span class="footer__signature" aria-label="Francisco Javier — rootdevs">Francisco Javier</span>
+        <span class="footer__handle">rootdevs</span>
+      </div>
+
+      <nav class="footer__social" aria-label="Social media links">
+        @for (link of socialLinks; track link.platform) {
+          <a
+            [href]="link.url"
+            class="footer__social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="link.ariaLabel"
+            [innerHTML]="link.icon"
+          ></a>
+        }
+      </nav>
+
+      <p class="footer__copy">
+        &copy; {{ currentYear }} Francisco Javier. {{ t('footer.rights') }}
+      </p>
+
+    </div>
+  </footer>
+</ng-container>
