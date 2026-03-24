@@ -107,10 +107,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    order: -1;
 
     @media (min-width: 1024px) {
-      order: 0;
       justify-content: flex-end;
     }
   }

@@ -15,7 +15,7 @@
             target="_blank"
             rel="noopener noreferrer"
             [attr.aria-label]="link.ariaLabel"
-            [innerHTML]="link.icon"
+            [innerHTML]="safeIcon(link.icon)"
           ></a>
         }
       </nav>

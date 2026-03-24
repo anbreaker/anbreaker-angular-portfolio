@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 import { SocialLink } from '../../core/interfaces/portfolio.interfaces';
 
@@ -13,7 +14,13 @@ import { TranslocoDirective } from '@jsverse/transloco';
   templateUrl: './footer.component.html',
 })
 export class FooterComponent {
+  private readonly sanitizer = inject(DomSanitizer);
+
   protected readonly currentYear = new Date().getFullYear();
+
+  protected safeIcon(icon: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(icon);
+  }
 
   protected readonly socialLinks: SocialLink[] = [
     {
