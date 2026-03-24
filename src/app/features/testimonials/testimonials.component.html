@@ -1,0 +1,32 @@
+<ng-container *transloco="let t">
+  <section id="testimonials" class="testimonials" aria-labelledby="testimonials-heading">
+    <div class="testimonials__container">
+
+      <div class="testimonials__header">
+        <p class="testimonials__label">{{ t('testimonials.label') }}</p>
+        <h2 id="testimonials-heading" class="testimonials__title">{{ t('testimonials.title') }}</h2>
+      </div>
+
+      <div class="testimonials__grid">
+        @for (item of testimonials; track item.id) {
+          <app-glass-card>
+            <blockquote class="testimonials__quote">
+              <p class="testimonials__quote-text">"{{ t(item.quoteKey) }}"</p>
+
+              <footer class="testimonials__quote-footer">
+                <div class="testimonials__avatar" aria-hidden="true">
+                  {{ item.author.charAt(0) }}
+                </div>
+                <div class="testimonials__author-info">
+                  <cite class="testimonials__author-name">{{ item.author }}</cite>
+                  <span class="testimonials__author-meta">{{ item.role }} · {{ item.handle }}</span>
+                </div>
+              </footer>
+            </blockquote>
+          </app-glass-card>
+        }
+      </div>
+
+    </div>
+  </section>
+</ng-container>
