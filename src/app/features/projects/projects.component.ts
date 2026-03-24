@@ -7,9 +7,9 @@ import {
   ViewChildren,
 } from '@angular/core';
 
-import { Project } from '../../core/interfaces/portfolio.interfaces';
-import { BadgeComponent } from '../../shared/components/badge/badge.component';
-import { NeonCardComponent } from '../../shared/components/neon-card/neon-card.component';
+import { Project } from '@core/interfaces/portfolio.interfaces';
+import { BadgeComponent } from '@shared/components/badge/badge.component';
+import { NeonCardComponent } from '@shared/components/neon-card/neon-card.component';
 
 import { TranslocoDirective } from '@jsverse/transloco';
 

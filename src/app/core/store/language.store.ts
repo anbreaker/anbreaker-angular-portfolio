@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 
-import { SupportedLang } from '../interfaces/portfolio.interfaces';
+import { SupportedLang } from '@core/interfaces/portfolio.interfaces';
 
 import { TranslocoService } from '@jsverse/transloco';
 

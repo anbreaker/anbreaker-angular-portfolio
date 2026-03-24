@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 
-import { SupportedLang } from '../../core/interfaces/portfolio.interfaces';
-import { LanguageStore } from '../../core/store/language.store';
+import { SupportedLang } from '@core/interfaces/portfolio.interfaces';
+import { LanguageStore } from '@core/store/language.store';
 
 import { TranslocoDirective } from '@jsverse/transloco';
 
@@ -40,6 +40,6 @@ export class NavComponent {
   }
 
   toggleMenu(): void {
-    this.menuOpen.update(isOpen => !isOpen);
+    this.menuOpen.update((isOpen) => !isOpen);
   }
 }

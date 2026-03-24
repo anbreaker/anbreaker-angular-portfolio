@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { TechItem } from '../../core/interfaces/portfolio.interfaces';
-import { NeonCardComponent } from '../../shared/components/neon-card/neon-card.component';
+import { TechItem } from '@core/interfaces/portfolio.interfaces';
+import { NeonCardComponent } from '@shared/components/neon-card/neon-card.component';
 
 import { TranslocoDirective } from '@jsverse/transloco';
 

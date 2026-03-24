@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
-import { SocialLink } from '../../core/interfaces/portfolio.interfaces';
+import { SocialLink } from '@core/interfaces/portfolio.interfaces';
 
 import { TranslocoDirective } from '@jsverse/transloco';
 

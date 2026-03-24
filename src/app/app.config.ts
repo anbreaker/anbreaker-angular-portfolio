@@ -7,8 +7,8 @@ import {
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { authInterceptor } from './core/interceptor/auth.interceptor';
-import { I18nLoaderService } from './core/services/i18n-loader.service';
+import { authInterceptor } from '@core/interceptor/auth.interceptor';
+import { I18nLoaderService } from '@core/services/i18n-loader.service';
 
 import { provideTransloco } from '@jsverse/transloco';
 

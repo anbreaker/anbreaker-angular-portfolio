@@ -3,8 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./pages/home/home.page').then(module => module.HomePageComponent),
+    loadComponent: async () => (await import('@pages/home/home.page')).HomePageComponent,
   },
   { path: '**', redirectTo: '' },
 ];

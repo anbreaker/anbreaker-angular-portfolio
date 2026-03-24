@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { Testimonial } from '../../core/interfaces/portfolio.interfaces';
-import { GlassCardComponent } from '../../shared/components/glass-card/glass-card.component';
+import { Testimonial } from '@core/interfaces/portfolio.interfaces';
+import { GlassCardComponent } from '@shared/components/glass-card/glass-card.component';
 
 import { TranslocoDirective } from '@jsverse/transloco';
 
