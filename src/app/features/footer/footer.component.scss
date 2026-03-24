@@ -1,0 +1,81 @@
+.footer {
+  background: var(--color-surface-2);
+  border-top: 1px solid var(--color-border);
+  padding: 3rem 1rem;
+
+  @media (min-width: 768px) {
+    padding: 4rem 2rem;
+  }
+
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__signature-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  &__signature {
+    font-family: var(--font-signature);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: var(--color-text);
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__handle {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  &__social {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+
+    &:hover {
+      color: var(--color-brand-blue);
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: var(--glow-blue);
+      transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-brand-blue);
+      outline-offset: 3px;
+    }
+  }
+
+  &__copy {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+}
