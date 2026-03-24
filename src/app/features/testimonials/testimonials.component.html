@@ -15,7 +15,16 @@
 
               <footer class="testimonials__quote-footer">
                 <div class="testimonials__avatar" aria-hidden="true">
-                  {{ item.author.charAt(0) }}
+                  @if (item.avatarUrl) {
+                    <img
+                      [src]="item.avatarUrl"
+                      [alt]="item.author"
+                      class="testimonials__avatar-img"
+                      loading="lazy"
+                    />
+                  } @else {
+                    {{ item.author.charAt(0) }}
+                  }
                 </div>
                 <div class="testimonials__author-info">
                   <cite class="testimonials__author-name">{{ item.author }}</cite>

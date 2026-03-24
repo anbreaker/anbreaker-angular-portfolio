@@ -21,6 +21,8 @@ export class TestimonialsComponent {
       author: 'Alex Rivers',
       role: 'CTO',
       handle: '@TechVision',
+      avatarUrl:
+        'https://lh3.googleusercontent.com/aida-public/AB6AXuAz95W9-DQpX2gIDPSGO2tRzFiTv795xuH3kgjrSRuAMsVjQtOpVUKa0mH5lIG3Y1-uG-7riRQ4vteSpZ0D8CCdG-12j5ndEhutb2P2gPpdTUCF81dx01vYXWpXJOLzA05Bao8Nq0AZXZcsTceIsLxf8NOx6FQ0oVBXCqIfkg_QW9fbbk4a8UoBVOJO2x6P6HUe-kY6eifsC198D14MYXsvS05K3v01L8kXV9BDr8dR2GslL_rIMMqLWNPuolluY0mf55RLnH41NTg',
     },
     {
       id: 't2',
