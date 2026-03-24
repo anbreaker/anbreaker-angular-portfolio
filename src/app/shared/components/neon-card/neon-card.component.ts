@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, HostBinding, input } from '@angular/core';
 
 @Component({
-  selector: 'app-neon-card',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<ng-content />`,
+  selector: 'app-neon-card',
+  templateUrl: './neon-card.component.html',
   styleUrl: './neon-card.component.scss',
 })
 export class NeonCardComponent {
