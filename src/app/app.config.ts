@@ -4,11 +4,12 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
 } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling, withViewTransitions } from '@angular/router';
 
-import { routes } from './app.routes';
 import { authInterceptor } from '@core/interceptor/auth.interceptor';
 import { I18nLoaderService } from '@core/services/i18n-loader.service';
+
+import { routes } from './app.routes';
 
 import { provideTransloco } from '@jsverse/transloco';
 
@@ -27,6 +28,13 @@ export const appConfig: ApplicationConfig = {
       },
       loader: I18nLoaderService,
     }),
-    provideRouter(routes),
+    provideRouter(
+      routes,
+      withInMemoryScrolling({
+        anchorScrolling: 'enabled',
+        scrollPositionRestoration: 'enabled',
+      }),
+      withViewTransitions()
+    ),
   ],
 };
