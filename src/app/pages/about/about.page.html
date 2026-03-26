@@ -1,0 +1,45 @@
+<app-nav />
+
+<main class="about-container" *transloco="let t">
+  <section class="about-hero">
+    <h1 class="about-title graffiti-text">{{ t('about.title') }}</h1>
+    <div class="about-label-wrapper">
+      <span class="about-label neon-text">{{ t('about.label') }}</span>
+    </div>
+  </section>
+
+  <section class="about-content">
+    <div class="about-layout">
+      <app-glass-card class="about-card about-card--main">
+        <p class="about-description">{{ t('about.description') }}</p>
+      </app-glass-card>
+
+      <div class="about-grid">
+        <app-neon-card color="purple" class="about-card--stats">
+          <div class="stat-item">
+            <span class="stat-value">8+</span>
+            <span class="stat-label">YEARS EXP</span>
+          </div>
+        </app-neon-card>
+
+        <app-neon-card color="blue" class="about-card--stats">
+          <div class="stat-item">
+            <span class="stat-value">50+</span>
+            <span class="stat-label">PROJECTS</span>
+          </div>
+        </app-neon-card>
+
+        <app-neon-card color="orange" class="about-card--stats">
+          <div class="stat-item">
+            <span class="stat-value">100%</span>
+            <span class="stat-label">ENERGY</span>
+          </div>
+        </app-neon-card>
+      </div>
+    </div>
+  </section>
+
+  <app-section-divider flip="true" />
+</main>
+
+<app-footer id="footer" />
