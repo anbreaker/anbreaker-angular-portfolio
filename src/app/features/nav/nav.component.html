@@ -1,20 +1,15 @@
 <ng-container *transloco="let t">
   <header class="nav">
     <div class="nav__container">
-      <a class="nav__logo" (click)="scrollTo('main-content')" role="button" tabindex="0">
+      <a class="nav__logo" (click)="scrollToAnchor('main-content')" role="button" tabindex="0">
         <span class="nav__logo-name">FJ</span>
         <span class="nav__logo-handle">rootdevs</span>
       </a>
 
       <nav class="nav__links" aria-label="Main navigation">
-        @for (link of navLinks; track link.anchor) {
-          <a
-            class="nav__link"
-            (click)="scrollTo(link.anchor)"
-            role="button"
-            tabindex="0"
-          >
-            {{ t(link.labelKey) }}
+        @for (link of navLinks; track link.labelKey) {
+          <a class="nav__link" (click)="handleNavigation(link)" role="button" tabindex="0">
+            {{ t(link.labelKey ?? '') }}
           </a>
         }
       </nav>
@@ -33,7 +28,7 @@
           }
         </div>
 
-        <a class="nav__hire-btn" (click)="scrollTo('footer')" role="button" tabindex="0">
+        <a class="nav__hire-btn" (click)="scrollToAnchor('footer')" role="button" tabindex="0">
           {{ t('nav.hireMe') }}
         </a>
 
@@ -52,17 +47,17 @@
 
     @if (menuOpen()) {
       <nav class="nav__mobile-menu" aria-label="Mobile navigation">
-        @for (link of navLinks; track link.anchor) {
-          <a
-            class="nav__mobile-link"
-            (click)="scrollTo(link.anchor)"
-            role="button"
-            tabindex="0"
-          >
-            {{ t(link.labelKey) }}
+        @for (link of navLinks; track link.labelKey) {
+          <a class="nav__mobile-link" (click)="handleNavigation(link)" role="button" tabindex="0">
+            {{ t(link.labelKey ?? '') }}
           </a>
         }
-        <a class="nav__mobile-hire-btn" (click)="scrollTo('footer')" role="button" tabindex="0">
+        <a
+          class="nav__mobile-hire-btn"
+          (click)="scrollToAnchor('footer')"
+          role="button"
+          tabindex="0"
+        >
           {{ t('nav.hireMe') }}
         </a>
         <div class="nav__mobile-lang" role="group" aria-label="Language selector">
