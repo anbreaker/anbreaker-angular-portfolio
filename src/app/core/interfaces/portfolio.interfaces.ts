@@ -34,3 +34,19 @@ export interface SocialLink {
   ariaLabel: string;
   icon: string;
 }
+
+export interface BlogPost {
+  id: string;
+  titleKey: string;
+  excerptKey: string;
+  date: string;
+  tags: string[];
+  imageUrl?: string;
+  slug: string;
+}
+
+export interface BlogResponse {
+  posts: BlogPost[];
+  totalCount: number;
+  pageSize: number;
+}
