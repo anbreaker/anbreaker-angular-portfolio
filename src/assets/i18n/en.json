@@ -1,4 +1,48 @@
 {
+  "about": {
+    "description": "I'm a FullStack Engineer with a passion for high-performance web applications and creative UI design. With over 8 years of experience, I specialize in Angular ecosystems and urban-inspired aesthetics.",
+    "label": "WHO AM I",
+    "title": "About Me"
+  },
+  "blog": {
+    "error": "Failed to load blog posts. Please try again later.",
+    "label": "BLOG",
+    "loading": "Fetching latest insights...",
+    "noResults": "No posts found matching your criteria.",
+    "pagination": {
+      "next": "Next",
+      "page": "Page",
+      "prev": "Previous"
+    },
+    "posts": {
+      "angular21": {
+        "excerpt": "Exploring how rxResource and linkedSignal change the way we build reactive applications.",
+        "title": "Angular 21: The Signals Revolution"
+      },
+      "cybersecurity": {
+        "excerpt": "Protecting your applications with OIDC, JWT, and best practices for 2026.",
+        "title": "Modern Web Security"
+      },
+      "graffiti-ui": {
+        "excerpt": "A deep dive into CSS glassmorphism, neon effects, and urban design patterns.",
+        "title": "Building Urban & Graffiti UI"
+      },
+      "performance": {
+        "excerpt": "How to achieve lightning-fast testing cycles and 100% lighthouse scores.",
+        "title": "Optimizing Angular with Vitest"
+      },
+      "pwa-evolution": {
+        "excerpt": "What's new in service workers, offline capabilities, and web push notifications.",
+        "title": "PWA Evolution in 2026"
+      },
+      "typescript-tips": {
+        "excerpt": "Mastering mapped types, conditional types, and utility types for cleaner code.",
+        "title": "Advanced TypeScript Patterns"
+      }
+    },
+    "searchPlaceholder": "Search posts...",
+    "title": "Dev Insights"
+  },
   "common": {
     "cancel": "Cancel",
     "confirm": "Confirm",
@@ -16,6 +60,8 @@
     "title": "& FullStack Master"
   },
   "nav": {
+    "about": "About",
+    "blog": "Blog",
     "hireMe": "Let's talk",
     "projects": "Projects",
     "tech": "Tech",

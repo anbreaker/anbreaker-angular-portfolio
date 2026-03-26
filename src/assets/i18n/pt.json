@@ -1,4 +1,48 @@
 {
+  "about": {
+    "description": "Sou um Engenheiro FullStack apaixonado por aplicações web de alto desempenho e design de UI criativo. Com mais de 8 anos de experiência, especializo-me em ecossistemas Angular e estética inspirada no urbano.",
+    "label": "QUEM SOU EU",
+    "title": "Sobre Mim"
+  },
+  "blog": {
+    "error": "Erro ao carregar os posts do blog. Por favor, tente novamente mais tarde.",
+    "label": "BLOG",
+    "loading": "Buscando as últimas novidades...",
+    "noResults": "Nenhum post encontrado correspondente aos seus critérios.",
+    "pagination": {
+      "next": "Próximo",
+      "page": "Página",
+      "prev": "Anterior"
+    },
+    "posts": {
+      "angular21": {
+        "excerpt": "Explorando como rxResource e linkedSignal mudam a forma como construímos aplicações reativas.",
+        "title": "Angular 21: A Revolução de Signals"
+      },
+      "cybersecurity": {
+        "excerpt": "Protegendo suas aplicações com OIDC, JWT e as melhores práticas para 2026.",
+        "title": "Segurança Web Moderna"
+      },
+      "graffiti-ui": {
+        "excerpt": "Um mergulho profundo no CSS glassmorphism, efeitos neon e padrões de design urbano.",
+        "title": "Construindo UI Urbana e Graffiti"
+      },
+      "performance": {
+        "excerpt": "Como alcançar ciclos de testes ultrarrápidos e pontuações Lighthouse de 100%.",
+        "title": "Otimizando Angular com Vitest"
+      },
+      "pwa-evolution": {
+        "excerpt": "O que há de novo em service workers, capacidades offline e notificações web push.",
+        "title": "Evolução do PWA em 2026"
+      },
+      "typescript-tips": {
+        "excerpt": "Dominando mapped types, conditional types e utility types para um código mais limpo.",
+        "title": "Padrões Avançados de TypeScript"
+      }
+    },
+    "searchPlaceholder": "Pesquisar posts...",
+    "title": "Dev Insights"
+  },
   "common": {
     "cancel": "Cancelar",
     "confirm": "Confirmar",
@@ -11,11 +55,13 @@
   "hero": {
     "ctaContact": "Fale comigo",
     "ctaPortfolio": "Ver Portfolio",
-    "subtitle": "Criando experiências digitais de alto desempenho com Angular 21, Signals e Node.js. Alta energia, baixa latência.",
+    "subtitle": "Criando experiências digitais de alto desempenho com Angular 21, Signals e Node.js. Alta energia, baixa latencia.",
     "tagline": "Creative Technologist",
     "title": "& FullStack Master"
   },
   "nav": {
+    "about": "Sobre Mim",
+    "blog": "Blog",
     "hireMe": "Vamos falar",
     "projects": "Projetos",
     "tech": "Tech",

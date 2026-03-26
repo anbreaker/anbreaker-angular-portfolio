@@ -1,4 +1,48 @@
 {
+  "about": {
+    "description": "Soy un Ingeniero FullStack con pasión por las aplicaciones web de alto rendimiento y el diseño de UI creativo. Con más de 8 años de experiencia, me especializo en ecosistemas Angular y estética inspirada en lo urbano.",
+    "label": "QUIÉN SOY",
+    "title": "Sobre Mí"
+  },
+  "blog": {
+    "error": "Error al cargar los posts del blog. Por favor, inténtalo de nuevo más tarde.",
+    "label": "BLOG",
+    "loading": "Buscando las últimas novedades...",
+    "noResults": "No se encontraron posts que coincidan con tus criterios.",
+    "pagination": {
+      "next": "Siguiente",
+      "page": "Página",
+      "prev": "Anterior"
+    },
+    "posts": {
+      "angular21": {
+        "excerpt": "Explorando cómo rxResource y linkedSignal cambian la forma en que construimos aplicaciones reactivas.",
+        "title": "Angular 21: La Revolución de Signals"
+      },
+      "cybersecurity": {
+        "excerpt": "Protegiendo tus aplicaciones con OIDC, JWT y mejores prácticas para 2026.",
+        "title": "Seguridad Web Moderna"
+      },
+      "graffiti-ui": {
+        "excerpt": "Una inmersión profunda en el glassmorphism de CSS, efectos de neón y patrones de diseño urbano.",
+        "title": "Construyendo UI Urbana y Graffiti"
+      },
+      "performance": {
+        "excerpt": "Cómo lograr ciclos de prueba ultrarrápidos y puntuaciones Lighthouse del 100%.",
+        "title": "Optimizando Angular con Vitest"
+      },
+      "pwa-evolution": {
+        "excerpt": "Novedades en service workers, capacidades offline y notificaciones web push.",
+        "title": "Evolución de PWA en 2026"
+      },
+      "typescript-tips": {
+        "excerpt": "Dominando mapped types, conditional types y utility types para un código más limpio.",
+        "title": "Patrones Avanzados de TypeScript"
+      }
+    },
+    "searchPlaceholder": "Buscar posts...",
+    "title": "Dev Insights"
+  },
   "common": {
     "cancel": "Cancelar",
     "confirm": "Confirmar",
@@ -16,6 +60,8 @@
     "title": "& FullStack Master"
   },
   "nav": {
+    "about": "Sobre Mí",
+    "blog": "Blog",
     "hireMe": "Hablemos",
     "projects": "Proyectos",
     "tech": "Tech",
