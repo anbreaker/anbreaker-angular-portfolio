@@ -1,14 +1,19 @@
 .tech-stack {
   background: var(--color-surface-2);
-  padding: 4rem 1rem;
+  padding: 4rem 0 0;
 
   @media (min-width: 768px) {
-    padding: 5rem 2rem;
+    padding: 5rem 0 0;
   }
 
   &__container {
     max-width: 1280px;
     margin: 0 auto;
+    padding: 0 1rem 4rem;
+
+    @media (min-width: 768px) {
+      padding: 0 2rem 5rem;
+    }
   }
 
   &__header {
@@ -17,9 +22,10 @@
   }
 
   &__label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--color-brand-cyan);
     margin-bottom: 0.75rem;
@@ -107,5 +113,37 @@
       font-size: 0.75rem;
       color: var(--color-text-muted);
     }
+  }
+
+  // ─── Marquee ───────────────────────────────────────────────────────────────
+
+  &__marquee-wrap {
+    border-top: 1px solid var(--color-border);
+    padding: 2rem 0;
+    overflow: hidden;
+  }
+
+  &__marquee-border {
+    display: none;
+  }
+
+  &__marquee-track {
+    gap: 0;
+    align-items: center;
+  }
+
+  &__marquee-item {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-style: italic;
+    color: var(--color-text);
+    padding: 0 1rem;
+    white-space: nowrap;
+  }
+
+  &__marquee-sep {
+    color: var(--color-brand-rose);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    padding: 0 0.25rem;
   }
 }

@@ -2,12 +2,12 @@
   <section id="tech" class="tech-stack" aria-labelledby="tech-heading">
     <div class="tech-stack__container">
 
-      <div class="tech-stack__header">
+      <div class="tech-stack__header" appReveal>
         <p class="tech-stack__label">{{ t('techStack.label') }}</p>
         <h2 id="tech-heading" class="tech-stack__title">{{ t('techStack.title') }}</h2>
       </div>
 
-      <div class="tech-stack__grid">
+      <div class="tech-stack__grid" appReveal [revealStagger]="true" [revealDelay]="80">
         @for (item of techItems; track item.id) {
           <app-neon-card
             [color]="item.glowColor"
@@ -34,5 +34,23 @@
       </div>
 
     </div>
+
+    <div class="tech-stack__marquee-wrap" aria-hidden="true">
+      <div class="tech-stack__marquee-border"></div>
+      <div class="marquee-wrap">
+        <div class="marquee-track tech-stack__marquee-track">
+          @for (item of marqueeItems; track item) {
+            <span class="tech-stack__marquee-item">{{ item }}</span>
+            <span class="tech-stack__marquee-sep" aria-hidden="true">·</span>
+          }
+          @for (item of marqueeItems; track item + '_dup') {
+            <span class="tech-stack__marquee-item">{{ item }}</span>
+            <span class="tech-stack__marquee-sep" aria-hidden="true">·</span>
+          }
+        </div>
+      </div>
+      <div class="tech-stack__marquee-border"></div>
+    </div>
+
   </section>
 </ng-container>

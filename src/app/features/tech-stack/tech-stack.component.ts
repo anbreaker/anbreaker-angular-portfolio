@@ -2,18 +2,24 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { TechItem } from '@core/interfaces/portfolio.interfaces';
 import { NeonCardComponent } from '@shared/components/neon-card/neon-card.component';
+import { RevealDirective } from '@shared/directives/reveal.directive';
 
 import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NeonCardComponent, TranslocoDirective],
+  imports: [NeonCardComponent, TranslocoDirective, RevealDirective],
   selector: 'app-tech-stack',
   styleUrl: './tech-stack.component.scss',
   templateUrl: './tech-stack.component.html',
 })
 export class TechStackComponent {
+  protected readonly marqueeItems = [
+    'Angular', 'NestJS', 'TypeScript', 'RxJS', 'Signals', 'Vitest',
+    'Node.js', 'GitHub Actions', 'CSS Nesting', 'Docker',
+  ];
+
   protected readonly techItems: TechItem[] = [
     {
       id: 'angular',
