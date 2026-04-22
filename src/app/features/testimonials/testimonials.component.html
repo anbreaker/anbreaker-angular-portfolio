@@ -2,39 +2,73 @@
   <section id="testimonials" class="testimonials" aria-labelledby="testimonials-heading">
     <div class="testimonials__container">
 
-      <div class="testimonials__header">
-        <p class="testimonials__label">{{ t('testimonials.label') }}</p>
-        <h2 id="testimonials-heading" class="testimonials__title">{{ t('testimonials.title') }}</h2>
+      <div class="testimonials__head" appReveal>
+        <div>
+          <p class="testimonials__kicker">{{ t('testimonials.label') }} · {{ testimonials.length }} voices</p>
+          <h2 id="testimonials-heading" class="testimonials__title">
+            {{ t('testimonials.heading') }}
+          </h2>
+        </div>
+        <div class="testimonials__dots" role="tablist" aria-label="Testimonials navigation">
+          @for (item of testimonials; track item.id; let i = $index) {
+            <button
+              class="testimonials__dot"
+              [class.testimonials__dot--active]="activeIndex() === i"
+              (click)="goTo(i)"
+              role="tab"
+              [attr.aria-selected]="activeIndex() === i"
+              [attr.aria-label]="'Testimonial ' + (i + 1)"
+            >
+              0{{ i + 1 }}
+            </button>
+          }
+        </div>
       </div>
 
-      <div class="testimonials__grid">
-        @for (item of testimonials; track item.id) {
-          <app-glass-card>
-            <blockquote class="testimonials__quote">
-              <p class="testimonials__quote-text">"{{ t(item.quoteKey) }}"</p>
+      <div class="testimonials__stage" appReveal [revealDelay]="100">
+        <div class="testimonials__bg-mark" aria-hidden="true">"</div>
 
-              <footer class="testimonials__quote-footer">
-                <div class="testimonials__avatar" aria-hidden="true">
-                  @if (item.avatarUrl) {
-                    <img
-                      [src]="item.avatarUrl"
-                      [alt]="item.author"
-                      class="testimonials__avatar-img"
-                      loading="lazy"
-                    />
-                  } @else {
-                    {{ item.author.charAt(0) }}
-                  }
-                </div>
-                <div class="testimonials__author-info">
-                  <cite class="testimonials__author-name">{{ item.author }}</cite>
-                  <span class="testimonials__author-meta">{{ item.role }} · {{ item.handle }}</span>
-                </div>
-              </footer>
-            </blockquote>
-          </app-glass-card>
-        }
+        <div class="testimonials__main" [style.--accent]="active().accent">
+          <span class="testimonials__mark">"</span>
+          <p class="testimonials__quote">{{ t('testimonials.' + active().id + '.quote') }}</p>
+          <div class="testimonials__attrib">
+            <div class="testimonials__avatar" [class]="active().accentClass">
+              {{ active().initials }}
+            </div>
+            <div>
+              <div class="testimonials__name">{{ t('testimonials.' + active().id + '.author') }}</div>
+              <div class="testimonials__role">{{ t('testimonials.' + active().id + '.role') }}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials__side">
+          @for (item of sideItems(); track item.id) {
+            <button class="testimonials__mini" (click)="goToById(item.id)">
+              <div class="testimonials__avatar testimonials__avatar--sm" [class]="item.accentClass">
+                {{ item.initials }}
+              </div>
+              <div>
+                <p class="testimonials__mini-text">"{{ t('testimonials.' + item.id + '.quote').slice(0, 72) }}…"</p>
+                <div class="testimonials__mini-name">{{ t('testimonials.' + item.id + '.author') }}</div>
+                <div class="testimonials__mini-role">{{ t('testimonials.' + item.id + '.role') }}</div>
+              </div>
+            </button>
+          }
+        </div>
       </div>
+
+      <footer class="testimonials__footer" appReveal [revealDelay]="150">
+        <span class="testimonials__brand">Francisco Javier · RootDevs</span>
+        <div class="testimonials__pager">
+          <button class="testimonials__pager-btn" (click)="prev()" aria-label="Previous testimonial">←</button>
+          <div class="testimonials__progress" role="progressbar" [attr.aria-valuenow]="activeIndex() + 1" [attr.aria-valuemax]="testimonials.length">
+            <div class="testimonials__progress-fill" [style.width]="progress()"></div>
+          </div>
+          <button class="testimonials__pager-btn" (click)="next()" aria-label="Next testimonial">→</button>
+        </div>
+        <span class="testimonials__counter">{{ counter() }}</span>
+      </footer>
 
     </div>
   </section>
