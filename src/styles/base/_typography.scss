@@ -1,7 +1,10 @@
 // Typography tokens
 :root {
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-signature: 'La Belle Aurore', cursive;
+  --font-sans: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-serif: 'Instrument Serif', 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-script: 'Caveat', cursive;
 
   --font-size-base: 1rem;
   --font-size-lg: 1.25rem;
@@ -12,14 +15,17 @@
   --font-weight-medium: 500;
   --font-weight-normal: 400;
   --line-height-base: 1.5;
-  --line-height-tight: 1.25;
+  --line-height-tight: 1.1;
 }
 
 body {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
   line-height: var(--line-height-base);
   background-color: var(--color-bg);
   color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.2s, color 0.2s;
 }

@@ -1,24 +1,46 @@
-// Portfolio design tokens — graffiti/urban dark theme
+// Portfolio design tokens — dark theme (default)
 :root {
-  --color-bg: #0a0a0c;
+  --color-bg: #0a0a0b;
   --color-surface: rgba(255, 255, 255, 0.05);
   --color-surface-2: #111114;
   --color-border: #27272a;
   --color-text: #f4f4f5;
   --color-text-muted: #a1a1aa;
+  --color-text-faint: #52525b;
 
   // Brand accent colors
+  --color-brand-cyan: #22d3ee;
+  --color-brand-cyan-deep: #0891b2;
+  --color-brand-rose: #f43f5e;
+  --color-brand-rose-deep: #be123c;
   --color-brand-blue: #3b82f6;
-  --color-brand-cyan: #06b6d4;
-  --color-brand-pink: #ff006e;
+  --color-brand-pink: #f43f5e;
   --color-brand-orange: #f97316;
   --color-brand-green: #22c55e;
+  --color-brand-violet: #a78bfa;
+  --color-brand-amber: #f59e0b;
 
   // Glow shadows
   --glow-blue: 0 0 8px rgba(59, 130, 246, 0.4), 0 0 20px rgba(59, 130, 246, 0.2);
-  --glow-pink: 0 0 8px rgba(255, 0, 110, 0.4), 0 0 20px rgba(255, 0, 110, 0.2);
+  --glow-pink: 0 0 8px rgba(244, 63, 94, 0.4), 0 0 20px rgba(244, 63, 94, 0.2);
+  --glow-rose: 0 0 8px rgba(244, 63, 94, 0.4), 0 0 20px rgba(244, 63, 94, 0.2);
+  --glow-cyan: 0 0 8px rgba(34, 211, 238, 0.4), 0 0 20px rgba(34, 211, 238, 0.2);
   --glow-orange: 0 0 8px rgba(249, 115, 22, 0.4), 0 0 20px rgba(249, 115, 22, 0.2);
   --glow-green: 0 0 8px rgba(34, 197, 94, 0.4), 0 0 20px rgba(34, 197, 94, 0.2);
 
-  --radius-card: 0.75rem;
+  --radius-card: 0.5rem;
+}
+
+// Light mode overrides
+html.light {
+  --color-bg: #f8f8f6;
+  --color-surface: rgba(0, 0, 0, 0.04);
+  --color-surface-2: #ffffff;
+  --color-border: #e4e4e7;
+  --color-text: #0a0a0b;
+  --color-text-muted: #52525b;
+  --color-text-faint: #a1a1aa;
+  --color-brand-cyan: #0891b2;
+  --color-brand-rose: #be123c;
+  --color-brand-pink: #be123c;
 }
