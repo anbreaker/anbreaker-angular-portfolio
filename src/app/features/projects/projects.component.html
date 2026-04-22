@@ -2,12 +2,12 @@
   <section id="projects" class="projects" aria-labelledby="projects-heading">
     <div class="projects__container">
 
-      <div class="projects__header">
+      <div class="projects__header" appReveal>
         <p class="projects__label">{{ t('projects.label') }}</p>
         <h2 id="projects-heading" class="projects__title">{{ t('projects.title') }}</h2>
       </div>
 
-      <div class="projects__grid">
+      <div class="projects__grid" appReveal [revealStagger]="true" [revealDelay]="80">
         @for (project of projects; track project.id; let index = $index) {
           <div
             #projectCard

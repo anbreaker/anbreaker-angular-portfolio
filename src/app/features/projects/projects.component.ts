@@ -10,6 +10,7 @@ import {
 import { Project } from '@core/interfaces/portfolio.interfaces';
 import { BadgeComponent } from '@shared/components/badge/badge.component';
 import { NeonCardComponent } from '@shared/components/neon-card/neon-card.component';
+import { RevealDirective } from '@shared/directives/reveal.directive';
 
 import { TranslocoDirective } from '@jsverse/transloco';
 
@@ -21,7 +22,7 @@ interface TiltState {
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [BadgeComponent, NeonCardComponent, TranslocoDirective],
+  imports: [BadgeComponent, NeonCardComponent, TranslocoDirective, RevealDirective],
   selector: 'app-projects',
   styleUrl: './projects.component.scss',
   templateUrl: './projects.component.html',
