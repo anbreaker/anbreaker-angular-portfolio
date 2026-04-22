@@ -1,89 +1,81 @@
 <app-nav></app-nav>
 
-<main class="blog-container" *transloco="let t">
-  <section class="hero-section">
-    <h1 class="graffiti-title">{{ t('blog.title') }}</h1>
-    <span class="section-label">{{ t('blog.label') }}</span>
-  </section>
+<main class="blog" *transloco="let t">
 
-  <app-section-divider></app-section-divider>
-
-  <section class="search-section">
-    <div class="search-input-wrapper">
+  <section class="blog__hero">
+    <p class="blog__kicker">/ blog</p>
+    <h1 class="blog__title">{{ t('blog.title') }}</h1>
+    <div class="blog__search-wrap">
       <input
-        type="text"
+        type="search"
+        class="blog__search"
         [placeholder]="t('blog.searchPlaceholder')"
         [value]="searchTerm()"
         (input)="onSearchChange($event)"
-        class="urban-input"
+        aria-label="Search posts"
       />
-      <div class="input-glow"></div>
     </div>
   </section>
 
-  @if (postsResource.isLoading()) {
-    <div class="status-container loading">
-      <p class="blink">{{ t('blog.loading') }}</p>
-    </div>
-  } @else if (postsResource.error()) {
-    <div class="status-container error">
-      <p>{{ t('blog.error') }}</p>
-    </div>
-  } @else {
-    @let response = postsResource.value();
+  <section class="blog__list-section">
+    @if (postsResource.isLoading()) {
+      <div class="blog__status">
+        <span class="blog__loading">{{ t('blog.loading') }}</span>
+      </div>
+    } @else if (postsResource.error()) {
+      <div class="blog__status blog__status--error">{{ t('blog.error') }}</div>
+    } @else {
+      @let response = postsResource.value();
 
-    @if (response && response.posts.length > 0) {
-      <div class="posts-grid">
-        @for (post of response.posts; track post.id) {
-          <app-neon-card class="blog-card">
-            <article class="post-content">
-              @if (post.imageUrl) {
-                <div class="post-image-container">
-                  <img [src]="post.imageUrl" [alt]="t(post.titleKey)" class="post-image" />
-                </div>
-              }
-              <div class="post-info">
-                <span class="post-date">{{ post.date }}</span>
-                <h2 class="post-title">{{ t(post.titleKey) }}</h2>
-                <p class="post-excerpt">{{ t(post.excerptKey) }}</p>
-                <div class="post-tags">
+      @if (response && response.posts.length > 0) {
+        <div class="blog__list">
+          @for (post of response.posts; track post.id) {
+            <article class="blog__item">
+              <div class="blog__item-date">
+                <span class="blog__item-date-text">{{ post.date }}</span>
+              </div>
+              <div class="blog__item-body">
+                @if (post.tags.length) {
+                  <span class="blog__item-tag">{{ post.tags[0] }}</span>
+                }
+                <h2 class="blog__item-title">{{ t(post.titleKey) }}</h2>
+                <p class="blog__item-excerpt">{{ t(post.excerptKey) }}</p>
+                <div class="blog__item-tags">
                   @for (tag of post.tags; track tag) {
-                    <span class="tag">#{{ tag }}</span>
+                    <span class="blog__tag">#{{ tag }}</span>
                   }
                 </div>
               </div>
+              <div class="blog__item-arrow" aria-hidden="true">→</div>
             </article>
-          </app-neon-card>
-        }
-      </div>
+          }
+        </div>
 
-      <div class="pagination-controls">
-        <button
-          class="nav-button"
-          (click)="prevPage()"
-          [disabled]="currentPage() === 1"
-        >
-          &lt; {{ t('blog.pagination.prev') }}
-        </button>
-
-        <span class="page-info">
-          {{ t('blog.pagination.page') }} {{ currentPage() }}
-        </span>
-
-        <button
-          class="nav-button"
-          (click)="nextPage()"
-          [disabled]="response.posts.length < response.pageSize || (currentPage() * response.pageSize >= response.totalCount)"
-        >
-          {{ t('blog.pagination.next') }} &gt;
-        </button>
-      </div>
-    } @else {
-      <div class="status-container empty">
-        <p>{{ t('blog.noResults') }}</p>
-      </div>
+        <div class="blog__pagination">
+          <button
+            class="blog__pager-btn"
+            (click)="prevPage()"
+            [disabled]="currentPage() === 1"
+          >
+            ←
+          </button>
+          <span class="blog__page-label">
+            {{ t('blog.pagination.page') }} {{ currentPage() }}
+          </span>
+          <button
+            class="blog__pager-btn"
+            (click)="nextPage()"
+            [disabled]="response.posts.length < response.pageSize || (currentPage() * response.pageSize >= response.totalCount)"
+          >
+            →
+          </button>
+        </div>
+      } @else {
+        <div class="blog__status">{{ t('blog.noResults') }}</div>
+      }
     }
-  }
+  </section>
+
 </main>
 
 <app-footer></app-footer>

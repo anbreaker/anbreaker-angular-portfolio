@@ -6,8 +6,6 @@ import { BlogResponse } from '@core/interfaces/portfolio.interfaces';
 import { BlogService } from '@core/services/blog.service';
 import { FooterComponent } from '@features/footer/footer.component';
 import { NavComponent } from '@features/nav/nav.component';
-import { NeonCardComponent } from '@shared/components/neon-card/neon-card.component';
-import { SectionDividerComponent } from '@shared/components/section-divider/section-divider.component';
 
 import { TranslocoDirective } from '@jsverse/transloco';
 
@@ -17,8 +15,6 @@ import { TranslocoDirective } from '@jsverse/transloco';
   imports: [
     FooterComponent,
     NavComponent,
-    NeonCardComponent,
-    SectionDividerComponent,
     TranslocoDirective,
   ],
   selector: 'app-blog-page',
