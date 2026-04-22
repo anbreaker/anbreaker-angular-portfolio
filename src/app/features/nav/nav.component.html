@@ -28,6 +28,15 @@
           }
         </div>
 
+        <button
+          class="nav__theme-btn"
+          (click)="toggleTheme($event)"
+          [attr.aria-label]="isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+          [title]="isDark() ? 'Light mode' : 'Dark mode'"
+        >
+          {{ isDark() ? '◐' : '○' }}
+        </button>
+
         <a class="nav__hire-btn" (click)="scrollToAnchor('footer')" role="button" tabindex="0">
           {{ t('nav.hireMe') }}
         </a>
