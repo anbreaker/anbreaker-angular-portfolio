@@ -9,13 +9,7 @@
 
       <div class="projects__grid" appReveal [revealStagger]="true" [revealDelay]="80">
         @for (project of projects; track project.id; let index = $index) {
-          <div
-            #projectCard
-            class="projects__card-wrapper"
-            (mousemove)="onTilt($event, index)"
-            (mouseleave)="resetTilt(index)"
-            [style.transform]="'perspective(1000px) rotateX(' + tiltStates()[index].x + 'deg) rotateY(' + tiltStates()[index].y + 'deg)'"
-          >
+          <div class="projects__card-wrapper" appTilt>
             <app-neon-card color="blue">
               <div class="projects__card">
                 <div class="projects__card-image" aria-hidden="true">
