@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+import { GradientTrackDirective } from '@shared/directives/gradient-track.directive';
 import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TranslocoDirective],
+  imports: [TranslocoDirective, GradientTrackDirective],
   selector: 'app-hero',
   styleUrl: './hero.component.scss',
   templateUrl: './hero.component.html',
