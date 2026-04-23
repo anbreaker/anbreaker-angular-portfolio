@@ -1,0 +1,45 @@
+:host {
+  pointer-events: none;
+
+  @media (pointer: coarse) {
+    display: none;
+  }
+}
+
+.cursor-dot {
+  background: #22d3ee;
+  border-radius: 50%;
+  height: 6px;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  z-index: 9999;
+}
+
+.cursor-ring {
+  border: 1px solid rgba(244, 63, 94, 0.7);
+  border-radius: 50%;
+  height: 36px;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  transform: translate(-50%, -50%);
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    height 0.2s,
+    width 0.2s;
+  width: 36px;
+  z-index: 9998;
+
+  &.active {
+    background: rgba(34, 211, 238, 0.1);
+    border-color: #22d3ee;
+    height: 80px;
+    width: 80px;
+  }
+}

@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+import { CursorComponent } from '@shared/components/cursor/cursor.component';
+
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CursorComponent],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
