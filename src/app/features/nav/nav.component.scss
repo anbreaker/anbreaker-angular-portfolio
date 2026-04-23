@@ -47,31 +47,43 @@
   }
 
   &__link {
-    font-size: 0.875rem;
-    font-weight: 500;
     color: var(--color-text-muted);
     cursor: pointer;
-    text-decoration: none;
-    transition: color 200ms ease;
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    overflow: hidden;
+    padding-bottom: 3px;
     position: relative;
+    text-decoration: none;
+    transition: color 0.3s 0.15s;
+
+    &::before,
+    &::after {
+      bottom: 0;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+    }
+
+    &::before {
+      background: currentColor;
+      transform: translateX(0);
+    }
 
     &::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--color-brand-blue);
-      transition: width 200ms ease;
+      background: var(--color-brand-cyan);
+      transform: translateX(-101%);
     }
 
     &:hover {
-      color: var(--color-text);
+      color: var(--color-brand-cyan);
 
-      &::after {
-        width: 100%;
-      }
+      &::before { transform: translateX(101%); }
+      &::after  { transform: translateX(0); transition-delay: 0.1s; }
     }
   }
 
@@ -121,16 +133,45 @@
     color: var(--color-text-muted);
     cursor: pointer;
     display: flex;
-    font-size: 1.125rem;
     height: 2.25rem;
     justify-content: center;
-    transition: border-color 0.3s, color 0.3s, transform 0.3s;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.3s, color 0.3s;
     width: 2.25rem;
 
     &:hover {
       border-color: var(--color-brand-cyan);
-      color: var(--color-text);
-      transform: scale(1.05);
+      color: var(--color-brand-cyan);
+
+      .nav__theme-icon--current {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      .nav__theme-icon--target {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &__theme-icon {
+    align-items: center;
+    display: flex;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+
+    &--current {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &--target {
+      left: 50%;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%) translateY(-10px);
     }
   }
 
