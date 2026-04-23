@@ -1,3 +1,9 @@
+@property --sig-cyan {
+  syntax: '<color>';
+  initial-value: #ff4d9a;
+  inherits: false;
+}
+
 .footer {
   background: var(--color-surface-2);
   border-top: 1px solid var(--color-border);
@@ -24,14 +30,21 @@
   }
 
   &__signature {
-    background: linear-gradient(135deg, var(--color-brand-pink), #ff4d9a);
+    background: linear-gradient(var(--sig-angle, 135deg), var(--color-brand-pink), var(--sig-cyan));
+    background-clip: text;
     -webkit-background-clip: text;
-    font-family: var(--font-signature);
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    cursor: default;
+    font-family: var(--font-script);
     font-size: clamp(2rem, 6vw, 3.5rem);
     line-height: 1.6;
-    padding: 0.25em 0.1em;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    padding: 0.25em 0.3em 0.25em 0.1em;
+    transition: --sig-cyan 180ms ease;
+
+    &:hover {
+      --sig-cyan: #22d3ee;
+    }
   }
 
   &__handle {
