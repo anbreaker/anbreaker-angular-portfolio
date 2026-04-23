@@ -9,15 +9,23 @@ import { TranslocoDirective } from '@jsverse/transloco';
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NeonCardComponent, TranslocoDirective, RevealDirective],
+  imports: [NeonCardComponent, RevealDirective, TranslocoDirective],
   selector: 'app-tech-stack',
   styleUrl: './tech-stack.component.scss',
   templateUrl: './tech-stack.component.html',
 })
 export class TechStackComponent {
   protected readonly marqueeItems = [
-    'Angular', 'NestJS', 'TypeScript', 'RxJS', 'Signals', 'Vitest',
-    'Node.js', 'GitHub Actions', 'CSS Nesting', 'Docker',
+    'Angular',
+    'NestJS',
+    'TypeScript',
+    'RxJS',
+    'Signals',
+    'Vitest',
+    'Node.js',
+    'GitHub Actions',
+    'CSS Nesting',
+    'Docker',
   ];
 
   protected readonly techItems: TechItem[] = [
@@ -73,7 +81,7 @@ export class TechStackComponent {
       id: 'css',
       name: 'CSS Nesting',
       description: 'Modern Styling',
-      iconUrl: 'https://cdn.simpleicons.org/css3/ffffff',
+      iconUrl: 'https://cdn.simpleicons.org/css/ffffff',
       glowColor: 'blue',
       cardBg: '#075985',
     },

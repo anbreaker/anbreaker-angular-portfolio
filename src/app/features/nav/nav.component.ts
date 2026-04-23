@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { SupportedLang } from '@core/interfaces/portfolio.interfaces';
@@ -29,11 +29,13 @@ const LANG_FLAGS: Record<SupportedLang, string> = {
 })
 export class NavComponent {
   protected readonly languageStore = inject(LanguageStore);
-  protected readonly menuOpen = signal(false);
-  protected readonly isDark = signal(true);
-  protected readonly langFlags = LANG_FLAGS;
   private readonly router = inject(Router);
   private readonly document = inject(DOCUMENT);
+
+  protected readonly isDark = signal(true);
+  protected readonly menuOpen = signal(false);
+
+  protected readonly langFlags = LANG_FLAGS;
 
   protected readonly navLinks: NavLink[] = [
     { labelKey: 'nav.projects', anchor: 'projects' },
@@ -73,14 +75,15 @@ export class NavComponent {
     html.style.setProperty('--theme-x', `${event.clientX}px`);
     html.style.setProperty('--theme-y', `${event.clientY}px`);
 
-    const run = () => {
+    const run = (): void => {
       html.classList.toggle('light');
       this.isDark.set(!html.classList.contains('light'));
     };
 
     if ('startViewTransition' in this.document) {
-      (this.document as Document & { startViewTransition: (cb: () => void) => void })
-        .startViewTransition(run);
+      (
+        this.document as Document & { startViewTransition: (cb: () => void) => void }
+      ).startViewTransition(run);
     } else {
       run();
     }
