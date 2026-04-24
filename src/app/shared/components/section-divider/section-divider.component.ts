@@ -8,6 +8,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   templateUrl: './section-divider.component.html',
 })
 export class SectionDividerComponent {
-  readonly fillColor = input<string>('#0a0a0c');
+  readonly fillColor = input<string>('var(--color-bg)');
   readonly flip = input<boolean>(false);
 }
