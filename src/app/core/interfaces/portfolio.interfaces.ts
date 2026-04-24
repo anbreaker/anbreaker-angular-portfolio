@@ -1,52 +1,60 @@
 export type SupportedLang = 'es' | 'en' | 'pt';
 
 export interface TechItem {
+  cardBg?: string;
+  description: string;
+  glowColor: 'blue' | 'purple' | 'orange' | 'green';
+  iconUrl: string;
   id: string;
   name: string;
-  description: string;
-  iconUrl: string;
-  glowColor: 'blue' | 'purple' | 'orange' | 'green';
-  cardBg?: string;
+}
+
+export interface ProjectDetail {
+  impactKey: string;
+  kickerKey?: string;
+  longDescriptionKey: string;
+  stack: string[];
 }
 
 export interface Project {
-  id: string;
-  titleKey: string;
-  descriptionKey: string;
-  tags: string[];
-  imageUrl?: string;
-  demoUrl?: string;
   codeUrl?: string;
+  demoUrl?: string;
+  descriptionKey: string;
+  detail?: ProjectDetail;
+  id: string;
+  imageUrl?: Record<SupportedLang, string>;
+  tags: string[];
+  titleKey: string;
 }
 
 export interface Testimonial {
+  author: string;
+  avatarUrl?: string;
+  handle: string;
   id: string;
   quoteKey: string;
-  author: string;
   role: string;
-  handle: string;
-  avatarUrl?: string;
 }
 
 export interface SocialLink {
-  platform: string;
-  url: string;
   ariaLabel: string;
   icon: string;
+  platform: string;
+  url: string;
 }
 
 export interface BlogPost {
-  id: string;
-  titleKey: string;
-  excerptKey: string;
   date: string;
-  tags: string[];
+  excerptKey: string;
+  id: string;
   imageUrl?: string;
   slug: string;
+  tags: string[];
+  titleKey: string;
 }
 
 export interface BlogResponse {
+  pageSize: number;
   posts: BlogPost[];
   totalCount: number;
-  pageSize: number;
 }

@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
+import { Injectable } from '@angular/core';
 
 import { BlogPost, BlogResponse } from '../interfaces/portfolio.interfaces';
 

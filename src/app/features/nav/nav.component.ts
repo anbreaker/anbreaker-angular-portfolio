@@ -7,8 +7,8 @@ import { SupportedLang } from '@core/interfaces/portfolio.interfaces';
 import { LanguageStore } from '@core/store/language.store';
 
 interface NavLink {
-  labelKey?: string;
   anchor?: string;
+  labelKey?: string;
   route?: string;
 }
 

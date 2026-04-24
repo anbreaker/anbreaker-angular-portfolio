@@ -10,12 +10,14 @@ import componentDecoratorOrder from './.eslint/rules/component-decorator-order.j
 import injectBeforeSignals from './.eslint/rules/inject-before-signals.js';
 import alphabeticalInputsSignals from './.eslint/rules/alphabetical-inputs-signals.js';
 import alphabeticalComponentImports from './.eslint/rules/alphabetical-component-imports.js';
+import alphabeticalInterfaceMembers from './.eslint/rules/alphabetical-interface-members.js';
 
 const customRules = {
+  'alphabetical-component-imports': alphabeticalComponentImports,
+  'alphabetical-inputs-signals': alphabeticalInputsSignals,
+  'alphabetical-interface-members': alphabeticalInterfaceMembers,
   'component-decorator-order': componentDecoratorOrder,
   'inject-before-signals': injectBeforeSignals,
-  'alphabetical-inputs-signals': alphabeticalInputsSignals,
-  'alphabetical-component-imports': alphabeticalComponentImports,
 };
 
 export default tseslint.config(
@@ -85,8 +87,9 @@ export default tseslint.config(
       // Custom Angular rules
       'custom/component-decorator-order': 'error',
       'custom/inject-before-signals': 'error',
-      'custom/alphabetical-inputs-signals': 'warn',
       'custom/alphabetical-component-imports': 'warn',
+      'custom/alphabetical-inputs-signals': 'warn',
+      'custom/alphabetical-interface-members': 'warn',
     },
   },
 
@@ -149,7 +152,15 @@ export default tseslint.config(
     },
   },
 
-  // Block 8: tsconfig JSON files — allow comments
+  // Block 8: Data and interface files — enforce key ordering on object literals
+  {
+    files: ['**/*.data.ts', '**/interfaces/*.ts', '**/models/*.ts', '**/constants/*.ts'],
+    rules: {
+      'sort-keys': ['warn', 'asc', { caseSensitive: false, minKeys: 3, natural: true }],
+    },
+  },
+
+  // Block 9: tsconfig JSON files — allow comments
   {
     files: ['**/tsconfig*.json'],
     plugins: { jsonc },

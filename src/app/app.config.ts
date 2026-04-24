@@ -5,13 +5,12 @@ import {
   provideZonelessChangeDetection,
 } from '@angular/core';
 import { provideRouter, withInMemoryScrolling, withViewTransitions } from '@angular/router';
+import { provideTransloco } from '@jsverse/transloco';
 
 import { authInterceptor } from '@core/interceptor/auth.interceptor';
 import { I18nLoaderService } from '@core/services/i18n-loader.service';
 
 import { routes } from './app.routes';
-
-import { provideTransloco } from '@jsverse/transloco';
 
 export const appConfig: ApplicationConfig = {
   providers: [

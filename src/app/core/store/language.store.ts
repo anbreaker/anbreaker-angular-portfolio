@@ -1,8 +1,7 @@
 import { inject, Injectable, signal } from '@angular/core';
+import { TranslocoService } from '@jsverse/transloco';
 
 import { SupportedLang } from '@core/interfaces/portfolio.interfaces';
-
-import { TranslocoService } from '@jsverse/transloco';
 
 const STORAGE_KEY = 'portfolio-lang';
 const SUPPORTED_LANGS: SupportedLang[] = ['es', 'en', 'pt'];
