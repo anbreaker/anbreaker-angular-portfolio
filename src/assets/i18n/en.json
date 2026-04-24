@@ -1,6 +1,21 @@
 {
   "about": {
-    "description": "I'm a FullStack Engineer with a passion for high-performance web applications and creative UI design. With over 8 years of experience, I specialize in Angular ecosystems and urban-inspired aesthetics.",
+    "description": "Full Stack Developer at Sngular, based in Spain. I build scalable web applications with TypeScript, Vue and Angular on the frontend, Node.js and Express on the backend. Clean Code and SOLID aren't buzzwords — they're the baseline. Off the keyboard, I run my own homelab on Raspberry Pi, Docker, and Home Assistant, because tech autonomy is a lifestyle. And when I'm not in front of a screen, I tend vineyards and olive trees. Founder of RootDevs.",
+    "domains": {
+      "code": {
+        "description": "Web applications with TypeScript using Vue, React, Angular and Lit depending on the project. Vanilla JS when the situation calls for it. Node.js and Express on the backend.",
+        "title": "Software"
+      },
+      "infra": {
+        "description": "Linux user. Homelab with Raspberry Pi, Docker and self-hosted services. Passionate about generative AI agent orchestration — Claude, MCP and intelligent automation.",
+        "title": "Infrastructure"
+      },
+      "nature": {
+        "description": "Low external-input farming. Vineyards and olive trees managed with soil regeneration principles.",
+        "title": "Land"
+      },
+      "title": "DOMAINS"
+    },
     "label": "WHO AM I",
     "title": "About Me"
   },
@@ -56,10 +71,10 @@
     "ctaContact": "Get in touch",
     "ctaPortfolio": "View Portfolio",
     "portraitAlt": "Francisco Javier - Creative Technologist and FullStack Web Master",
+    "scroll": "Scroll & explore",
     "subtitle": "Engineering high-performance digital experiences with Angular 21, Signals, and Node.js. High energy, low latency.",
     "tagline": "Creative Technologist",
-    "title": "& FullStack Web Master",
-    "scroll": "Scroll & explore"
+    "title": "& FullStack Web Master"
   },
   "nav": {
     "about": "About",
@@ -70,18 +85,36 @@
     "testimonials": "Testimonials"
   },
   "projects": {
+    "detail": {
+      "backButton": "Back",
+      "impact": "Impact",
+      "kicker": {
+        "caseStudy": "Case Study",
+        "inProgress": "In Progress"
+      },
+      "notFound": "Project not found."
+    },
     "label": "WORK",
     "mimacrame": {
-      "description": "Artisan online store with multilingual catalogue, cart and premium visual experience.",
+      "description": "Artisan e-commerce featuring Clean Architecture, a multilingual catalogue, and a detail-oriented premium visual experience.",
+      "detail": {
+        "impact": "Live platform driving real sales. It stands out for its immaculate codebase, high testability, and robust frontend architecture ready to scale, reflecting the rigor of professional and sustainable development.",
+        "longDescription": "Mi Macramé Studio is an e-commerce built with Angular 21 and Firebase. The codebase adheres strictly to Clean Architecture and Feature-Driven Development principles, ensuring modularity and long-term maintainability. It integrates Stripe for secure payments, pure Signals for zoneless reactive state management, and comprehensive i18n support. The entire project is governed by strict linter rules (ESLint/Prettier) ensuring an exceptional code standard. The UI, crafted with BEM SCSS and a mobile-first approach, reflects an obsessive care for accessibility, smooth animations, and user experience."
+      },
       "title": "Mi Macramé Studio"
     },
-    "neoflow": {
-      "description": "Real-time supply chain visualization for logistics leaders.",
-      "title": "NeoFlow Dashboard"
+    "portfolio": {
+      "description": "Personal portfolio showcasing zoneless Angular 21, strict linter rules, micro-interactions, and Clean Code.",
+      "detail": {
+        "impact": "A true laboratory of industry best practices: from strict file organization to the usage of modern browser APIs. It is tangible proof of my passion for detail, performance, and technical excellence.",
+        "longDescription": "Built entirely in Angular 21 zoneless mode utilizing Signals, this portfolio is a statement on how modern software should be written. The codebase enforces custom ESLint rules to sort imports and component decorators, ensuring pristine readability. It incorporates the View Transitions API, complex animations (3D CSS Tilt, Magnetic Buttons) handled optimally, full multilingual support, flawless HTML semantics, and extreme asset optimization (WebP/Lazy loading)—all structured within a highly scalable architecture."
+      },
+      "title": "Personal Portfolio"
     },
     "title": "Featured Projects",
     "viewCode": "Code",
-    "viewDemo": "Demo"
+    "viewDemo": "Demo",
+    "viewDetail": "View Detail"
   },
   "techStack": {
     "label": "TECH STACK",

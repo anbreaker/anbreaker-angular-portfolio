@@ -17,15 +17,15 @@
       <div class="about-grid">
         <app-neon-card color="purple" class="about-card--stats">
           <div class="stat-item">
-            <span class="stat-value">8+</span>
+            <span class="stat-value">10+</span>
             <span class="stat-label">YEARS EXP</span>
           </div>
         </app-neon-card>
 
         <app-neon-card color="blue" class="about-card--stats">
           <div class="stat-item">
-            <span class="stat-value">50+</span>
-            <span class="stat-label">PROJECTS</span>
+            <span class="stat-value">180+</span>
+            <span class="stat-label">REPOS</span>
           </div>
         </app-neon-card>
 
@@ -39,7 +39,29 @@
     </div>
   </section>
 
-  <app-section-divider flip="true" />
+  <section class="about-domains">
+    <div class="about-domains__container">
+      <p class="about-domains__label">{{ t('about.domains.title') }}</p>
+      <div class="about-domains__grid">
+        @for (domain of domains; track domain.key) {
+        <div class="domain-card domain-card--{{ domain.accent }}">
+          <span class="domain-card__icon">{{ domain.icon }}</span>
+          <h3 class="domain-card__title">{{ t('about.domains.' + domain.key + '.title') }}</h3>
+          <p class="domain-card__description">
+            {{ t('about.domains.' + domain.key + '.description') }}
+          </p>
+          <div class="domain-card__tags">
+            @for (tag of domain.tags; track tag) {
+            <span class="domain-card__tag">{{ tag }}</span>
+            }
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <app-section-divider fillColor="var(--color-bg)" [flip]="true" />
 </main>
 
 <app-footer id="footer" />

@@ -1,6 +1,21 @@
 {
   "about": {
-    "description": "Soy un Ingeniero FullStack con pasión por las aplicaciones web de alto rendimiento y el diseño de UI creativo. Con más de 8 años de experiencia, me especializo en ecosistemas Angular y estética inspirada en lo urbano.",
+    "description": "Full Stack Developer en Sngular, con base en España. Construyo aplicaciones web escalables con TypeScript, Vue y Angular en el frontend, y Node.js y Express en el backend. Clean Code y SOLID no son buzzwords — son el mínimo exigible. Fuera del trabajo, opero mi propio homelab con Raspberry Pi, Docker y Home Assistant, porque la autonomía tecnológica es también una filosofía de vida. Y cuando no estoy frente a una pantalla, cuido viñedos y olivos. Fundador de RootDevs.",
+    "domains": {
+      "code": {
+        "description": "Aplicaciones web con TypeScript usando Vue, React, Angular y Lit según el proyecto. Vanilla JS cuando la situación lo pide. Node.js y Express en el backend.",
+        "title": "Software"
+      },
+      "infra": {
+        "description": "Linux user. Homelab con Raspberry Pi, Docker y servicios self-hosted. Entusiasta de la orquestación de agentes de IA generativa — Claude, MCP y automatización inteligente.",
+        "title": "Infraestructura"
+      },
+      "nature": {
+        "description": "Agricultura de bajo impacto externo. Viñedos y olivos gestionados con criterio de regeneración del suelo.",
+        "title": "Tierra"
+      },
+      "title": "DOMINIOS"
+    },
     "label": "QUIÉN SOY",
     "title": "Sobre Mí"
   },
@@ -56,10 +71,10 @@
     "ctaContact": "Hablemos",
     "ctaPortfolio": "Ver Portfolio",
     "portraitAlt": "Francisco Javier - Tecnologo creativo y FullStack Web Master",
+    "scroll": "Desliza & explora",
     "subtitle": "Creando experiencias digitales de alto rendimiento con Angular 21, Signals y Node.js. Alta energía, baja latencia.",
     "tagline": "Creative Technologist",
-    "title": "& FullStack Web Master",
-    "scroll": "Desliza & explora"
+    "title": "& FullStack Web Master"
   },
   "nav": {
     "about": "Sobre Mí",
@@ -70,18 +85,36 @@
     "testimonials": "Testimonios"
   },
   "projects": {
+    "detail": {
+      "backButton": "Volver",
+      "impact": "Impacto",
+      "kicker": {
+        "caseStudy": "Case Study",
+        "inProgress": "En Progreso"
+      },
+      "notFound": "Proyecto no encontrado."
+    },
     "label": "TRABAJO",
     "mimacrame": {
-      "description": "Tienda online artesanal con catálogo multilingüe, carrito y experiencia visual premium.",
+      "description": "E-commerce artesanal con Arquitectura Limpia, catálogo multilingüe y experiencia visual premium centrada en el detalle.",
+      "detail": {
+        "impact": "Plataforma en producción con ventas reales. Destaca por su código inmaculado, testeabilidad y una arquitectura frontend robusta preparada para escalar, reflejando el rigor de un desarrollo profesional y sostenible.",
+        "longDescription": "Mi Macramé Studio es un e-commerce desarrollado con Angular 21 y Firebase. Su código sigue principios de Clean Architecture y Feature-Driven Development, garantizando modularidad y mantenibilidad a largo plazo. Integra Stripe para pagos, Signals para el estado reactivo sin Zone.js, y soporte i18n completo. Todo el proyecto está sometido a estrictas reglas de linter (ESLint/Prettier) que aseguran un estándar de código excepcional. La interfaz, implementada con SCSS BEM y diseño mobile-first, pone un cuidado obsesivo en la accesibilidad, las animaciones fluidas y la experiencia de usuario."
+      },
       "title": "Mi Macramé Studio"
     },
-    "neoflow": {
-      "description": "Visualización en tiempo real de cadena de suministro para líderes logísticos.",
-      "title": "NeoFlow Dashboard"
+    "portfolio": {
+      "description": "Portfolio personal demostrando Angular 21 zoneless, reglas de linter estrictas, micro-interacciones y Clean Code.",
+      "detail": {
+        "impact": "Un laboratorio de mejores prácticas de la industria: desde la estricta organización de archivos hasta el uso de APIs modernas del navegador. Es la prueba tangible de mi pasión por el detalle, la performance y la excelencia técnica.",
+        "longDescription": "Desarrollado en Angular 21 en modo 100% zoneless usando Signals, este portfolio es una declaración de intenciones sobre cómo se debe escribir software moderno. La base de código cuenta con reglas de ESLint personalizadas para ordenar imports y decoradores, asegurando una lectura prístina. Incorpora View Transitions API, animaciones complejas (CSS Tilt 3D, Magnetic Buttons) manejadas de forma óptima, soporte multilingüe, semántica HTML impecable y optimización extrema de assets (WebP/Lazy loading), todo estructurado bajo una arquitectura altamente escalable."
+      },
+      "title": "Portfolio Personal"
     },
     "title": "Proyectos Destacados",
     "viewCode": "Código",
-    "viewDemo": "Demo"
+    "viewDemo": "Demo",
+    "viewDetail": "Ver Detalle"
   },
   "techStack": {
     "label": "TECH STACK",

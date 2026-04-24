@@ -22,4 +22,25 @@ import { SectionDividerComponent } from '@shared/components/section-divider/sect
   styleUrl: './about.page.scss',
   templateUrl: './about.page.html',
 })
-export class AboutMePageComponent {}
+export class AboutMePageComponent {
+  protected readonly domains = [
+    {
+      key: 'code',
+      icon: '</>',
+      accent: 'cyan',
+      tags: ['TypeScript', 'Vue.js', 'React', 'Angular', 'Lit', 'Vanilla JS', 'Node.js', 'Express'],
+    },
+    {
+      key: 'infra',
+      icon: '>_',
+      accent: 'blue',
+      tags: ['Linux', 'Raspberry Pi', 'Docker', 'Home Assistant', 'AI Agents', 'Claude'],
+    },
+    {
+      key: 'nature',
+      icon: '~/',
+      accent: 'green',
+      tags: ['Viñedos', 'Naranjos', 'Olivos', 'Permacultura', 'Suelo vivo'],
+    },
+  ];
+}
