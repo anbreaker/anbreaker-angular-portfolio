@@ -32,22 +32,13 @@
         <div class="hero__portrait-wrap">
           <div class="hero__portrait-glow hero__portrait-glow--cyan"></div>
           <div class="hero__portrait-glow hero__portrait-glow--rose"></div>
-          <img
-            class="hero__portrait"
-            src="assets/images/image.png"
-            alt="Francisco Javier — Creative Technologist & FullStack Master"
-          />
+          <img class="hero__portrait" src="assets/images/image.png" [alt]="t('hero.portraitAlt')" />
         </div>
       </div>
     </div>
 
-    <div
-      class="hero__scroll-hint"
-      aria-hidden="true"
-      appGradientTrack
-      [angleVar]="'--hint-angle'"
-    >
-      ↓ {{ t('hero.scroll') }}
+    <div class="hero__scroll-hint" aria-hidden="true" appGradientTrack [angleVar]="'--hint-angle'">
+      <span>↓ {{ t('hero.scroll') }}</span>
     </div>
   </section>
 </ng-container>

@@ -55,9 +55,10 @@
   "hero": {
     "ctaContact": "Hablemos",
     "ctaPortfolio": "Ver Portfolio",
+    "portraitAlt": "Francisco Javier - Tecnologo creativo y FullStack Web Master",
     "subtitle": "Creando experiencias digitales de alto rendimiento con Angular 21, Signals y Node.js. Alta energía, baja latencia.",
     "tagline": "Creative Technologist",
-    "title": "& FullStack Master",
+    "title": "& FullStack Web Master",
     "scroll": "Desliza & explora"
   },
   "nav": {
