@@ -11,7 +11,15 @@ import { SectionDividerComponent } from '@shared/components/section-divider/sect
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FooterComponent, HeroComponent, NavComponent, ProjectsComponent, SectionDividerComponent, TechStackComponent, TestimonialsComponent],
+  imports: [
+    FooterComponent,
+    HeroComponent,
+    NavComponent,
+    ProjectsComponent,
+    SectionDividerComponent,
+    TechStackComponent,
+    TestimonialsComponent,
+  ],
   selector: 'app-home-page',
   styleUrl: './home.page.scss',
   templateUrl: './home.page.html',

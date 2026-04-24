@@ -1,7 +1,6 @@
 <ng-container *transloco="let t">
   <section id="tech" class="tech-stack" aria-labelledby="tech-heading">
     <div class="tech-stack__container">
-
       <div class="tech-stack__header" appReveal>
         <p class="tech-stack__label">{{ t('techStack.label') }}</p>
         <h2 id="tech-heading" class="tech-stack__title">{{ t('techStack.title') }}</h2>
@@ -22,9 +21,14 @@
                   width="48"
                   height="48"
                   loading="lazy"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                  onerror="
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.display = 'flex';
+                  "
                 />
-                <span class="tech-stack__item-fallback" style="display:none">{{ item.name.charAt(0) }}</span>
+                <span class="tech-stack__item-fallback" style="display: none">
+                  {{ item.name.charAt(0) }}
+                </span>
               </div>
               <h3 class="tech-stack__item-name">{{ item.name }}</h3>
               <p class="tech-stack__item-desc">{{ item.description }}</p>
@@ -32,7 +36,6 @@
           </app-neon-card>
         }
       </div>
-
     </div>
 
     <div class="tech-stack__marquee-wrap" aria-hidden="true">
@@ -51,6 +54,5 @@
       </div>
       <div class="tech-stack__marquee-border"></div>
     </div>
-
   </section>
 </ng-container>

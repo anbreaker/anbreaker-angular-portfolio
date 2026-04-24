@@ -1,7 +1,6 @@
 <ng-container *transloco="let t">
   <section id="projects" class="projects" aria-labelledby="projects-heading">
     <div class="projects__container">
-
       <div class="projects__header" appReveal>
         <p class="projects__label">{{ t('projects.label') }}</p>
         <h2 id="projects-heading" class="projects__title">{{ t('projects.title') }}</h2>
@@ -21,7 +20,9 @@
                       loading="lazy"
                     />
                   } @else {
-                    <span class="projects__card-image-placeholder">{{ project.id.charAt(0).toUpperCase() }}</span>
+                    <span class="projects__card-image-placeholder">
+                      {{ project.id.charAt(0).toUpperCase() }}
+                    </span>
                   }
                 </div>
 
@@ -63,7 +64,6 @@
           </div>
         }
       </div>
-
     </div>
   </section>
 </ng-container>

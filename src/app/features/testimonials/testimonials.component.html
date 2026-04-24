@@ -1,10 +1,11 @@
 <ng-container *transloco="let t">
   <section id="testimonials" class="testimonials" aria-labelledby="testimonials-heading">
     <div class="testimonials__container">
-
       <div class="testimonials__head" appReveal>
         <div>
-          <p class="testimonials__kicker">{{ t('testimonials.label') }} · {{ testimonials.length }} voices</p>
+          <p class="testimonials__kicker">
+            {{ t('testimonials.label') }} · {{ testimonials.length }} voices
+          </p>
           <h2 id="testimonials-heading" class="testimonials__title">
             {{ t('testimonials.heading') }}
           </h2>
@@ -36,7 +37,9 @@
               {{ active().initials }}
             </div>
             <div>
-              <div class="testimonials__name">{{ t('testimonials.' + active().id + '.author') }}</div>
+              <div class="testimonials__name">
+                {{ t('testimonials.' + active().id + '.author') }}
+              </div>
               <div class="testimonials__role">{{ t('testimonials.' + active().id + '.role') }}</div>
             </div>
           </div>
@@ -49,9 +52,15 @@
                 {{ item.initials }}
               </div>
               <div>
-                <p class="testimonials__mini-text">"{{ t('testimonials.' + item.id + '.quote').slice(0, 72) }}…"</p>
-                <div class="testimonials__mini-name">{{ t('testimonials.' + item.id + '.author') }}</div>
-                <div class="testimonials__mini-role">{{ t('testimonials.' + item.id + '.role') }}</div>
+                <p class="testimonials__mini-text">
+                  "{{ t('testimonials.' + item.id + '.quote').slice(0, 72) }}…"
+                </p>
+                <div class="testimonials__mini-name">
+                  {{ t('testimonials.' + item.id + '.author') }}
+                </div>
+                <div class="testimonials__mini-role">
+                  {{ t('testimonials.' + item.id + '.role') }}
+                </div>
               </div>
             </button>
           }
@@ -61,15 +70,27 @@
       <footer class="testimonials__footer" appReveal [revealDelay]="150">
         <span class="testimonials__brand">Francisco Javier · RootDevs</span>
         <div class="testimonials__pager">
-          <button class="testimonials__pager-btn" (click)="prev()" aria-label="Previous testimonial">←</button>
-          <div class="testimonials__progress" role="progressbar" [attr.aria-valuenow]="activeIndex() + 1" [attr.aria-valuemax]="testimonials.length">
+          <button
+            class="testimonials__pager-btn"
+            (click)="prev()"
+            aria-label="Previous testimonial"
+          >
+            ←
+          </button>
+          <div
+            class="testimonials__progress"
+            role="progressbar"
+            [attr.aria-valuenow]="activeIndex() + 1"
+            [attr.aria-valuemax]="testimonials.length"
+          >
             <div class="testimonials__progress-fill" [style.width]="progress()"></div>
           </div>
-          <button class="testimonials__pager-btn" (click)="next()" aria-label="Next testimonial">→</button>
+          <button class="testimonials__pager-btn" (click)="next()" aria-label="Next testimonial">
+            →
+          </button>
         </div>
         <span class="testimonials__counter">{{ counter() }}</span>
       </footer>
-
     </div>
   </section>
 </ng-container>

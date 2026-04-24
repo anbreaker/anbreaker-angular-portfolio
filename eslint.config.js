@@ -65,8 +65,14 @@ export default tseslint.config(
         'error',
         {
           groups: [
-            // Angular & RxJS
-            ['^@angular', '^rxjs'],
+            // External packages (Angular, RxJS and other third-party libs)
+            [
+              '^node:',
+              '^@angular',
+              '^rxjs',
+              '^@(?!core|components|features|pages|shared|environments|assets|styles|i18n)(?:[^/]+)(?:/.*)?$',
+              '^\w',
+            ],
             // Internal aliases
             ['^@(core|components|features|pages|shared|environments|assets|styles|i18n)'],
             // Relative imports

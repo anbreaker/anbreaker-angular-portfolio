@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 import { TechItem } from '@core/interfaces/portfolio.interfaces';
 import { NeonCardComponent } from '@shared/components/neon-card/neon-card.component';
 import { RevealDirective } from '@shared/directives/reveal.directive';
-
-import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   standalone: true,

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 import { Project } from '@core/interfaces/portfolio.interfaces';
 import { BadgeComponent } from '@shared/components/badge/badge.component';
@@ -6,18 +7,15 @@ import { NeonCardComponent } from '@shared/components/neon-card/neon-card.compon
 import { RevealDirective } from '@shared/directives/reveal.directive';
 import { TiltDirective } from '@shared/directives/tilt.directive';
 
-import { TranslocoDirective } from '@jsverse/transloco';
-
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [BadgeComponent, NeonCardComponent, TranslocoDirective, RevealDirective, TiltDirective],
+  imports: [BadgeComponent, NeonCardComponent, RevealDirective, TiltDirective, TranslocoDirective],
   selector: 'app-projects',
   styleUrl: './projects.component.scss',
   templateUrl: './projects.component.html',
 })
 export class ProjectsComponent {
-
   protected readonly projects: Project[] = [
     {
       id: 'neoflow',
@@ -38,5 +36,4 @@ export class ProjectsComponent {
       codeUrl: 'https://github.com/anbreaker/mimacrame-studio-2026',
     },
   ];
-
 }

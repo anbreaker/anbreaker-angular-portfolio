@@ -20,8 +20,10 @@ export class CursorComponent {
   private readonly ringEl = viewChild.required<ElementRef<HTMLElement>>('ring');
   private readonly destroyRef = inject(DestroyRef);
 
-  private mx = 0; private my = 0;
-  private rx = 0; private ry = 0;
+  private mx = 0;
+  private my = 0;
+  private rx = 0;
+  private ry = 0;
   private rafId = 0;
 
   constructor() {
@@ -47,13 +49,21 @@ export class CursorComponent {
   };
 
   private readonly onOver = (e: MouseEvent): void => {
-    if ((e.target as Element).closest('a, button, [role="button"], [data-cursor-hover], input, label, select, textarea')) {
+    if (
+      (e.target as Element).closest(
+        'a, button, [role="button"], [data-cursor-hover], input, label, select, textarea'
+      )
+    ) {
       this.ringEl().nativeElement.classList.add('active');
     }
   };
 
   private readonly onOut = (e: MouseEvent): void => {
-    if ((e.target as Element).closest('a, button, [role="button"], [data-cursor-hover], input, label, select, textarea')) {
+    if (
+      (e.target as Element).closest(
+        'a, button, [role="button"], [data-cursor-hover], input, label, select, textarea'
+      )
+    ) {
       this.ringEl().nativeElement.classList.remove('active');
     }
   };

@@ -1,22 +1,17 @@
+import { debounceTime, filter } from 'rxjs';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { rxResource, toObservable, toSignal } from '@angular/core/rxjs-interop';
-import { debounceTime, filter } from 'rxjs';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 import { BlogResponse } from '@core/interfaces/portfolio.interfaces';
 import { BlogService } from '@core/services/blog.service';
 import { FooterComponent } from '@features/footer/footer.component';
 import { NavComponent } from '@features/nav/nav.component';
 
-import { TranslocoDirective } from '@jsverse/transloco';
-
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    FooterComponent,
-    NavComponent,
-    TranslocoDirective,
-  ],
+  imports: [FooterComponent, NavComponent, TranslocoDirective],
   selector: 'app-blog-page',
   styleUrl: './blog.page.scss',
   templateUrl: './blog.page.html',

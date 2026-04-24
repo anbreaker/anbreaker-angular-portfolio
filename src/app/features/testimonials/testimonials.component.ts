@@ -1,14 +1,14 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   OnDestroy,
   OnInit,
-  computed,
   signal,
 } from '@angular/core';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 import { RevealDirective } from '@shared/directives/reveal.directive';
-import { TranslocoDirective } from '@jsverse/transloco';
 
 interface TestimonialItem {
   id: string;
@@ -45,8 +45,7 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
   );
 
   protected readonly counter = computed(
-    () =>
-      `0${this.activeIndex() + 1} / 0${this.testimonials.length}`
+    () => `0${this.activeIndex() + 1} / 0${this.testimonials.length}`
   );
 
   private timer: ReturnType<typeof setInterval> | null = null;

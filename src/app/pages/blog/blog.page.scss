@@ -10,9 +10,9 @@
     padding: 4rem 1.5rem 3rem;
 
     @media (min-width: 768px) {
-      padding: 5rem 2.5rem 3.5rem;
-      max-width: 1280px;
       margin: 0 auto;
+      max-width: 1280px;
+      padding: 5rem 2.5rem 3.5rem;
     }
   }
 
@@ -26,12 +26,12 @@
   }
 
   &__title {
+    color: var(--color-text);
     font-size: clamp(3rem, 9vw, 6rem);
     font-weight: 700;
     letter-spacing: -0.04em;
     line-height: 0.9;
     margin: 0 0 2rem;
-    color: var(--color-text);
   }
 
   &__search-wrap {
@@ -89,8 +89,8 @@
     transition: color 0.3s;
 
     @media (min-width: 640px) {
-      grid-template-columns: 7rem 1fr auto;
       gap: 2rem;
+      grid-template-columns: 7rem 1fr auto;
       padding: 2rem 0;
     }
 
@@ -193,11 +193,13 @@
 
   &__item-arrow {
     color: var(--color-text-faint);
+    display: none;
     font-family: var(--font-serif);
     font-size: 1.75rem;
     font-style: italic;
-    transition: transform 0.3s, color 0.3s;
-    display: none;
+    transition:
+      transform 0.3s,
+      color 0.3s;
 
     @media (min-width: 640px) {
       display: block;
@@ -225,7 +227,9 @@
     font-size: 1.25rem;
     height: 3rem;
     justify-content: center;
-    transition: border-color 0.2s, color 0.2s;
+    transition:
+      border-color 0.2s,
+      color 0.2s;
     width: 3rem;
 
     &:hover:not(:disabled) {
@@ -271,6 +275,11 @@
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%        { opacity: 0.3; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
 }

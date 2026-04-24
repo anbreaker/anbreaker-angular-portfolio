@@ -1,7 +1,6 @@
 <app-nav></app-nav>
 
 <main class="blog" *transloco="let t">
-
   <section class="blog__hero">
     <p class="blog__kicker">/ blog</p>
     <h1 class="blog__title">{{ t('blog.title') }}</h1>
@@ -19,63 +18,52 @@
 
   <section class="blog__list-section">
     @if (postsResource.isLoading()) {
-      <div class="blog__status">
-        <span class="blog__loading">{{ t('blog.loading') }}</span>
-      </div>
+    <div class="blog__status">
+      <span class="blog__loading">{{ t('blog.loading') }}</span>
+    </div>
     } @else if (postsResource.error()) {
-      <div class="blog__status blog__status--error">{{ t('blog.error') }}</div>
-    } @else {
-      @let response = postsResource.value();
-
-      @if (response && response.posts.length > 0) {
-        <div class="blog__list">
-          @for (post of response.posts; track post.id) {
-            <article class="blog__item">
-              <div class="blog__item-date">
-                <span class="blog__item-date-text">{{ post.date }}</span>
-              </div>
-              <div class="blog__item-body">
-                @if (post.tags.length) {
-                  <span class="blog__item-tag">{{ post.tags[0] }}</span>
-                }
-                <h2 class="blog__item-title">{{ t(post.titleKey) }}</h2>
-                <p class="blog__item-excerpt">{{ t(post.excerptKey) }}</p>
-                <div class="blog__item-tags">
-                  @for (tag of post.tags; track tag) {
-                    <span class="blog__tag">#{{ tag }}</span>
-                  }
-                </div>
-              </div>
-              <div class="blog__item-arrow" aria-hidden="true">→</div>
-            </article>
+    <div class="blog__status blog__status--error">{{ t('blog.error') }}</div>
+    } @else { @let response = postsResource.value(); @if (response && response.posts.length > 0) {
+    <div class="blog__list">
+      @for (post of response.posts; track post.id) {
+      <article class="blog__item">
+        <div class="blog__item-date">
+          <span class="blog__item-date-text">{{ post.date }}</span>
+        </div>
+        <div class="blog__item-body">
+          @if (post.tags.length) {
+          <span class="blog__item-tag">{{ post.tags[0] }}</span>
           }
+          <h2 class="blog__item-title">{{ t(post.titleKey) }}</h2>
+          <p class="blog__item-excerpt">{{ t(post.excerptKey) }}</p>
+          <div class="blog__item-tags">
+            @for (tag of post.tags; track tag) {
+            <span class="blog__tag">#{{ tag }}</span>
+            }
+          </div>
         </div>
-
-        <div class="blog__pagination">
-          <button
-            class="blog__pager-btn"
-            (click)="prevPage()"
-            [disabled]="currentPage() === 1"
-          >
-            ←
-          </button>
-          <span class="blog__page-label">
-            {{ t('blog.pagination.page') }} {{ currentPage() }}
-          </span>
-          <button
-            class="blog__pager-btn"
-            (click)="nextPage()"
-            [disabled]="response.posts.length < response.pageSize || (currentPage() * response.pageSize >= response.totalCount)"
-          >
-            →
-          </button>
-        </div>
-      } @else {
-        <div class="blog__status">{{ t('blog.noResults') }}</div>
+        <div class="blog__item-arrow" aria-hidden="true">→</div>
+      </article>
       }
-    }
-  </section>
+    </div>
 
+    <div class="blog__pagination">
+      <button class="blog__pager-btn" (click)="prevPage()" [disabled]="currentPage() === 1">
+        ←
+      </button>
+      <span class="blog__page-label">{{ t('blog.pagination.page') }} {{ currentPage() }}</span>
+      <button
+        class="blog__pager-btn"
+        (click)="nextPage()"
+        [disabled]="response.posts.length < response.pageSize || (currentPage() * response.pageSize >= response.totalCount)"
+      >
+        →
+      </button>
+    </div>
+    } @else {
+    <div class="blog__status">{{ t('blog.noResults') }}</div>
+    } }
+  </section>
 </main>
 
 <app-footer></app-footer>
