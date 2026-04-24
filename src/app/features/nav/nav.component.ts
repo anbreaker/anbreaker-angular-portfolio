@@ -1,11 +1,10 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 import { SupportedLang } from '@core/interfaces/portfolio.interfaces';
 import { LanguageStore } from '@core/store/language.store';
-
-import { TranslocoDirective } from '@jsverse/transloco';
 
 interface NavLink {
   labelKey?: string;
@@ -48,7 +47,7 @@ export class NavComponent {
   handleNavigation(link: NavLink): void {
     if (link.anchor) {
       if (this.router.url === '/' || this.router.url.startsWith('/#')) {
-        document.getElementById(link.anchor)?.scrollIntoView({ behavior: 'smooth' });
+        this.scrollToElement(link.anchor);
       } else {
         this.router.navigate(['/'], { fragment: link.anchor });
       }
@@ -56,6 +55,19 @@ export class NavComponent {
       this.router.navigate([link.route]);
     }
     this.menuOpen.set(false);
+  }
+
+  private scrollToElement(anchor: string): void {
+    const anchorElement = this.document.getElementById(anchor);
+    if (!anchorElement) return;
+
+    const fontSize = parseFloat(getComputedStyle(this.document.documentElement).fontSize);
+    const top =
+      anchorElement.getBoundingClientRect().top +
+      (this.document.defaultView?.scrollY ?? 0) -
+      6 * fontSize;
+
+    this.document.defaultView?.scrollTo({ top, behavior: 'smooth' });
   }
 
   scrollToAnchor(anchor: string): void {
