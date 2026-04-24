@@ -1,10 +1,13 @@
-import { afterNextRender, DestroyRef, Directive, ElementRef, inject } from '@angular/core';
+import { afterNextRender, DestroyRef, Directive, ElementRef, inject, input } from '@angular/core';
 
 @Directive({
   standalone: true,
   selector: '[appTilt]',
 })
 export class TiltDirective {
+  readonly appTiltShine = input(true);
+  readonly appTiltIntensity = input(14);
+
   private readonly elementRef = inject(ElementRef<HTMLElement>);
   private readonly destroyRef = inject(DestroyRef);
   private shineEl!: HTMLElement;
@@ -29,7 +32,10 @@ export class TiltDirective {
       pointerEvents: 'none',
       zIndex: '2',
     });
-    host.appendChild(this.shineEl);
+
+    if (this.appTiltShine()) {
+      host.appendChild(this.shineEl);
+    }
 
     host.addEventListener('mousemove', this.onMove);
     host.addEventListener('mouseleave', this.onLeave);
@@ -37,7 +43,7 @@ export class TiltDirective {
     this.destroyRef.onDestroy(() => {
       host.removeEventListener('mousemove', this.onMove);
       host.removeEventListener('mouseleave', this.onLeave);
-      this.shineEl.remove();
+      if (this.appTiltShine()) this.shineEl.remove();
     });
   }
 
@@ -47,14 +53,17 @@ export class TiltDirective {
     const { left, top, width, height } = host.getBoundingClientRect();
     const px = (e.clientX - left) / width;
     const py = (e.clientY - top) / height;
-    host.style.transform = `perspective(800px) rotateX(${(py - 0.5) * -14}deg) rotateY(${(px - 0.5) * 14}deg)`;
-    host.style.setProperty('--mx', `${px * 100}%`);
-    host.style.setProperty('--my', `${py * 100}%`);
-    this.shineEl.style.opacity = '1';
+    const deg = this.appTiltIntensity();
+    host.style.transform = `perspective(800px) rotateX(${(py - 0.5) * -deg}deg) rotateY(${(px - 0.5) * deg}deg)`;
+    if (this.appTiltShine()) {
+      host.style.setProperty('--mx', `${px * 100}%`);
+      host.style.setProperty('--my', `${py * 100}%`);
+      this.shineEl.style.opacity = '1';
+    }
   };
 
   private readonly onLeave = (): void => {
     this.elementRef.nativeElement.style.transform = '';
-    this.shineEl.style.opacity = '0';
+    if (this.appTiltShine()) this.shineEl.style.opacity = '0';
   };
 }
