@@ -13,5 +13,10 @@ export const routes: Routes = [
     path: 'blog',
     loadComponent: async () => (await import('@pages/blog/blog.page')).BlogPageComponent,
   },
+  {
+    path: 'projects/:id',
+    loadComponent: async () =>
+      (await import('@pages/project-detail/project-detail.page')).ProjectDetailPageComponent,
+  },
   { path: '**', redirectTo: '' },
 ];

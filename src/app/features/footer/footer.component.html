@@ -10,7 +10,14 @@
         >
           Francisco Javier
         </span>
-        <a class="footer__logo-link" routerLink="/" aria-label="Ir al inicio" appTilt [appTiltShine]="false" [appTiltIntensity]="10">
+        <a
+          class="footer__logo-link"
+          routerLink="/"
+          aria-label="Ir al inicio"
+          appTilt
+          [appTiltShine]="false"
+          [appTiltIntensity]="10"
+        >
           <img class="footer__logo" src="assets/images/logoRootdevs.webp" alt="rootdevs logo" />
         </a>
       </div>
@@ -28,9 +35,7 @@
         }
       </nav>
 
-      <p class="footer__copy">
-        &copy; {{ currentYear }} Francisco Javier. {{ t('footer.rights') }}
-      </p>
+      <p class="footer__copy">&copy; {{ currentYear }} Rootdevs | {{ t('footer.rights') }}</p>
     </div>
   </footer>
 </ng-container>

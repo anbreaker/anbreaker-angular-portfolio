@@ -7,14 +7,23 @@
       </div>
 
       <div class="projects__grid" appReveal [revealStagger]="true" [revealDelay]="80">
-        @for (project of projects; track project.id; let index = $index) {
-          <div class="projects__card-wrapper" appTilt>
+        @for (project of projects; track project.id) {
+          <div
+            class="projects__card-wrapper"
+            [class.projects__card-wrapper--clickable]="project.detail"
+            appTilt
+            (click)="project.detail && navigateToDetail(project.id)"
+          >
             <app-neon-card color="blue">
               <div class="projects__card">
-                <div class="projects__card-image" aria-hidden="true">
+                <div
+                  class="projects__card-image"
+                  aria-hidden="true"
+                  [style.view-transition-name]="'card-' + project.id"
+                >
                   @if (project.imageUrl) {
                     <img
-                      [src]="project.imageUrl"
+                      [src]="project.imageUrl[langStore.currentLang()]"
                       [alt]="project.id"
                       class="projects__card-screenshot"
                       loading="lazy"
@@ -27,7 +36,12 @@
                 </div>
 
                 <div class="projects__card-body">
-                  <h3 class="projects__card-title">{{ t(project.titleKey) }}</h3>
+                  <h3
+                    class="projects__card-title"
+                    [style.view-transition-name]="'title-' + project.id"
+                  >
+                    {{ t(project.titleKey) }}
+                  </h3>
                   <p class="projects__card-desc">{{ t(project.descriptionKey) }}</p>
 
                   <div class="projects__card-tags">
@@ -37,24 +51,36 @@
                   </div>
 
                   <div class="projects__card-actions">
-                    @if (project.demoUrl) {
+                    @if (project.demoUrl && project.demoUrl !== '#') {
                       <a
                         [href]="project.demoUrl"
-                        class="projects__card-link projects__card-link--primary"
+                        class="mag-btn mag-btn--primary"
                         target="_blank"
                         rel="noopener noreferrer"
+                        [attr.aria-label]="t('projects.viewDemo') + ' ' + t(project.titleKey)"
+                        appMagneticButton
+                        (click)="$event.stopPropagation()"
                       >
-                        {{ t('projects.viewDemo') }}
+                        <span class="mag-btn__label">{{ t('projects.viewDemo') }}</span>
+                        <span class="mag-btn__fill" aria-hidden="true">
+                          {{ t('projects.viewDemo') }}
+                        </span>
                       </a>
                     }
-                    @if (project.codeUrl) {
+                    @if (project.codeUrl && project.codeUrl !== '#') {
                       <a
                         [href]="project.codeUrl"
-                        class="projects__card-link projects__card-link--secondary"
+                        class="mag-btn mag-btn--secondary"
                         target="_blank"
                         rel="noopener noreferrer"
+                        [attr.aria-label]="t('projects.viewCode') + ' ' + t(project.titleKey)"
+                        appMagneticButton
+                        (click)="$event.stopPropagation()"
                       >
-                        {{ t('projects.viewCode') }}
+                        <span class="mag-btn__label">{{ t('projects.viewCode') }}</span>
+                        <span class="mag-btn__fill" aria-hidden="true">
+                          {{ t('projects.viewCode') }}
+                        </span>
                       </a>
                     }
                   </div>

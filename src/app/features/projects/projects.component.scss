@@ -47,6 +47,10 @@
     transition: transform 200ms ease;
     will-change: transform;
 
+    &--clickable {
+      cursor: pointer;
+    }
+
     @media (hover: none) {
       transform: none !important;
     }

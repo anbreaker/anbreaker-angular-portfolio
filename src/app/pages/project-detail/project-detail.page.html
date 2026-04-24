@@ -1,0 +1,77 @@
+<ng-container *transloco="let t">
+  <div class="project-detail">
+    <button
+      class="project-detail__back"
+      (click)="goBack()"
+      [attr.aria-label]="t('projects.detail.backButton')"
+    >
+      ← {{ t('projects.detail.backButton') }}
+    </button>
+
+    @if (project(); as proj) {
+    <div class="project-detail__hero" [style.view-transition-name]="'card-' + proj.id">
+      @if (proj.imageUrl) {
+      <img
+        [src]="proj.imageUrl[langStore.currentLang()]"
+        [alt]="t(proj.titleKey)"
+        class="project-detail__hero-img"
+      />
+      } @else {
+      <div class="project-detail__hero-placeholder">{{ proj.id.charAt(0).toUpperCase() }}</div>
+      }
+    </div>
+
+    <div class="project-detail__body">
+      @if (proj.detail?.kickerKey) {
+      <p class="project-detail__kicker">{{ t(proj.detail!.kickerKey!) }}</p>
+      }
+
+      <h1 class="project-detail__title" [style.view-transition-name]="'title-' + proj.id">
+        {{ t(proj.titleKey) }}
+      </h1>
+
+      <p class="project-detail__description">{{ t(proj.detail!.longDescriptionKey) }}</p>
+
+      <h4 class="project-detail__section-title">Stack</h4>
+      <ul class="project-detail__stack">
+        @for (tech of proj.detail!.stack; track tech) {
+        <li class="project-detail__stack-item">{{ tech }}</li>
+        }
+      </ul>
+
+      <h4 class="project-detail__section-title">{{ t('projects.detail.impact') }}</h4>
+      <p class="project-detail__impact">{{ t(proj.detail!.impactKey) }}</p>
+
+      <div class="project-detail__actions">
+        @if (proj.demoUrl && proj.demoUrl !== '#') {
+        <a
+          [href]="proj.demoUrl"
+          class="mag-btn mag-btn--primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="t('projects.viewDemo') + ' ' + t(proj.titleKey)"
+          appMagneticButton
+        >
+          <span class="mag-btn__label">{{ t('projects.viewDemo') }}</span>
+          <span class="mag-btn__fill" aria-hidden="true">{{ t('projects.viewDemo') }}</span>
+        </a>
+        } @if (proj.codeUrl && proj.codeUrl !== '#') {
+        <a
+          [href]="proj.codeUrl"
+          class="mag-btn mag-btn--secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="t('projects.viewCode') + ' ' + t(proj.titleKey)"
+          appMagneticButton
+        >
+          <span class="mag-btn__label">{{ t('projects.viewCode') }}</span>
+          <span class="mag-btn__fill" aria-hidden="true">{{ t('projects.viewCode') }}</span>
+        </a>
+        }
+      </div>
+    </div>
+    } @else {
+    <p class="project-detail__not-found">{{ t('projects.detail.notFound') }}</p>
+    }
+  </div>
+</ng-container>
