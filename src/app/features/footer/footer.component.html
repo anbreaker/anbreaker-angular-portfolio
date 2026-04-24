@@ -1,15 +1,18 @@
 <ng-container *transloco="let t">
   <footer class="footer" role="contentinfo">
     <div class="footer__container">
-
       <div class="footer__signature-wrap">
         <span
           class="footer__signature"
           aria-label="Francisco Javier — rootdevs"
           appGradientTrack
           [angleVar]="'--sig-angle'"
-        >Francisco Javier</span>
-        <span class="footer__handle">rootdevs</span>
+        >
+          Francisco Javier
+        </span>
+        <a class="footer__logo-link" routerLink="/" aria-label="Ir al inicio" appTilt [appTiltShine]="false" [appTiltIntensity]="10">
+          <img class="footer__logo" src="assets/images/logoRootdevs.webp" alt="rootdevs logo" />
+        </a>
       </div>
 
       <nav class="footer__social" aria-label="Social media links">
@@ -28,7 +31,6 @@
       <p class="footer__copy">
         &copy; {{ currentYear }} Francisco Javier. {{ t('footer.rights') }}
       </p>
-
     </div>
   </footer>
 </ng-container>

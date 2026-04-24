@@ -1,14 +1,16 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 import { SocialLink } from '@core/interfaces/portfolio.interfaces';
 import { GradientTrackDirective } from '@shared/directives/gradient-track.directive';
-import { TranslocoDirective } from '@jsverse/transloco';
+import { TiltDirective } from '@shared/directives/tilt.directive';
 
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TranslocoDirective, GradientTrackDirective],
+  imports: [GradientTrackDirective, RouterLink, TiltDirective, TranslocoDirective],
   selector: 'app-footer',
   styleUrl: './footer.component.scss',
   templateUrl: './footer.component.html',
@@ -21,7 +23,6 @@ export class FooterComponent {
   protected safeIcon(icon: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(icon);
   }
-
 
   protected readonly socialLinks: SocialLink[] = [
     {

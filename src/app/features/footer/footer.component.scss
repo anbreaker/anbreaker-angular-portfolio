@@ -47,12 +47,23 @@
     }
   }
 
-  &__handle {
-    color: var(--color-text-muted);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+  &__logo-link {
+    display: inline-flex;
+    opacity: 0.85;
+    transition:
+      opacity 250ms ease,
+      transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__logo {
+    height: 5rem;
+    object-fit: contain;
+    transform: scale(1.08);
+    width: auto;
   }
 
   &__social {
