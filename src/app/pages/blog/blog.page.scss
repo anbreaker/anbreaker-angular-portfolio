@@ -1,9 +1,6 @@
 .blog {
   background: var(--color-bg);
   min-height: 100svh;
-  padding-top: 5rem;
-
-  // ─── Hero section ────────────────────────────────────────────────────────
 
   &__hero {
     border-bottom: 1px solid var(--color-border);
@@ -60,8 +57,6 @@
       box-shadow: var(--glow-cyan);
     }
   }
-
-  // ─── Post list ───────────────────────────────────────────────────────────
 
   &__list-section {
     margin: 0 auto;
@@ -206,8 +201,6 @@
     }
   }
 
-  // ─── Pagination ──────────────────────────────────────────────────────────
-
   &__pagination {
     align-items: center;
     display: flex;
@@ -250,8 +243,6 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
   }
-
-  // ─── Status messages ─────────────────────────────────────────────────────
 
   &__status {
     color: var(--color-text-muted);
