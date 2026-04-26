@@ -1,6 +1,6 @@
 {
   "about": {
-    "description": "Desenvolvedor Full Stack na Sngular, baseado na Espanha. Construo aplicações web escaláveis com TypeScript, Vue e Angular no frontend, e Node.js e Express no backend. Clean Code e SOLID não são buzzwords — são o mínimo exigível. Fora do trabalho, opero meu próprio homelab com Raspberry Pi, Docker e Home Assistant, porque a autonomia tecnológica também é uma filosofia de vida. E quando não estou na frente de uma tela, cuido de vinhedos e oliveiras. Fundador da RootDevs.",
+    "description": "Desenvolvedor Full Stack na Sngular, baseado na Espanha. Construo aplicações web escaláveis com TypeScript, Vue e Angular no frontend, e Node.js e Express no backend. Clean Code e SOLID não são buzzwords — são o mínimo exigível. Fora do trabalho, opero meu próprio homelab com Raspberry Pi, Docker e Home Assistant, porque a autonomia tecnológica também é uma filosofia de vida. E quando não estou à frente de um ecrã, cuido de vinhas e oliveiras. Fundador da RootDevs.",
     "domains": {
       "code": {
         "description": "Aplicações web com TypeScript usando Vue, React, Angular e Lit conforme o projeto. Vanilla JS quando a situação pede. Node.js e Express no backend.",
@@ -17,7 +17,83 @@
       "title": "DOMÍNIOS"
     },
     "label": "QUEM SOU EU",
-    "title": "Sobre Mim"
+    "title": "Sobre Mim",
+    "available": "DISPONÍVEL",
+    "bio": {
+      "eyebrow": "Quem sou",
+      "headlineVerb1": "Construo",
+      "headlineNoun1": "software",
+      "headlineVerb2": "Cuido de",
+      "headlineNoun2": "laranjeiras",
+      "p1Strong": "Desenvolvedor Full Stack",
+      "p1Rest": "com Node, JS e TS, nascido na Espanha e vivendo entre a Extremadura e o Alentejo Português, apaixonado por uma alentejana maravilhosa. Construo aplicações web escaláveis com JavaScript, TypeScript, o framework adequado no frontend, e Node.js e Express no backend.",
+      "p2": "Clean Code e SOLID não são buzzwords — são o mínimo exigível. Fora do trabalho, opero meu próprio homelab, como fã de Raspberry Pi e usuário de Cloudflare, com Docker e Home Assistant, porque a autonomia tecnológica também é uma filosofia de vida.",
+      "p3": "E quando não estou à frente de um ecrã, levo uma vida no campo: cuido de laranjeiras, vinhas, oliveiras e da horta. Sou eletricista, mecânico, pedreiro, montador, canalizador e aprendiz de serralheiro (o artista de verdade e quem me ensinou tudo é o meu pai). A paciência de um ciclo anual reeduca a forma como escrevo código e transforma a forma como quero viver neste mundo.",
+      "p3Founder": "Fundador da RootDevs.",
+      "sig": "Francisco Javier"
+    },
+    "stats": {
+      "years": {
+        "label": "Anos em frontend",
+        "note": "Angular, Vue, React, Lit... em rotação desde 2021."
+      },
+      "repos": {
+        "label": "Repos públicos",
+        "note": "Experimentos, ferramentas, testes — tudo no GitHub."
+      },
+      "domains": {
+        "label": "Domínios",
+        "note": "Software · infraestrutura · terra."
+      },
+      "autonomy": {
+        "label": "Renovável",
+        "note": "A autonomia tecnológica é também uma filosofia de vida."
+      }
+    },
+    "facts": {
+      "base": {
+        "k": "BASE",
+        "v": "Espanha",
+        "note": "— remoto · disponível para viajar"
+      },
+      "role": {
+        "k": "CARGO",
+        "v": "Desenvolvedor Full Stack",
+        "note": "· especialista Angular"
+      },
+      "since": {
+        "k": "DESDE",
+        "v": "2021",
+        "note": "— 5+ anos em produção"
+      },
+      "founder": {
+        "k": "FUNDADOR",
+        "v": "RootDevs",
+        "note": "· consultoria Angular"
+      },
+      "loves": {
+        "k": "LOVES",
+        "v": "Homelab, oliveiras,"
+      }
+    },
+    "tabsVerb": "Três",
+    "tabsNoun": "domínios",
+    "tabsSuffix": ", uma mesma curiosidade.",
+    "domainSw": {
+      "tab": "Software",
+      "desc": "Aplicações web com TypeScript usando Vue, React, Angular e Lit — conforme o projeto. Vanilla JS quando a situação pede. No backend, Node.js e Express, com Nest quando a arquitetura cresce.",
+      "prompt": "ng generate feature clean-code"
+    },
+    "domainIn": {
+      "tab": "Infraestrutura",
+      "desc": "Usuário Linux. Homelab self-hosted com Raspberry Pi e Docker. Entusiasta da orquestração de agentes IA generativa — Claude, MCP e automação inteligente. Home Assistant para tudo que pisca.",
+      "prompt": "docker compose up -d home-assistant"
+    },
+    "domainTi": {
+      "tab": "Terra",
+      "desc": "Agricultura de baixo insumo externo. Laranjeiras, oliveiras e vinhas geridos com critério de regeneração do solo. Menos insumos, mais observação. A paciência de um ciclo anual reeduca o modo como escrevo código.",
+      "prompt": "./poda.sh --ramas old --conservar fruto"
+    }
   },
   "blog": {
     "error": "Erro ao carregar os posts do blog. Por favor, tente novamente mais tarde.",

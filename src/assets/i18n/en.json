@@ -17,7 +17,83 @@
       "title": "DOMAINS"
     },
     "label": "WHO AM I",
-    "title": "About Me"
+    "title": "About Me",
+    "available": "AVAILABLE",
+    "bio": {
+      "eyebrow": "Who I am",
+      "headlineVerb1": "I build",
+      "headlineNoun1": "software",
+      "headlineVerb2": "I tend",
+      "headlineNoun2": "orange trees",
+      "p1Strong": "Full Stack Developer",
+      "p1Rest": "with Node, JS, TS, born in Spain and living between Extremadura and the Portuguese Alentejo, in love with a wonderful Alentejana woman. I build scalable web applications with JavaScript, TypeScript, the right framework on the frontend, and Node.js and Express on the backend.",
+      "p2": "Clean Code and SOLID are not buzzwords — they are the minimum standard. Off the keyboard, I run my own homelab as a Raspberry Pi fan and Cloudflare user, with Docker and Home Assistant, because tech autonomy is also a philosophy of life.",
+      "p3": "And when I am not in front of a screen, I live a countryside life: I tend orange trees, vineyards, olive groves, and the vegetable garden. I am an electrician, mechanic, bricklayer, assembler, plumber, and a would-be locksmith (the true artist and the one who taught me everything is my father). The patience of an annual cycle re-educates the way I write code and reshapes the way I want to live in this world.",
+      "p3Founder": "Founder of RootDevs.",
+      "sig": "Francisco Javier"
+    },
+    "stats": {
+      "years": {
+        "label": "Years in frontend",
+        "note": "Angular, Vue, React, Lit... in rotation since 2021."
+      },
+      "repos": {
+        "label": "Public repos",
+        "note": "Experiments, tools, tests — all on GitHub."
+      },
+      "domains": {
+        "label": "Domains",
+        "note": "Software · infrastructure · land."
+      },
+      "autonomy": {
+        "label": "Autonomy",
+        "note": "Technological autonomy is also a philosophy of life."
+      }
+    },
+    "facts": {
+      "base": {
+        "k": "BASE",
+        "v": "Spain",
+        "note": "— remote · available to travel"
+      },
+      "role": {
+        "k": "ROLE",
+        "v": "Full Stack Developer",
+        "note": "· Angular specialist"
+      },
+      "since": {
+        "k": "SINCE",
+        "v": "2021",
+        "note": "— 5+ years in production"
+      },
+      "founder": {
+        "k": "FOUNDER",
+        "v": "RootDevs",
+        "note": "· Angular consulting"
+      },
+      "loves": {
+        "k": "LOVES",
+        "v": "Homelab, olive trees,"
+      }
+    },
+    "tabsVerb": "Three",
+    "tabsNoun": "domains",
+    "tabsSuffix": ", one shared curiosity.",
+    "domainSw": {
+      "tab": "Software",
+      "desc": "Web apps with TypeScript using Vue, React, Angular and Lit — depending on the project. Vanilla JS when the situation calls for it. Node.js and Express on the backend, Nest when the architecture grows.",
+      "prompt": "ng generate feature clean-code"
+    },
+    "domainIn": {
+      "tab": "Infrastructure",
+      "desc": "Linux user. Self-hosted homelab with Raspberry Pi and Docker. Enthusiast of generative AI agent orchestration — Claude, MCP and intelligent automation. Home Assistant for everything that blinks.",
+      "prompt": "docker compose up -d home-assistant"
+    },
+    "domainTi": {
+      "tab": "Land",
+      "desc": "Low external-input farming. Vineyards and olive trees managed with soil regeneration principles. Fewer inputs, more observation. The patience of an annual cycle re-educates how I write code.",
+      "prompt": "./poda.sh --ramas old --conservar fruto"
+    }
   },
   "blog": {
     "error": "Failed to load blog posts. Please try again later.",

@@ -1,65 +1,154 @@
 <app-nav />
 
-<main class="about-container" *transloco="let t">
-  <section class="about-hero">
-    <h1 class="about-title graffiti-text">{{ t('about.title') }}</h1>
-    <div class="about-label-wrapper">
-      <span class="about-label neon-text">{{ t('about.label') }}</span>
-    </div>
-  </section>
-
-  <section class="about-content">
-    <div class="about-layout">
-      <app-glass-card class="about-card about-card--main">
-        <p class="about-description">{{ t('about.description') }}</p>
-      </app-glass-card>
-
-      <div class="about-grid">
-        <app-neon-card color="purple" class="about-card--stats">
-          <div class="stat-item">
-            <span class="stat-value">10+</span>
-            <span class="stat-label">YEARS EXP</span>
-          </div>
-        </app-neon-card>
-
-        <app-neon-card color="blue" class="about-card--stats">
-          <div class="stat-item">
-            <span class="stat-value">180+</span>
-            <span class="stat-label">REPOS</span>
-          </div>
-        </app-neon-card>
-
-        <app-neon-card color="orange" class="about-card--stats">
-          <div class="stat-item">
-            <span class="stat-value">100%</span>
-            <span class="stat-label">ENERGY</span>
-          </div>
-        </app-neon-card>
+<main class="about" *transloco="let t">
+  <div class="about__inner">
+    <!-- HEAD ROW -->
+    <div class="about__head-row" appReveal>
+      <div class="about__head-title">
+        <span class="about__head-num">04</span>
+        / {{ t('about.title') | uppercase }}
+      </div>
+      <div class="about__portrait-wrap" #portraitWrap>
+        <div class="about__portrait">
+          <img src="assets/images/image.png" [alt]="t('about.bio.sig')" />
+        </div>
+        <div class="about__portrait-meta">
+          <span class="about__portrait-name">● {{ t('about.bio.sig') }}</span>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section class="about-domains">
-    <div class="about-domains__container">
-      <p class="about-domains__label">{{ t('about.domains.title') }}</p>
-      <div class="about-domains__grid">
-        @for (domain of domains; track domain.key) {
-        <div class="domain-card domain-card--{{ domain.accent }}">
-          <span class="domain-card__icon">{{ domain.icon }}</span>
-          <h3 class="domain-card__title">{{ t('about.domains.' + domain.key + '.title') }}</h3>
-          <p class="domain-card__description">
-            {{ t('about.domains.' + domain.key + '.description') }}
-          </p>
-          <div class="domain-card__tags">
-            @for (tag of domain.tags; track tag) {
-            <span class="domain-card__tag">{{ tag }}</span>
+    <!-- STATS -->
+    <div class="about__stats" #statsEl appReveal [revealDelay]="100">
+      @for (stat of stats; track stat.key; let i = $index) {
+      <div class="about__stat about__stat--{{ stat.accentClass }}">
+        <span class="about__stat-index">0{{ i + 1 }}</span>
+        <div class="about__stat-n">
+          <span class="about__stat-num">{{ displayValues()[i] }}</span>
+          <span class="about__stat-suffix about__stat-suffix--{{ stat.accentClass }}">
+            {{ stat.suffix }}
+          </span>
+        </div>
+        <div class="about__stat-lbl">{{ t('about.stats.' + stat.key + '.label') }}</div>
+        <div class="about__stat-note">{{ t('about.stats.' + stat.key + '.note') }}</div>
+      </div>
+      }
+    </div>
+
+    <!-- BIO GRID -->
+    <div class="about__bio-grid">
+      <div class="about__bio-main" appReveal [revealDelay]="150">
+        <div class="about__bio-eyebrow">{{ t('about.bio.eyebrow') }}</div>
+        <h2 class="about__bio-h2">
+          {{ t('about.bio.headlineVerb1') }}&nbsp;
+          <em>{{ t('about.bio.headlineNoun1') }}</em>
+          .
+          <br />
+          {{ t('about.bio.headlineVerb2') }}&nbsp;
+          <em>{{ t('about.bio.headlineNoun2') }}</em>
+          .
+        </h2>
+        <p class="about__bio-p">
+          <strong>{{ t('about.bio.p1Strong') }}</strong>
+          {{ t('about.bio.p1Rest') }}
+        </p>
+        <p class="about__bio-p">{{ t('about.bio.p2') }}</p>
+        <p class="about__bio-p">
+          {{ t('about.bio.p3') }}
+          <em class="about__bio-founder">{{ t('about.bio.p3Founder') }}</em>
+        </p>
+        <div class="about__bio-sig">{{ t('about.bio.sig') }}</div>
+      </div>
+
+      <div class="about__bio-side" appReveal [revealDelay]="200">
+        @for (fact of facts; track fact.key) {
+        <div class="about__fact">
+          <span class="about__fact-k">{{ t('about.facts.' + fact.key + '.k') }}</span>
+          <span class="about__fact-v">
+            {{ t('about.facts.' + fact.key + '.v') }} @if (fact.hasNote) {
+            <span class="about__fact-note">{{ t('about.facts.' + fact.key + '.note') }}</span>
+            } @if (fact.hasEm) {
+            <em class="about__fact-em">clean&nbsp;code</em>
+            }
+          </span>
+        </div>
+        }
+      </div>
+    </div>
+
+    <!-- TABS: DOMAINS -->
+    <div class="about__tabs-section" appReveal [revealDelay]="250">
+      <div class="about__tabs-head">
+        <h3 class="about__tabs-title">
+          {{ t('about.tabsVerb') }}
+          <em>{{ t('about.tabsNoun') }}</em>
+          {{ t('about.tabsSuffix') }}
+        </h3>
+        <div class="about__kicker">
+          <span class="about__kicker-dot"></span>
+          {{ t('about.domains.title') }}
+        </div>
+      </div>
+
+      <div class="about__tab-bar" #tabBar>
+        <div class="about__tab-indicator" #tabIndicator></div>
+        @for (panel of panels; track panel.id) {
+        <button
+          class="about__tab"
+          [class.about__tab--active]="activeTab() === panel.id"
+          [attr.data-id]="panel.id"
+          (click)="setTab(panel.id)"
+        >
+          <span class="about__tab-sym">{{ panel.sym }}</span>
+          {{ t(panel.tabKey) }}
+        </button>
+        }
+      </div>
+
+      <div class="about__panels">
+        @for (panel of panels; track panel.id) {
+        <div class="about__panel" [class.about__panel--active]="activeTab() === panel.id">
+          <div class="about__panel-main">
+            <div class="about__panel-index about__panel-index--{{ panel.indexClass }}">
+              {{ panel.indexNum }}
+            </div>
+            <h4 class="about__panel-h4">{{ t(panel.tabKey) }}</h4>
+            <p class="about__panel-p">{{ t(panel.descKey) }}</p>
+            <div class="about__prompt">
+              <span class="about__prompt-sh">{{ panel.promptPath }}</span>
+              ❯
+              <span class="about__prompt-typed">{{ t(panel.promptKey) }}</span>
+              <span class="about__prompt-caret"></span>
+            </div>
+          </div>
+          <div class="about__panel-side">
+            @for (item of panel.items; track item.name) {
+            <div class="about__side-row">
+              <span class="about__side-name">{{ item.name }}</span>
+              <span
+                class="about__side-tag"
+                [class.about__side-tag--cy]="item.accent === 'cy'"
+                [class.about__side-tag--ro]="item.accent === 'ro'"
+                [class.about__side-tag--em]="item.accent === 'em'"
+              >
+                {{ item.tag }}
+              </span>
+            </div>
             }
           </div>
         </div>
         }
       </div>
     </div>
-  </section>
+    <div #sectionEnd></div>
+  </div>
+
+  <div
+    class="about__floating-portrait"
+    [class.about__floating-portrait--visible]="showFloatingPortrait()"
+  >
+    <img src="assets/images/image.png" [alt]="t('about.bio.sig')" />
+  </div>
 
   <app-section-divider fillColor="var(--color-bg)" [flip]="true" />
 </main>

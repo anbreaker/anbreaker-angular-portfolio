@@ -17,7 +17,83 @@
       "title": "DOMINIOS"
     },
     "label": "QUIÉN SOY",
-    "title": "Sobre Mí"
+    "title": "Sobre Mí",
+    "available": "DISPONIBLE",
+    "bio": {
+      "eyebrow": "Quién soy",
+      "headlineVerb1": "Construyo",
+      "headlineNoun1": "software",
+      "headlineVerb2": "Cuido",
+      "headlineNoun2": "Naranjos",
+      "p1Strong": "Full Stack Developer",
+      "p1Rest": "con Node, Js, Ts, nacido en España viviendo entre Extremadura y el Alentejo Portugués, enamorado de una chica Alentejana maravillosa. Construyo aplicaciones web escalables con JavaScript, TypeScript, el framework adecuado en el frontend, y Node.js y Express en el backend.",
+      "p2": "Clean Code y SOLID no son buzzwords — son el mínimo exigible. Fuera del trabajo, opero mi propio homelab, con Raspberry Pi Fan, CloudFare User, Docker y Home Assistant, porque la autonomía tecnológica es también una filosofía de vida.",
+      "p3": "Y cuando no estoy frente a una pantalla, llevo vida en el campo, cuido naranjos, olivos, viñedos, la huerta... soy electricista, mecanico, albañil, montador, fontanero, intento de cerrajero, (el artista y quien todo me enseño es mi padre). La paciencia de un ciclo anual reeduca el modo en que escribo código y modifica mi modo de querer vivir en este mundo.",
+      "p3Founder": "Fundador de RootDevs.",
+      "sig": "Francisco Javier"
+    },
+    "stats": {
+      "years": {
+        "label": "Años en frontend",
+        "note": "Angular, Vue, React, Lit... en rotación desde 2021."
+      },
+      "repos": {
+        "label": "Repos públicos",
+        "note": "Experimentos, herramientas, pruebas — todo en GitHub."
+      },
+      "domains": {
+        "label": "Dominios",
+        "note": "Software · infraestructura · tierra."
+      },
+      "autonomy": {
+        "label": "Autónomo",
+        "note": "La autonomía tecnológica es también una filosofía de vida"
+      }
+    },
+    "facts": {
+      "base": {
+        "k": "BASE",
+        "v": "España",
+        "note": "— remoto · disponible para viajar"
+      },
+      "role": {
+        "k": "ROL",
+        "v": "Full Stack Developer",
+        "note": "· Angular specialist"
+      },
+      "since": {
+        "k": "DESDE",
+        "v": "2021",
+        "note": "— 5+ años en producción"
+      },
+      "founder": {
+        "k": "FOUNDER",
+        "v": "RootDevs",
+        "note": "· consultoría Angular"
+      },
+      "loves": {
+        "k": "LOVES",
+        "v": "Homelab, olivos,"
+      }
+    },
+    "tabsVerb": "Tres",
+    "tabsNoun": "dominios",
+    "tabsSuffix": ", una misma curiosidad.",
+    "domainSw": {
+      "tab": "Software",
+      "desc": "Aplicaciones web con TypeScript usando Vue, React, Angular y Lit — según el proyecto. Vanilla JS cuando la situación lo pide. En el backend, Node.js y Express, con Nest cuando la arquitectura crece.",
+      "prompt": "ng generate feature clean-code"
+    },
+    "domainIn": {
+      "tab": "Infraestructura",
+      "desc": "Linux user. Homelab self-hosted con Raspberry Pi y Docker. Entusiasta de la orquestación de agentes IA generativa — Claude, MCP y automatización inteligente. Home Assistant para todo lo que parpadea.",
+      "prompt": "docker compose up -d home-assistant"
+    },
+    "domainTi": {
+      "tab": "Tierra",
+      "desc": "Agricultura de bajo impacto externo. Naranjos, olivos y viñedos gestionados con criterio de regeneración del suelo. Menos insumos, más observación. La paciencia de un ciclo anual reeduca el modo en que escribo código.",
+      "prompt": "./poda.sh --ramas old --conservar fruto"
+    }
   },
   "blog": {
     "error": "Error al cargar los posts del blog. Por favor, inténtalo de nuevo más tarde.",
