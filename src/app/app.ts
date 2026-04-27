@@ -6,7 +6,7 @@ import { CursorComponent } from '@shared/components/cursor/cursor.component';
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterOutlet, CursorComponent],
+  imports: [CursorComponent, RouterOutlet],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
