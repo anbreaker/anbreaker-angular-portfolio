@@ -1,58 +1,175 @@
 <ng-container *transloco="let t">
   <section id="tech" class="tech-stack" aria-labelledby="tech-heading">
+    <!-- ── Header ── -->
     <div class="tech-stack__container">
-      <div class="tech-stack__header" appReveal>
-        <p class="tech-stack__label">{{ t('techStack.label') }}</p>
-        <h2 id="tech-heading" class="tech-stack__title">{{ t('techStack.title') }}</h2>
-      </div>
-
-      <div class="tech-stack__grid" appReveal [revealStagger]="true" [revealDelay]="80">
-        @for (item of techItems; track item.id) {
-          <app-neon-card
-            [color]="item.glowColor"
-            [style.--card-bg]="item.cardBg"
-            [style.--card-border]="'transparent'"
-          >
-            <div class="tech-stack__item" [class.tech-stack__item--solid]="item.cardBg">
-              <div class="tech-stack__item-icon" aria-hidden="true">
-                <img
-                  [src]="item.iconUrl"
-                  [alt]="item.name"
-                  width="48"
-                  height="48"
-                  loading="lazy"
-                  onerror="
-                    this.style.display = 'none';
-                    this.nextElementSibling.style.display = 'flex';
-                  "
-                />
-                <span class="tech-stack__item-fallback" style="display: none">
-                  {{ item.name.charAt(0) }}
-                </span>
-              </div>
-              <h3 class="tech-stack__item-name">{{ item.name }}</h3>
-              <p class="tech-stack__item-desc">{{ item.description }}</p>
-            </div>
-          </app-neon-card>
-        }
-      </div>
+      <header class="tech-stack__header" appReveal>
+        <div class="tech-stack__header-left">
+          <p class="tech-stack__kicker">{{ t('techStack.kicker') }}</p>
+          <h2 id="tech-heading" class="tech-stack__title">
+            {{ t('techStack.workStyle') }}
+            <em>{{ t('techStack.workStyleAccent') }}</em>
+            .
+          </h2>
+          <p class="tech-stack__lead">{{ t('techStack.lead') }}</p>
+        </div>
+      </header>
     </div>
 
-    <div class="tech-stack__marquee-wrap" aria-hidden="true">
-      <div class="tech-stack__marquee-border"></div>
-      <div class="marquee-wrap">
-        <div class="marquee-track tech-stack__marquee-track">
-          @for (item of marqueeItems; track item) {
-            <span class="tech-stack__marquee-item">{{ item }}</span>
-            <span class="tech-stack__marquee-sep" aria-hidden="true">·</span>
+    <!-- Orbital -->
+    <div class="tech-stack__orbital-wrap" aria-hidden="true">
+      <!-- Decorative orbit rings (SVG) -->
+      <svg
+        class="tech-stack__orbital-svg"
+        viewBox="0 0 1200 620"
+        preserveAspectRatio="xMidYMid meet"
+        focusable="false"
+      >
+        <circle class="tech-stack__orbit-path" cx="600" cy="310" r="160" />
+        <circle class="tech-stack__orbit-path" cx="600" cy="310" r="270" />
+        <circle class="tech-stack__orbit-path" cx="600" cy="310" r="380" />
+      </svg>
+
+      <!-- Center disc: static identity -->
+      <div class="tech-stack__center-disc">
+        <span class="tech-stack__center-name">Francisco</span>
+        <span class="tech-stack__center-tag">{{ t('techStack.centerTag') }}</span>
+        <span class="tech-stack__center-meta">{{ t('techStack.centerMeta') }}</span>
+      </div>
+
+      <!-- Orbit rings -->
+      @for (ring of rings; track ring.animClass) {
+        <div class="tech-stack__orbit tech-stack__orbit--{{ ring.animClass }}">
+          @for (node of ring.nodes; track node.id) {
+            <div
+              class="tech-stack__node tech-stack__node--{{ ring.animClass }} tech-stack__node--{{
+                node.color
+              }}"
+              [class.tech-stack__node--light-icon]="node.lightIcon"
+              [style.left]="'calc(50% + ' + node.x + 'px)'"
+              [style.top]="'calc(50% + ' + node.y + 'px)'"
+            >
+              @if (node.iconSlug) {
+                <img
+                  [src]="
+                    'https://cdn.simpleicons.org/' +
+                    node.iconSlug +
+                    (node.lightIcon ? '/ffffff' : '')
+                  "
+                  [alt]="node.name"
+                  width="32"
+                  height="32"
+                  loading="lazy"
+                />
+              } @else {
+                <!-- Signals: custom inline icon -->
+                <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">
+                  <rect
+                    width="32"
+                    height="32"
+                    rx="6"
+                    fill="#0a0a0b"
+                    stroke="#dd0031"
+                    stroke-width="1.5"
+                  />
+                  <path d="M11 11h10l-4 6h5L13 24l3-6h-5Z" fill="#dd0031" />
+                </svg>
+              }
+              <span class="tech-stack__node-label">{{ node.name }}</span>
+            </div>
           }
-          @for (item of marqueeItems; track item + '_dup') {
-            <span class="tech-stack__marquee-item">{{ item }}</span>
-            <span class="tech-stack__marquee-sep" aria-hidden="true">·</span>
+        </div>
+      }
+    </div>
+
+    <!-- ── Ticker ── -->
+    <div class="tech-stack__ticker" aria-hidden="true">
+      <div class="tech-stack__ticker-head">
+        <span>ROOTDEVS.STACK</span>
+        <span class="tech-stack__ticker-live">
+          <span class="tech-stack__ticker-pulse"></span>
+          {{ t('techStack.hotSwappable') }}
+        </span>
+        <span class="tech-stack__ticker-loyalty">{{ t('techStack.loyaltyLine') }}</span>
+      </div>
+
+      <!-- Row A -->
+      <div class="tech-stack__marquee">
+        <div class="tech-stack__marquee-track">
+          @for (item of tickerAItems; track $index) {
+            <span class="tech-stack__pill">
+              @if (item.iconSlug) {
+                <img
+                  [src]="
+                    'https://cdn.simpleicons.org/' +
+                    item.iconSlug +
+                    (item.lightIcon ? '/ffffff' : '')
+                  "
+                  [alt]="item.name"
+                  width="22"
+                  height="22"
+                  loading="lazy"
+                />
+              } @else {
+                <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+                  <rect
+                    width="32"
+                    height="32"
+                    rx="6"
+                    fill="#0a0a0b"
+                    stroke="#dd0031"
+                    stroke-width="1.5"
+                  />
+                  <path d="M11 11h10l-4 6h5L13 24l3-6h-5Z" fill="#dd0031" />
+                </svg>
+              }
+              {{ item.name }}
+            </span>
           }
         </div>
       </div>
-      <div class="tech-stack__marquee-border"></div>
+
+      <!-- Row B — reverse -->
+      <div class="tech-stack__marquee tech-stack__marquee--reverse">
+        <div class="tech-stack__marquee-track">
+          @for (item of tickerBItems; track $index) {
+            <span class="tech-stack__pill">
+              @if (item.iconSlug) {
+                <img
+                  [src]="
+                    'https://cdn.simpleicons.org/' +
+                    item.iconSlug +
+                    (item.lightIcon ? '/ffffff' : '')
+                  "
+                  [alt]="item.name"
+                  width="22"
+                  height="22"
+                  loading="lazy"
+                />
+              } @else {
+                <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+                  <rect
+                    width="32"
+                    height="32"
+                    rx="6"
+                    fill="#0a0a0b"
+                    stroke="#dd0031"
+                    stroke-width="1.5"
+                  />
+                  <path d="M11 11h10l-4 6h5L13 24l3-6h-5Z" fill="#dd0031" />
+                </svg>
+              }
+              {{ item.name }}
+            </span>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Footer line ── -->
+    <div class="tech-stack__foot">
+      <span>FRONT · BACK · TOOLING</span>
+      <em class="tech-stack__foot-center">"{{ t('techStack.footQuote') }}"</em>
+      <span>SINCE 2020</span>
     </div>
   </section>
 </ng-container>
