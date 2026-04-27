@@ -3,8 +3,6 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { defineConfig, Plugin } from 'vite';
 
-// Replica el fileReplacement de Angular:
-// environment.ts → environment.dev.ts cuando mode === 'dev'
 function envReplacementPlugin(): Plugin {
   const devEnvPath = resolve(__dirname, 'src/environments/environment.dev.ts');
 
@@ -22,6 +20,7 @@ function envReplacementPlugin(): Plugin {
 
 export default defineConfig({
   root: 'src',
+  publicDir: '../public',
 
   plugins: [
     angular({
@@ -44,12 +43,16 @@ export default defineConfig({
     },
   },
 
-  // Solo expone variables NG_APP_* al bundle del cliente
   envPrefix: 'NG_APP_',
 
   server: {
     port: 4200,
     open: true,
     hmr: true,
+  },
+
+  build: {
+    outDir: '../dist',
+    emptyOutDir: true,
   },
 });

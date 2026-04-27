@@ -11,6 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "experimentalDecorators": true,
+    "ignoreDeprecations": "6.0",
     "importHelpers": true,
     "isolatedModules": true,
     "module": "preserve",
@@ -35,5 +36,5 @@
     "target": "ES2022",
     "types": ["vitest/globals", "vite/client"]
   },
-  "include": ["src/**/*.ts", "vitest.config.ts"]
+  "include": ["src/**/*.ts", "vite.config.ts", "vitest.config.ts"]
 }
