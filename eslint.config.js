@@ -4,6 +4,7 @@ import angular from 'angular-eslint';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import jsonc from 'eslint-plugin-jsonc';
 import * as jsoncParser from 'jsonc-eslint-parser';
+import perfectionist from 'eslint-plugin-perfectionist';
 import playwright from 'eslint-plugin-playwright';
 
 import componentDecoratorOrder from './.eslint/rules/component-decorator-order.js';
@@ -152,11 +153,16 @@ export default tseslint.config(
     },
   },
 
-  // Block 8: Data and interface files — enforce key ordering on object literals
+  // Block 8: Object literal key ordering — auto-fixable via perfectionist
+  // Note: *.component.ts excluded — conflicts with custom/component-decorator-order
   {
     files: ['**/*.data.ts', '**/interfaces/*.ts', '**/models/*.ts', '**/constants/*.ts'],
+    plugins: { perfectionist },
     rules: {
-      'sort-keys': ['warn', 'asc', { caseSensitive: false, minKeys: 3, natural: true }],
+      'perfectionist/sort-objects': [
+        'warn',
+        { order: 'asc', type: 'natural', ignoreCase: true },
+      ],
     },
   },
 
