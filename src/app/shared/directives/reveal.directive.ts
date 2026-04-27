@@ -15,9 +15,11 @@ export class RevealDirective implements OnInit, OnDestroy {
   ngOnInit(): void {
     const nativeElement = this.el.nativeElement;
 
-    nativeElement.classList.add('reveal');
-
-    if (this.revealStagger) nativeElement.classList.add('reveal-stagger');
+    if (this.revealStagger) {
+      nativeElement.classList.add('reveal-stagger');
+    } else {
+      nativeElement.classList.add('reveal');
+    }
 
     if (this.revealDelay) nativeElement.style.transitionDelay = `${this.revealDelay}ms`;
 

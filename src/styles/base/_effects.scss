@@ -1,7 +1,5 @@
 // Visual effects — neon glow, glassmorphism, reveal animations
 
-// ─── Neon glows ──────────────────────────────────────────────────────────────
-
 .neon-glow-blue {
   box-shadow: var(--glow-blue);
   transition: box-shadow 300ms ease;
@@ -66,7 +64,6 @@
   border-radius: var(--radius-card);
 }
 
-// ─── Scroll reveal ───────────────────────────────────────────────────────────
 // Applied by RevealDirective. Elements start hidden, gain .reveal-in on enter.
 
 .reveal {
@@ -85,48 +82,51 @@
   }
 }
 
-// stagger children
 .reveal-stagger {
+  > * {
+    filter: blur(6px);
+    opacity: 0;
+    translate: 0 50px;
+  }
+
   &.reveal-in > *:nth-child(1) {
-    transition-delay: 0s;
+    animation: reveal-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0s both;
   }
   &.reveal-in > *:nth-child(2) {
-    transition-delay: 0.12s;
+    animation: reveal-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.12s both;
   }
   &.reveal-in > *:nth-child(3) {
-    transition-delay: 0.24s;
+    animation: reveal-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.24s both;
   }
   &.reveal-in > *:nth-child(4) {
-    transition-delay: 0.36s;
+    animation: reveal-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.36s both;
   }
   &.reveal-in > *:nth-child(5) {
-    transition-delay: 0.48s;
+    animation: reveal-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.48s both;
   }
   &.reveal-in > *:nth-child(6) {
-    transition-delay: 0.6s;
+    animation: reveal-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.6s both;
   }
   &.reveal-in > *:nth-child(7) {
-    transition-delay: 0.72s;
+    animation: reveal-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.72s both;
   }
   &.reveal-in > *:nth-child(8) {
-    transition-delay: 0.84s;
-  }
-
-  > * {
-    opacity: 0;
-    transform: translateY(30px);
-    transition:
-      opacity 0.8s ease,
-      transform 0.8s ease;
-  }
-
-  &.reveal-in > * {
-    opacity: 1;
-    transform: translateY(0);
+    animation: reveal-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.84s both;
   }
 }
 
-// ─── Keyframes ───────────────────────────────────────────────────────────────
+@keyframes reveal-up {
+  from {
+    filter: blur(6px);
+    opacity: 0;
+    translate: 0 50px;
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+    translate: 0 0;
+  }
+}
 
 @keyframes rise {
   from {
@@ -175,8 +175,6 @@
   }
 }
 
-// ─── Marquee ─────────────────────────────────────────────────────────────────
-
 .marquee-wrap {
   overflow: hidden;
   white-space: nowrap;
@@ -187,8 +185,6 @@
   display: inline-flex;
   will-change: transform;
 }
-
-// ─── Theme transition (circular clip-path reveal) ────────────────────────────
 
 @supports (view-transition-name: root) {
   ::view-transition-old(root),
@@ -238,8 +234,6 @@
   }
 }
 
-// ─── Accessibility ───────────────────────────────────────────────────────────
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -255,7 +249,9 @@
   }
 
   .reveal-stagger > * {
+    animation: none;
+    filter: none;
     opacity: 1;
-    transform: none;
+    translate: none;
   }
 }
