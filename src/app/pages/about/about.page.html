@@ -143,11 +143,10 @@
     <div #sectionEnd></div>
   </div>
 
-  <div
-    class="about__floating-portrait"
-    [class.about__floating-portrait--visible]="showFloatingPortrait()"
-  >
-    <img src="assets/images/image.png" [alt]="t('about.bio.sig')" />
+  <div class="about__floating-wrap" [class.about__floating-wrap--visible]="showFloatingPortrait()">
+    <div class="about__floating-portrait">
+      <img src="assets/images/image.png" [alt]="t('about.bio.sig')" />
+    </div>
   </div>
 
   <app-section-divider fillColor="var(--color-bg)" [flip]="true" />
