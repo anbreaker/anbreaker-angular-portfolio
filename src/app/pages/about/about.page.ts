@@ -2,9 +2,9 @@ import { UpperCasePipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  effect,
   ElementRef,
   OnDestroy,
-  effect,
   signal,
   untracked,
   viewChild,
@@ -65,18 +65,18 @@ export class AboutMePageComponent implements OnDestroy {
   protected readonly showFloatingPortrait = signal(false);
 
   protected readonly stats: Stat[] = [
-    { key: 'years', to: 10, suffix: '+', accentClass: 'cy', numClass: 'stat-num-years' },
-    { key: 'repos', to: 180, suffix: '+', accentClass: 'ro', numClass: 'stat-num-repos' },
-    { key: 'domains', to: 3, suffix: '·', accentClass: 'cy', numClass: 'stat-num-domains' },
-    { key: 'autonomy', to: 100, suffix: '%', accentClass: 'em', numClass: 'stat-num-autonomy' },
+    { accentClass: 'cy', key: 'years', numClass: 'stat-num-years', suffix: '+', to: 5 },
+    { accentClass: 'cy', key: 'domains', numClass: 'stat-num-domains', suffix: '·', to: 3 },
+    { accentClass: 'ro', key: 'repos', numClass: 'stat-num-repos', suffix: '+', to: 180 },
+    { accentClass: 'em', key: 'autonomy', numClass: 'stat-num-autonomy', suffix: '%', to: 99 },
   ];
 
   protected readonly facts = [
-    { hasNote: true, key: 'base' },
-    { hasNote: true, key: 'role' },
-    { hasNote: true, key: 'since' },
-    { hasNote: true, key: 'founder' },
-    { hasEm: true, hasNote: false, key: 'loves' },
+    { key: 'base', hasNote: true },
+    { key: 'role', hasNote: true },
+    { key: 'since', hasNote: true },
+    { key: 'founder', hasNote: true },
+    { key: 'loves', hasEm: true, hasNote: false },
   ];
 
   protected readonly panels: TabPanel[] = [
@@ -147,6 +147,7 @@ export class AboutMePageComponent implements OnDestroy {
 
       if (!bar || !indicator || !statsEl || !portraitWrap || !sectionEnd) return;
       if (this.setupComplete) return;
+
       this.setupComplete = true;
 
       untracked(() => {
@@ -169,11 +170,13 @@ export class AboutMePageComponent implements OnDestroy {
     this.portraitObserver?.disconnect();
     this.sectionObserver?.disconnect();
     this.statsObserver?.disconnect();
+
     window.removeEventListener('resize', this.onResize);
   }
 
   protected setTab(id: TabId): void {
     this.activeTab.set(id);
+
     requestAnimationFrame(() => this.updateIndicator());
   }
 
@@ -181,10 +184,13 @@ export class AboutMePageComponent implements OnDestroy {
     const bar = this.tabBarRef()?.nativeElement;
     const indicator = this.tabIndicatorRef()?.nativeElement;
     if (!bar || !indicator) return;
-    const btn = bar.querySelector<HTMLElement>(`[data-id="${this.activeTab()}"]`);
-    if (!btn) return;
+
+    const activeTabButton = bar.querySelector<HTMLElement>(`[data-id="${this.activeTab()}"]`);
+    if (!activeTabButton) return;
+
     const barRect = bar.getBoundingClientRect();
-    const btnRect = btn.getBoundingClientRect();
+    const btnRect = activeTabButton.getBoundingClientRect();
+
     indicator.style.left = `${btnRect.left - barRect.left}px`;
     indicator.style.width = `${btnRect.width}px`;
   }
@@ -192,6 +198,7 @@ export class AboutMePageComponent implements OnDestroy {
   private setupStatsObserver(): void {
     const el = this.statsElRef()?.nativeElement;
     if (!el) return;
+
     this.statsObserver = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !this.statsAnimated) {
@@ -202,6 +209,7 @@ export class AboutMePageComponent implements OnDestroy {
       },
       { threshold: 0.3 }
     );
+
     this.statsObserver.observe(el);
   }
 
@@ -214,6 +222,7 @@ export class AboutMePageComponent implements OnDestroy {
         this.portraitInView = entry.isIntersecting;
         this.updateFloatingPortrait();
       });
+
       this.portraitObserver.observe(portrait);
     }
 
@@ -232,19 +241,19 @@ export class AboutMePageComponent implements OnDestroy {
   }
 
   private animateCounters(): void {
-    const targets = this.stats.map((s) => s.to);
-    const dur = 1200;
+    const targets = this.stats.map((stat) => stat.to);
+    const duration = 1200;
     const start = performance.now();
+
     const tick = (now: number): void => {
-      const p = Math.min(1, (now - start) / dur);
-      const eased = 1 - Math.pow(1 - p, 3);
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+
       this.displayValues.set(targets.map((to) => Math.round(to * eased)));
-      if (p < 1) {
-        requestAnimationFrame(tick);
-      } else {
-        this.displayValues.set(targets);
-      }
+
+      progress < 1 ? requestAnimationFrame(tick) : this.displayValues.set(targets);
     };
+
     requestAnimationFrame(tick);
   }
 }
