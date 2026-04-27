@@ -1,6 +1,35 @@
 {
   "about": {
+    "available": "AVAILABLE",
+    "bio": {
+      "eyebrow": "Who I am",
+      "headlineNoun1": "software",
+      "headlineNoun2": "orange trees",
+      "headlineVerb1": "I build",
+      "headlineVerb2": "I tend",
+      "p1Rest": "with Node, JS, TS, born in Spain and living between Extremadura and the Portuguese Alentejo, in love with a wonderful Alentejana woman. I build scalable web applications with JavaScript, TypeScript, the right framework on the frontend, and Node.js and Express on the backend.",
+      "p1Strong": "Full Stack Developer",
+      "p2": "Clean Code and SOLID are not buzzwords — they are the minimum standard. Off the keyboard, I run my own homelab as a Raspberry Pi fan and Cloudflare user, with Docker and Home Assistant, because tech autonomy is also a philosophy of life.",
+      "p3": "And when I am not in front of a screen, I live a countryside life: I tend orange trees, vineyards, olive groves, and the vegetable garden. I am an electrician, mechanic, bricklayer, assembler, plumber, and a would-be locksmith (the true artist and the one who taught me everything is my father). The patience of an annual cycle re-educates the way I write code and reshapes the way I want to live in this world.",
+      "p3Founder": "Founder of RootDevs.",
+      "sig": "Francisco Javier"
+    },
     "description": "Full Stack Developer at Sngular, based in Spain. I build scalable web applications with TypeScript, Vue and Angular on the frontend, Node.js and Express on the backend. Clean Code and SOLID aren't buzzwords — they're the baseline. Off the keyboard, I run my own homelab on Raspberry Pi, Docker, and Home Assistant, because tech autonomy is a lifestyle. And when I'm not in front of a screen, I tend vineyards and olive trees. Founder of RootDevs.",
+    "domainIn": {
+      "desc": "Linux user. Self-hosted homelab with Raspberry Pi and Docker. Enthusiast of generative AI agent orchestration — Claude, MCP and intelligent automation. Home Assistant for everything that blinks.",
+      "prompt": "docker compose up -d home-assistant",
+      "tab": "Infrastructure"
+    },
+    "domainSw": {
+      "desc": "Web apps with TypeScript using Vue, React, Angular and Lit — depending on the project. Vanilla JS when the situation calls for it. Node.js and Express on the backend.",
+      "prompt": "ng generate feature clean-code",
+      "tab": "Software"
+    },
+    "domainTi": {
+      "desc": "Low external-input farming. Vineyards and olive trees managed with soil regeneration principles. Fewer inputs, more observation. The patience of an annual cycle re-educates how I write code.",
+      "prompt": "./poda.sh --ramas old --conservar fruto",
+      "tab": "Land"
+    },
     "domains": {
       "code": {
         "description": "Web applications with TypeScript using Vue, React, Angular and Lit depending on the project. Vanilla JS when the situation calls for it. Node.js and Express on the backend.",
@@ -16,84 +45,55 @@
       },
       "title": "DOMAINS"
     },
-    "label": "WHO AM I",
-    "title": "About Me",
-    "available": "AVAILABLE",
-    "bio": {
-      "eyebrow": "Who I am",
-      "headlineVerb1": "I build",
-      "headlineNoun1": "software",
-      "headlineVerb2": "I tend",
-      "headlineNoun2": "orange trees",
-      "p1Strong": "Full Stack Developer",
-      "p1Rest": "with Node, JS, TS, born in Spain and living between Extremadura and the Portuguese Alentejo, in love with a wonderful Alentejana woman. I build scalable web applications with JavaScript, TypeScript, the right framework on the frontend, and Node.js and Express on the backend.",
-      "p2": "Clean Code and SOLID are not buzzwords — they are the minimum standard. Off the keyboard, I run my own homelab as a Raspberry Pi fan and Cloudflare user, with Docker and Home Assistant, because tech autonomy is also a philosophy of life.",
-      "p3": "And when I am not in front of a screen, I live a countryside life: I tend orange trees, vineyards, olive groves, and the vegetable garden. I am an electrician, mechanic, bricklayer, assembler, plumber, and a would-be locksmith (the true artist and the one who taught me everything is my father). The patience of an annual cycle re-educates the way I write code and reshapes the way I want to live in this world.",
-      "p3Founder": "Founder of RootDevs.",
-      "sig": "Francisco Javier"
-    },
-    "stats": {
-      "years": {
-        "label": "Years in frontend",
-        "note": "Angular, Vue, React, Lit... in rotation since 2021."
+    "facts": {
+      "base": {
+        "k": "BASE",
+        "note": "— remote · available to travel",
+        "v": "Spain"
       },
-      "repos": {
-        "label": "Public repos",
-        "note": "Experiments, tools, tests — all on GitHub."
+      "founder": {
+        "k": "FOUNDER",
+        "note": "· Angular consulting",
+        "v": "RootDevs"
+      },
+      "loves": {
+        "k": "LOVES",
+        "v": "Homelab, olive trees,"
+      },
+      "role": {
+        "k": "ROLE",
+        "note": "· Angular specialist",
+        "v": "Full Stack Developer"
+      },
+      "since": {
+        "k": "SINCE",
+        "note": "— 5+ years in production",
+        "v": "2021"
+      }
+    },
+    "label": "WHO AM I",
+    "stats": {
+      "autonomy": {
+        "label": "Autonomy",
+        "note": "Technological autonomy is also a philosophy of life."
       },
       "domains": {
         "label": "Domains",
         "note": "Software · infrastructure · land."
       },
-      "autonomy": {
-        "label": "Autonomy",
-        "note": "Technological autonomy is also a philosophy of life."
+      "repos": {
+        "label": "Public repos",
+        "note": "Experiments, tools, tests — all on GitHub."
+      },
+      "years": {
+        "label": "Years in frontend",
+        "note": "Angular, Vue, React, Lit... in rotation since 2021."
       }
     },
-    "facts": {
-      "base": {
-        "k": "BASE",
-        "v": "Spain",
-        "note": "— remote · available to travel"
-      },
-      "role": {
-        "k": "ROLE",
-        "v": "Full Stack Developer",
-        "note": "· Angular specialist"
-      },
-      "since": {
-        "k": "SINCE",
-        "v": "2021",
-        "note": "— 5+ years in production"
-      },
-      "founder": {
-        "k": "FOUNDER",
-        "v": "RootDevs",
-        "note": "· Angular consulting"
-      },
-      "loves": {
-        "k": "LOVES",
-        "v": "Homelab, olive trees,"
-      }
-    },
-    "tabsVerb": "Three",
     "tabsNoun": "domains",
     "tabsSuffix": ", one shared curiosity.",
-    "domainSw": {
-      "tab": "Software",
-      "desc": "Web apps with TypeScript using Vue, React, Angular and Lit — depending on the project. Vanilla JS when the situation calls for it. Node.js and Express on the backend, Nest when the architecture grows.",
-      "prompt": "ng generate feature clean-code"
-    },
-    "domainIn": {
-      "tab": "Infrastructure",
-      "desc": "Linux user. Self-hosted homelab with Raspberry Pi and Docker. Enthusiast of generative AI agent orchestration — Claude, MCP and intelligent automation. Home Assistant for everything that blinks.",
-      "prompt": "docker compose up -d home-assistant"
-    },
-    "domainTi": {
-      "tab": "Land",
-      "desc": "Low external-input farming. Vineyards and olive trees managed with soil regeneration principles. Fewer inputs, more observation. The patience of an annual cycle re-educates how I write code.",
-      "prompt": "./poda.sh --ramas old --conservar fruto"
-    }
+    "tabsVerb": "Three",
+    "title": "About Me"
   },
   "blog": {
     "error": "Failed to load blog posts. Please try again later.",
@@ -193,8 +193,17 @@
     "viewDetail": "View Detail"
   },
   "techStack": {
+    "centerMeta": "MY TOOLS",
+    "centerTag": "Versatile",
+    "footQuote": "The problem dictates the tool — not the other way around.",
+    "hotSwappable": "HOT-SWAPPABLE",
+    "kicker": "tech stack · living constellation",
     "label": "TECH STACK",
-    "title": "Modern Workflow"
+    "lead": "The framework doesn't lead. The problem does. My stack is whatever each project needs — and everything orbiting here has time in production.",
+    "loyaltyLine": "NO LOYALTY · MUCH RESPECT",
+    "title": "Modern Workflow",
+    "workStyle": "Work style",
+    "workStyleAccent": "Modern"
   },
   "testimonials": {
     "heading": "What they say.",
