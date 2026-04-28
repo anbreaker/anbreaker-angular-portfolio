@@ -1,0 +1,68 @@
+<app-nav></app-nav>
+
+<main class="article" *transloco="let t">
+  <div class="article__container">
+    <a class="article__back" routerLink="/blog">← {{ t('blog.backToList') }}</a>
+
+    @if (post(); as currentPost) {
+    <header class="article__header">
+      <div class="article__kicker-row">
+        <span class="article__kicker-tag">{{ currentPost.tags[0] }}</span>
+        @if (readingTime() > 0) {
+        <span class="article__kicker-dot" aria-hidden="true">·</span>
+        <span class="article__kicker-reading">
+          {{ t('blog.readingTime', { minutes: readingTime() }) }}
+        </span>
+        }
+      </div>
+
+      <h1 class="article__title">{{ t(currentPost.titleKey) }}</h1>
+
+      @if (currentPost.author) {
+      <div class="article__author">
+        <div class="article__avatar" [attr.aria-label]="currentPost.author.name">
+          {{ currentPost.author.initials }}
+        </div>
+        <div class="article__author-meta">
+          <span class="article__author-name">{{ currentPost.author.name }}</span>
+          <span class="article__author-separator" aria-hidden="true">·</span>
+          <time class="article__author-date" [attr.datetime]="currentPost.date">
+            {{ formattedDate() }}
+          </time>
+        </div>
+      </div>
+      }
+    </header>
+
+    @if (currentImageUrl(); as heroUrl) {
+    <div class="article__hero-img-wrap">
+      <img
+        class="article__hero-img"
+        [src]="heroUrl"
+        [alt]="t(currentPost.titleKey)"
+        loading="eager"
+      />
+    </div>
+    } @if (currentPost.videoId) {
+    <section class="article__video">
+      <p class="article__video-label">{{ t('blog.videoCompanion') }}</p>
+      <app-youtube-player [videoId]="currentPost.videoId" [videoTitle]="t(currentPost.titleKey)" />
+    </section>
+    }
+
+    <article class="article__body">
+      @if (contentResource.isLoading()) {
+      <div class="article__loading">{{ t('blog.loading') }}</div>
+      } @else if (contentResource.error()) {
+      <div class="article__error">{{ t('blog.error') }}</div>
+      } @else {
+      <div class="article__content" [innerHTML]="contentResource.value() ?? ''"></div>
+      }
+    </article>
+    } @else {
+    <p class="article__not-found">{{ t('blog.notFound') }}</p>
+    }
+  </div>
+</main>
+
+<app-footer></app-footer>

@@ -1,0 +1,330 @@
+.article {
+  background: var(--color-bg);
+  min-height: 100svh;
+  padding-top: 5rem;
+
+  &__container {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 2rem 1.5rem 6rem;
+
+    @media (min-width: 768px) {
+      padding: 3rem 2.5rem 8rem;
+    }
+  }
+
+  &__back {
+    color: var(--color-brand-cyan);
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 3rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__header {
+    margin-bottom: 2.5rem;
+  }
+
+  &__kicker-row {
+    align-items: center;
+    display: flex;
+    gap: 0.625rem;
+    margin-bottom: 0.875rem;
+  }
+
+  &__kicker-tag {
+    color: var(--color-brand-rose);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  &__kicker-dot {
+    color: var(--color-text-faint);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+  }
+
+  &__kicker-reading {
+    color: var(--color-text-faint);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    color: var(--color-text);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin: 0 0 1.75rem;
+  }
+
+  &__author {
+    align-items: center;
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__avatar {
+    align-items: center;
+    background: var(--color-brand-cyan);
+    border-radius: 50%;
+    color: #000;
+    display: flex;
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    height: 2rem;
+    justify-content: center;
+    letter-spacing: 0.04em;
+    width: 2rem;
+  }
+
+  &__author-meta {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__author-name {
+    color: var(--color-text);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  &__author-separator {
+    color: var(--color-text-faint);
+    font-size: 0.875rem;
+  }
+
+  &__author-date {
+    color: var(--color-text-faint);
+    font-size: 0.875rem;
+  }
+
+  &__hero-img-wrap {
+    border-radius: var(--radius-card);
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+  }
+
+  &__hero-img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  &__video {
+    margin-bottom: 3rem;
+  }
+
+  &__video-label {
+    color: var(--color-text-faint);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  &__body {
+    border-top: 1px solid var(--color-border);
+    padding-top: 2.5rem;
+  }
+
+  &__loading,
+  &__error,
+  &__not-found {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  &__error {
+    color: var(--color-brand-rose);
+  }
+
+  &__content {
+    color: var(--color-text-muted);
+    font-size: 1.0625rem;
+    line-height: 1.9;
+  }
+}
+
+// ::ng-deep es necesario para alcanzar el HTML inyectado via [innerHTML]
+// Los atributos de scoping de Angular no aplican a ese contenido
+:host ::ng-deep .article__content {
+  h1,
+  h2 {
+    color: var(--color-text);
+    font-size: clamp(1.3rem, 3vw, 1.875rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin: 3rem 0 1.25rem;
+    padding-top: 2rem;
+    position: relative;
+
+    &::before {
+      background: var(--color-brand-cyan);
+      content: '';
+      display: block;
+      height: 2px;
+      margin-bottom: 1.5rem;
+      opacity: 0.4;
+      width: 2.5rem;
+    }
+  }
+
+  h3 {
+    color: var(--color-brand-cyan);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin: 2rem 0 0.75rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0 0 1.5rem;
+  }
+
+  strong {
+    color: var(--color-text);
+    font-weight: 700;
+  }
+
+  em {
+    color: var(--color-brand-cyan);
+    font-style: italic;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.625rem;
+      padding-left: 1.5rem;
+      position: relative;
+
+      &::before {
+        color: var(--color-brand-cyan);
+        content: '▸';
+        font-size: 0.75rem;
+        left: 0;
+        position: absolute;
+        top: 0.25em;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: article-ol;
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+
+    li {
+      counter-increment: article-ol;
+      margin-bottom: 0.75rem;
+      padding-left: 2.25rem;
+      position: relative;
+
+      &::before {
+        background: rgba(34, 211, 238, 0.12);
+        border-radius: 50%;
+        color: var(--color-brand-cyan);
+        content: counter(article-ol);
+        font-family: var(--font-mono);
+        font-size: 0.6875rem;
+        font-weight: 700;
+        height: 1.5rem;
+        left: 0;
+        line-height: 1.5rem;
+        position: absolute;
+        text-align: center;
+        top: 0.125em;
+        width: 1.5rem;
+      }
+    }
+  }
+
+  blockquote {
+    background: rgba(34, 211, 238, 0.04);
+    border-left: 3px solid var(--color-brand-cyan);
+    border-radius: 0 var(--radius-card) var(--radius-card) 0;
+    color: var(--color-text);
+    font-size: 1.0625rem;
+    font-style: italic;
+    margin: 2rem 0;
+    padding: 1rem 1.5rem;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  pre {
+    background: var(--color-surface-2);
+    border: 1px solid rgba(34, 211, 238, 0.15);
+    border-radius: var(--radius-card);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.7;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    padding: 1.25rem 1.5rem;
+  }
+
+  code {
+    background: rgba(34, 211, 238, 0.08);
+    border-radius: 4px;
+    color: var(--color-brand-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    padding: 0.15em 0.45em;
+  }
+
+  pre code {
+    background: transparent;
+    color: var(--color-text-muted);
+    padding: 0;
+  }
+
+  a {
+    color: var(--color-brand-cyan);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  hr {
+    background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.3), transparent);
+    border: 0;
+    height: 1px;
+    margin: 3rem 0;
+  }
+}
