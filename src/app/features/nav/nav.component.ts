@@ -37,11 +37,11 @@ export class NavComponent {
   protected readonly langFlags = LANG_FLAGS;
 
   protected readonly navLinks: NavLink[] = [
-    { labelKey: 'nav.projects', anchor: 'projects' },
     { labelKey: 'nav.tech', anchor: 'tech' },
+    { labelKey: 'nav.projects', anchor: 'projects' },
     { labelKey: 'nav.testimonials', anchor: 'testimonials' },
-    { labelKey: 'nav.about', route: '/about-me' },
     { labelKey: 'nav.blog', route: '/blog' },
+    { labelKey: 'nav.about', route: '/about-me' },
   ];
 
   handleNavigation(link: NavLink): void {
