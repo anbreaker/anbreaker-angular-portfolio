@@ -3,8 +3,10 @@ import { TranslocoDirective } from '@jsverse/transloco';
 
 import { RevealDirective } from '@shared/directives/reveal.directive';
 
+type TechColor = 'amber' | 'cyan' | 'emerald' | 'rose' | 'violet';
+
 interface OrbitalTech {
-  color: 'amber' | 'cyan' | 'emerald' | 'rose' | 'violet';
+  color: TechColor;
   iconSlug: string;
   id: string;
   lightIcon?: true;
@@ -30,47 +32,70 @@ interface OrbitalRing {
   templateUrl: './tech-stack.component.html',
 })
 export class TechStackComponent {
-  private readonly tech: OrbitalTech[] = [
+  private readonly techDictionary: Record<string, OrbitalTech> = {
     // Core languages
-    { color: 'cyan', iconSlug: 'typescript', id: 'ts', name: 'TypeScript' },
-    { color: 'amber', iconSlug: 'javascript', id: 'js', name: 'JavaScript' },
-    { color: 'amber', iconSlug: 'html5', id: 'html5', name: 'HTML5' },
+    ts: { color: 'cyan', iconSlug: 'typescript', id: 'ts', name: 'TypeScript' },
+    js: { color: 'amber', iconSlug: 'javascript', id: 'js', name: 'JavaScript' },
+    html5: { color: 'amber', iconSlug: 'html5', id: 'html5', name: 'HTML5' },
     // Frameworks
-    { color: 'rose', iconSlug: 'angular', id: 'angular', name: 'Angular' },
-    { color: 'cyan', iconSlug: 'react', id: 'react', name: 'React' },
-    { color: 'emerald', iconSlug: 'vuedotjs', id: 'vue', name: 'Vue' },
-    { color: 'cyan', iconSlug: 'lit', id: 'lit', name: 'Lit' },
-    { color: 'rose', iconSlug: '', id: 'signals', name: 'Signals' },
+    angular: { color: 'rose', iconSlug: 'angular', id: 'angular', name: 'Angular' },
+    react: { color: 'cyan', iconSlug: 'react', id: 'react', name: 'React' },
+    vue: { color: 'emerald', iconSlug: 'vuedotjs', id: 'vue', name: 'Vue' },
+    lit: { color: 'cyan', iconSlug: 'lit', id: 'lit', name: 'Lit' },
+    astro: { color: 'rose', iconSlug: 'astro', id: 'astro', name: 'Astro' },
+    signals: { color: 'rose', iconSlug: '', id: 'signals', name: 'Signals' },
     // Backend / runtime
-    { color: 'emerald', iconSlug: 'nodedotjs', id: 'node', name: 'Node.js' },
-    { color: 'violet', iconSlug: 'express', id: 'express', lightIcon: true, name: 'Express' },
+    node: { color: 'emerald', iconSlug: 'nodedotjs', id: 'node', name: 'Node.js' },
+    express: {
+      color: 'violet',
+      iconSlug: 'express',
+      id: 'express',
+      lightIcon: true,
+      name: 'Express',
+    },
+    mongo: { color: 'emerald', iconSlug: 'mongodb', id: 'mongo', name: 'MongoDB' },
+    postgres: { color: 'cyan', iconSlug: 'postgresql', id: 'postgres', name: 'PostgreSQL' },
+    firebase: { color: 'amber', iconSlug: 'firebase', id: 'firebase', name: 'Firebase' },
     // Tooling
-    { color: 'rose', iconSlug: 'git', id: 'git', name: 'Git' },
-    { color: 'emerald', iconSlug: 'gnubash', id: 'bash', name: 'Bash' },
-    { color: 'amber', iconSlug: 'vitest', id: 'vitest', name: 'Vitest' },
-    { color: 'cyan', iconSlug: 'githubactions', id: 'gha', name: 'GitHub Actions' },
-    { color: 'cyan', iconSlug: 'css', id: 'css', name: 'CSS Nesting' },
+    git: { color: 'rose', iconSlug: 'git', id: 'git', name: 'Git' },
+    bash: { color: 'emerald', iconSlug: 'gnubash', id: 'bash', name: 'Bash' },
+    vitest: { color: 'amber', iconSlug: 'vitest', id: 'vitest', name: 'Vitest' },
+    gha: { color: 'cyan', iconSlug: 'githubactions', id: 'gha', name: 'GitHub Actions' },
+    css: { color: 'cyan', iconSlug: 'css', id: 'css', name: 'CSS Nesting' },
+    tailwind: { color: 'cyan', iconSlug: 'tailwindcss', id: 'tailwind', name: 'Tailwind CSS' },
     // Infra
-    { color: 'violet', iconSlug: 'docker', id: 'docker', name: 'Docker' },
-    { color: 'amber', iconSlug: 'linux', id: 'linux', name: 'Linux' },
+    docker: { color: 'violet', iconSlug: 'docker', id: 'docker', name: 'Docker' },
+    linux: { color: 'amber', iconSlug: 'linux', id: 'linux', name: 'Linux' },
     // AI
-    { color: 'amber', iconSlug: 'anthropic', id: 'claude', lightIcon: true, name: 'Claude AI' },
-    { color: 'violet', iconSlug: 'googlegemini', id: 'gemini', name: 'Gemini' },
+    claude: {
+      color: 'amber',
+      iconSlug: 'anthropic',
+      id: 'claude',
+      lightIcon: true,
+      name: 'Claude AI',
+    },
+    gemini: { color: 'violet', iconSlug: 'googlegemini', id: 'gemini', name: 'Gemini' },
     // Homelab
-    { color: 'rose', iconSlug: 'raspberrypi', id: 'raspi', name: 'Raspberry Pi' },
-    { color: 'amber', iconSlug: 'cloudflare', id: 'cf', name: 'Cloudflare' },
-  ];
+    raspi: { color: 'rose', iconSlug: 'raspberrypi', id: 'raspi', name: 'Raspberry Pi' },
+    cf: { color: 'amber', iconSlug: 'cloudflare', id: 'cf', name: 'Cloudflare' },
+  };
 
-  private readonly ringDefs = [
-    { animClass: 'r1', ids: ['ts', 'html5', 'angular', 'react', 'signals'], radius: 160 },
-    { animClass: 'r2', ids: ['js', 'vue', 'lit', 'node', 'git', 'bash'], radius: 270 },
+  private readonly orbitalRingDefinitions = [
+    { animClass: 'r1', ids: ['ts', 'html5', 'angular', 'react', 'vue', 'signals'], radius: 160 },
+    {
+      animClass: 'r2',
+      ids: ['js', 'lit', 'astro', 'tailwind', 'node', 'git', 'bash', 'css'],
+      radius: 270,
+    },
     {
       animClass: 'r3',
       ids: [
         'express',
+        'mongo',
+        'postgres',
+        'firebase',
         'vitest',
         'gha',
-        'css',
         'docker',
         'linux',
         'claude',
@@ -82,58 +107,80 @@ export class TechStackComponent {
     },
   ];
 
-  protected readonly rings: OrbitalRing[] = this.ringDefs.map((ring, ringIdx) => ({
-    animClass: ring.animClass,
-    nodes: ring.ids.map((id, index) => {
-      const techItem = this.tech.find((tech) => tech.id === id) ?? {
-        color: 'cyan' as const,
-        iconSlug: '',
-        id,
-        name: id,
-      };
+  protected readonly rings: OrbitalRing[] = this.orbitalRingDefinitions.map(
+    (ringDefinition, ringIndex) => ({
+      animClass: ringDefinition.animClass,
+      nodes: ringDefinition.ids.map((techId, nodeIndex) => {
+        const techDetail = this.techDictionary[techId] ?? {
+          color: 'cyan' as const,
+          iconSlug: '',
+          id: techId,
+          name: techId,
+        };
 
-      const angle = (index / ring.ids.length) * Math.PI * 2 + ringIdx * (Math.PI / 6);
+        const angleRadians =
+          (nodeIndex / ringDefinition.ids.length) * Math.PI * 2 + ringIndex * (Math.PI / 6);
 
-      return {
-        ...techItem,
-        x: Math.round(Math.cos(angle) * ring.radius),
-        y: Math.round(Math.sin(angle) * ring.radius),
-      };
-    }),
-  }));
-
-  private readonly tickerA = this.tech.filter((t) =>
-    ['ts', 'js', 'html5', 'angular', 'react', 'vue', 'signals', 'lit', 'git'].includes(t.id)
+        return {
+          ...techDetail,
+          x: Math.round(Math.cos(angleRadians) * ringDefinition.radius),
+          y: Math.round(Math.sin(angleRadians) * ringDefinition.radius),
+        };
+      }),
+    })
   );
 
-  private readonly tickerB = this.tech.filter((t) =>
-    [
-      'node',
-      'express',
-      'bash',
-      'vitest',
-      'gha',
-      'css',
-      'docker',
-      'linux',
-      'claude',
-      'gemini',
-      'raspi',
-      'cf',
-    ].includes(t.id)
-  );
+  private readonly topMarqueeIds = [
+    'ts',
+    'js',
+    'html5',
+    'angular',
+    'react',
+    'vue',
+    'signals',
+    'lit',
+    'astro',
+    'tailwind',
+    'git',
+  ];
+
+  private readonly bottomMarqueeIds = [
+    'node',
+    'express',
+    'mongo',
+    'postgres',
+    'firebase',
+    'bash',
+    'vitest',
+    'gha',
+    'css',
+    'docker',
+    'linux',
+    'claude',
+    'gemini',
+    'raspi',
+    'cf',
+  ];
+
+  private readonly topMarqueeUniqueItems = this.topMarqueeIds
+    .map((techId) => this.techDictionary[techId])
+    .filter(Boolean);
+
+  private readonly bottomMarqueeUniqueItems = this.bottomMarqueeIds
+    .map((techId) => this.techDictionary[techId])
+    .filter(Boolean);
 
   protected readonly tickerAItems: OrbitalTech[] = ([] as OrbitalTech[]).concat(
-    this.tickerA,
-    this.tickerA,
-    this.tickerA,
-    this.tickerA
+    this.topMarqueeUniqueItems,
+    this.topMarqueeUniqueItems,
+    this.topMarqueeUniqueItems,
+    this.topMarqueeUniqueItems
   );
 
   protected readonly tickerBItems: OrbitalTech[] = ([] as OrbitalTech[]).concat(
-    this.tickerB,
-    this.tickerB,
-    this.tickerB,
-    this.tickerB
+    this.bottomMarqueeUniqueItems,
+    this.bottomMarqueeUniqueItems,
+    this.bottomMarqueeUniqueItems,
+    this.bottomMarqueeUniqueItems
   );
 }
