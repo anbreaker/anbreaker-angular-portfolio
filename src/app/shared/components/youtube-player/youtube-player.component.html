@@ -1,38 +1,45 @@
 <div class="youtube-player" #wrapper>
   @if (activated()) {
-  <iframe
-    class="youtube-player__iframe"
-    [src]="iframeSrc"
-    [title]="videoTitle()"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-    loading="lazy"
-  ></iframe>
-  } @else {
-  <button
-    class="youtube-player__facade"
-    (click)="activate()"
-    [attr.aria-label]="'Reproducir: ' + videoTitle()"
-  >
-    <img
-      class="youtube-player__thumbnail"
-      [src]="thumbnailUrl"
-      [alt]="videoTitle()"
+    <iframe
+      class="youtube-player__iframe"
+      [src]="iframeSrc"
+      [title]="videoTitle()"
+      allow="
+        accelerometer;
+        autoplay;
+        clipboard-write;
+        encrypted-media;
+        gyroscope;
+        picture-in-picture;
+      "
+      allowfullscreen
       loading="lazy"
-    />
-    <div class="youtube-player__play" aria-hidden="true">
-      <svg
-        class="youtube-player__play-icon"
-        viewBox="0 0 68 48"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          class="youtube-player__play-bg"
-          d="M66.52 7.74C65.7 4.73 63.27 2.3 60.26 1.49 54.99 0 33.93 0 33.93 0S12.88 0 7.6 1.49C4.6 2.3 2.16 4.73 1.35 7.74 0 13.05 0 24 0 24s0 10.95 1.35 16.26c.81 3.01 3.24 5.44 6.25 6.25C12.88 48 33.93 48 33.93 48s21.06 0 26.33-1.49c3.01-.81 5.44-3.24 6.25-6.25C68 34.95 68 24 68 24S68 13.05 66.52 7.74z"
-        />
-        <path class="youtube-player__play-arrow" d="M27 34l18-10-18-10v20z" />
-      </svg>
-    </div>
-  </button>
+    ></iframe>
+  } @else {
+    <button
+      class="youtube-player__facade"
+      (click)="activate()"
+      [attr.aria-label]="'Reproducir: ' + videoTitle()"
+    >
+      <img
+        class="youtube-player__thumbnail"
+        [src]="thumbnailUrl"
+        [alt]="videoTitle()"
+        loading="lazy"
+      />
+      <div class="youtube-player__play" aria-hidden="true">
+        <svg
+          class="youtube-player__play-icon"
+          viewBox="0 0 68 48"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="youtube-player__play-bg"
+            d="M66.52 7.74C65.7 4.73 63.27 2.3 60.26 1.49 54.99 0 33.93 0 33.93 0S12.88 0 7.6 1.49C4.6 2.3 2.16 4.73 1.35 7.74 0 13.05 0 24 0 24s0 10.95 1.35 16.26c.81 3.01 3.24 5.44 6.25 6.25C12.88 48 33.93 48 33.93 48s21.06 0 26.33-1.49c3.01-.81 5.44-3.24 6.25-6.25C68 34.95 68 24 68 24S68 13.05 66.52 7.74z"
+          />
+          <path class="youtube-player__play-arrow" d="M27 34l18-10-18-10v20z" />
+        </svg>
+      </div>
+    </button>
   }
 </div>

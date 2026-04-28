@@ -56,15 +56,11 @@
     </article>
 
     @if (currentPost.videoId) {
-      <section class="article__video">
-        <p class="article__video-label">{{ t('blog.videoCompanion') }}</p>
-        <app-youtube-player
-          [videoId]="currentPost.videoId"
-          [videoTitle]="t(currentPost.titleKey)"
-        />
-      </section>
-    }
-    } @else {
+    <section class="article__video">
+      <p class="article__video-label">{{ t('blog.videoCompanion') }}</p>
+      <app-youtube-player [videoId]="currentPost.videoId" [videoTitle]="t(currentPost.titleKey)" />
+    </section>
+    } } @else {
     <p class="article__not-found">{{ t('blog.notFound') }}</p>
     }
   </div>
