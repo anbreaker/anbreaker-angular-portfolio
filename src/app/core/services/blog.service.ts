@@ -6,14 +6,14 @@ import { BlogAuthor, BlogPost, BlogResponse } from '../interfaces/portfolio.inte
   providedIn: 'root',
 })
 export class BlogService {
-  private readonly JAVIER_ANTUNEZ: BlogAuthor = {
+  private readonly AUTHOR: BlogAuthor = {
     initials: 'FJ',
     name: 'Francisco Javier Antúnez Durán',
   };
 
   private readonly posts: BlogPost[] = [
     {
-      author: this.JAVIER_ANTUNEZ,
+      author: this.AUTHOR,
       date: '2026-04-28',
       excerptKey: 'blog.posts.prettier-multiconsultora.excerpt',
       id: '1',
@@ -25,6 +25,8 @@ export class BlogService {
       slug: 'codigo-impecable-equipos-multi-consultora',
       tags: ['Prettier', 'Git', 'DevEx', 'Husky'],
       titleKey: 'blog.posts.prettier-multiconsultora.title',
+      // TODO: per-lang video — upload EN and PT versions and switch to Record<SupportedLang, string>
+      videoId: 'zjPeO-7TuMw',
     },
   ];
 
