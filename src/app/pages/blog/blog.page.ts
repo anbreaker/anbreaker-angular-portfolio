@@ -1,6 +1,5 @@
-import { debounceTime, filter } from 'rxjs';
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { rxResource, toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { TranslocoDirective } from '@jsverse/transloco';
 
 import { BlogResponse } from '@core/interfaces/portfolio.interfaces';
@@ -11,7 +10,7 @@ import { NavComponent } from '@features/nav/nav.component';
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FooterComponent, NavComponent, TranslocoDirective],
+  imports: [FooterComponent, NavComponent, RouterLink, TranslocoDirective],
   selector: 'app-blog-page',
   styleUrl: './blog.page.scss',
   templateUrl: './blog.page.html',
@@ -22,21 +21,14 @@ export class BlogPageComponent {
   readonly currentPage = signal(1);
   readonly searchTerm = signal('');
 
-  readonly searchQuery = toSignal(
-    toObservable(this.searchTerm).pipe(
-      debounceTime(300),
-      filter((term) => term.length === 0 || term.length >= 3)
-    ),
-    { initialValue: '' }
-  );
-
-  readonly postsResource = rxResource<BlogResponse, { searchTerm: string; page: number }>({
-    params: () => ({
-      searchTerm: this.searchQuery() ?? '',
-      page: this.currentPage(),
-    }),
-    stream: ({ params }) => this.blogService.searchPosts(params.searchTerm, params.page),
+  readonly searchQuery = computed(() => {
+    const term = this.searchTerm();
+    return term.length === 0 || term.length >= 3 ? term : '';
   });
+
+  readonly postsData = computed<BlogResponse>(() =>
+    this.blogService.searchPosts(this.searchQuery(), this.currentPage())
+  );
 
   onSearchChange(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -45,15 +37,15 @@ export class BlogPageComponent {
   }
 
   nextPage(): void {
-    const response = this.postsResource.value();
-    if (response && this.currentPage() * response.pageSize < response.totalCount) {
-      this.currentPage.update((p) => p + 1);
+    const { pageSize, totalCount } = this.postsData();
+    if (this.currentPage() * pageSize < totalCount) {
+      this.currentPage.update((pageIndex) => pageIndex + 1);
     }
   }
 
   prevPage(): void {
     if (this.currentPage() > 1) {
-      this.currentPage.update((p) => p - 1);
+      this.currentPage.update((pageIndex) => pageIndex - 1);
     }
   }
 }

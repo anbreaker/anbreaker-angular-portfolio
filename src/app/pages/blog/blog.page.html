@@ -17,16 +17,10 @@
   </section>
 
   <section class="blog__list-section">
-    @if (postsResource.isLoading()) {
-    <div class="blog__status">
-      <span class="blog__loading">{{ t('blog.loading') }}</span>
-    </div>
-    } @else if (postsResource.error()) {
-    <div class="blog__status blog__status--error">{{ t('blog.error') }}</div>
-    } @else { @let response = postsResource.value(); @if (response && response.posts.length > 0) {
+    @let response = postsData(); @if (response.posts.length > 0) {
     <div class="blog__list">
       @for (post of response.posts; track post.id) {
-      <article class="blog__item">
+      <article class="blog__item" [routerLink]="['/blog', post.slug]">
         <div class="blog__item-date">
           <span class="blog__item-date-text">{{ post.date }}</span>
         </div>
@@ -55,14 +49,17 @@
       <button
         class="blog__pager-btn"
         (click)="nextPage()"
-        [disabled]="response.posts.length < response.pageSize || (currentPage() * response.pageSize >= response.totalCount)"
+        [disabled]="
+          response.posts.length < response.pageSize ||
+          currentPage() * response.pageSize >= response.totalCount
+        "
       >
         →
       </button>
     </div>
     } @else {
     <div class="blog__status">{{ t('blog.noResults') }}</div>
-    } }
+    }
   </section>
 </main>
 
