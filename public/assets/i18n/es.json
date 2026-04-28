@@ -170,7 +170,7 @@
   },
   "projects": {
     "detail": {
-      "backButton": "Volver",
+      "backButton": "Volver a proyectos",
       "impact": "Impacto",
       "kicker": {
         "caseStudy": "Case Study",
