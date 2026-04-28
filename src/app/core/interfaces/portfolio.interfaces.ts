@@ -43,14 +43,21 @@ export interface SocialLink {
   url: string;
 }
 
+export interface BlogAuthor {
+  initials: string;
+  name: string;
+}
+
 export interface BlogPost {
+  author?: BlogAuthor;
   date: string;
   excerptKey: string;
   id: string;
-  imageUrl?: string;
+  imageUrl?: Record<SupportedLang, string>;
   slug: string;
   tags: string[];
   titleKey: string;
+  videoId?: string;
 }
 
 export interface BlogResponse {

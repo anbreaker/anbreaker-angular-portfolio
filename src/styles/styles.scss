@@ -23,3 +23,72 @@
     animation-duration: 0.01ms;
   }
 }
+
+// Highlight.js — custom theme alineado con el design system
+.hljs {
+  background: transparent;
+  color: var(--color-text-muted);
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-selector-class,
+.hljs-selector-id {
+  color: #22d3ee;
+}
+
+.hljs-string,
+.hljs-addition {
+  color: #86efac;
+}
+
+.hljs-number,
+.hljs-literal {
+  color: #fbbf24;
+}
+
+.hljs-keyword,
+.hljs-deletion {
+  color: #f472b6;
+}
+
+.hljs-built_in,
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #818cf8;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--color-text-faint);
+  font-style: italic;
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-params {
+  color: #fbbf24;
+}
+
+.hljs-name,
+.hljs-tag {
+  color: #f472b6;
+}
+
+.hljs-title,
+.hljs-function .hljs-title {
+  color: #34d399;
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+  color: #22d3ee;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
+}
