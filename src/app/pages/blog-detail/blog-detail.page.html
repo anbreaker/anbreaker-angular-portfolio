@@ -2,7 +2,9 @@
 
 <main class="article" *transloco="let t">
   <div class="article__container">
-    <a class="article__back" routerLink="/blog">← {{ t('blog.backToList') }}</a>
+    <button class="back-button article__back" type="button" (click)="goToBlog()">
+      ← {{ t('blog.backToList') }}
+    </button>
 
     @if (post(); as currentPost) {
     <header class="article__header">

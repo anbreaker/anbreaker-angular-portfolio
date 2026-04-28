@@ -1,8 +1,9 @@
 <ng-container *transloco="let t">
   <div class="project-detail">
     <button
-      class="project-detail__back"
-      (click)="goBack()"
+      class="back-button project-detail__back"
+      type="button"
+      (click)="goToProjects()"
       [attr.aria-label]="t('projects.detail.backButton')"
     >
       ← {{ t('projects.detail.backButton') }}

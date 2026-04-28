@@ -1,8 +1,7 @@
 import { map } from 'rxjs/operators';
-import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoDirective } from '@jsverse/transloco';
 
 import { LanguageStore } from '@core/store/language.store';
@@ -19,7 +18,7 @@ import { MagneticButtonDirective } from '@shared/directives/magnetic-button.dire
 })
 export class ProjectDetailPageComponent {
   readonly #route = inject(ActivatedRoute);
-  readonly #location = inject(Location);
+  readonly #router = inject(Router);
   protected readonly langStore = inject(LanguageStore);
 
   readonly projectId = toSignal(
@@ -30,12 +29,7 @@ export class ProjectDetailPageComponent {
     PROJECTS_DATA.find((project) => project.id === this.projectId())
   );
 
-  goBack(): void {
-    if (!document.startViewTransition) {
-      this.#location.back();
-      return;
-    }
-
-    document.startViewTransition(() => this.#location.back());
+  goToProjects(): void {
+    this.#router.navigate(['/'], { fragment: 'projects' });
   }
 }

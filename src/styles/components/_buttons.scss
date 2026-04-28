@@ -80,3 +80,34 @@
     }
   }
 }
+
+.back-button {
+  background: transparent;
+  border: 1px solid var(--color-border, #27272a);
+  border-radius: 6.25rem;
+  color: var(--color-text-muted, #a1a1aa);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  padding: 0.625rem 1.25rem;
+  text-transform: uppercase;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-brand-cyan, #22d3ee);
+    color: var(--color-brand-cyan, #22d3ee);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-cyan, #22d3ee);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

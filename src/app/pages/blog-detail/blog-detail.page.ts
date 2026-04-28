@@ -9,7 +9,7 @@ import {
   signal,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 import { BlogPost, SupportedLang } from '@core/interfaces/portfolio.interfaces';
@@ -22,7 +22,7 @@ import { YoutubePlayerComponent } from '@shared/components/youtube-player/youtub
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FooterComponent, NavComponent, RouterLink, TranslocoDirective, YoutubePlayerComponent],
+  imports: [FooterComponent, NavComponent, TranslocoDirective, YoutubePlayerComponent],
   selector: 'app-blog-detail-page',
   styleUrl: './blog-detail.page.scss',
   templateUrl: './blog-detail.page.html',
@@ -97,5 +97,9 @@ export class BlogDetailPageComponent implements OnInit {
     }
 
     this.post.set(found);
+  }
+
+  goToBlog(): void {
+    this.router.navigate(['/blog']);
   }
 }
