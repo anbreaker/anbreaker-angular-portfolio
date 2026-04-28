@@ -96,10 +96,12 @@
     "title": "Sobre Mí"
   },
   "blog": {
+    "backToList": "Volver al blog",
     "error": "Error al cargar los posts del blog. Por favor, inténtalo de nuevo más tarde.",
     "label": "BLOG",
     "loading": "Buscando las últimas novedades...",
     "noResults": "No se encontraron posts que coincidan con tus criterios.",
+    "notFound": "Artículo no encontrado.",
     "pagination": {
       "next": "Siguiente",
       "page": "Página",
@@ -122,6 +124,10 @@
         "excerpt": "Cómo lograr ciclos de prueba ultrarrápidos y puntuaciones Lighthouse del 100%.",
         "title": "Optimizando Angular con Vitest"
       },
+      "prettier-multiconsultora": {
+        "excerpt": "Cómo Prettier, Husky y lint-staged eliminan las guerras de estilo en repositorios con múltiples consultoras, sin sacrificar el historial de Git.",
+        "title": "Código Impecable en Equipos Multi-Consultora"
+      },
       "pwa-evolution": {
         "excerpt": "Novedades en service workers, capacidades offline y notificaciones web push.",
         "title": "Evolución de PWA en 2026"
@@ -131,8 +137,10 @@
         "title": "Patrones Avanzados de TypeScript"
       }
     },
+    "readingTime": "LECTURA {{ minutes }} MIN",
     "searchPlaceholder": "Buscar posts...",
-    "title": "Dev Insights"
+    "title": "Dev Insights",
+    "videoCompanion": "/ VIDEO COMPANION"
   },
   "common": {
     "cancel": "Cancelar",
