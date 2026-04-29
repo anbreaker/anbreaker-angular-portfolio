@@ -7,6 +7,7 @@ import {
   inject,
   input,
   OnDestroy,
+  output,
   signal,
   viewChild,
 } from '@angular/core';
@@ -20,11 +21,14 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   templateUrl: './youtube-player.component.html',
 })
 export class YoutubePlayerComponent implements AfterViewInit, OnDestroy {
+  private readonly document = inject(DOCUMENT);
+  private readonly sanitizer = inject(DomSanitizer);
+
   readonly videoId = input.required<string>();
   readonly videoTitle = input<string>('Video');
 
-  private readonly document = inject(DOCUMENT);
-  private readonly sanitizer = inject(DomSanitizer);
+  readonly activatedChange = output<void>();
+
   private readonly wrapperRef = viewChild<ElementRef<HTMLElement>>('wrapper');
 
   readonly activated = signal(false);
@@ -50,6 +54,7 @@ export class YoutubePlayerComponent implements AfterViewInit, OnDestroy {
       },
       { threshold: 0.1 }
     );
+
     const element = this.wrapperRef()?.nativeElement;
     if (element) this.observer.observe(element);
   }
@@ -60,6 +65,7 @@ export class YoutubePlayerComponent implements AfterViewInit, OnDestroy {
 
   activate(): void {
     this.activated.set(true);
+    this.activatedChange.emit();
   }
 
   private warmUpConnections(): void {
