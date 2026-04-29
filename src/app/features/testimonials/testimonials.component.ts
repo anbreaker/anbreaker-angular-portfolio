@@ -11,10 +11,9 @@ import { TranslocoDirective } from '@jsverse/transloco';
 import { RevealDirective } from '@shared/directives/reveal.directive';
 
 interface TestimonialItem {
+  accent: string;
   id: string;
   initials: string;
-  accentClass: 'av-a' | 'av-b' | 'av-c';
-  accent: string;
 }
 
 @Component({
@@ -27,9 +26,9 @@ interface TestimonialItem {
 })
 export class TestimonialsComponent implements OnInit, OnDestroy {
   protected readonly testimonials: TestimonialItem[] = [
-    { id: 't1', initials: 'AR', accentClass: 'av-a', accent: '#22d3ee' },
-    { id: 't2', initials: 'SM', accentClass: 'av-b', accent: '#f43f5e' },
-    { id: 't3', initials: 'MC', accentClass: 'av-c', accent: '#a78bfa' },
+    { id: 't1', initials: 'FM', accent: '#22d3ee' },
+    { id: 't2', initials: 'SM', accent: '#f43f5e' },
+    { id: 't3', initials: 'MC', accent: '#a78bfa' },
   ];
 
   protected readonly activeIndex = signal(0);
@@ -37,7 +36,7 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
   protected readonly active = computed(() => this.testimonials[this.activeIndex()]);
 
   protected readonly sideItems = computed(() =>
-    this.testimonials.filter((_, i) => i !== this.activeIndex())
+    this.testimonials.filter((_, testimonialIndex) => testimonialIndex !== this.activeIndex())
   );
 
   protected readonly progress = computed(
@@ -52,7 +51,9 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.timer = setInterval(() => {
-      this.activeIndex.update((i) => (i + 1) % this.testimonials.length);
+      this.activeIndex.update(
+        (activeTestimonial) => (activeTestimonial + 1) % this.testimonials.length
+      );
     }, 6000);
   }
 
@@ -65,15 +66,20 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
   }
 
   goToById(id: string): void {
-    const idx = this.testimonials.findIndex((t) => t.id === id);
+    const idx = this.testimonials.findIndex((testimonial) => testimonial.id === id);
     if (idx >= 0) this.activeIndex.set(idx);
   }
 
   prev(): void {
-    this.activeIndex.update((i) => (i - 1 + this.testimonials.length) % this.testimonials.length);
+    this.activeIndex.update(
+      (activeTestimonial) =>
+        (activeTestimonial - 1 + this.testimonials.length) % this.testimonials.length
+    );
   }
 
   next(): void {
-    this.activeIndex.update((i) => (i + 1) % this.testimonials.length);
+    this.activeIndex.update(
+      (activeTestimonial) => (activeTestimonial + 1) % this.testimonials.length
+    );
   }
 }

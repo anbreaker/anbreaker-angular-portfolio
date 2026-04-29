@@ -14,8 +14,6 @@
     max-width: 1280px;
   }
 
-  // ─── Header row ──────────────────────────────────────────────────────────
-
   &__head {
     align-items: flex-end;
     display: flex;
@@ -81,8 +79,6 @@
     }
   }
 
-  // ─── Main stage ──────────────────────────────────────────────────────────
-
   &__stage {
     display: grid;
     gap: 2rem;
@@ -143,10 +139,13 @@
     padding-top: 1.5rem;
   }
 
-  // ─── Avatars ─────────────────────────────────────────────────────────────
-
   &__avatar {
     align-items: center;
+    background: linear-gradient(
+      135deg,
+      var(--accent, var(--color-brand-cyan)),
+      color-mix(in srgb, var(--accent, var(--color-brand-cyan)) 72%, #000 28%)
+    );
     border-radius: 50%;
     color: #0a0a0b;
     display: flex;
@@ -161,16 +160,6 @@
       font-size: 0.75rem;
       height: 2.25rem;
       width: 2.25rem;
-    }
-
-    &.av-a {
-      background: linear-gradient(135deg, #22d3ee, #0891b2);
-    }
-    &.av-b {
-      background: linear-gradient(135deg, #f43f5e, #be123c);
-    }
-    &.av-c {
-      background: linear-gradient(135deg, #a78bfa, #4c1d95);
     }
   }
 
@@ -189,8 +178,6 @@
     margin-top: 0.125rem;
     text-transform: uppercase;
   }
-
-  // ─── Side mini-cards ─────────────────────────────────────────────────────
 
   &__side {
     display: flex;
@@ -243,8 +230,6 @@
     margin-top: 0.125rem;
     text-transform: uppercase;
   }
-
-  // ─── Footer ──────────────────────────────────────────────────────────────
 
   &__footer {
     align-items: center;

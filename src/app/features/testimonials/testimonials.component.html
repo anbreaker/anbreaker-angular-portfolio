@@ -33,7 +33,7 @@
           <span class="testimonials__mark">"</span>
           <p class="testimonials__quote">{{ t('testimonials.' + active().id + '.quote') }}</p>
           <div class="testimonials__attrib">
-            <div class="testimonials__avatar" [class]="active().accentClass">
+            <div class="testimonials__avatar" [style.--accent]="active().accent">
               {{ active().initials }}
             </div>
             <div>
@@ -48,7 +48,10 @@
         <div class="testimonials__side">
           @for (item of sideItems(); track item.id) {
             <button class="testimonials__mini" (click)="goToById(item.id)">
-              <div class="testimonials__avatar testimonials__avatar--sm" [class]="item.accentClass">
+              <div
+                class="testimonials__avatar testimonials__avatar--sm"
+                [style.--accent]="item.accent"
+              >
                 {{ item.initials }}
               </div>
               <div>
