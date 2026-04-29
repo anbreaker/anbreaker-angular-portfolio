@@ -107,7 +107,7 @@
           </span>
         </button>
 
-        <a class="nav__hire-btn" (click)="scrollToAnchor('footer')" role="button" tabindex="0">
+        <a class="nav__hire-btn" (click)="handleNavigation({ route: '/contact' })" role="button" tabindex="0">
           {{ t('nav.hireMe') }}
         </a>
 
@@ -133,7 +133,7 @@
         }
         <a
           class="nav__mobile-hire-btn"
-          (click)="scrollToAnchor('footer')"
+          (click)="handleNavigation({ route: '/contact' })"
           role="button"
           tabindex="0"
         >
