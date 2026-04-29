@@ -1,7 +1,7 @@
 // @ts-check
 /**
  * ESLint custom rule: inject() calls must precede all other class property definitions.
- * No auto-fix — requires manual reordering.
+ * Auto-fix enabled — reorders properties so inject() calls come first.
  * Compatible with ESLint v9+ (uses context.sourceCode)
  */
 
@@ -9,7 +9,7 @@
 export default {
   meta: {
     type: 'suggestion',
-    fixable: null,
+    fixable: 'code',
     schema: [],
     messages: {
       injectAfterOther:
@@ -26,8 +26,10 @@ export default {
 
         for (const prop of properties) {
           const sourceCode = context.sourceCode;
-          const text = sourceCode.getText(prop.value ?? prop);
-          if (text.includes('inject(')) {
+          // Use prop.value if available, else the entire property.
+          const text = sourceCode.getText(prop.value ?? prop).trim();
+          // Check if it starts with inject
+          if (text.startsWith('inject(') || text.startsWith('inject<')) {
             injectMembers.push(prop);
           } else {
             otherMembers.push(prop);
@@ -36,18 +38,42 @@ export default {
 
         if (!injectMembers.length || !otherMembers.length) return;
 
-        const lastOtherIndex = Math.max(...otherMembers.map((m) => properties.indexOf(m)));
+        const firstOtherIndex = Math.min(...otherMembers.map((m) => properties.indexOf(m)));
+
+        let shouldFix = false;
+        let reportingNode = null;
 
         for (const injectMember of injectMembers) {
           const injectIndex = properties.indexOf(injectMember);
-          if (injectIndex > lastOtherIndex) {
-            const name = injectMember.key?.name ?? injectMember.key?.value ?? 'unknown';
-            context.report({
-              node: injectMember,
-              messageId: 'injectAfterOther',
-              data: { name },
-            });
+          if (injectIndex > firstOtherIndex) {
+            shouldFix = true;
+            reportingNode = reportingNode || injectMember;
           }
+        }
+
+        if (shouldFix && reportingNode) {
+          const name = reportingNode.key?.name ?? reportingNode.key?.value ?? 'unknown';
+          context.report({
+            node: reportingNode,
+            messageId: 'injectAfterOther',
+            data: { name },
+            fix(fixer) {
+              const sourceCode = context.sourceCode;
+              const sorted = [...injectMembers, ...otherMembers];
+
+              const fixes = [];
+              for (let j = 0; j < properties.length; j++) {
+                const original = properties[j];
+                const replacement = sorted[j];
+                if (original !== replacement) {
+                  fixes.push(
+                    fixer.replaceText(original, sourceCode.getText(replacement))
+                  );
+                }
+              }
+              return fixes;
+            },
+          });
         }
       },
     };
