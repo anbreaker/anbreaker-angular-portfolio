@@ -98,6 +98,8 @@
   "blog": {
     "backToList": "Voltar ao blog",
     "error": "Erro ao carregar os posts do blog. Por favor, tente novamente mais tarde.",
+    "expandImage": "AMPLIAR",
+    "expandVideo": "Ver em tela cheia",
     "label": "BLOG",
     "loading": "Buscando as últimas novidades...",
     "noResults": "Nenhum post encontrado correspondente aos seus critérios.",
@@ -126,7 +128,7 @@
       },
       "prettier-multiconsultora": {
         "excerpt": "Como Prettier, Husky e lint-staged eliminam as guerras de estilo em repositórios com múltiplas consultorias sem sacrificar o histórico do Git.",
-        "title": "Código Impecável em Equipes Multi-Consultoria"
+        "title": "Código Impecável em Equipes <em>Multi-Consultoria</em>."
       },
       "pwa-evolution": {
         "excerpt": "O que há de novo em service workers, capacidades offline e notificações web push.",
@@ -140,7 +142,9 @@
     "readingTime": "{{ minutes }} MIN DE LEITURA",
     "searchPlaceholder": "Pesquisar posts...",
     "title": "Dev Insights",
-    "videoCompanion": "/ VIDEO COMPANION"
+    "toc": "NESTE POST",
+    "videoCompanion": "/ VIDEO COMPANION",
+    "watchVideo": "Ver vídeo"
   },
   "common": {
     "cancel": "Cancelar",
@@ -217,10 +221,10 @@
     "heading": "O que dizem.",
     "label": "FEEDBACK",
     "t1": {
-      "author": "Alex Rivers",
+      "author": "Fran Méndez",
       "handle": "@TechVision",
-      "quote": "Francisco é um mago de Signals. Ele transformou nosso dashboard lento em uma experiência ultrarrápida.",
-      "role": "CTO"
+      "quote": "Javier é humilde, aprende rápido, é muito trabalhador, comprometido com a equipa e sempre disposto a ajudar e a partilhar o que sabe.",
+      "role": "Creator of AsyncAPI | Building Commune"
     },
     "t2": {
       "author": "Sofia Mendez",
@@ -234,6 +238,7 @@
       "quote": "Tecnólogo criativo é o título perfeito. Francisco traz alma e estilo a cada linha de código.",
       "role": "Founder"
     },
-    "title": "Trusted by RootDevs"
+    "title": "Trusted by RootDevs",
+    "voices": "colegas"
   }
 }

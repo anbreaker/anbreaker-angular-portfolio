@@ -98,6 +98,8 @@
   "blog": {
     "backToList": "Back to blog",
     "error": "Failed to load blog posts. Please try again later.",
+    "expandImage": "VIEW IMAGE",
+    "expandVideo": "View fullscreen",
     "label": "BLOG",
     "loading": "Fetching latest insights...",
     "noResults": "No posts found matching your criteria.",
@@ -126,7 +128,7 @@
       },
       "prettier-multiconsultora": {
         "excerpt": "How Prettier, Husky and lint-staged eliminate style wars in multi-vendor repositories without sacrificing Git history.",
-        "title": "Impeccable Code in Multi-Vendor Teams"
+        "title": "Spotless Code in <em>Multi-Vendor</em> Teams."
       },
       "pwa-evolution": {
         "excerpt": "What's new in service workers, offline capabilities, and web push notifications.",
@@ -140,7 +142,9 @@
     "readingTime": "{{ minutes }} MIN READ",
     "searchPlaceholder": "Search posts...",
     "title": "Dev Insights",
-    "videoCompanion": "/ VIDEO COMPANION"
+    "toc": "IN THIS POST",
+    "videoCompanion": "/ VIDEO COMPANION",
+    "watchVideo": "Watch video"
   },
   "common": {
     "cancel": "Cancel",
@@ -217,10 +221,10 @@
     "heading": "What they say.",
     "label": "FEEDBACK",
     "t1": {
-      "author": "Alex Rivers",
+      "author": "Fran Méndez",
       "handle": "@TechVision",
-      "quote": "Francisco is a signals wizard. He turned our sluggish dashboard into a lightning-fast experience.",
-      "role": "CTO"
+      "quote": "Javier is humble, a fast learner, very hardworking, committed to the team, and always willing to help and share what he knows.",
+      "role": "Creator of AsyncAPI | Building Commune"
     },
     "t2": {
       "author": "Sofia Mendez",
@@ -234,6 +238,7 @@
       "quote": "Creative technologist is the perfect title. Francisco brings soul and style to every line of code.",
       "role": "Founder"
     },
-    "title": "Trusted by RootDevs"
+    "title": "Trusted by RootDevs",
+    "voices": "colleagues"
   }
 }
