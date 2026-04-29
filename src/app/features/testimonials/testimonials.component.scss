@@ -238,9 +238,13 @@
     font-family: var(--font-mono);
     font-size: 0.6875rem;
     gap: 1.5rem;
-    justify-content: space-between;
+    justify-content: center;
     letter-spacing: 0.18em;
     text-transform: uppercase;
+
+    @media (min-width: 640px) {
+      justify-content: space-between;
+    }
   }
 
   &__brand {
