@@ -19,6 +19,11 @@ export const routes: Routes = [
       (await import('@pages/blog-detail/blog-detail.page')).BlogDetailPageComponent,
   },
   {
+    path: 'contact',
+    loadComponent: async () =>
+      (await import('@pages/contact/contact.page')).ContactPageComponent,
+  },
+  {
     path: 'projects/:id',
     loadComponent: async () =>
       (await import('@pages/project-detail/project-detail.page')).ProjectDetailPageComponent,
