@@ -21,6 +21,7 @@
     "highlight.js": "^11.11.1",
     "marked": "^18.0.2",
     "marked-highlight": "^2.2.4",
+    "resend": "^6.12.2",
     "rxjs": "~7.8.2",
     "tslib": "^2.3.0"
   },
@@ -30,6 +31,7 @@
     "@angular/cli": "^21.2.2",
     "@angular/compiler-cli": "^21.2.0",
     "@types/node": "^25.6.0",
+    "@vercel/node": "^5.7.13",
     "@vitest/ui": "^4.1.0",
     "angular-eslint": "^21.2.0",
     "concurrently": "^9.2.1",
