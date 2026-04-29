@@ -33,6 +33,23 @@ marked.use(
   })
 );
 
+marked.use({
+  renderer: {
+    heading({ depth, text }) {
+      const id = text
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/<[^>]*>/g, '')
+        .replace(/[̀-ͯ]/g, '')
+        .replace(/[^\w\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+      return `<h${depth} id="${id}">${text}</h${depth}>\n`;
+    },
+  },
+});
+
 const DEFAULT_LANG: SupportedLang = 'es';
 
 export type FetchArticleParams = {
