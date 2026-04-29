@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env['RESEND_API_KEY']);
 const TO = process.env['CONTACT_TO_EMAIL'] ?? '';
-const FROM = 'hola@mail.rootdevs.es';
+const FROM = 'fj@mail.rootdevs.es';
 
 export default async function handler(req: VercelRequest, res: VercelResponse): Promise<VercelResponse> {
   if (req.method !== 'POST') {
