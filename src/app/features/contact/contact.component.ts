@@ -43,12 +43,12 @@ export class ContactComponent {
   );
 
   protected readonly links = [
-    { href: 'mailto:hi@rootdevs.es', label: 'EMAIL', value: 'hi@rootdevs.es' },
+    { href: 'mailto:fj@mail.rootdevs.es', label: 'EMAIL', value: 'fj@mail.rootdevs.es' },
     { href: 'https://github.com/anbreaker', label: 'GITHUB', value: 'github.com/anbreaker' },
     {
       href: 'https://www.linkedin.com/in/francisco-javier-antunez-duran/',
       label: 'LINKEDIN',
-      value: 'linkedin.com/in/anbreaker',
+      value: 'https://www.linkedin.com/in/francisco-javier-antunez-duran/',
     },
   ];
 
