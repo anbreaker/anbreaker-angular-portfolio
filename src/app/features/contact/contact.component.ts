@@ -55,7 +55,6 @@ export class ContactComponent {
   protected readonly projectTypes: { i18nKey: string; key: ProjectType }[] = [
     { key: 'collaboration', i18nKey: 'contact.types.collaboration' },
     { key: 'consulting', i18nKey: 'contact.types.consulting' },
-    { key: 'collaboration', i18nKey: 'contact.types.collaboration' },
     { key: 'other', i18nKey: 'contact.types.other' },
   ];
 
