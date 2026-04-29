@@ -190,12 +190,14 @@
     "rights": "All rights reserved."
   },
   "hero": {
+    "creative": "Creative",
     "ctaContact": "Get in touch",
     "ctaPortfolio": "View Portfolio",
     "portraitAlt": "Francisco Javier - Creative Technologist and FullStack Web Master",
     "scroll": "Scroll & explore",
-    "subtitle": "Engineering high-performance digital experiences with Angular 21, Signals, and Node.js. High energy, low latency.",
-    "tagline": "Creative Technologist",
+    "subtitle": "Engineering high-performance digital experiences with the right tools. High performance, low latency.",
+    "tagline": "Developer Creative",
+    "technologist": "Technologist",
     "title": "& FullStack Web Master"
   },
   "nav": {
