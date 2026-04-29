@@ -1,3 +1,5 @@
+<div class="article__progress-bar" [style.width.%]="scrollProgress()"></div>
+
 <app-nav></app-nav>
 
 <main class="article" *transloco="let t">
@@ -9,16 +11,21 @@
     @if (post(); as currentPost) {
     <header class="article__header">
       <div class="article__kicker-row">
-        <span class="article__kicker-tag">{{ currentPost.tags[0] }}</span>
+        <span class="article__kicker-tag">● {{ currentPost.tags[0] }}</span>
+        <span class="article__kicker-sep" aria-hidden="true"></span>
+        <time class="article__kicker-date" [attr.datetime]="currentPost.date">
+          {{ formattedDate() }}
+        </time>
         @if (readingTime() > 0) {
-        <span class="article__kicker-dot" aria-hidden="true">·</span>
+        <span class="article__kicker-sep" aria-hidden="true"></span>
         <span class="article__kicker-reading">
           {{ t('blog.readingTime', { minutes: readingTime() }) }}
         </span>
         }
       </div>
 
-      <h1 class="article__title">{{ t(currentPost.titleKey) }}</h1>
+      <h1 class="article__title" [innerHTML]="t(currentPost.titleKey)"></h1>
+      <p class="article__lede">{{ t(currentPost.excerptKey) }}</p>
 
       @if (currentPost.author) {
       <div class="article__author">
@@ -37,35 +44,221 @@
     </header>
 
     @if (currentImageUrl(); as heroUrl) {
-    <div class="article__hero-img-wrap">
+    <div
+      class="article__hero-img-wrap"
+      role="button"
+      tabindex="0"
+      [attr.aria-label]="t('blog.expandImage')"
+      (click)="lightboxOpen.set(true)"
+      (keydown.enter)="lightboxOpen.set(true)"
+    >
       <img
         class="article__hero-img"
         [src]="heroUrl"
         [alt]="t(currentPost.titleKey)"
         loading="eager"
       />
+      <span class="article__hero-badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m21 21-4.3-4.3M11 8v6M8 11h6" />
+        </svg>
+        {{ t('blog.expandImage') }}
+      </span>
     </div>
     }
 
-    <article class="article__body">
-      @if (contentResource.isLoading()) {
-      <div class="article__loading">{{ t('blog.loading') }}</div>
-      } @else if (contentResource.error()) {
-      <div class="article__error">{{ t('blog.error') }}</div>
-      } @else {
-      <div class="article__content" [innerHTML]="contentResource.value() ?? ''"></div>
-      }
-    </article>
+    <div class="article__layout">
+      <nav class="article__toc" [attr.aria-label]="t('blog.toc')">
+        @if (headings().length > 0) {
+        <span class="article__toc-label">{{ t('blog.toc') }}</span>
+        <ul>
+          @for (headingItem of headings(); track headingItem.id) {
+          <li>
+            <a
+              [attr.href]="'#' + headingItem.id"
+              (click)="$event.preventDefault(); scrollToHeading(headingItem.id)"
+              [class.active]="activeHeadingId() === headingItem.id"
+            >
+              {{ headingItem.text }}
+            </a>
+          </li>
+          }
+        </ul>
+        }
+      </nav>
+
+      <article class="article__body">
+        @if (contentResource.isLoading()) {
+        <div class="article__loading">{{ t('blog.loading') }}</div>
+        } @else if (contentResource.error()) {
+        <div class="article__error">{{ t('blog.error') }}</div>
+        } @else {
+        <div class="article__content" [innerHTML]="safeContent()"></div>
+        }
+      </article>
+    </div>
 
     @if (currentPost.videoId) {
-    <section class="article__video">
-      <p class="article__video-label">{{ t('blog.videoCompanion') }}</p>
-      <app-youtube-player [videoId]="currentPost.videoId" [videoTitle]="t(currentPost.titleKey)" />
+    <section class="article__video-bottom">
+      <div class="article__video-bottom-header">
+        <span class="article__video-bottom-live">
+          <span class="article__video-bottom-pulse"></span>
+          VIDEO
+        </span>
+        <span class="article__video-bottom-sub">/ VIDEO COMPANION</span>
+        <button
+          class="article__expand-btn"
+          type="button"
+          [attr.aria-label]="t('blog.expandVideo')"
+          (click)="videoModalOpen.set(true)"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="15 3 21 3 21 9" />
+            <polyline points="9 21 3 21 3 15" />
+            <line x1="21" y1="3" x2="14" y2="10" />
+            <line x1="3" y1="21" x2="10" y2="14" />
+          </svg>
+        </button>
+      </div>
+      <div class="article__video-bottom-player">
+        <app-youtube-player
+          [videoId]="currentPost.videoId"
+          [videoTitle]="t(currentPost.titleKey)"
+        />
+      </div>
     </section>
-    } } @else {
+    } @if (currentPost.videoId) {
+    <button class="article__fab" type="button" (click)="videoSheetOpen.set(true)">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+      {{ t('blog.watchVideo') }}
+    </button>
+
+    @if (videoSheetOpen()) {
+    <div
+      class="article__sheet"
+      role="dialog"
+      aria-modal="true"
+      (click)="closeSheetOnBackdrop($event)"
+    >
+      <div class="article__sheet-panel">
+        <div class="article__sheet-grip"></div>
+        <div class="article__sheet-head">
+          <span>{{ t('blog.videoCompanion') }}</span>
+          <button type="button" aria-label="Cerrar" (click)="videoSheetOpen.set(false)">✕</button>
+        </div>
+        <app-youtube-player
+          [videoId]="currentPost.videoId"
+          [videoTitle]="t(currentPost.titleKey)"
+        />
+      </div>
+    </div>
+    } } } @else {
     <p class="article__not-found">{{ t('blog.notFound') }}</p>
     }
   </div>
+
+  @if (showFloatingVideo()) {
+  <div class="article__mini-player">
+    <div class="article__mini-player-header">
+      <span class="article__mini-player-live">
+        <span class="article__mini-player-pulse"></span>
+        VIDEO
+      </span>
+      <div class="article__mini-player-actions">
+        <button
+          class="article__expand-btn"
+          type="button"
+          [attr.aria-label]="t('blog.expandVideo')"
+          (click)="videoModalOpen.set(true)"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="15 3 21 3 21 9" />
+            <polyline points="9 21 3 21 3 15" />
+            <line x1="21" y1="3" x2="14" y2="10" />
+            <line x1="3" y1="21" x2="10" y2="14" />
+          </svg>
+        </button>
+        <button
+          class="article__mini-player-close"
+          type="button"
+          aria-label="Cerrar video"
+          (click)="miniPlayerDismissed.set(true)"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
+    @if (post(); as currentPost) {
+    <app-youtube-player
+      [videoId]="currentPost.videoId!"
+      [videoTitle]="t(currentPost.titleKey)"
+      (activatedChange)="miniPlayerActivated.set(true)"
+    />
+    }
+    <p class="article__mini-player-info">{{ t('blog.videoCompanion') }}</p>
+  </div>
+  } @if (lightboxOpen()) {
+  <div class="article__lightbox" role="dialog" aria-modal="true" (click)="lightboxOpen.set(false)">
+    <div class="article__lightbox-inner" (click)="$event.stopPropagation()">
+      <button
+        type="button"
+        class="article__lightbox-close"
+        aria-label="Cerrar"
+        (click)="lightboxOpen.set(false)"
+      >
+        ✕
+      </button>
+      @if (currentImageUrl(); as imgUrl) {
+      <img
+        class="article__lightbox-img"
+        [src]="imgUrl"
+        [alt]="t(post()?.titleKey ?? '')"
+        loading="eager"
+      />
+      }
+    </div>
+  </div>
+  } @if (videoModalOpen()) {
+  <div
+    class="article__video-modal"
+    role="dialog"
+    aria-modal="true"
+    (click)="videoModalOpen.set(false)"
+  >
+    <div class="article__video-modal-inner" (click)="$event.stopPropagation()">
+      <button
+        type="button"
+        class="article__video-modal-close"
+        aria-label="Cerrar"
+        (click)="videoModalOpen.set(false)"
+      >
+        ✕
+      </button>
+      @if (post(); as currentPost) {
+      <app-youtube-player [videoId]="currentPost.videoId!" [videoTitle]="t(currentPost.titleKey)" />
+      }
+    </div>
+  </div>
+  }
 </main>
 
 <app-footer></app-footer>
