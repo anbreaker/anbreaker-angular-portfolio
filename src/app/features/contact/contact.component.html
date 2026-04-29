@@ -1,0 +1,190 @@
+<ng-container *transloco="let t">
+  <section id="contact" class="contact" aria-labelledby="contact-heading">
+    <div class="contact__container">
+
+      <!-- Header bar -->
+      <div class="contact__header" appReveal>
+        <span class="contact__section-label">
+          <span class="contact__section-num">05</span> / {{ t('contact.label') }}
+        </span>
+        <span class="contact__available">
+          <span class="contact__available-dot" aria-hidden="true"></span>
+          {{ t('contact.available') }}
+        </span>
+      </div>
+
+      <!-- Main grid -->
+      <div class="contact__grid">
+
+        <!-- Left column: headline + links + terminal -->
+        <div class="contact__left" appReveal [revealDelay]="100">
+          <p class="contact__eyebrow">{{ t('contact.eyebrow') }}</p>
+          <h2 id="contact-heading" class="contact__heading">
+            {{ t('contact.heading1') }}<br />
+            <em class="contact__heading-em">{{ t('contact.heading2') }}</em>.
+          </h2>
+          <p class="contact__intro" [innerHTML]="t('contact.intro')"></p>
+
+          <!-- Link rows -->
+          <div class="contact__links" role="list">
+            @for (link of links; track link.label; let first = $first) {
+              <a
+                class="contact__link"
+                [class.contact__link--first]="first"
+                [href]="link.href"
+                target="_blank"
+                rel="noopener noreferrer"
+                role="listitem"
+              >
+                <span class="contact__link-inner">
+                  <span class="contact__link-label">{{ link.label }}</span>
+                  <span class="contact__link-value">{{ link.value }}</span>
+                </span>
+                <span class="contact__link-arrow" aria-hidden="true">↗</span>
+              </a>
+            }
+          </div>
+
+          <!-- Terminal prompt -->
+          <div class="contact__terminal" aria-hidden="true">
+            <span class="contact__terminal-path">~/contacto</span>
+            <span class="contact__terminal-sep"> ❯ </span>
+            <span class="contact__terminal-cmd">{{ t('contact.terminalCmd') }}</span>
+            <span class="contact__terminal-cursor"></span>
+          </div>
+        </div>
+
+        <!-- Right column: form card -->
+        <div class="contact__form-card" appReveal [revealDelay]="200">
+
+          @if (status() === 'success') {
+            <div class="contact__success">
+              <span class="contact__success-icon">✓</span>
+              <p class="contact__success-title">{{ t('contact.form.successTitle') }}</p>
+              <p class="contact__success-msg">{{ t('contact.form.successMsg') }}</p>
+            </div>
+
+          } @else if (status() === 'error') {
+            <div class="contact__success">
+              <span class="contact__success-icon contact__success-icon--error">✕</span>
+              <p class="contact__success-title">{{ t('contact.form.errorTitle') }}</p>
+              <p class="contact__success-msg">{{ t('contact.form.errorMsg') }}</p>
+              <button class="mag-btn mag-btn--ghost" (click)="retry()" appMagneticButton>
+                <span class="mag-btn__label">{{ t('contact.form.retry') }}</span>
+                <span class="mag-btn__fill" aria-hidden="true">{{ t('contact.form.retry') }}</span>
+              </button>
+            </div>
+
+          } @else {
+            <form class="contact__form" (submit)="handleSubmit($event)" novalidate>
+              <span class="contact__form-eyebrow">{{ t('contact.form.title') }}</span>
+
+              <!-- Name -->
+              <div class="contact__field">
+                <label class="contact__field-label" for="contact-name">
+                  {{ t('contact.form.name') }}
+                </label>
+                <input
+                  id="contact-name"
+                  class="contact__input"
+                  [class.contact__input--focused]="focusedField() === 'name'"
+                  [class.contact__input--error]="nameError()"
+                  type="text"
+                  [value]="name()"
+                  [placeholder]="t('contact.form.namePlaceholder')"
+                  (input)="name.set($any($event.target).value)"
+                  (focus)="onFocus('name')"
+                  (blur)="onBlur()"
+                />
+                @if (nameError()) {
+                  <span class="contact__field-error">{{ t('contact.form.nameRequired') }}</span>
+                }
+              </div>
+
+              <!-- Email -->
+              <div class="contact__field">
+                <label class="contact__field-label" for="contact-email">
+                  {{ t('contact.form.email') }}
+                </label>
+                <input
+                  id="contact-email"
+                  class="contact__input"
+                  [class.contact__input--focused]="focusedField() === 'email'"
+                  [class.contact__input--error]="emailError()"
+                  type="email"
+                  [value]="email()"
+                  [placeholder]="t('contact.form.emailPlaceholder')"
+                  (input)="email.set($any($event.target).value)"
+                  (focus)="onFocus('email')"
+                  (blur)="onBlur()"
+                />
+                @if (emailError()) {
+                  <span class="contact__field-error">{{ t('contact.form.emailInvalid') }}</span>
+                }
+              </div>
+
+              <!-- Project type -->
+              <div class="contact__field">
+                <label class="contact__field-label">{{ t('contact.form.projectType') }}</label>
+                <div class="contact__pills" role="group" [attr.aria-label]="t('contact.form.projectType')">
+                  @for (type of projectTypes; track type.key) {
+                    <button
+                      type="button"
+                      class="mag-btn"
+                      [class.mag-btn--primary]="activeType() === type.key"
+                      [class.mag-btn--ghost]="activeType() !== type.key"
+                      (click)="setType(type.key)"
+                      [attr.aria-pressed]="activeType() === type.key"
+                      appMagneticButton
+                    >
+                      <span class="mag-btn__label">{{ t(type.i18nKey) }}</span>
+                      <span class="mag-btn__fill" aria-hidden="true">{{ t(type.i18nKey) }}</span>
+                    </button>
+                  }
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="contact__field">
+                <label class="contact__field-label" for="contact-msg">
+                  {{ t('contact.form.message') }}
+                </label>
+                <textarea
+                  id="contact-msg"
+                  class="contact__input contact__textarea"
+                  [class.contact__input--focused]="focusedField() === 'msg'"
+                  [class.contact__input--error]="messageError()"
+                  [value]="message()"
+                  [placeholder]="t('contact.form.messagePlaceholder')"
+                  (input)="message.set($any($event.target).value)"
+                  (focus)="onFocus('msg')"
+                  (blur)="onBlur()"
+                  rows="4"
+                ></textarea>
+                @if (messageError()) {
+                  <span class="contact__field-error">{{ t('contact.form.messageRequired') }}</span>
+                }
+              </div>
+
+              <!-- Submit -->
+              <button
+                type="submit"
+                class="mag-btn mag-btn--primary"
+                [disabled]="status() === 'loading'"
+                appMagneticButton
+              >
+                <span class="mag-btn__label">
+                  {{ status() === 'loading' ? t('contact.form.sending') : t('contact.form.submit') + ' →' }}
+                </span>
+                <span class="mag-btn__fill" aria-hidden="true">
+                  {{ status() === 'loading' ? t('contact.form.sending') : t('contact.form.submit') + ' →' }}
+                </span>
+              </button>
+            </form>
+          }
+
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>

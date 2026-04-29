@@ -152,6 +152,40 @@
     "error": "Ha ocurrido un error",
     "loading": "Cargando..."
   },
+  "contact": {
+    "available": "DISPONIBLE PARA PROYECTOS",
+    "eyebrow": "¿Hablamos?",
+    "form": {
+      "email": "EMAIL",
+      "emailInvalid": "Email no válido",
+      "emailPlaceholder": "tu@email.com",
+      "errorMsg": "No se pudo enviar el mensaje. Intentalo de nuevo.",
+      "errorTitle": "¡Ups, algo falló!",
+      "message": "MENSAJE",
+      "messagePlaceholder": "Cuéntame, ¿con qué podemos colaborar? ...",
+      "messageRequired": "El mensaje es obligatorio",
+      "name": "NOMBRE",
+      "namePlaceholder": "Tu nombre",
+      "nameRequired": "El nombre es obligatorio",
+      "projectType": "TIPO DE PROYECTO",
+      "retry": "Reintentar",
+      "sending": "Enviando...",
+      "submit": "Enviar mensaje",
+      "successMsg": "Te respondo lo antes posible.",
+      "successTitle": "¡Mensaje enviado!",
+      "title": "FORMULARIO DE CONTACTO"
+    },
+    "heading1": "Cuéntame tu",
+    "heading2": "próximo proyecto",
+    "intro": "Siempre abierto a colaborar en proyectos interesantes — especialmente si involucran <strong>Angular</strong>, arquitectura frontend, o simplemente construir algo bien hecho.",
+    "label": "CONTACTO",
+    "terminalCmd": "echo \"Escríbeme\"",
+    "types": {
+      "collaboration": "Colaboración",
+      "consulting": "Consultoría",
+      "other": "Otro"
+    }
+  },
   "footer": {
     "rights": "Todos los derechos reservados."
   },

@@ -152,6 +152,40 @@
     "error": "An error has occurred",
     "loading": "Loading..."
   },
+  "contact": {
+    "available": "AVAILABLE FOR PROJECTS",
+    "eyebrow": "Let's talk?",
+    "form": {
+      "email": "EMAIL",
+      "emailInvalid": "Invalid email address",
+      "emailPlaceholder": "you@email.com",
+      "errorMsg": "The message could not be sent. Please try again.",
+      "errorTitle": "Something went wrong",
+      "message": "MESSAGE",
+      "messagePlaceholder": "Tell me, what can we collaborate on? ...",
+      "messageRequired": "Message is required",
+      "name": "NAME",
+      "namePlaceholder": "Your name",
+      "nameRequired": "Name is required",
+      "projectType": "PROJECT TYPE",
+      "retry": "Try again",
+      "sending": "Sending...",
+      "submit": "Send message",
+      "successMsg": "I'll get back to you as soon as possible.",
+      "successTitle": "Message sent!",
+      "title": "CONTACT FORM"
+    },
+    "heading1": "Tell me about your",
+    "heading2": "next project",
+    "intro": "Always open to collaborating on interesting projects — especially if they involve <strong>Angular</strong>, frontend architecture, or simply building something done right.",
+    "label": "CONTACT",
+    "terminalCmd": "echo \"Write me\"",
+    "types": {
+      "collaboration": "Collaboration",
+      "consulting": "Consulting",
+      "other": "Other"
+    }
+  },
   "footer": {
     "rights": "All rights reserved."
   },
