@@ -19,7 +19,7 @@
   }
 
   &__section-label {
-    color: var(--color-text-faint);
+    color: var(--color-text-muted);
     font-family: var(--font-mono);
     font-size: 0.875rem;
     letter-spacing: 0.22em;
@@ -33,7 +33,7 @@
 
   &__available {
     align-items: center;
-    color: var(--color-text-faint);
+    color: var(--color-text-muted);
     display: flex;
     font-family: var(--font-mono);
     font-size: 0.6875rem;
@@ -144,7 +144,7 @@
   }
 
   &__link-label {
-    color: var(--color-text-faint);
+    color: var(--color-text-muted);
     font-family: var(--font-mono);
     font-size: 0.625rem;
     letter-spacing: 0.18em;
@@ -158,7 +158,7 @@
   }
 
   &__link-arrow {
-    color: var(--color-text-faint);
+    color: var(--color-text-muted);
     font-family: var(--font-mono);
     font-size: 1.125rem;
     transition: color 0.25s;
@@ -181,7 +181,7 @@
   }
 
   &__terminal-sep {
-    color: var(--color-text-faint);
+    color: var(--color-text-muted);
   }
 
   &__terminal-cmd {
@@ -216,7 +216,7 @@
   }
 
   &__form-eyebrow {
-    color: var(--color-text-faint);
+    color: var(--color-text-muted);
     font-family: var(--font-mono);
     font-size: 0.625rem;
     letter-spacing: 0.18em;
@@ -230,7 +230,7 @@
   }
 
   &__field-label {
-    color: var(--color-text-faint);
+    color: var(--color-text-muted);
     font-family: var(--font-mono);
     font-size: 0.625rem;
     letter-spacing: 0.18em;
@@ -250,7 +250,7 @@
     width: 100%;
 
     &::placeholder {
-      color: var(--color-text-faint);
+      color: var(--color-text-muted);
     }
 
     &--focused,
