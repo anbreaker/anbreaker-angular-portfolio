@@ -28,7 +28,7 @@
           @if (post.tags.length) {
           <span class="blog__item-tag">{{ post.tags[0] }}</span>
           }
-          <h2 class="blog__item-title">{{ t(post.titleKey) }}</h2>
+          <h2 class="blog__item-title" [innerHTML]="t(post.titleKey)"></h2>
           <p class="blog__item-excerpt">{{ t(post.excerptKey) }}</p>
           <div class="blog__item-tags">
             @for (tag of post.tags; track tag) {
