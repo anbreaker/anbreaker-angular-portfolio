@@ -177,7 +177,7 @@
     },
     "heading1": "Cuéntame tu",
     "heading2": "próximo proyecto",
-    "intro": "Siempre abierto a colaborar en proyectos interesantes — especialmente si involucran <strong>Angular</strong>, arquitectura frontend, o simplemente construir algo bien hecho.",
+    "intro": "Cuéntame qué estás construyendo, me interesan los proyectos bien pensados, especialmente si son colaborativos u open source.<br/><br/> Creo en arquitecturas limpias y en tomar decisiones con criterio: el problema dicta la herramienta, no al revés...",
     "label": "CONTACTO",
     "terminalCmd": "echo \"Escríbeme\"",
     "types": {

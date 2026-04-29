@@ -177,7 +177,7 @@
     },
     "heading1": "Tell me about your",
     "heading2": "next project",
-    "intro": "Always open to collaborating on interesting projects — especially if they involve <strong>Angular</strong>, frontend architecture, or simply building something done right.",
+    "intro": "Tell me what you're building, I'm interested in well-thought-out projects, especially if they're collaborative or open source.<br /><br />I believe in clean architectures and making sound decisions: the problem dictates the tool, not the other way around...",
     "label": "CONTACT",
     "terminalCmd": "echo \"Write me\"",
     "types": {

@@ -154,7 +154,7 @@
   },
   "contact": {
     "available": "DISPONÍVEL PARA PROJETOS",
-    "eyebrow": "Vamos conversar?",
+    "eyebrow": "Falamos?",
     "form": {
       "email": "EMAIL",
       "emailInvalid": "Email inválido",
@@ -177,7 +177,7 @@
     },
     "heading1": "Fala-me sobre o teu",
     "heading2": "próximo projeto",
-    "intro": "Sempre aberto a colaborar em projetos interessantes — especialmente se envolverem <strong>Angular</strong>, arquitetura frontend, ou simplesmente construir algo bem feito.",
+    "intro": "Diga-me o que está a construir, tenho interesse em projetos bem elaborados, especialmente se forem colaborativos ou open source. <br /><br/>Acredito em arquiteturas limpas e em tomar decisões acertadas: o problema dita a ferramenta, e não o contrário...",
     "label": "CONTACTO",
     "terminalCmd": "echo \"Escreve-me\"",
     "types": {
