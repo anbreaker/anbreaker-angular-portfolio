@@ -45,16 +45,47 @@ export class NavComponent {
   ];
 
   handleNavigation(link: NavLink): void {
-    if (link.anchor) {
-      if (this.router.url === '/' || this.router.url.startsWith('/#')) {
-        this.scrollToElement(link.anchor);
-      } else {
-        this.router.navigate(['/'], { fragment: link.anchor });
-      }
-    } else if (link.route) {
-      this.router.navigate([link.route]);
-    }
+    const handlers: ((link: NavLink) => boolean)[] = [
+      this.handleAnchorOnHomePage,
+      this.handleAnchorNavigation,
+      this.handleRouteNavigation,
+    ];
+
+    handlers.some((handler) => handler(link));
+    this.closeMenu();
+  }
+
+  private readonly handleAnchorOnHomePage = (link: NavLink): boolean => {
+    if (!link.anchor || !this.isOnHomePage()) return false;
+
+    this.scrollToElement(link.anchor);
+    return true;
+  };
+
+  private readonly handleAnchorNavigation = (link: NavLink): boolean => {
+    if (!link.anchor) return false;
+
+    this.router.navigate(['/'], { fragment: link.anchor });
+    return true;
+  };
+
+  private readonly handleRouteNavigation = (link: NavLink): boolean => {
+    if (!link.route) return false;
+
+    this.router.navigate([link.route]).then(() => this.scrollToTop());
+    return true;
+  };
+
+  private isOnHomePage(): boolean {
+    return this.router.url === '/' || this.router.url.startsWith('/#');
+  }
+
+  private closeMenu(): void {
     this.menuOpen.set(false);
+  }
+
+  private scrollToTop(): void {
+    this.document.defaultView?.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }
 
   private scrollToElement(anchor: string): void {
