@@ -113,6 +113,7 @@
 
         <button
           class="nav__hamburger"
+          [class.nav__hamburger--open]="menuOpen()"
           (click)="toggleMenu()"
           [attr.aria-expanded]="menuOpen()"
           aria-label="Toggle menu"
@@ -124,8 +125,8 @@
       </div>
     </div>
 
-    @if (menuOpen()) {
-      <nav class="nav__mobile-menu" aria-label="Mobile navigation">
+    <div class="nav__mobile-wrapper" [class.nav__mobile-wrapper--open]="menuOpen()">
+      <nav class="nav__mobile-menu" aria-label="Mobile navigation" [attr.aria-hidden]="!menuOpen()">
         @for (link of navLinks; track link.labelKey) {
           <a class="nav__mobile-link" (click)="handleNavigation(link)" role="button" tabindex="0">
             {{ t(link.labelKey ?? '') }}
@@ -152,6 +153,6 @@
           }
         </div>
       </nav>
-    }
+    </div>
   </header>
 </ng-container>
