@@ -1,24 +1,24 @@
 <ng-container *transloco="let t">
-  <section id="testimonials" class="testimonials" aria-labelledby="testimonials-heading">
+  <section class="testimonials" aria-labelledby="testimonials-heading" id="testimonials">
     <div class="testimonials__container">
       <div class="testimonials__head" appReveal>
         <div>
           <p class="testimonials__kicker">
             {{ t('testimonials.label') }} · {{ testimonials.length }} {{ t('testimonials.voices') }}
           </p>
-          <h2 id="testimonials-heading" class="testimonials__title">
+          <h2 class="testimonials__title" id="testimonials-heading">
             {{ t('testimonials.heading') }}
           </h2>
         </div>
-        <div class="testimonials__dots" role="tablist" aria-label="Testimonials navigation">
+        <div class="testimonials__dots" aria-label="Testimonials navigation" role="tablist">
           @for (item of testimonials; track item.id; let i = $index) {
             <button
               class="testimonials__dot"
+              role="tab"
+              [attr.aria-label]="'Testimonial ' + (i + 1)"
+              [attr.aria-selected]="activeIndex() === i"
               [class.testimonials__dot--active]="activeIndex() === i"
               (click)="goTo(i)"
-              role="tab"
-              [attr.aria-selected]="activeIndex() === i"
-              [attr.aria-label]="'Testimonial ' + (i + 1)"
             >
               0{{ i + 1 }}
             </button>
@@ -75,20 +75,20 @@
         <div class="testimonials__pager">
           <button
             class="testimonials__pager-btn"
-            (click)="prev()"
             aria-label="Previous testimonial"
+            (click)="prev()"
           >
             ←
           </button>
           <div
             class="testimonials__progress"
             role="progressbar"
-            [attr.aria-valuenow]="activeIndex() + 1"
             [attr.aria-valuemax]="testimonials.length"
+            [attr.aria-valuenow]="activeIndex() + 1"
           >
             <div class="testimonials__progress-fill" [style.width]="progress()"></div>
           </div>
-          <button class="testimonials__pager-btn" (click)="next()" aria-label="Next testimonial">
+          <button class="testimonials__pager-btn" aria-label="Next testimonial" (click)="next()">
             →
           </button>
         </div>

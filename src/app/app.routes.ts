@@ -20,8 +20,7 @@ export const routes: Routes = [
   },
   {
     path: 'contact',
-    loadComponent: async () =>
-      (await import('@pages/contact/contact.page')).ContactPageComponent,
+    loadComponent: async () => (await import('@pages/contact/contact.page')).ContactPageComponent,
   },
   {
     path: 'projects/:id',

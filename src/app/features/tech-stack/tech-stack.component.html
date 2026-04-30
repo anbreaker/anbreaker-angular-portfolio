@@ -1,11 +1,11 @@
 <ng-container *transloco="let t">
-  <section id="tech" class="tech-stack" aria-labelledby="tech-heading">
+  <section class="tech-stack" aria-labelledby="tech-heading" id="tech">
     <!-- ── Header ── -->
     <div class="tech-stack__container">
       <header class="tech-stack__header" appReveal>
         <div class="tech-stack__header-left">
           <p class="tech-stack__kicker">{{ t('techStack.kicker') }}</p>
-          <h2 id="tech-heading" class="tech-stack__title">
+          <h2 class="tech-stack__title" id="tech-heading">
             {{ t('techStack.workStyle') }}
             <em>{{ t('techStack.workStyleAccent') }}</em>
             <span>.</span>
@@ -20,9 +20,9 @@
       <!-- Decorative orbit rings (SVG) -->
       <svg
         class="tech-stack__orbital-svg"
-        viewBox="0 0 1200 620"
-        preserveAspectRatio="xMidYMid meet"
         focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 1200 620"
       >
         <circle class="tech-stack__orbit-path" cx="600" cy="310" r="160" />
         <circle class="tech-stack__orbit-path" cx="600" cy="310" r="270" />
@@ -50,26 +50,26 @@
             >
               @if (node.iconSlug) {
                 <img
+                  height="32"
+                  loading="lazy"
+                  width="32"
+                  [alt]="node.name"
                   [src]="
                     'https://cdn.simpleicons.org/' +
                     node.iconSlug +
                     (node.lightIcon ? '/ffffff' : '')
                   "
-                  [alt]="node.name"
-                  width="32"
-                  height="32"
-                  loading="lazy"
                 />
               } @else {
                 <!-- Signals: custom inline icon -->
-                <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">
+                <svg aria-hidden="true" height="32" viewBox="0 0 32 32" width="32">
                   <rect
-                    width="32"
+                    fill="#0a0a0b"
                     height="32"
                     rx="6"
-                    fill="#0a0a0b"
                     stroke="#dd0031"
                     stroke-width="1.5"
+                    width="32"
                   />
                   <path d="M11 11h10l-4 6h5L13 24l3-6h-5Z" fill="#dd0031" />
                 </svg>
@@ -99,25 +99,25 @@
             <span class="tech-stack__pill">
               @if (item.iconSlug) {
                 <img
+                  height="22"
+                  loading="lazy"
+                  width="22"
+                  [alt]="item.name"
                   [src]="
                     'https://cdn.simpleicons.org/' +
                     item.iconSlug +
                     (item.lightIcon ? '/ffffff' : '')
                   "
-                  [alt]="item.name"
-                  width="22"
-                  height="22"
-                  loading="lazy"
                 />
               } @else {
-                <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+                <svg aria-hidden="true" height="22" viewBox="0 0 32 32" width="22">
                   <rect
-                    width="32"
+                    fill="#0a0a0b"
                     height="32"
                     rx="6"
-                    fill="#0a0a0b"
                     stroke="#dd0031"
                     stroke-width="1.5"
+                    width="32"
                   />
                   <path d="M11 11h10l-4 6h5L13 24l3-6h-5Z" fill="#dd0031" />
                 </svg>
@@ -135,25 +135,25 @@
             <span class="tech-stack__pill">
               @if (item.iconSlug) {
                 <img
+                  height="22"
+                  loading="lazy"
+                  width="22"
+                  [alt]="item.name"
                   [src]="
                     'https://cdn.simpleicons.org/' +
                     item.iconSlug +
                     (item.lightIcon ? '/ffffff' : '')
                   "
-                  [alt]="item.name"
-                  width="22"
-                  height="22"
-                  loading="lazy"
                 />
               } @else {
-                <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+                <svg aria-hidden="true" height="22" viewBox="0 0 32 32" width="22">
                   <rect
-                    width="32"
+                    fill="#0a0a0b"
                     height="32"
                     rx="6"
-                    fill="#0a0a0b"
                     stroke="#dd0031"
                     stroke-width="1.5"
+                    width="32"
                   />
                   <path d="M11 11h10l-4 6h5L13 24l3-6h-5Z" fill="#dd0031" />
                 </svg>

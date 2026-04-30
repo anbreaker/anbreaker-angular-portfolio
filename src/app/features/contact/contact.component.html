@@ -1,11 +1,11 @@
 <ng-container *transloco="let t">
-  <section id="contact" class="contact" aria-labelledby="contact-heading">
+  <section class="contact" aria-labelledby="contact-heading" id="contact">
     <div class="contact__container">
-
       <!-- Header bar -->
       <div class="contact__header" appReveal>
         <span class="contact__section-label">
-          <span class="contact__section-num">05</span> / {{ t('contact.label') }}
+          <span class="contact__section-num">05</span>
+          / {{ t('contact.label') }}
         </span>
         <span class="contact__available">
           <span class="contact__available-dot" aria-hidden="true"></span>
@@ -15,13 +15,14 @@
 
       <!-- Main grid -->
       <div class="contact__grid">
-
         <!-- Left column: headline + links + terminal -->
         <div class="contact__left" appReveal [revealDelay]="100">
           <p class="contact__eyebrow">{{ t('contact.eyebrow') }}</p>
-          <h2 id="contact-heading" class="contact__heading">
-            {{ t('contact.heading1') }}<br />
-            <em class="contact__heading-em">{{ t('contact.heading2') }}</em>.
+          <h2 class="contact__heading" id="contact-heading">
+            {{ t('contact.heading1') }}
+            <br />
+            <em class="contact__heading-em">{{ t('contact.heading2') }}</em>
+            .
           </h2>
           <p class="contact__intro" [innerHTML]="t('contact.intro')"></p>
 
@@ -30,11 +31,11 @@
             @for (link of links; track link.label; let first = $first) {
               <a
                 class="contact__link"
-                [class.contact__link--first]="first"
-                [href]="link.href"
-                target="_blank"
                 rel="noopener noreferrer"
                 role="listitem"
+                target="_blank"
+                [class.contact__link--first]="first"
+                [href]="link.href"
               >
                 <span class="contact__link-inner">
                   <span class="contact__link-label">{{ link.label }}</span>
@@ -48,7 +49,7 @@
           <!-- Terminal prompt -->
           <div class="contact__terminal" aria-hidden="true">
             <span class="contact__terminal-path">~/contacto</span>
-            <span class="contact__terminal-sep"> ❯ </span>
+            <span class="contact__terminal-sep">❯</span>
             <span class="contact__terminal-cmd">{{ t('contact.terminalCmd') }}</span>
             <span class="contact__terminal-cursor"></span>
           </div>
@@ -56,27 +57,24 @@
 
         <!-- Right column: form card -->
         <div class="contact__form-card" appReveal [revealDelay]="200">
-
           @if (status() === 'success') {
             <div class="contact__success">
               <span class="contact__success-icon">✓</span>
               <p class="contact__success-title">{{ t('contact.form.successTitle') }}</p>
               <p class="contact__success-msg">{{ t('contact.form.successMsg') }}</p>
             </div>
-
           } @else if (status() === 'error') {
             <div class="contact__success">
               <span class="contact__success-icon contact__success-icon--error">✕</span>
               <p class="contact__success-title">{{ t('contact.form.errorTitle') }}</p>
               <p class="contact__success-msg">{{ t('contact.form.errorMsg') }}</p>
-              <button class="mag-btn mag-btn--ghost" (click)="retry()" appMagneticButton>
+              <button class="mag-btn mag-btn--ghost" appMagneticButton (click)="retry()">
                 <span class="mag-btn__label">{{ t('contact.form.retry') }}</span>
                 <span class="mag-btn__fill" aria-hidden="true">{{ t('contact.form.retry') }}</span>
               </button>
             </div>
-
           } @else {
-            <form class="contact__form" (submit)="handleSubmit($event)" novalidate>
+            <form class="contact__form" novalidate (submit)="handleSubmit($event)">
               <span class="contact__form-eyebrow">{{ t('contact.form.title') }}</span>
 
               <!-- Name -->
@@ -85,16 +83,16 @@
                   {{ t('contact.form.name') }}
                 </label>
                 <input
-                  id="contact-name"
                   class="contact__input"
-                  [class.contact__input--focused]="focusedField() === 'name'"
-                  [class.contact__input--error]="nameError()"
+                  id="contact-name"
                   type="text"
-                  [value]="name()"
+                  [class.contact__input--error]="nameError()"
+                  [class.contact__input--focused]="focusedField() === 'name'"
                   [placeholder]="t('contact.form.namePlaceholder')"
-                  (input)="name.set($any($event.target).value)"
-                  (focus)="onFocus('name')"
+                  [value]="name()"
                   (blur)="onBlur()"
+                  (focus)="onFocus('name')"
+                  (input)="name.set($any($event.target).value)"
                 />
                 @if (nameError()) {
                   <span class="contact__field-error">{{ t('contact.form.nameRequired') }}</span>
@@ -107,16 +105,16 @@
                   {{ t('contact.form.email') }}
                 </label>
                 <input
-                  id="contact-email"
                   class="contact__input"
-                  [class.contact__input--focused]="focusedField() === 'email'"
-                  [class.contact__input--error]="emailError()"
+                  id="contact-email"
                   type="email"
-                  [value]="email()"
+                  [class.contact__input--error]="emailError()"
+                  [class.contact__input--focused]="focusedField() === 'email'"
                   [placeholder]="t('contact.form.emailPlaceholder')"
-                  (input)="email.set($any($event.target).value)"
-                  (focus)="onFocus('email')"
+                  [value]="email()"
                   (blur)="onBlur()"
+                  (focus)="onFocus('email')"
+                  (input)="email.set($any($event.target).value)"
                 />
                 @if (emailError()) {
                   <span class="contact__field-error">{{ t('contact.form.emailInvalid') }}</span>
@@ -126,16 +124,20 @@
               <!-- Project type -->
               <div class="contact__field">
                 <label class="contact__field-label">{{ t('contact.form.projectType') }}</label>
-                <div class="contact__pills" role="group" [attr.aria-label]="t('contact.form.projectType')">
+                <div
+                  class="contact__pills"
+                  role="group"
+                  [attr.aria-label]="t('contact.form.projectType')"
+                >
                   @for (type of projectTypes; track type.key) {
                     <button
-                      type="button"
                       class="mag-btn"
-                      [class.mag-btn--primary]="activeType() === type.key"
-                      [class.mag-btn--ghost]="activeType() !== type.key"
-                      (click)="setType(type.key)"
-                      [attr.aria-pressed]="activeType() === type.key"
                       appMagneticButton
+                      type="button"
+                      [attr.aria-pressed]="activeType() === type.key"
+                      [class.mag-btn--ghost]="activeType() !== type.key"
+                      [class.mag-btn--primary]="activeType() === type.key"
+                      (click)="setType(type.key)"
                     >
                       <span class="mag-btn__label">{{ t(type.i18nKey) }}</span>
                       <span class="mag-btn__fill" aria-hidden="true">{{ t(type.i18nKey) }}</span>
@@ -150,16 +152,16 @@
                   {{ t('contact.form.message') }}
                 </label>
                 <textarea
-                  id="contact-msg"
                   class="contact__input contact__textarea"
-                  [class.contact__input--focused]="focusedField() === 'msg'"
-                  [class.contact__input--error]="messageError()"
-                  [value]="message()"
-                  [placeholder]="t('contact.form.messagePlaceholder')"
-                  (input)="message.set($any($event.target).value)"
-                  (focus)="onFocus('msg')"
-                  (blur)="onBlur()"
+                  id="contact-msg"
                   rows="4"
+                  [class.contact__input--error]="messageError()"
+                  [class.contact__input--focused]="focusedField() === 'msg'"
+                  [placeholder]="t('contact.form.messagePlaceholder')"
+                  [value]="message()"
+                  (blur)="onBlur()"
+                  (focus)="onFocus('msg')"
+                  (input)="message.set($any($event.target).value)"
                 ></textarea>
                 @if (messageError()) {
                   <span class="contact__field-error">{{ t('contact.form.messageRequired') }}</span>
@@ -168,21 +170,28 @@
 
               <!-- Submit -->
               <button
-                type="submit"
                 class="mag-btn mag-btn--primary"
-                [disabled]="status() === 'loading'"
                 appMagneticButton
+                type="submit"
+                [disabled]="status() === 'loading'"
               >
                 <span class="mag-btn__label">
-                  {{ status() === 'loading' ? t('contact.form.sending') : t('contact.form.submit') + ' →' }}
+                  {{
+                    status() === 'loading'
+                      ? t('contact.form.sending')
+                      : t('contact.form.submit') + ' →'
+                  }}
                 </span>
                 <span class="mag-btn__fill" aria-hidden="true">
-                  {{ status() === 'loading' ? t('contact.form.sending') : t('contact.form.submit') + ' →' }}
+                  {{
+                    status() === 'loading'
+                      ? t('contact.form.sending')
+                      : t('contact.form.submit') + ' →'
+                  }}
                 </span>
               </button>
             </form>
           }
-
         </div>
       </div>
     </div>

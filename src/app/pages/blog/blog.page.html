@@ -6,12 +6,12 @@
     <h1 class="blog__title">{{ t('blog.title') }}</h1>
     <div class="blog__search-wrap">
       <input
-        type="search"
         class="blog__search"
+        aria-label="Search posts"
+        type="search"
         [placeholder]="t('blog.searchPlaceholder')"
         [value]="searchTerm()"
         (input)="onSearchChange($event)"
-        aria-label="Search posts"
       />
     </div>
   </section>
@@ -42,17 +42,17 @@
     </div>
 
     <div class="blog__pagination">
-      <button class="blog__pager-btn" (click)="prevPage()" [disabled]="currentPage() === 1">
+      <button class="blog__pager-btn" [disabled]="currentPage() === 1" (click)="prevPage()">
         ←
       </button>
       <span class="blog__page-label">{{ t('blog.pagination.page') }} {{ currentPage() }}</span>
       <button
         class="blog__pager-btn"
-        (click)="nextPage()"
         [disabled]="
           response.posts.length < response.pageSize ||
           currentPage() * response.pageSize >= response.totalCount
         "
+        (click)="nextPage()"
       >
         →
       </button>

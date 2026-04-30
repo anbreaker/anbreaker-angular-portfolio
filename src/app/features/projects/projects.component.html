@@ -1,17 +1,17 @@
 <ng-container *transloco="let t">
-  <section id="projects" class="projects" aria-labelledby="projects-heading">
+  <section class="projects" aria-labelledby="projects-heading" id="projects">
     <div class="projects__container">
       <div class="projects__header" appReveal>
         <p class="projects__label">{{ t('projects.label') }}</p>
-        <h2 id="projects-heading" class="projects__title">{{ t('projects.title') }}</h2>
+        <h2 class="projects__title" id="projects-heading">{{ t('projects.title') }}</h2>
       </div>
 
-      <div class="projects__grid" appReveal [revealStagger]="true" [revealDelay]="80">
+      <div class="projects__grid" appReveal [revealDelay]="80" [revealStagger]="true">
         @for (project of projects; track project.id) {
           <div
             class="projects__card-wrapper"
-            [class.projects__card-wrapper--clickable]="project.detail"
             appTilt
+            [class.projects__card-wrapper--clickable]="project.detail"
             (click)="project.detail && navigateToDetail(project.id)"
           >
             <app-neon-card color="blue">
@@ -23,10 +23,10 @@
                 >
                   @if (project.imageUrl) {
                     <img
-                      [src]="project.imageUrl[langStore.currentLang()]"
-                      [alt]="project.id"
                       class="projects__card-screenshot"
                       loading="lazy"
+                      [alt]="project.id"
+                      [src]="project.imageUrl[langStore.currentLang()]"
                     />
                   } @else {
                     <span class="projects__card-image-placeholder">
@@ -46,19 +46,19 @@
 
                   <div class="projects__card-tags">
                     @for (tag of project.tags; track tag) {
-                      <app-badge [label]="tag" color="blue" />
+                      <app-badge color="blue" [label]="tag" />
                     }
                   </div>
 
                   <div class="projects__card-actions">
                     @if (project.demoUrl && project.demoUrl !== '#') {
                       <a
-                        [href]="project.demoUrl"
                         class="mag-btn mag-btn--primary"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        [attr.aria-label]="t('projects.viewDemo') + ' ' + t(project.titleKey)"
                         appMagneticButton
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        [attr.aria-label]="t('projects.viewDemo') + ' ' + t(project.titleKey)"
+                        [href]="project.demoUrl"
                         (click)="$event.stopPropagation()"
                       >
                         <span class="mag-btn__label">{{ t('projects.viewDemo') }}</span>
@@ -69,12 +69,12 @@
                     }
                     @if (project.codeUrl && project.codeUrl !== '#') {
                       <a
-                        [href]="project.codeUrl"
                         class="mag-btn mag-btn--secondary"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        [attr.aria-label]="t('projects.viewCode') + ' ' + t(project.titleKey)"
                         appMagneticButton
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        [attr.aria-label]="t('projects.viewCode') + ' ' + t(project.titleKey)"
+                        [href]="project.codeUrl"
                         (click)="$event.stopPropagation()"
                       >
                         <span class="mag-btn__label">{{ t('projects.viewCode') }}</span>

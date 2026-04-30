@@ -3,8 +3,8 @@
     <button
       class="back-button project-detail__back"
       type="button"
-      (click)="goToProjects()"
       [attr.aria-label]="t('projects.detail.backButton')"
+      (click)="goToProjects()"
     >
       ← {{ t('projects.detail.backButton') }}
     </button>
@@ -13,9 +13,9 @@
     <div class="project-detail__hero" [style.view-transition-name]="'card-' + proj.id">
       @if (proj.imageUrl) {
       <img
-        [src]="proj.imageUrl[langStore.currentLang()]"
-        [alt]="t(proj.titleKey)"
         class="project-detail__hero-img"
+        [alt]="t(proj.titleKey)"
+        [src]="proj.imageUrl[langStore.currentLang()]"
       />
       } @else {
       <div class="project-detail__hero-placeholder">{{ proj.id.charAt(0).toUpperCase() }}</div>
@@ -46,24 +46,24 @@
       <div class="project-detail__actions">
         @if (proj.demoUrl && proj.demoUrl !== '#') {
         <a
-          [href]="proj.demoUrl"
           class="mag-btn mag-btn--primary"
-          target="_blank"
-          rel="noopener noreferrer"
-          [attr.aria-label]="t('projects.viewDemo') + ' ' + t(proj.titleKey)"
           appMagneticButton
+          rel="noopener noreferrer"
+          target="_blank"
+          [attr.aria-label]="t('projects.viewDemo') + ' ' + t(proj.titleKey)"
+          [href]="proj.demoUrl"
         >
           <span class="mag-btn__label">{{ t('projects.viewDemo') }}</span>
           <span class="mag-btn__fill" aria-hidden="true">{{ t('projects.viewDemo') }}</span>
         </a>
         } @if (proj.codeUrl && proj.codeUrl !== '#') {
         <a
-          [href]="proj.codeUrl"
           class="mag-btn mag-btn--secondary"
-          target="_blank"
-          rel="noopener noreferrer"
-          [attr.aria-label]="t('projects.viewCode') + ' ' + t(proj.titleKey)"
           appMagneticButton
+          rel="noopener noreferrer"
+          target="_blank"
+          [attr.aria-label]="t('projects.viewCode') + ' ' + t(proj.titleKey)"
+          [href]="proj.codeUrl"
         >
           <span class="mag-btn__label">{{ t('projects.viewCode') }}</span>
           <span class="mag-btn__fill" aria-hidden="true">{{ t('projects.viewCode') }}</span>

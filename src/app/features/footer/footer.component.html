@@ -4,32 +4,32 @@
       <div class="footer__signature-wrap">
         <span
           class="footer__signature"
-          aria-label="Francisco Javier — rootdevs"
           appGradientTrack
+          aria-label="Francisco Javier — rootdevs"
           [angleVar]="'--sig-angle'"
         >
           Francisco Javier
         </span>
         <a
           class="footer__logo-link"
-          routerLink="/"
-          aria-label="Ir al inicio"
           appTilt
-          [appTiltShine]="false"
+          aria-label="Ir al inicio"
+          routerLink="/"
           [appTiltIntensity]="10"
+          [appTiltShine]="false"
         >
-          <img class="footer__logo" src="assets/images/logoRootdevs.webp" alt="rootdevs logo" />
+          <img class="footer__logo" alt="rootdevs logo" src="assets/images/logoRootdevs.webp" />
         </a>
       </div>
 
       <nav class="footer__social" aria-label="Social media links">
         @for (link of socialLinks; track link.platform) {
           <a
-            [href]="link.url"
             class="footer__social-link"
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
             [attr.aria-label]="link.ariaLabel"
+            [href]="link.url"
             [innerHTML]="safeIcon(link.icon)"
           ></a>
         }
