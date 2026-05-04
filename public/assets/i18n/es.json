@@ -258,21 +258,18 @@
     "label": "FEEDBACK",
     "t1": {
       "author": "Fran Méndez",
-      "handle": "@TechVision",
-      "quote": "Javier es humilde, aprende rápido, muy trabajador, comprometido con el equipo y siempre dispuesto a ayudar y compartir lo que sabe.",
+      "quote": "He tenido el placer de trabajar con Javier durante varios años. Destaca por su impecable ética de trabajo, su dominio técnico y su constante compromiso con la excelencia. Siempre dispuesto a compartir su conocimiento y elevar el nivel del equipo. Un profesional con el que es un privilegio colaborar. 🚀",
       "role": "Creator of AsyncAPI | Building Commune"
     },
     "t2": {
-      "author": "Sofia Mendez",
-      "handle": "@SofiaLeads",
-      "quote": "El mejor desarrollador con el que he trabajado. Su enfoque en Angular 21 está muy por delante de la curva.",
-      "role": "Product Lead"
+      "author": "Barbaño González",
+      "quote": "Javier es una persona positiva a la que le gustan los retos y no se rinde fácilmente. Me ha estado enseñando a programar con mucha paciencia, introduciéndome al mundo del Open-source. Si buscas un colega dinámico y de confianza, Javier debería ser tu elección. 👩‍💻",
+      "role": "Education Program Manager at Postman"
     },
     "t3": {
-      "author": "Marcus Chen",
-      "handle": "@MarcusCo",
-      "quote": "Tecnólogo creativo es el título perfecto. Francisco aporta alma y estilo a cada línea de código.",
-      "role": "Founder"
+      "author": "Joaquín Engelmo",
+      "quote": "Javier es un gran ejemplo de la palabra 'superación'. Aprende rápido y trabaja duro, siempre dispuesto a aprender y probar cosas nuevas sin ningún miedo. Si necesitas a una persona con gran atención al detalle y realmente apasionada, Javier es tu chico. 💪",
+      "role": "DevRel at Criteo | Alexa Champion"
     },
     "title": "Trusted by RootDevs",
     "voices": "colegas"

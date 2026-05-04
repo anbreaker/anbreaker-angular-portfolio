@@ -26,9 +26,9 @@ interface TestimonialItem {
 })
 export class TestimonialsComponent implements OnInit, OnDestroy {
   protected readonly testimonials: TestimonialItem[] = [
-    { id: 't1', initials: 'FM', accent: '#22d3ee' },
-    { id: 't2', initials: 'SM', accent: '#f43f5e' },
-    { id: 't3', initials: 'MC', accent: '#a78bfa' },
+    { id: 't1', initials: 'FM', accent: '#fbcf46' },
+    { id: 't2', initials: 'BG', accent: '#f43f5e' },
+    { id: 't3', initials: 'JE', accent: '#fb5000' },
   ];
 
   protected readonly activeIndex = signal(0);
@@ -47,27 +47,62 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
     () => `0${this.activeIndex() + 1} / 0${this.testimonials.length}`
   );
 
+  protected readonly isPaused = signal(false);
   private timer: ReturnType<typeof setInterval> | null = null;
+  private readonly INTERVAL_MS = 8000;
 
   ngOnInit(): void {
+    this.startTimer();
+  }
+
+  ngOnDestroy(): void {
+    this.stopTimer();
+  }
+
+  private startTimer(): void {
+    if (this.timer) return;
     this.timer = setInterval(() => {
       this.activeIndex.update(
         (activeTestimonial) => (activeTestimonial + 1) % this.testimonials.length
       );
-    }, 6000);
+    }, this.INTERVAL_MS);
   }
 
-  ngOnDestroy(): void {
-    if (this.timer) clearInterval(this.timer);
+  private stopTimer(): void {
+    if (this.timer) {
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+  }
+
+  onPause(): void {
+    this.isPaused.set(true);
+    this.stopTimer();
+  }
+
+  onResume(): void {
+    this.isPaused.set(false);
+    this.startTimer();
+  }
+
+  private resetTimer(): void {
+    if (!this.isPaused()) {
+      this.stopTimer();
+      this.startTimer();
+    }
   }
 
   goTo(index: number): void {
     this.activeIndex.set(index);
+    this.resetTimer();
   }
 
   goToById(id: string): void {
     const idx = this.testimonials.findIndex((testimonial) => testimonial.id === id);
-    if (idx >= 0) this.activeIndex.set(idx);
+    if (idx >= 0) {
+      this.activeIndex.set(idx);
+      this.resetTimer();
+    }
   }
 
   prev(): void {
@@ -75,11 +110,13 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
       (activeTestimonial) =>
         (activeTestimonial - 1 + this.testimonials.length) % this.testimonials.length
     );
+    this.resetTimer();
   }
 
   next(): void {
     this.activeIndex.update(
       (activeTestimonial) => (activeTestimonial + 1) % this.testimonials.length
     );
+    this.resetTimer();
   }
 }
