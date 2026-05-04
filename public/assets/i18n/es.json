@@ -25,7 +25,7 @@
         "gentleAI": { "name": "GentleAI · Agentes MCP", "tag": "AI" },
         "homeAssistant": { "name": "Home Assistant", "tag": "IOT" },
         "homelab": { "name": "Raspberry Pi Homelab", "tag": "HARDWARE" },
-        "linux": { "name": "Linux · Arch", "tag": "OS" }
+        "linux": { "name": "Linux", "tag": "OS" }
       },
       "prompt": "docker compose up -d home-assistant",
       "tab": "Infraestructura"
