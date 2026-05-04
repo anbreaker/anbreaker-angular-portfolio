@@ -3,7 +3,7 @@ import { Project } from '@core/interfaces/portfolio.interfaces';
 export const PROJECTS_DATA: Project[] = [
   {
     codeUrl: 'https://github.com/anbreaker/mimacrame-studio-2026',
-    demoUrl: 'https://mimacrame.com',
+    // demoUrl: 'https://mimacrame.',
     descriptionKey: 'projects.mimacrame.description',
     detail: {
       impactKey: 'projects.mimacrame.detail.impact',
