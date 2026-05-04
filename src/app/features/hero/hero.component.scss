@@ -50,6 +50,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    min-width: 0;
   }
 
   &__tagline {
@@ -180,6 +181,7 @@
     animation: fade-up 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s both;
     display: flex;
     justify-content: center;
+    min-width: 0;
 
     @media (min-width: 1024px) {
       justify-content: flex-end;
