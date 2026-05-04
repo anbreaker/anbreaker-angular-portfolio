@@ -88,7 +88,7 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
 
   readonly showFloatingVideo = computed(
     () =>
-      !!this.post()?.videoId &&
+      !!this.currentVideoId() &&
       this.scrollProgress() > 5 &&
       !this.miniPlayerDismissed() &&
       (!this.videoSectionInView() || this.miniPlayerActivated())
@@ -112,6 +112,11 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
   readonly currentImageUrl = computed(() => {
     const imageMap = this.post()?.imageUrl;
     return imageMap ? imageMap[this.currentLang()] : undefined;
+  });
+
+  readonly currentVideoId = computed(() => {
+    const videoMap = this.post()?.videoId;
+    return videoMap ? videoMap[this.currentLang()] : undefined;
   });
 
   readonly readingTime = computed(() => {

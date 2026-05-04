@@ -25,8 +25,7 @@ export class BlogService {
       slug: 'codigo-impecable-equipos-multi-consultora',
       tags: ['Prettier', 'Git', 'DevEx', 'Husky'],
       titleKey: 'blog.posts.prettier-multiconsultora.title',
-      // TODO: per-lang video — upload EN and PT versions and switch to Record<SupportedLang, string>
-      videoId: 'zjPeO-7TuMw',
+      videoId: { en: '5yVhdCj9Bps', es: 'zjPeO-7TuMw', pt: 'kFDbIUBhv3I' },
     },
   ];
 

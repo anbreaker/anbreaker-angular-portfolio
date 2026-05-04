@@ -57,7 +57,7 @@ export interface BlogPost {
   slug: string;
   tags: string[];
   titleKey: string;
-  videoId?: string;
+  videoId?: Record<SupportedLang, string>;
 }
 
 export interface BlogResponse {

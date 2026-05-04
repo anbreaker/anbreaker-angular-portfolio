@@ -99,7 +99,7 @@
       </article>
     </div>
 
-    @if (currentPost.videoId) {
+    @if (currentVideoId()) {
     <section class="article__video-bottom">
       <div class="article__video-bottom-header">
         <span class="article__video-bottom-live">
@@ -131,12 +131,12 @@
       </div>
       <div class="article__video-bottom-player">
         <app-youtube-player
-          [videoId]="currentPost.videoId"
+          [videoId]="currentVideoId()!"
           [videoTitle]="t(currentPost.titleKey)"
         />
       </div>
     </section>
-    } @if (currentPost.videoId) {
+    } @if (currentVideoId()) {
     <button class="article__fab" type="button" (click)="videoSheetOpen.set(true)">
       <svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
         <path d="M8 5v14l11-7z" />
@@ -158,7 +158,7 @@
           <button aria-label="Cerrar" type="button" (click)="videoSheetOpen.set(false)">✕</button>
         </div>
         <app-youtube-player
-          [videoId]="currentPost.videoId"
+          [videoId]="currentVideoId()!"
           [videoTitle]="t(currentPost.titleKey)"
         />
       </div>
@@ -209,7 +209,7 @@
     </div>
     @if (post(); as currentPost) {
     <app-youtube-player
-      [videoId]="currentPost.videoId!"
+      [videoId]="currentVideoId()!"
       [videoTitle]="t(currentPost.titleKey)"
       (activatedChange)="miniPlayerActivated.set(true)"
     />
@@ -254,7 +254,7 @@
         ✕
       </button>
       @if (post(); as currentPost) {
-      <app-youtube-player [videoId]="currentPost.videoId!" [videoTitle]="t(currentPost.titleKey)" />
+      <app-youtube-player [videoId]="currentVideoId()!" [videoTitle]="t(currentPost.titleKey)" />
       }
     </div>
   </div>
