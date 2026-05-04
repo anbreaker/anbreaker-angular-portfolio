@@ -119,16 +119,16 @@
             </div>
           </div>
           <div class="about__panel-side">
-            @for (item of panel.items; track item.name) {
+            @for (item of panel.items; track item.nameKey) {
             <div class="about__side-row">
-              <span class="about__side-name">{{ item.name }}</span>
+              <span class="about__side-name">{{ t(item.nameKey) }}</span>
               <span
                 class="about__side-tag"
                 [class.about__side-tag--cy]="item.accent === 'cy'"
                 [class.about__side-tag--em]="item.accent === 'em'"
                 [class.about__side-tag--ro]="item.accent === 'ro'"
               >
-                {{ item.tag }}
+                {{ t(item.tagKey) }}
               </span>
             </div>
             }

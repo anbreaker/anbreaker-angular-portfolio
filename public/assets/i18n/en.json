@@ -18,16 +18,41 @@
     "description": "Full Stack Developer at Sngular, based in Spain. I build scalable web applications with TypeScript, Vue and Angular on the frontend, Node.js and Express on the backend. Clean Code and SOLID aren't buzzwords — they're the baseline. Off the keyboard, I run my own homelab on Raspberry Pi, Docker, and Home Assistant, because tech autonomy is a lifestyle. And when I'm not in front of a screen, I tend vineyards and olive trees. Founder of RootDevs.",
     "domainIn": {
       "desc": "Linux user. Self-hosted homelab with Raspberry Pi and Docker. Enthusiast of generative AI agent orchestration — Claude, MCP and intelligent automation. Home Assistant for everything that blinks.",
+      "items": {
+        "claude": { "name": "Claude · MCP agents", "tag": "AI" },
+        "docker": { "name": "Docker + Compose", "tag": "CONTAINERS" },
+        "gemini": { "name": "Gemini · MCP agents", "tag": "AI" },
+        "gentleAI": { "name": "GentleAI · MCP agents", "tag": "AI" },
+        "homeAssistant": { "name": "Home Assistant", "tag": "IOT" },
+        "homelab": { "name": "Raspberry Pi Homelab", "tag": "HARDWARE" },
+        "linux": { "name": "Linux · Arch", "tag": "OS" }
+      },
       "prompt": "docker compose up -d home-assistant",
       "tab": "Infrastructure"
     },
     "domainSw": {
       "desc": "Web apps with TypeScript using Vue, React, Angular and Lit — depending on the project. Vanilla JS when the situation calls for it. Node.js and Express on the backend.",
+      "items": {
+        "angular21": { "name": "Angular 21", "tag": "FRAMEWORK" },
+        "jsTs": { "name": "JavaScript · TypeScript", "tag": "LANGUAGE" },
+        "lit": { "name": "Lit", "tag": "LIBRARY" },
+        "node": { "name": "Node.js · Express", "tag": "BACKEND" },
+        "react": { "name": "React", "tag": "LIBRARY" },
+        "vue3": { "name": "Vue 3", "tag": "FRAMEWORK" }
+      },
       "prompt": "ng generate feature clean-code",
       "tab": "Software"
     },
     "domainTi": {
       "desc": "Low external-input farming. Vineyards and olive trees managed with soil regeneration principles. Fewer inputs, more observation. The patience of an annual cycle re-educates how I write code.",
+      "items": {
+        "huerta": { "name": "Vegetable Garden", "tag": "CROP" },
+        "naranjos": { "name": "Orange Trees", "tag": "CROP" },
+        "olivos": { "name": "Olive Trees", "tag": "CROP" },
+        "permacultura": { "name": "Permaculture", "tag": "METHOD" },
+        "sueloVivo": { "name": "Living Soil", "tag": "PRINCIPLE" },
+        "vinedo": { "name": "Vineyard", "tag": "CROP" }
+      },
       "prompt": "./poda.sh --ramas old --conservar fruto",
       "tab": "Land"
     },

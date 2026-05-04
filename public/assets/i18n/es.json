@@ -18,16 +18,41 @@
     "description": "Full Stack Developer en Sngular, con base en España. Construyo aplicaciones web escalables con TypeScript, Vue y Angular en el frontend, y Node.js y Express en el backend. Clean Code y SOLID no son palabras de moda — son el mínimo exigible. Fuera del trabajo, opero mi propio homelab con Raspberry Pi, Docker y Home Assistant, porque la autonomía tecnológica es también una filosofía de vida. Y cuando no estoy frente a una pantalla, cuido viñedos y olivos. Fundador de RootDevs.",
     "domainIn": {
       "desc": "Linux user. Homelab self-hosted con Raspberry Pi y Docker. Entusiasta de la orquestación de agentes IA generativa — Claude, MCP y automatización inteligente. Home Assistant para todo lo que parpadea.",
+      "items": {
+        "claude": { "name": "Claude · Agentes MCP", "tag": "AI" },
+        "docker": { "name": "Docker + Compose", "tag": "CONTAINERS" },
+        "gemini": { "name": "Gemini · Agentes MCP", "tag": "AI" },
+        "gentleAI": { "name": "GentleAI · Agentes MCP", "tag": "AI" },
+        "homeAssistant": { "name": "Home Assistant", "tag": "IOT" },
+        "homelab": { "name": "Raspberry Pi Homelab", "tag": "HARDWARE" },
+        "linux": { "name": "Linux · Arch", "tag": "OS" }
+      },
       "prompt": "docker compose up -d home-assistant",
       "tab": "Infraestructura"
     },
     "domainSw": {
       "desc": "Aplicaciones web con TypeScript usando Vue, React, Angular y Lit — según el proyecto. Vanilla JS cuando la situación lo pide. En el backend, Node.js y Express.",
+      "items": {
+        "angular21": { "name": "Angular 21", "tag": "FRAMEWORK" },
+        "jsTs": { "name": "JavaScript · TypeScript", "tag": "LANGUAGE" },
+        "lit": { "name": "Lit", "tag": "LIBRARY" },
+        "node": { "name": "Node.js · Express", "tag": "BACKEND" },
+        "react": { "name": "React", "tag": "LIBRARY" },
+        "vue3": { "name": "Vue 3", "tag": "FRAMEWORK" }
+      },
       "prompt": "ng generate feature clean-code",
       "tab": "Software"
     },
     "domainTi": {
       "desc": "Agricultura de bajo impacto externo. Naranjos, olivos y viñedos gestionados con criterio de regeneración del suelo. Menos insumos, más observación. La paciencia de un ciclo anual reeduca el modo en que escribo código.",
+      "items": {
+        "huerta": { "name": "Huerta", "tag": "CULTIVO" },
+        "naranjos": { "name": "Naranjos", "tag": "CULTIVO" },
+        "olivos": { "name": "Olivos", "tag": "CULTIVO" },
+        "permacultura": { "name": "Permacultura", "tag": "MÉTODO" },
+        "sueloVivo": { "name": "Suelo vivo", "tag": "PRINCIPIO" },
+        "vinedo": { "name": "Viñedo", "tag": "CULTIVO" }
+      },
       "prompt": "./poda.sh --ramas old --conservar fruto",
       "tab": "Tierra"
     },

@@ -18,16 +18,41 @@
     "description": "Desenvolvedor Full Stack na Sngular, baseado na Espanha. Construo aplicações web escaláveis com TypeScript, Vue e Angular no frontend, e Node.js e Express no backend. Clean Code e SOLID não são palavras da moda — são o mínimo exigível. Fora do trabalho, opero meu próprio homelab com Raspberry Pi, Docker e Home Assistant, porque a autonomia tecnológica também é uma filosofia de vida. E quando não estou à frente de um ecrã, cuido de vinhas e oliveiras. Fundador da RootDevs.",
     "domainIn": {
       "desc": "Usuário Linux. Homelab self-hosted com Raspberry Pi e Docker. Entusiasta da orquestração de agentes IA generativa — Claude, MCP e automação inteligente. Home Assistant para tudo que pisca.",
+      "items": {
+        "claude": { "name": "Claude · Agentes MCP", "tag": "AI" },
+        "docker": { "name": "Docker + Compose", "tag": "CONTAINERS" },
+        "gemini": { "name": "Gemini · Agentes MCP", "tag": "AI" },
+        "gentleAI": { "name": "GentleAI · Agentes MCP", "tag": "AI" },
+        "homeAssistant": { "name": "Home Assistant", "tag": "IOT" },
+        "homelab": { "name": "Raspberry Pi Homelab", "tag": "HARDWARE" },
+        "linux": { "name": "Linux · Arch", "tag": "OS" }
+      },
       "prompt": "docker compose up -d home-assistant",
       "tab": "Infraestrutura"
     },
     "domainSw": {
       "desc": "Aplicações web com TypeScript usando Vue, React, Angular e Lit — conforme o projeto. Vanilla JS quando a situação pede. No backend, Node.js e Express.",
+      "items": {
+        "angular21": { "name": "Angular 21", "tag": "FRAMEWORK" },
+        "jsTs": { "name": "JavaScript · TypeScript", "tag": "LANGUAGE" },
+        "lit": { "name": "Lit", "tag": "LIBRARY" },
+        "node": { "name": "Node.js · Express", "tag": "BACKEND" },
+        "react": { "name": "React", "tag": "LIBRARY" },
+        "vue3": { "name": "Vue 3", "tag": "FRAMEWORK" }
+      },
       "prompt": "ng generate feature clean-code",
       "tab": "Software"
     },
     "domainTi": {
       "desc": "Agricultura de baixo insumo externo. Laranjeiras, oliveiras e vinhas geridos com critério de regeneração do solo. Menos insumos, mais observação. A paciência de um ciclo anual reeduca o modo como escrevo código.",
+      "items": {
+        "huerta": { "name": "Horta", "tag": "CULTIVO" },
+        "naranjos": { "name": "Laranjeiras", "tag": "CULTIVO" },
+        "olivos": { "name": "Oliveiras", "tag": "CULTIVO" },
+        "permacultura": { "name": "Permacultura", "tag": "MÉTODO" },
+        "sueloVivo": { "name": "Solo vivo", "tag": "PRINCÍPIO" },
+        "vinedo": { "name": "Vinha", "tag": "CULTIVO" }
+      },
       "prompt": "./poda.sh --ramas old --conservar fruto",
       "tab": "Terra"
     },

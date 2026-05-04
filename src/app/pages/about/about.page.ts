@@ -31,7 +31,7 @@ interface TabPanel {
   id: TabId;
   indexClass: string;
   indexNum: string;
-  items: { accent: string; name: string; tag: string }[];
+  items: { accent: string; nameKey: string; tagKey: string }[];
   promptKey: string;
   promptPath: string;
   sym: string;
@@ -86,12 +86,12 @@ export class AboutMePageComponent implements OnDestroy {
       indexClass: 'cy',
       indexNum: '01.',
       items: [
-        { accent: 'cy', name: 'Angular 21', tag: 'FRAMEWORK' },
-        { accent: 'cy', name: 'JavaScript · TypeScript', tag: 'LANGUAGE' },
-        { accent: '', name: 'Vue 3', tag: 'FRAMEWORK' },
-        { accent: '', name: 'React', tag: 'LIBRARY' },
-        { accent: '', name: 'Lit', tag: 'LIBRARY' },
-        { accent: 'cy', name: 'Node.js · Express', tag: 'BACKEND' },
+        { accent: 'cy', nameKey: 'about.domainSw.items.angular21.name', tagKey: 'about.domainSw.items.angular21.tag' },
+        { accent: 'cy', nameKey: 'about.domainSw.items.jsTs.name', tagKey: 'about.domainSw.items.jsTs.tag' },
+        { accent: 'cy', nameKey: 'about.domainSw.items.vue3.name', tagKey: 'about.domainSw.items.vue3.tag' },
+        { accent: 'cy', nameKey: 'about.domainSw.items.react.name', tagKey: 'about.domainSw.items.react.tag' },
+        { accent: 'cy', nameKey: 'about.domainSw.items.lit.name', tagKey: 'about.domainSw.items.lit.tag' },
+        { accent: 'cy', nameKey: 'about.domainSw.items.node.name', tagKey: 'about.domainSw.items.node.tag' },
       ],
       promptKey: 'about.domainSw.prompt',
       promptPath: '~/software',
@@ -104,11 +104,13 @@ export class AboutMePageComponent implements OnDestroy {
       indexClass: 'ro',
       indexNum: '02.',
       items: [
-        { accent: 'ro', name: 'Linux · Arch', tag: 'OS' },
-        { accent: 'ro', name: 'Raspberry Pi cluster', tag: 'HARDWARE' },
-        { accent: '', name: 'Docker + Compose', tag: 'CONTAINERS' },
-        { accent: '', name: 'Home Assistant', tag: 'IOT' },
-        { accent: 'ro', name: 'Claude · MCP agents', tag: 'AI' },
+        { accent: 'ro', nameKey: 'about.domainIn.items.linux.name', tagKey: 'about.domainIn.items.linux.tag' },
+        { accent: 'ro', nameKey: 'about.domainIn.items.homelab.name', tagKey: 'about.domainIn.items.homelab.tag' },
+        { accent: 'ro', nameKey: 'about.domainIn.items.docker.name', tagKey: 'about.domainIn.items.docker.tag' },
+        { accent: 'ro', nameKey: 'about.domainIn.items.homeAssistant.name', tagKey: 'about.domainIn.items.homeAssistant.tag' },
+        { accent: 'ro', nameKey: 'about.domainIn.items.gemini.name', tagKey: 'about.domainIn.items.gemini.tag' },
+        { accent: 'ro', nameKey: 'about.domainIn.items.gentleAI.name', tagKey: 'about.domainIn.items.gentleAI.tag' },
+        { accent: 'ro', nameKey: 'about.domainIn.items.claude.name', tagKey: 'about.domainIn.items.claude.tag' },
       ],
       promptKey: 'about.domainIn.prompt',
       promptPath: '~/infra',
@@ -121,11 +123,12 @@ export class AboutMePageComponent implements OnDestroy {
       indexClass: 'em',
       indexNum: '03.',
       items: [
-        { accent: 'em', name: 'Viñedo', tag: 'CULTIVO' },
-        { accent: 'em', name: 'Naranjos', tag: 'CULTIVO' },
-        { accent: 'em', name: 'Olivos', tag: 'CULTIVO' },
-        { accent: '', name: 'Permacultura', tag: 'MÉTODO' },
-        { accent: 'em', name: 'Suelo vivo', tag: 'PRINCIPIO' },
+        { accent: 'em', nameKey: 'about.domainTi.items.naranjos.name', tagKey: 'about.domainTi.items.naranjos.tag' },
+        { accent: 'em', nameKey: 'about.domainTi.items.olivos.name', tagKey: 'about.domainTi.items.olivos.tag' },
+        { accent: 'em', nameKey: 'about.domainTi.items.huerta.name', tagKey: 'about.domainTi.items.huerta.tag' },
+        { accent: 'em', nameKey: 'about.domainTi.items.vinedo.name', tagKey: 'about.domainTi.items.vinedo.tag' },
+        { accent: 'em', nameKey: 'about.domainTi.items.permacultura.name', tagKey: 'about.domainTi.items.permacultura.tag' },
+        { accent: 'em', nameKey: 'about.domainTi.items.sueloVivo.name', tagKey: 'about.domainTi.items.sueloVivo.tag' },
       ],
       promptKey: 'about.domainTi.prompt',
       promptPath: '~/tierra',
