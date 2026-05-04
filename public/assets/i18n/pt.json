@@ -9,13 +9,13 @@
       "headlineVerb2": "Cuido de",
       "p1Rest": "com Node, JS e TS, nascido na Espanha e vivendo entre a Extremadura e o Alentejo Português, apaixonado por uma alentejana maravilhosa. Construo aplicações web escaláveis com JavaScript, TypeScript, o framework adequado no frontend, e Node.js e Express no backend.",
       "p1Strong": "Desenvolvedor Full Stack",
-      "p2": "Clean Code e SOLID não são buzzwords — são o mínimo exigível. Fora do trabalho, opero meu próprio homelab, como fã de Raspberry Pi e usuário de Cloudflare, com Docker e Home Assistant, porque a autonomia tecnológica também é uma filosofia de vida.",
+      "p2": "Clean Code e SOLID não são palavras da moda — são o mínimo exigível. Fora do trabalho, opero meu próprio homelab, como fã de Raspberry Pi e usuário de Cloudflare, com Docker e Home Assistant, porque a autonomia tecnológica também é uma filosofia de vida.",
       "p3": "Mas esta estrutura não se sustentaria sem a base de tudo: a minha mãe. A sua abnegação e força inabalável são a força motriz que me ensinou a ser, antes de mais, uma boa pessoa. Com ela aprendi a não desistir de nada e a compreender que o carácter se constrói na perseverança. Ela é a raiz da minha integridade.",
       "p4": "E quando não estou à frente de um ecrã, levo uma vida no campo: cuido de laranjeiras, vinhas, oliveiras e da horta. Sou eletricista, mecânico, pedreiro, montador, canalizador e aprendiz de serralheiro (o artista de verdade e quem me ensinou tudo é o meu pai). A paciência de um ciclo anual reeduca a forma como escrevo código e transforma a forma como quero viver neste mundo.",
       "p4Founder": "Fundador da RootDevs.",
       "sig": "Francisco Javier"
     },
-    "description": "Desenvolvedor Full Stack na Sngular, baseado na Espanha. Construo aplicações web escaláveis com TypeScript, Vue e Angular no frontend, e Node.js e Express no backend. Clean Code e SOLID não são buzzwords — são o mínimo exigível. Fora do trabalho, opero meu próprio homelab com Raspberry Pi, Docker e Home Assistant, porque a autonomia tecnológica também é uma filosofia de vida. E quando não estou à frente de um ecrã, cuido de vinhas e oliveiras. Fundador da RootDevs.",
+    "description": "Desenvolvedor Full Stack na Sngular, baseado na Espanha. Construo aplicações web escaláveis com TypeScript, Vue e Angular no frontend, e Node.js e Express no backend. Clean Code e SOLID não são palavras da moda — são o mínimo exigível. Fora do trabalho, opero meu próprio homelab com Raspberry Pi, Docker e Home Assistant, porque a autonomia tecnológica também é uma filosofia de vida. E quando não estou à frente de um ecrã, cuido de vinhas e oliveiras. Fundador da RootDevs.",
     "domainIn": {
       "desc": "Usuário Linux. Homelab self-hosted com Raspberry Pi e Docker. Entusiasta da orquestração de agentes IA generativa — Claude, MCP e automação inteligente. Home Assistant para tudo que pisca.",
       "prompt": "docker compose up -d home-assistant",
