@@ -133,4 +133,4 @@ La inversión para implementar esta arquitectura es mínima frente al ahorro de 
 
 > ¿Cuánto tiempo está perdiendo su equipo discutiendo sobre el formato de las comas, cuando podrían estar fortaleciendo la arquitectura de su sistema?
 
-La automatización es el puente entre el caos visual y la excelencia técnica.
+La automatización es el puente entre el caos visual y la excelencia técnica. ¡Y feliz 4 de Mayo, que la fuerza os acompañe en cada *commit*! 🌌⚔️

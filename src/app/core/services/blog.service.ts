@@ -14,7 +14,7 @@ export class BlogService {
   private readonly posts: BlogPost[] = [
     {
       author: this.AUTHOR,
-      date: '2026-04-28',
+      date: '2026-05-04',
       excerptKey: 'blog.posts.prettier-multiconsultora.excerpt',
       id: '1',
       imageUrl: {

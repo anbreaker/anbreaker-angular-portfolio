@@ -133,4 +133,4 @@ The investment to implement this architecture is minimal compared to the long-te
 
 > How much time is your team wasting discussing the format of commas, when they could be strengthening the architecture of their system?
 
-Automation is the bridge between visual chaos and technical excellence.
+Automation is the bridge between visual chaos and technical excellence. And happy May the 4th, may the force be with you in every commit! 🌌⚔️

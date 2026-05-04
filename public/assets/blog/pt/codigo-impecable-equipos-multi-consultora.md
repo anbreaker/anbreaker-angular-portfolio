@@ -133,4 +133,4 @@ O investimento para implementar esta arquitetura é mínimo face à poupança de
 
 > Quanto tempo está a sua equipa a perder a discutir o formato das vírgulas, quando poderia estar a fortalecer a arquitetura do seu sistema?
 
-A automatização é a ponte entre o caos visual e a excelência técnica.
+A automatização é a ponte entre o caos visual e a excelência técnica. E feliz 4 de Maio, que a força esteja convosco em cada commit! 🌌⚔️
