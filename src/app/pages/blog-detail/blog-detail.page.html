@@ -130,10 +130,7 @@
         </button>
       </div>
       <div class="article__video-bottom-player">
-        <app-youtube-player
-          [videoId]="currentVideoId()!"
-          [videoTitle]="t(currentPost.titleKey)"
-        />
+        <app-youtube-player [videoId]="currentVideoId()!" [videoTitle]="t(currentPost.titleKey)" />
       </div>
     </section>
     } @if (currentVideoId()) {
@@ -157,10 +154,7 @@
           <span>{{ t('blog.videoCompanion') }}</span>
           <button aria-label="Cerrar" type="button" (click)="videoSheetOpen.set(false)">✕</button>
         </div>
-        <app-youtube-player
-          [videoId]="currentVideoId()!"
-          [videoTitle]="t(currentPost.titleKey)"
-        />
+        <app-youtube-player [videoId]="currentVideoId()!" [videoTitle]="t(currentPost.titleKey)" />
       </div>
     </div>
     } } } @else {

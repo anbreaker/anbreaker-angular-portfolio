@@ -1,12 +1,12 @@
 <ng-container *transloco="let t">
-  <section 
-    class="testimonials" 
-    aria-labelledby="testimonials-heading" 
+  <section
+    class="testimonials"
+    aria-labelledby="testimonials-heading"
     id="testimonials"
-    (mouseenter)="onPause()"
-    (mouseleave)="onResume()"
     (focusin)="onPause()"
     (focusout)="onResume()"
+    (mouseenter)="onPause()"
+    (mouseleave)="onResume()"
   >
     <div class="testimonials__container" [class.is-paused]="isPaused()">
       <div class="testimonials__head" appReveal>

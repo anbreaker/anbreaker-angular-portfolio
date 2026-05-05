@@ -10,7 +10,19 @@
       </div>
       <div class="about__portrait-wrap" #portraitWrap>
         <div class="about__portrait">
-          <img src="assets/images/fj.webp" [alt]="t('about.bio.sig')" width="1536" height="1024" loading="lazy" />
+          <img
+            height="1024"
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, 567px"
+            src="assets/images/fj.webp"
+            srcset="
+              assets/images/fj-600.webp  600w,
+              assets/images/fj-900.webp  900w,
+              assets/images/fj.webp     1536w
+            "
+            width="1536"
+            [alt]="t('about.bio.sig')"
+          />
         </div>
         <div class="about__portrait-meta">
           <span class="about__portrait-name">● {{ t('about.bio.sig') }}</span>
@@ -142,7 +154,17 @@
 
   <div class="about__floating-wrap" [class.about__floating-wrap--visible]="showFloatingPortrait()">
     <div class="about__floating-portrait">
-      <img src="assets/images/fj.webp" [alt]="t('about.bio.sig')" />
+      <img
+        loading="lazy"
+        sizes="(max-width: 768px) 25vw, 200px"
+        src="assets/images/fj-600.webp"
+        srcset="
+          assets/images/fj-600.webp  600w,
+          assets/images/fj-900.webp  900w,
+          assets/images/fj.webp     1536w
+        "
+        [alt]="t('about.bio.sig')"
+      />
     </div>
   </div>
 
