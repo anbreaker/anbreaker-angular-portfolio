@@ -10,13 +10,24 @@
       name="description"
     />
     <link href="assets/images/logoGearInv.webp" rel="icon" type="image/webp" />
-    <link rel="preload" as="image" href="assets/images/logoRootdevs.webp" fetchpriority="high" />
+    <link as="image" fetchpriority="high" href="assets/images/logoRootdevs.webp" rel="preload" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
     <link
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@400;600&display=swap"
-      rel="stylesheet"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+      rel="preload"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@400;600&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
   </head>
   <body>
     <app-root></app-root>
