@@ -48,7 +48,7 @@ export class ContactComponent {
     {
       href: 'https://www.linkedin.com/in/francisco-javier-antunez-duran/',
       label: 'LINKEDIN',
-      value: 'https://www.linkedin.com/in/francisco-javier-antunez-duran/',
+      value: 'linkedin.com/in/francisco-javier-antunez-duran',
     },
   ];
 

@@ -140,7 +140,8 @@
   &__link-inner {
     align-items: baseline;
     display: flex;
-    gap: 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
   }
 
   &__link-label {
@@ -155,6 +156,7 @@
   &__link-value {
     font-size: 1rem;
     font-weight: 500;
+    word-break: break-word;
   }
 
   &__link-arrow {
@@ -279,6 +281,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    justify-content: center;
+
+    @media (min-width: 640px) {
+      justify-content: flex-start;
+    }
   }
 
   &__success {
