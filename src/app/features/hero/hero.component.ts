@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslocoDirective } from '@jsverse/transloco';
 
 import { GradientTrackDirective } from '@shared/directives/gradient-track.directive';
@@ -12,11 +13,13 @@ import { GradientTrackDirective } from '@shared/directives/gradient-track.direct
   templateUrl: './hero.component.html',
 })
 export class HeroComponent {
+  private readonly router = inject(Router);
+
   scrollToProjects(): void {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   }
 
-  scrollToContact(): void {
-    document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' });
+  navigateToAbout(): void {
+    this.router.navigate(['/contact']);
   }
 }
