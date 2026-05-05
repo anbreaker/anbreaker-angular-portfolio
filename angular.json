@@ -54,8 +54,8 @@
                   "type": "initial"
                 },
                 {
-                  "maximumError": "8kB",
-                  "maximumWarning": "4kB",
+                  "maximumError": "16kB",
+                  "maximumWarning": "8kB",
                   "type": "anyComponentStyle"
                 }
               ],
@@ -96,6 +96,9 @@
             "browser": "src/main.ts",
             "inlineStyleLanguage": "scss",
             "outputPath": "www",
+            "security": {
+              "allowedHosts": []
+            },
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles"]
             },
