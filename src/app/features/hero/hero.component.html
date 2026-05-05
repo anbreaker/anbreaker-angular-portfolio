@@ -39,9 +39,8 @@
           <img
             class="hero__portrait"
             height="1024"
-            loading="lazy"
-            sizes="(max-width: 768px) 100vw, 567px"
-            src="assets/images/fj.webp"
+            sizes="(max-width: 768px) 360px, 567px"
+            src="assets/images/fj-600.webp"
             srcset="
               assets/images/fj-600.webp  600w,
               assets/images/fj-900.webp  900w,
@@ -49,6 +48,7 @@
             "
             width="1536"
             [alt]="t('hero.portraitAlt')"
+            fetchpriority="high"
           />
         </div>
       </div>
