@@ -16,62 +16,66 @@ import {
   templateUrl: './cursor.component.html',
 })
 export class CursorComponent {
-  private readonly dotEl = viewChild.required<ElementRef<HTMLElement>>('dot');
-  private readonly ringEl = viewChild.required<ElementRef<HTMLElement>>('ring');
   private readonly destroyRef = inject(DestroyRef);
 
-  private mx = 0;
-  private my = 0;
-  private rx = 0;
-  private ry = 0;
-  private rafId = 0;
+  private readonly dotEl = viewChild.required<ElementRef<HTMLElement>>('dot');
+  private readonly ringEl = viewChild.required<ElementRef<HTMLElement>>('ring');
+
+  private animationFrameId = 0;
+  private mouseX = 0;
+  private mouseY = 0;
+  private ringX = 0;
+  private ringY = 0;
 
   constructor() {
     afterNextRender(() => {
-      document.addEventListener('mousemove', this.onMove);
-      document.addEventListener('mouseover', this.onOver);
-      document.addEventListener('mouseout', this.onOut);
-      this.rafId = requestAnimationFrame(this.lerp);
+      const dot = this.dotEl().nativeElement;
+      const ring = this.ringEl().nativeElement;
+
+      const onMove = (mouseEvent: MouseEvent): void => {
+        this.mouseX = mouseEvent.clientX;
+        this.mouseY = mouseEvent.clientY;
+        dot.style.transform = `translate(${this.mouseX}px, ${this.mouseY}px) translate(-50%,-50%)`;
+      };
+
+      const onOver = (mouseEvent: MouseEvent): void => {
+        if (
+          (mouseEvent.target as Element).closest(
+            'a, button, [role="button"], [data-cursor-hover], input, label, select, textarea'
+          )
+        ) {
+          ring.classList.add('active');
+        }
+      };
+
+      const onOut = (mouseEvent: MouseEvent): void => {
+        if (
+          (mouseEvent.target as Element).closest(
+            'a, button, [role="button"], [data-cursor-hover], input, label, select, textarea'
+          )
+        ) {
+          ring.classList.remove('active');
+        }
+      };
+
+      const lerp = (): void => {
+        this.ringX += (this.mouseX - this.ringX) * 0.22;
+        this.ringY += (this.mouseY - this.ringY) * 0.22;
+        ring.style.transform = `translate(${this.ringX}px, ${this.ringY}px) translate(-50%,-50%)`;
+        this.animationFrameId = requestAnimationFrame(lerp);
+      };
+
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseover', onOver);
+      document.addEventListener('mouseout', onOut);
+      this.animationFrameId = requestAnimationFrame(lerp);
 
       this.destroyRef.onDestroy(() => {
-        document.removeEventListener('mousemove', this.onMove);
-        document.removeEventListener('mouseover', this.onOver);
-        document.removeEventListener('mouseout', this.onOut);
-        cancelAnimationFrame(this.rafId);
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseover', onOver);
+        document.removeEventListener('mouseout', onOut);
+        cancelAnimationFrame(this.animationFrameId);
       });
     });
   }
-
-  private readonly onMove = (e: MouseEvent): void => {
-    this.mx = e.clientX;
-    this.my = e.clientY;
-    this.dotEl().nativeElement.style.transform = `translate(${this.mx}px, ${this.my}px) translate(-50%,-50%)`;
-  };
-
-  private readonly onOver = (e: MouseEvent): void => {
-    if (
-      (e.target as Element).closest(
-        'a, button, [role="button"], [data-cursor-hover], input, label, select, textarea'
-      )
-    ) {
-      this.ringEl().nativeElement.classList.add('active');
-    }
-  };
-
-  private readonly onOut = (e: MouseEvent): void => {
-    if (
-      (e.target as Element).closest(
-        'a, button, [role="button"], [data-cursor-hover], input, label, select, textarea'
-      )
-    ) {
-      this.ringEl().nativeElement.classList.remove('active');
-    }
-  };
-
-  private readonly lerp = (): void => {
-    this.rx += (this.mx - this.rx) * 0.18;
-    this.ry += (this.my - this.ry) * 0.18;
-    this.ringEl().nativeElement.style.transform = `translate(${this.rx}px, ${this.ry}px) translate(-50%,-50%)`;
-    this.rafId = requestAnimationFrame(this.lerp);
-  };
 }
