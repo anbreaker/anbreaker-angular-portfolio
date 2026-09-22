@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { TranslocoDirective } from '@jsverse/transloco';
 
 import { MagneticButtonDirective } from '@shared/directives/magnetic-button.directive';
@@ -12,7 +13,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MagneticButtonDirective, RevealDirective, TranslocoDirective],
+  imports: [MagneticButtonDirective, RevealDirective, RouterLink, TranslocoDirective],
   selector: 'app-contact',
   styleUrl: './contact.component.scss',
   templateUrl: './contact.component.html',

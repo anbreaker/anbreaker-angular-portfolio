@@ -172,6 +172,14 @@
     "videoCompanion": "/ VIDEO COMPANION",
     "watchVideo": "Ver video"
   },
+  "card": {
+    "eyebrow": "Hola, soy",
+    "hola": "¡¡Hola!!",
+    "location": "ESPAÑA · REMOTE",
+    "scanLabel": "~/ESCANEA",
+    "tagline": "FULL STACK · WEB · DEVELOPER",
+    "title": "FULL STACK DEVELOPER · ANGULAR · NODE"
+  },
   "common": {
     "cancel": "Cancelar",
     "confirm": "Confirmar",
@@ -180,6 +188,7 @@
   },
   "contact": {
     "available": "DISPONIBLE PARA PROYECTOS",
+    "cardCta": "Ver tarjeta QR",
     "eyebrow": "¿Hablamos?",
     "form": {
       "email": "EMAIL",
