@@ -1,0 +1,57 @@
+<ng-container *transloco="let t">
+  <section class="card" aria-labelledby="card-heading" id="card">
+    <div class="card__container">
+      <div class="card__grid">
+        <!-- Identity block -->
+        <div class="card__panel" appReveal>
+          <span class="card__status" role="status">
+            <span class="card__status-dot" aria-hidden="true"></span>
+            {{ t('contact.available') }}
+          </span>
+
+          <p class="card__eyebrow">{{ t('card.eyebrow') }}</p>
+          <h1 class="card__name" id="card-heading">
+            <span class="card__name-bold">Francisco</span>
+            <em class="card__name-accent">Javier</em>
+          </h1>
+
+          <p class="card__title">{{ t('card.title') }}</p>
+          <p class="card__location">{{ t('card.location') }}</p>
+        </div>
+
+        <!-- QR hero -->
+        <div class="card__qr" appReveal [revealDelay]="60">
+          <span class="card__qr-corner card__qr-corner--tl" aria-hidden="true"></span>
+          <span class="card__qr-corner card__qr-corner--tr" aria-hidden="true"></span>
+          <span class="card__qr-corner card__qr-corner--bl" aria-hidden="true"></span>
+          <span class="card__qr-corner card__qr-corner--br" aria-hidden="true"></span>
+
+          <p class="card__qr-label">{{ t('card.scanLabel') }}</p>
+          <p class="card__qr-headline">{{ t('card.hola') }}</p>
+
+          <div
+            class="card__qr-panel"
+            #qrContainer
+            aria-label="Código QR que enlaza a rootdevs.es"
+            role="img"
+          ></div>
+
+          <a class="card__qr-url" href="https://rootdevs.es/">https://rootdevs.es/</a>
+          <p class="card__qr-tagline">{{ t('card.tagline') }}</p>
+        </div>
+
+        <!-- Signature -->
+        <div class="card__signature-wrap" appReveal [revealDelay]="120">
+          <span
+            class="card__signature"
+            appGradientTrack
+            aria-label="Francisco Javier — anbreaker"
+            [angleVar]="'--card-sig-angle'"
+          >
+            Francisco Javier
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>

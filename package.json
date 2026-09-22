@@ -21,6 +21,7 @@
     "highlight.js": "^11.11.1",
     "marked": "^18.0.2",
     "marked-highlight": "^2.2.4",
+    "qr-code-styling": "^1.9.2",
     "resend": "^6.12.2",
     "rxjs": "~7.8.2",
     "tslib": "^2.3.0"
