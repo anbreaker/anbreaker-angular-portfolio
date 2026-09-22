@@ -172,6 +172,14 @@
     "videoCompanion": "/ VIDEO COMPANION",
     "watchVideo": "Ver vídeo"
   },
+  "card": {
+    "eyebrow": "Olá, sou",
+    "hola": "Olá!!",
+    "location": "ESPAÑA · REMOTE",
+    "scanLabel": "~/DIGITALIZA",
+    "tagline": "FULL STACK · WEB · DEVELOPER",
+    "title": "FULL STACK DEVELOPER · ANGULAR · NODE"
+  },
   "common": {
     "cancel": "Cancelar",
     "confirm": "Confirmar",
@@ -180,6 +188,7 @@
   },
   "contact": {
     "available": "DISPONÍVEL PARA PROJETOS",
+    "cardCta": "Ver cartão QR",
     "eyebrow": "Falamos?",
     "form": {
       "email": "EMAIL",
