@@ -9,8 +9,8 @@ import { provideTransloco } from '@jsverse/transloco';
 
 import { authInterceptor } from '@core/interceptor/auth.interceptor';
 import { I18nLoaderService } from '@core/services/i18n-loader.service';
-import { environment } from '../environments/environment';
 
+import { environment } from '../environments/environment';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
