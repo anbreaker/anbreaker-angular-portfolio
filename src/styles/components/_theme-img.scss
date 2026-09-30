@@ -1,0 +1,6 @@
+// Theme-aware images: render a dark and a light <img> pair and show the one matching `html.light`.
+// The extra `html` selector keeps these rules above component-scoped `display` declarations.
+html:not(.light) .theme-img--light,
+html.light .theme-img--dark {
+  display: none;
+}

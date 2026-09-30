@@ -828,6 +828,26 @@
     margin: 3rem 0;
   }
 
+  table {
+    border-collapse: collapse;
+    display: block;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  th,
+  td {
+    border: 1px solid rgba(34, 211, 238, 0.15);
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+  }
+
+  th {
+    background: var(--color-surface-2);
+    color: var(--color-text);
+  }
+
   img {
     border-radius: var(--radius-card);
     height: auto;
