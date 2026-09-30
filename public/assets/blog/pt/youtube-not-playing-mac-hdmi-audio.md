@@ -7,7 +7,7 @@ Esta é a minha secretária:
 <img class="theme-img theme-img--dark" src="/assets/images/blog/youtubeHdmiAudio/illustration_PT_dark.webp" alt="Ilustração da minha secretária: MacBook Pro com hub USB-C, monitor VS278 por HDMI com o áudio bloqueado e uma televisão como segundo ecrã">
 <img class="theme-img theme-img--light" src="/assets/images/blog/youtubeHdmiAudio/illustration_PT_light.webp" alt="Ilustração da minha secretária: MacBook Pro com hub USB-C, monitor VS278 por HDMI com o áudio bloqueado e uma televisão como segundo ecrã">
 
-O padrão era o que mais desconcertava. Acontecia em minha casa, em Espanha, mas não noutra casa, em Portugal. E um PC com Linux na mesma rede doméstica, com o mesmo navegador, funcionava sem problemas. Tudo apontava para a **rede ou o fornecedor de internet**, juntamente com um Mac gerido pela empresa (MDM, um cliente SASE de *secure web gateway*, um perfil de DNS cifrado gerido e um agente de segurança de endpoint). Suspeitos a mais.
+O padrão era o que mais desconcertava. Acontecia em casa, mas não na minha segunda habitação, com outro ISP. E um PC com Linux na mesma rede doméstica, com o mesmo navegador, funcionava sem problemas. Tudo apontava para a **rede ou o fornecedor de internet**, juntamente com um Mac gerido pela empresa (MDM, um cliente SASE de *secure web gateway*, um perfil de DNS cifrado gerido e um agente de segurança de endpoint). Suspeitos a mais.
 
 > 💡 Spoiler: a rede era inocente. Mas demorei horas a aceitá-lo, e o caminho é o que vale a pena contar.
 
@@ -16,27 +16,52 @@ O padrão era o que mais desconcertava. Acontecia em minha casa, em Espanha, mas
 
 ---
 
+## 🤖 Como trabalhei: a iterar com agentes
+
+Não fiz esta investigação sozinho. Trabalhei no terminal com agentes de IA (Claude Code) configurados com o [gentle-ai](https://github.com/Gentleman-Programming/gentle-ai), uma ferramenta de código aberto ([site oficial](https://gentle-ai.gentlemanprogramming.com/)) que configura os agentes que já usas com memória persistente, Organic-Driven Development, skills e orquestração de sub-agentes, sem te prender a nenhum.
+
+**O que o gentle-ai trouxe neste caso:**
+
+- **Engram:** memória persistente entre sessões, para não começar do zero de cada vez.
+- **ODD (Organic-Driven Development):** um fluxo leve, com documento de tarefas para o trabalho substancial, ramo antes de escrever e nenhum commit sem a minha permissão explícita.
+- **Orquestração de sub-agentes:** o orquestrador delegou em escritores que redigiram este artigo em três idiomas e geraram os diagramas; eu revi e corrigi.
+
+O gentle-ai foi criado por [Alan Buscaglia](https://www.linkedin.com/in/alanbuscaglia/) (Gentleman Programming), e a regra dele para trabalhar com IA resume bem este artigo: *"verifying beats generating"*, ou seja, verificar vale mais do que gerar.
+
+> ⭐ **gentle-ai no GitHub:** [github.com/Gentleman-Programming/gentle-ai](https://github.com/Gentleman-Programming/gentle-ai). Se te for útil, dá-lhe uma estrela: ajuda mais pessoas a encontrá-lo.
+
+<p align="center"><a href="https://github.com/Gentleman-Programming/gentle-ai"><img width="220" src="https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/docs/assets/brand/built-with-gentle-ai.png" alt="Built with Gentle-AI" /></a></p>
+
+O método foi sempre o mesmo, e enganámo-nos os dois: o agente também defendeu teorias erradas (a do cliente SASE e da cache do ISP foi dele) e a evidência corrigiu-o tal como a mim.
+
+**hipótese → teste → evidência → descartar**
+
+- 🤖 **O agente:** leu logs de sistema e de rede, inspecionou configurações, capturou e descodificou o tráfego do leitor, lançou o Chrome sem interface pelo DevTools, montou o monitor de reprodução, executou os testes de isolamento e escreveu o vigilante em Swift com o respetivo LaunchAgent.
+- 🙋 **Eu:** dei o contexto e as capturas de ecrã, fiz as verificações no navegador que o agente não podia e, sobretudo, reparei que falhava mesmo quando ligava o hub USB-C e confirmei que o esquema funcionava assim há quatro anos.
+
+---
+
 ## 🕵️ Falsa pista n.º 1: o filtro DNS de casa
 
-Primeiro o mais óbvio: o Pi-hole lá de casa. Descartei-o antes de começar a sério, com provas: o DNS resolvia tudo corretamente e só bloqueava domínios de publicidade. Nada a ver com os servidores de vídeo.
+Primeiro o mais óbvio: o Pi-hole lá de casa. Descartámo-lo antes de começar a sério, com provas: o DNS resolvia tudo corretamente e só bloqueava domínios de publicidade. Nada a ver com os servidores de vídeo.
 
 ---
 
 ## 🚦 Falsa pista n.º 2: QUIC / HTTP3
 
-O clássico "a página carrega mas o vídeo não": uma firewall ou um fornecedor a quebrar o QUIC. Desativei o QUIC no navegador (`brave://flags/#enable-quic`) e o vídeo **continuou a falhar**. Descartado.
+O clássico "a página carrega mas o vídeo não": uma firewall ou um fornecedor a quebrar o QUIC. Desativámos o QUIC no navegador (`brave://flags/#enable-quic`) e o vídeo **continuou a falhar**. Descartado.
 
 ---
 
 ## 🧩 Falsa pista n.º 3: bloqueadores e extensões
 
-Na consola apareciam erros `net::ERR_BLOCKED_BY_CLIENT` na telemetria do YouTube (`qoe`, `log_event`, `generate_204`). Muito suspeito... até experimentar numa janela privada com os *shields* desligados: a telemetria passava e o vídeo continuava preso. Esses erros eram **ruído**.
+Na consola apareciam erros `net::ERR_BLOCKED_BY_CLIENT` na telemetria do YouTube (`qoe`, `log_event`, `generate_204`). Muito suspeito... até experimentarmos numa janela privada com os *shields* desligados: a telemetria passava e o vídeo continuava preso. Esses erros eram **ruído**.
 
 ---
 
 ## 🛡️ Falsa pista n.º 4: o cliente SASE
 
-Esta foi a mais convincente. A extensão de rede do cliente SASE continuava a correr mesmo quando a "desativava" na interface (proteção anti-adulteração), e os seus logs mostravam que tratava fluxos do navegador para `googlevideo.com`. Além disso, o meu fornecedor servia o vídeo a partir de um nó de cache da Google **dentro da sua própria rede**. A hipótese encaixava na perfeição: o tráfego que sai pela cloud do SASE é rejeitado pela cache do ISP.
+Esta foi a mais convincente. A extensão de rede do cliente SASE continuava a correr mesmo quando a "desativava" na interface (proteção anti-adulteração), e os seus logs, lidos pelo agente, mostravam que tratava fluxos do navegador para `googlevideo.com`. Além disso, o meu fornecedor servia o vídeo a partir de um nó de cache da Google **dentro da sua própria rede**. A hipótese, que foi do próprio agente, encaixava na perfeição: o tráfego que sai pela cloud do SASE é rejeitado pela cache do ISP.
 
 Três factos desmontaram-na:
 
@@ -48,7 +73,7 @@ Três factos desmontaram-na:
 
 ## 👻 Falsa pista n.º 5: a rota "fantasma" de IPv6
 
-Outro assistente de IA sugeriu um problema de IPv6. Verifiquei: o Mac não tinha IPv6 global, as rotas por defeito `utun` estavam associadas à interface (são túneis do sistema), a tentativa IPv6 do navegador falhava de imediato e recuava para IPv4, e a minha rede doméstica nem sequer tem IPv6. Descartado. Também não eram a conta nem os cookies: um perfil de Chrome totalmente limpo, sem cookies, sem conta e sem extensões, também ficava preso.
+Outro assistente de IA sugeriu um problema de IPv6. O agente verificou, e depois retratou a ideia: o Mac não tinha IPv6 global, as rotas por defeito `utun` estavam associadas à interface (são túneis do sistema), a tentativa IPv6 do navegador falhava de imediato e recuava para IPv4, e a minha rede doméstica nem sequer tem IPv6. Descartado. Também não eram a conta nem os cookies: um perfil de Chrome totalmente limpo, sem cookies, sem conta e sem extensões, também ficava preso.
 
 ---
 
@@ -62,9 +87,9 @@ Durante todo o processo houve uma observação que, em retrospetiva, apontava pa
 
 ## 🔁 A reviravolta: torná-lo reproduzível
 
-Depois de reiniciar o Mac funcionou... e mais tarde voltou a avariar. Por isso deixei de adivinhar e construí um **monitor**: de 2 em 2 minutos lançava um Chrome limpo e sem interface através do protocolo DevTools, carregava um vídeo, verificava `readyState` e `currentTime`, e guardava uma fotografia do sistema a cada mudança de estado.
+Depois de reiniciar o Mac funcionou... e mais tarde voltou a avariar. Por isso deixei de adivinhar e pedi ao agente que montasse um **monitor**: de 2 em 2 minutos lançava um Chrome limpo e sem interface através do protocolo DevTools, carregava um vídeo, verificava `readyState` e `currentTime`, e guardava uma fotografia do sistema a cada mudança de estado.
 
-Foi então que reparei: **avariava exatamente quando ligava o hub USB-C**. Fiz um teste de isolamento com o hub ligado:
+Foi então que reparei, e esta parte foi minha, não do agente: **avariava exatamente quando ligava o hub USB-C**, num esquema que eu sabia funcionar assim há quatro anos. O agente fez um teste de isolamento com o hub ligado:
 
 | Saída de áudio | Chrome com `--disable-audio-output` | Chrome com áudio |
 | --- | --- | --- |
@@ -86,7 +111,7 @@ Esta é a minha montagem, com o ponto exato onde falhou:
 
 Isto explica também o resto do mistério:
 
-- 📍 **"Só acontece em Espanha"**: é lá que está o esquema do hub e do monitor. A rede era uma pista falsa; a correlação com o local era, na verdade, uma correlação com o **hardware**.
+- 📍 **"Só acontece em casa"**: é lá que está o esquema do hub e do monitor. A rede era uma pista falsa; a correlação com o local era, na verdade, uma correlação com o **hardware**.
 - ⏱️ **"Avaria de vez em quando"**: o hub é um bocado instável e mexe-se-lhe. Cada nova ligação volta a disparar o problema.
 
 ---
@@ -105,7 +130,7 @@ Uma contraprova confirmou que o que resolve é o **reinício**, não a frequênc
 
 ## 🤖 A solução automática
 
-Como o problema voltava a cada nova ligação, automatizei-o com um pequeno programa em Swift que usa o CoreAudio e corre como LaunchAgent de utilizador. Escuta as alterações em `kAudioHardwarePropertyDevices`, espera 4 segundos até tudo assentar (*debounce*) e alterna a frequência nominal do dispositivo alvo para outra disponível e de volta.
+Como o problema voltava a cada nova ligação, pedi ao agente que o automatizasse e ele escreveu um pequeno programa em Swift que usa o CoreAudio e corre como LaunchAgent de utilizador; revi-o e instalei-o eu. Escuta as alterações em `kAudioHardwarePropertyDevices`, espera 4 segundos até tudo assentar (*debounce*) e alterna a frequência nominal do dispositivo alvo para outra disponível e de volta. A primeira versão não disparava, porque o monitor nunca desaparece da lista de dispositivos; o agente corrigiu-a para reagir a qualquer alteração nessa lista.
 
 ### 🧾 O programa (`~/bin/hdmi-audio-reset.swift`)
 
@@ -238,12 +263,12 @@ Verifiquei-o de ponta a ponta: desliguei e voltei a ligar o hub, o log mostrou `
 ## 🧠 Lições
 
 - **Descarta camadas com provas, não com intuição.** Cada falsa pista foi encerrada com um teste concreto, não com um palpite.
-- **Desconfia da primeira história plausível.** Eu e o assistente de IA com quem trabalhava perseguimos a rede durante horas porque a história encaixava bem demais.
+- **Desconfia da primeira história plausível.** O agente e eu perseguimos a rede durante horas porque a história encaixava bem demais (a teoria do SASE e da cache do ISP foi do próprio agente).
 - **"Os dados chegam mas nada toca" quer dizer olhar para o pipeline multimédia** (áudio, descodificador), não para a rede.
 - **Torna a falha reproduzível e automática.** Um monitor de 2 em 2 minutos deu-me o que a intuição não conseguiu: o gatilho.
 - **Muda uma variável de cada vez.** O teste de isolamento da tabela acima resolveu em minutos o que horas de hipóteses não resolveram.
 - **A correlação com o local era, na verdade, uma correlação com um esquema de hardware.**
 
-Fiz a investigação a trabalhar em par com um assistente de programação com IA no terminal: útil para executar e organizar testes, e tão propenso como eu a apaixonar-se pela primeira hipótese. A disciplina de descartar com provas continua a ser trabalho humano.
+Fiz a investigação a iterar com agentes de IA no terminal (Claude Code, configurado com o [gentle-ai](https://github.com/Gentleman-Programming/gentle-ai)): executaram e organizaram os testes, e caíram em teorias erradas tal como eu. Este artigo também foi redigido por sub-agentes orquestrados pelo gentle-ai (o texto em três idiomas e as ilustrações), e fui eu que o revi e corrigi. O que nos fez avançar aos dois foi descartar com provas.
 
 Se tens um Mac, um hub USB-C e áudio por HDMI, e o YouTube fica no 0:00, experimenta primeiro reinicializar o dispositivo de áudio. Pode poupar-te uma tarde inteira. 🎧
