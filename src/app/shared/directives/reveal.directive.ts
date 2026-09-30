@@ -5,11 +5,12 @@ import { Directive, ElementRef, inject, Input, OnDestroy, OnInit } from '@angula
   selector: '[appReveal]',
 })
 export class RevealDirective implements OnInit, OnDestroy {
+  private readonly el = inject(ElementRef<HTMLElement>);
+
   @Input() appReveal = '';
   @Input() revealStagger = false;
   @Input() revealDelay = 0;
 
-  private readonly el = inject(ElementRef<HTMLElement>);
   private observer: IntersectionObserver | null = null;
 
   ngOnInit(): void {

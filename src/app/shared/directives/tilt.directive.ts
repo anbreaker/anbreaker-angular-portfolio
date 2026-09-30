@@ -5,11 +5,12 @@ import { afterNextRender, DestroyRef, Directive, ElementRef, inject, input } fro
   selector: '[appTilt]',
 })
 export class TiltDirective {
-  readonly appTiltShine = input(true);
-  readonly appTiltIntensity = input(14);
-
   private readonly elementRef = inject(ElementRef<HTMLElement>);
   private readonly destroyRef = inject(DestroyRef);
+
+  readonly appTiltIntensity = input(14);
+  readonly appTiltShine = input(true);
+
   private shineEl!: HTMLElement;
 
   constructor() {
