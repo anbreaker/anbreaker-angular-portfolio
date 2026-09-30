@@ -1,6 +1,10 @@
 {
   "buildCommand": "vite build",
   "outputDirectory": "dist",
+  "redirects": [
+    { "destination": "/blog/spotless-code-multi-vendor-teams", "permanent": true, "source": "/blog/codigo-impecable-equipos-multi-consultora" },
+    { "destination": "/blog/youtube-not-playing-mac-hdmi-audio", "permanent": true, "source": "/blog/youtube-no-reproduce-mac-audio-hdmi" }
+  ],
   "rewrites": [
     { "destination": "/api/$1", "source": "/api/(.*)" },
     { "destination": "/index.html", "source": "/((?!api/).*)" }
