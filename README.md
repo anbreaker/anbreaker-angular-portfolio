@@ -1,15 +1,15 @@
 # 🚀 FJ Portfolio
 
 <p align="center">
-  <b>Angular 21 · Signals · SCSS · Vite · Modern Architecture</b><br/>
+  <b>Angular 22 · Signals · SCSS · Vite · Modern Architecture</b><br/>
   <i>High-performance personal portfolio with a modern frontend stack</i>
 </p>
 
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Angular-21-red?logo=angular" />
-  <img src="https://img.shields.io/badge/TypeScript-5.9-blue?logo=typescript" />
+  <img src="https://img.shields.io/badge/Angular-22-red?logo=angular" />
+  <img src="https://img.shields.io/badge/TypeScript-6.0-blue?logo=typescript" />
   <img src="https://img.shields.io/badge/Vite-8-purple?logo=vite" />
   <img src="https://img.shields.io/badge/SCSS-Architecture-pink?logo=sass" />
   <img src="https://img.shields.io/badge/Signals-First-green" />
@@ -24,13 +24,13 @@
 
 ---
 
-Personal portfolio for Francisco Javier (rootdevs), built with Angular 21 and a modern frontend stack: standalone components, Signals, zoneless change detection, modular SCSS, Vite, Transloco-based i18n, and Markdown-driven blog content.
+Personal portfolio for Francisco Javier (rootdevs), built with Angular 22 and a modern frontend stack: standalone components, Signals, zoneless change detection, modular SCSS, Vite, Transloco-based i18n, and Markdown-driven blog content.
 
 ## 🇬🇧 English
 
 ### 🧭 Overview
 
-- Angular 21 with standalone components, `OnPush`, and `provideZonelessChangeDetection()`.
+- Angular 22 with standalone components, `OnPush`, and `provideZonelessChangeDetection()`.
 - SCSS is the official styling convention. Native CSS is no longer the primary strategy.
 - Vite powers both local development and production builds.
 - Internationalization is available in ES, EN, and PT and loaded from `assets/i18n`.
@@ -38,17 +38,30 @@ Personal portfolio for Francisco Javier (rootdevs), built with Angular 21 and a 
 - The contact form uses a Vercel serverless function with Resend.
 - The project enforces strict linting, custom Angular rules, and automated formatting.
 
+### 🤖 How this portfolio is built
+
+This project has been developed with AI coding agents from day one, and the workflow has evolved along the way:
+
+1. **SDD with [OpenSpec](https://github.com/Fission-AI/OpenSpec)**: we started with Spec-Driven Development (proposal, spec, design, tasks and implementation), with the artifacts in local OpenSpec files that were never versioned, and no persistent memory.
+2. **SDD with [Engram](https://github.com/Gentleman-Programming/engram) as the source of truth**: the same cycle, delegated to sub-agents, with every artifact stored in Engram.
+3. **ODD today**: Organic-Driven Development with [gentle-ai](https://github.com/Gentleman-Programming/gentle-ai). Small changes stay light, substantial work gets a tracked task list, and a human reviews every change before it is committed.
+
+Along the way: the initial build, the blog and about pages, the performance work (Lighthouse 35 → 90+), the visual redesign and the digital business card.
+
 ### 🧱 Current stack
 
-- Angular 21
-- TypeScript 5.9 in strict mode
+- Angular 22
+- TypeScript 6.0 in strict mode
 - SCSS with `@use`, `includePaths`, and design tokens
 - Vite 8 + `@analogjs/vite-plugin-angular`
-- Transloco
-- Vitest + JSDOM
+- Transloco 8
+- `marked` + `marked-highlight` + `highlight.js` for the Markdown blog
+- `qr-code-styling` for the digital business card
+- Vitest 4 + JSDOM
 - ESLint 10 + `angular-eslint` + project-specific custom rules
 - Prettier 3 + plugins for CSS and JSON ordering
 - Vercel Functions + Resend
+- Vercel Analytics + Speed Insights
 
 ### 🔄 What changed
 
@@ -241,7 +254,7 @@ Even though the workspace still contains Angular CLI configuration for schematic
 
 ### 🧭 Resumen
 
-- Angular 21 con standalone components, `OnPush` y `provideZonelessChangeDetection()`.
+- Angular 22 con standalone components, `OnPush` y `provideZonelessChangeDetection()`.
 - SCSS es la convención oficial de estilos. CSS nativo ya no es la estrategia principal.
 - Vite impulsa tanto el desarrollo local como el build de producción.
 - La internacionalización está disponible en ES, EN y PT y se carga desde `assets/i18n`.
@@ -249,17 +262,30 @@ Even though the workspace still contains Angular CLI configuration for schematic
 - El formulario de contacto usa una función serverless en Vercel con Resend.
 - El proyecto aplica linting estricto, reglas custom de Angular y formateo automatizado.
 
+### 🤖 Cómo se construye este portfolio
+
+Este proyecto se ha desarrollado con agentes de IA desde el primer día, y el flujo de trabajo ha ido evolucionando:
+
+1. **SDD con [OpenSpec](https://github.com/Fission-AI/OpenSpec)**: empezamos con Spec-Driven Development (propuesta, especificación, diseño, tareas e implementación), con los artefactos en archivos locales de OpenSpec que nunca se versionaron, y sin memoria persistente.
+2. **SDD con [Engram](https://github.com/Gentleman-Programming/engram) como fuente de la verdad**: el mismo ciclo, delegado en sub-agentes, con cada artefacto guardado en Engram.
+3. **ODD hoy**: Organic-Driven Development con [gentle-ai](https://github.com/Gentleman-Programming/gentle-ai). Los cambios pequeños se mantienen ligeros, el trabajo sustancial lleva una lista de tareas y una persona revisa cada cambio antes de hacer commit.
+
+Por el camino: la construcción inicial, las páginas de blog y about, el trabajo de rendimiento (Lighthouse 35 → 90+), el rediseño visual y la tarjeta digital.
+
 ### 🧱 Stack actual
 
-- Angular 21
-- TypeScript 5.9 en modo estricto
+- Angular 22
+- TypeScript 6.0 en modo estricto
 - SCSS con `@use`, `includePaths` y design tokens
 - Vite 8 + `@analogjs/vite-plugin-angular`
-- Transloco
-- Vitest + JSDOM
+- Transloco 8
+- `marked` + `marked-highlight` + `highlight.js` para el blog en Markdown
+- `qr-code-styling` para la tarjeta digital
+- Vitest 4 + JSDOM
 - ESLint 10 + `angular-eslint` + reglas custom del proyecto
 - Prettier 3 + plugins para ordenar CSS y JSON
 - Vercel Functions + Resend
+- Vercel Analytics + Speed Insights
 
 ### 🔄 Que cambio
 
@@ -453,7 +479,7 @@ Aunque el workspace conserva configuracion de Angular CLI para schematics y targ
 
 ### 🧭 Resumo
 
-- Angular 21 com componentes _standalone_, `OnPush` e `provideZonelessChangeDetection()`.
+- Angular 22 com componentes _standalone_, `OnPush` e `provideZonelessChangeDetection()`.
 - SCSS e a convenção oficial de estilos. CSS nativo já não é a estratégia principal.
 - Vite conduz tanto o desenvolvimento local quanto o _build_ de produção.
 - A internacionalização está disponível em ES, EN e PT e é carregada a partir de `assets/i18n`.
@@ -461,17 +487,30 @@ Aunque el workspace conserva configuracion de Angular CLI para schematics y targ
 - O formulário de contacto usa uma função _serverless_ na Vercel com Resend.
 - O projeto aplica _linting_ rigoroso, regras personalizadas de Angular e formatação automática.
 
+### 🤖 Como este portfólio é construído
+
+Este projeto foi desenvolvido com agentes de IA desde o primeiro dia, e o fluxo de trabalho foi evoluindo:
+
+1. **SDD com o [OpenSpec](https://github.com/Fission-AI/OpenSpec)**: começámos com _Spec-Driven Development_ (proposta, especificação, _design_, tarefas e implementação), com os artefactos em ficheiros locais do OpenSpec que nunca foram versionados, e sem memória persistente.
+2. **SDD com o [Engram](https://github.com/Gentleman-Programming/engram) como fonte da verdade**: o mesmo ciclo, delegado em sub-agentes, com cada artefacto guardado no Engram.
+3. **ODD hoje**: _Organic-Driven Development_ com o [gentle-ai](https://github.com/Gentleman-Programming/gentle-ai). As alterações pequenas mantêm-se leves, o trabalho substancial tem uma lista de tarefas e uma pessoa revê cada alteração antes do _commit_.
+
+Pelo caminho: a construção inicial, as páginas de _blog_ e _about_, o trabalho de desempenho (Lighthouse 35 → 90+), o redesenho visual e o cartão digital.
+
 ### 🧱 _Stack_ atual
 
-- Angular 21
-- TypeScript 5.9 em modo rigoroso
+- Angular 22
+- TypeScript 6.0 em modo rigoroso
 - SCSS com `@use`, `includePaths` e _design tokens_
 - Vite 8 + `@analogjs/vite-plugin-angular`
-- Transloco
-- Vitest + JSDOM
+- Transloco 8
+- `marked` + `marked-highlight` + `highlight.js` para o _blog_ em Markdown
+- `qr-code-styling` para o cartão digital
+- Vitest 4 + JSDOM
 - ESLint 10 + `angular-eslint` + regras personalizadas do projeto
 - Prettier 3 + _plugins_ para ordenar CSS e JSON
 - Vercel Functions + Resend
+- Vercel Analytics + Speed Insights
 
 ### 🔄 O que mudou
 
