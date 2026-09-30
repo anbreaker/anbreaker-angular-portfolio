@@ -16,6 +16,12 @@
   <img src="https://img.shields.io/badge/i18n-ES%20%7C%20EN%20%7C%20PT-orange" />
 </p>
 
+<p align="center">
+  <a href="https://github.com/Gentleman-Programming/gentle-ai">
+    <img width="220" src="https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/docs/assets/brand/built-with-gentle-ai.png" alt="Built with Gentle-AI" />
+  </a>
+</p>
+
 ---
 
 Personal portfolio for Francisco Javier (rootdevs), built with Angular 21 and a modern frontend stack: standalone components, Signals, zoneless change detection, modular SCSS, Vite, Transloco-based i18n, and Markdown-driven blog content.
