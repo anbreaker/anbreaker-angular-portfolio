@@ -7,6 +7,7 @@ import bash from 'highlight.js/lib/languages/bash';
 import javascript from 'highlight.js/lib/languages/javascript';
 import json from 'highlight.js/lib/languages/json';
 import scss from 'highlight.js/lib/languages/scss';
+import swift from 'highlight.js/lib/languages/swift';
 import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
 import { marked } from 'marked';
@@ -18,6 +19,7 @@ hljs.registerLanguage('js', javascript);
 hljs.registerLanguage('json', json);
 hljs.registerLanguage('scss', scss);
 hljs.registerLanguage('sh', bash);
+hljs.registerLanguage('swift', swift);
 hljs.registerLanguage('ts', typescript);
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('xml', xml);
@@ -27,8 +29,9 @@ marked.use(
   markedHighlight({
     langPrefix: 'hljs language-',
     highlight(code, lang) {
-      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-      return hljs.highlight(code, { language }).value;
+      // Unregistered languages are returned untouched so marked escapes them as plain text.
+      if (!hljs.getLanguage(lang)) return code;
+      return hljs.highlight(code, { language: lang }).value;
     },
   })
 );

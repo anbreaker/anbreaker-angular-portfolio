@@ -163,6 +163,10 @@
       "typescript-tips": {
         "excerpt": "Mastering mapped types, conditional types, and utility types for cleaner code.",
         "title": "Advanced TypeScript Patterns"
+      },
+      "youtube-hdmi-audio": {
+        "excerpt": "How a USB-C hub left my Mac's HDMI audio stuck, and why YouTube froze at 0:00 while I blamed the network for hours.",
+        "title": "YouTube won't play on my Mac: five false leads and an <em>unexpected culprit</em>."
       }
     },
     "readingTime": "{{ minutes }} MIN READ",

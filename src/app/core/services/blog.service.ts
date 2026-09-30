@@ -14,6 +14,25 @@ export class BlogService {
   private readonly posts: BlogPost[] = [
     {
       author: this.AUTHOR,
+      date: '2026-09-30',
+      excerptKey: 'blog.posts.youtube-hdmi-audio.excerpt',
+      id: '2',
+      imageUrl: {
+        en: '/assets/images/blog/youtubeHdmiAudio/infographic_EN_dark.webp',
+        es: '/assets/images/blog/youtubeHdmiAudio/infographic_ES_dark.webp',
+        pt: '/assets/images/blog/youtubeHdmiAudio/infographic_PT_dark.webp',
+      },
+      imageUrlLight: {
+        en: '/assets/images/blog/youtubeHdmiAudio/infographic_EN_light.webp',
+        es: '/assets/images/blog/youtubeHdmiAudio/infographic_ES_light.webp',
+        pt: '/assets/images/blog/youtubeHdmiAudio/infographic_PT_light.webp',
+      },
+      slug: 'youtube-no-reproduce-mac-audio-hdmi',
+      tags: ['macOS', 'Debugging', 'CoreAudio', 'YouTube'],
+      titleKey: 'blog.posts.youtube-hdmi-audio.title',
+    },
+    {
+      author: this.AUTHOR,
       date: '2026-05-04',
       excerptKey: 'blog.posts.prettier-multiconsultora.excerpt',
       id: '1',

@@ -56,8 +56,18 @@
         class="article__hero-img"
         loading="eager"
         [alt]="t(currentPost.titleKey)"
+        [class.theme-img]="!!currentImageUrlLight()"
+        [class.theme-img--dark]="!!currentImageUrlLight()"
         [src]="heroUrl"
       />
+      @if (currentImageUrlLight(); as heroLightUrl) {
+      <img
+        class="article__hero-img theme-img theme-img--light"
+        loading="eager"
+        [alt]="t(currentPost.titleKey)"
+        [src]="heroLightUrl"
+      />
+      }
       <span class="article__hero-badge" aria-hidden="true">
         <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <circle cx="11" cy="11" r="7" />
@@ -226,9 +236,18 @@
         class="article__lightbox-img"
         loading="eager"
         [alt]="t(post()?.titleKey ?? '')"
+        [class.theme-img]="!!currentImageUrlLight()"
+        [class.theme-img--dark]="!!currentImageUrlLight()"
         [src]="imgUrl"
       />
-      }
+      @if (currentImageUrlLight(); as lightUrl) {
+      <img
+        class="article__lightbox-img theme-img theme-img--light"
+        loading="eager"
+        [alt]="t(post()?.titleKey ?? '')"
+        [src]="lightUrl"
+      />
+      } }
     </div>
   </div>
   } @if (videoModalOpen()) {

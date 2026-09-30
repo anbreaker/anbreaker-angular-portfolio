@@ -114,6 +114,11 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
     return imageMap ? imageMap[this.currentLang()] : undefined;
   });
 
+  readonly currentImageUrlLight = computed(() => {
+    const imageMap = this.post()?.imageUrlLight;
+    return imageMap ? imageMap[this.currentLang()] : undefined;
+  });
+
   readonly currentVideoId = computed(() => {
     const videoMap = this.post()?.videoId;
     return videoMap ? videoMap[this.currentLang()] : undefined;

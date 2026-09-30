@@ -54,6 +54,7 @@ export interface BlogPost {
   excerptKey: string;
   id: string;
   imageUrl?: Record<SupportedLang, string>;
+  imageUrlLight?: Record<SupportedLang, string>;
   slug: string;
   tags: string[];
   titleKey: string;
