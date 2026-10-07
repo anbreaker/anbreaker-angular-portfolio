@@ -4,19 +4,23 @@ import { TranslocoDirective } from '@jsverse/transloco';
 
 import { BlogResponse } from '@core/interfaces/portfolio.interfaces';
 import { BlogService } from '@core/services/blog.service';
+import { LanguageStore } from '@core/store/language.store';
 import { FooterComponent } from '@features/footer/footer.component';
 import { NavComponent } from '@features/nav/nav.component';
+import { LocalizedDatePipe } from '@shared/pipes/localized-date.pipe';
 
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FooterComponent, NavComponent, RouterLink, TranslocoDirective],
+  imports: [FooterComponent, LocalizedDatePipe, NavComponent, RouterLink, TranslocoDirective],
   selector: 'app-blog-page',
   styleUrl: './blog.page.scss',
   templateUrl: './blog.page.html',
 })
 export class BlogPageComponent {
   private readonly blogService = inject(BlogService);
+
+  readonly currentLang = inject(LanguageStore).currentLang;
 
   readonly currentPage = signal(1);
   readonly searchTerm = signal('');

@@ -22,7 +22,9 @@
       @for (post of response.posts; track post.id) {
       <article class="blog__item">
         <div class="blog__item-date">
-          <time class="blog__item-date-text" [attr.datetime]="post.date">{{ post.date }}</time>
+          <time class="blog__item-date-text" [attr.datetime]="post.date">
+            {{ post.date | localizedDate: currentLang() }}
+          </time>
         </div>
         <div class="blog__item-body">
           @if (post.tags.length) {
