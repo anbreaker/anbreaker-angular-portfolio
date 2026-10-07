@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { TranslocoDirective } from '@jsverse/transloco';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 import { BlogResponse } from '@core/interfaces/portfolio.interfaces';
 import { BlogService } from '@core/services/blog.service';
@@ -19,6 +19,7 @@ import { LocalizedDatePipe } from '@shared/pipes/localized-date.pipe';
 })
 export class BlogPageComponent {
   private readonly blogService = inject(BlogService);
+  private readonly transloco = inject(TranslocoService);
 
   readonly currentLang = inject(LanguageStore).currentLang;
 
@@ -30,9 +31,12 @@ export class BlogPageComponent {
     return term.length === 0 || term.length >= 3 ? term : '';
   });
 
-  readonly postsData = computed<BlogResponse>(() =>
-    this.blogService.searchPosts(this.searchQuery(), this.currentPage())
-  );
+  readonly postsData = computed<BlogResponse>(() => {
+    const lang = this.currentLang();
+    return this.blogService.searchPosts(this.searchQuery(), this.currentPage(), undefined, (key) =>
+      this.transloco.translate(key, {}, lang)
+    );
+  });
 
   onSearchChange(event: Event): void {
     const input = event.target as HTMLInputElement;

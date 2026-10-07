@@ -52,15 +52,20 @@ export class BlogService {
     return this.posts.find((post) => post.slug === slug);
   }
 
-  searchPosts(query: string = '', page: number = 1, pageSize: number = 3): BlogResponse {
+  searchPosts(
+    query: string = '',
+    page: number = 1,
+    pageSize: number = 3,
+    translate: (key: string) => string = (key) => key
+  ): BlogResponse {
     let filtered = [...this.posts];
 
     if (query.trim().length >= 3) {
-      const searchQuery = query.toLowerCase();
-      filtered = filtered.filter(
-        (blogPost) =>
-          blogPost.titleKey.toLowerCase().includes(searchQuery) ||
-          blogPost.tags.some((tag) => tag.toLowerCase().includes(searchQuery))
+      const searchQuery = this.normalize(query);
+      filtered = filtered.filter((blogPost) =>
+        [translate(blogPost.titleKey), translate(blogPost.excerptKey), ...blogPost.tags].some(
+          (text) => this.normalize(text).includes(searchQuery)
+        )
       );
     }
 
@@ -68,5 +73,13 @@ export class BlogService {
     const posts = filtered.slice((page - 1) * pageSize, page * pageSize);
 
     return { pageSize, posts, totalCount };
+  }
+
+  private normalize(text: string): string {
+    return text
+      .normalize('NFD')
+      .replace(/\p{Diacritic}/gu, '')
+      .toLowerCase()
+      .trim();
   }
 }
