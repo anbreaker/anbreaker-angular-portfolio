@@ -25,6 +25,7 @@ import { MarkdownService } from '@core/services/markdown.service';
 import { FooterComponent } from '@features/footer/footer.component';
 import { NavComponent } from '@features/nav/nav.component';
 import { YoutubePlayerComponent } from '@shared/components/youtube-player/youtube-player.component';
+import { LocalizedDatePipe } from '@shared/pipes/localized-date.pipe';
 
 export interface TocHeading {
   id: string;
@@ -34,7 +35,13 @@ export interface TocHeading {
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FooterComponent, NavComponent, TranslocoDirective, YoutubePlayerComponent],
+  imports: [
+    FooterComponent,
+    LocalizedDatePipe,
+    NavComponent,
+    TranslocoDirective,
+    YoutubePlayerComponent,
+  ],
   selector: 'app-blog-detail-page',
   styleUrl: './blog-detail.page.scss',
   templateUrl: './blog-detail.page.html',
@@ -51,12 +58,6 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
   private readonly sanitizer = inject(DomSanitizer);
   private readonly transloco = inject(TranslocoService);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
-
-  private readonly LOCALE_MAP: Record<SupportedLang, string> = {
-    en: 'en-US',
-    es: 'es-ES',
-    pt: 'pt-PT',
-  };
 
   readonly activeHeadingId = signal('');
   readonly lightboxOpen = signal(false);
@@ -132,18 +133,6 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
     const wordCount = plainText.trim().split(/\s+/).filter(Boolean).length;
 
     return Math.max(1, Math.ceil(wordCount / 200));
-  });
-
-  readonly formattedDate = computed(() => {
-    const currentPost = this.post();
-    if (!currentPost) return '';
-
-    const date = new Date(`${currentPost.date}T00:00:00`);
-    return new Intl.DateTimeFormat(this.LOCALE_MAP[this.currentLang()], {
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric',
-    }).format(date);
   });
 
   readonly headings = computed<TocHeading[]>(() => {

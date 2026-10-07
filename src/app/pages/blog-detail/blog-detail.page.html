@@ -14,7 +14,7 @@
         <span class="article__kicker-tag">● {{ currentPost.tags[0] }}</span>
         <span class="article__kicker-sep" aria-hidden="true"></span>
         <time class="article__kicker-date" [attr.datetime]="currentPost.date">
-          {{ formattedDate() }}
+          {{ currentPost.date | localizedDate: currentLang() }}
         </time>
         @if (readingTime() > 0) {
         <span class="article__kicker-sep" aria-hidden="true"></span>
@@ -36,7 +36,7 @@
           <span class="article__author-name">{{ currentPost.author.name }}</span>
           <span class="article__author-separator" aria-hidden="true">·</span>
           <time class="article__author-date" [attr.datetime]="currentPost.date">
-            {{ formattedDate() }}
+            {{ currentPost.date | localizedDate: currentLang() }}
           </time>
         </div>
       </div>
@@ -56,8 +56,8 @@
         class="article__hero-img"
         loading="eager"
         [alt]="t(currentPost.titleKey)"
-        [class.theme-img]="!!currentImageUrlLight()"
         [class.theme-img--dark]="!!currentImageUrlLight()"
+        [class.theme-img]="!!currentImageUrlLight()"
         [src]="heroUrl"
       />
       @if (currentImageUrlLight(); as heroLightUrl) {
@@ -236,8 +236,8 @@
         class="article__lightbox-img"
         loading="eager"
         [alt]="t(post()?.titleKey ?? '')"
-        [class.theme-img]="!!currentImageUrlLight()"
         [class.theme-img--dark]="!!currentImageUrlLight()"
+        [class.theme-img]="!!currentImageUrlLight()"
         [src]="imgUrl"
       />
       @if (currentImageUrlLight(); as lightUrl) {

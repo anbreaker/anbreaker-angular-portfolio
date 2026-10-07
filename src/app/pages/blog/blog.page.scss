@@ -88,8 +88,10 @@
   }
 
   &__item {
+    // Desktop: only the title and the arrow are interactive, so the row lights up when either is hovered or focused
+    $active: ':has(.blog__item-link:hover, .blog__item-arrow:hover, .blog__item-link:focus-visible)';
+
     align-items: baseline;
-    cursor: pointer;
     display: grid;
     gap: 1.5rem;
     grid-template-columns: 1fr;
@@ -125,17 +127,22 @@
       }
     }
 
-    &:hover::before {
+    &#{$active}::before {
       opacity: 1;
     }
 
-    &:hover .blog__item-title {
+    &#{$active} .blog__item-title {
       color: var(--color-brand-cyan);
     }
 
-    &:hover .blog__item-arrow {
+    &#{$active} .blog__item-arrow {
       color: var(--color-brand-cyan);
       transform: translateX(8px);
+    }
+
+    &:has(.blog__item-link:focus-visible) {
+      outline: 2px solid var(--color-brand-blue);
+      outline-offset: 3px;
     }
   }
 
@@ -179,6 +186,22 @@
     transition: color 0.3s;
   }
 
+  &__item-link {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+
+    // Touch screens: stretch the title link over the whole card to keep a large tap target
+    @media (hover: none) {
+      &::after {
+        content: '';
+        inset: 0;
+        position: absolute;
+        z-index: 1;
+      }
+    }
+  }
+
   &__item-excerpt {
     color: var(--color-text-muted);
     font-size: 0.875rem;
@@ -210,6 +233,7 @@
     font-family: var(--font-serif);
     font-size: 1.75rem;
     font-style: italic;
+    text-decoration: none;
     transition:
       transform 0.3s,
       color 0.3s;
