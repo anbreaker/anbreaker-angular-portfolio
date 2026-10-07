@@ -20,15 +20,21 @@
     @let response = postsData(); @if (response.posts.length > 0) {
     <div class="blog__list">
       @for (post of response.posts; track post.id) {
-      <article class="blog__item" [routerLink]="['/blog', post.slug]">
+      <article class="blog__item">
         <div class="blog__item-date">
-          <span class="blog__item-date-text">{{ post.date }}</span>
+          <time class="blog__item-date-text" [attr.datetime]="post.date">{{ post.date }}</time>
         </div>
         <div class="blog__item-body">
           @if (post.tags.length) {
           <span class="blog__item-tag">{{ post.tags[0] }}</span>
           }
-          <h2 class="blog__item-title" [innerHTML]="t(post.titleKey)"></h2>
+          <h2 class="blog__item-title">
+            <a
+              class="blog__item-link"
+              [innerHTML]="t(post.titleKey)"
+              [routerLink]="['/blog', post.slug]"
+            ></a>
+          </h2>
           <p class="blog__item-excerpt">{{ t(post.excerptKey) }}</p>
           <div class="blog__item-tags">
             @for (tag of post.tags; track tag) {
@@ -36,7 +42,14 @@
             }
           </div>
         </div>
-        <div class="blog__item-arrow" aria-hidden="true">→</div>
+        <a
+          class="blog__item-arrow"
+          aria-hidden="true"
+          tabindex="-1"
+          [routerLink]="['/blog', post.slug]"
+        >
+          →
+        </a>
       </article>
       }
     </div>
