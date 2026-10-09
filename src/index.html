@@ -25,6 +25,18 @@
       rel="preload"
       type="font/woff2"
     />
+    <script>
+      (function () {
+        var langs = ['es', 'en', 'pt'];
+        var lang = localStorage.getItem('portfolio-lang') || navigator.language.slice(0, 2);
+        var link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'fetch';
+        link.crossOrigin = 'anonymous';
+        link.href = '/assets/i18n/' + (langs.indexOf(lang) > -1 ? lang : 'en') + '.json';
+        document.head.appendChild(link);
+      })();
+    </script>
   </head>
   <body>
     <app-root></app-root>
