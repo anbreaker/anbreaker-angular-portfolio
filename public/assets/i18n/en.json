@@ -293,6 +293,13 @@
     "workStyleAccent": "Modern"
   },
   "testimonials": {
+    "aria": {
+      "dot": "Testimonial {{ number }}",
+      "navigation": "Testimonials navigation",
+      "next": "Next testimonial",
+      "previous": "Previous testimonial",
+      "progress": "Testimonials progress"
+    },
     "heading": "What they say.",
     "label": "FEEDBACK",
     "t1": {
