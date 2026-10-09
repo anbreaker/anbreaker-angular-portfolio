@@ -1,6 +1,7 @@
 import { provideHttpClient, withInterceptors, withXhr } from '@angular/common/http';
 import {
   ApplicationConfig,
+  provideAppInitializer,
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
 } from '@angular/core';
@@ -9,6 +10,7 @@ import { provideTransloco } from '@jsverse/transloco';
 
 import { authInterceptor } from '@core/interceptor/auth.interceptor';
 import { I18nLoaderService } from '@core/services/i18n-loader.service';
+import { prefetchTranslations } from '@core/utils/prefetch-translations';
 
 import { environment } from '../environments/environment';
 import { routes } from './app.routes';
@@ -28,6 +30,7 @@ export const appConfig: ApplicationConfig = {
       },
       loader: I18nLoaderService,
     }),
+    provideAppInitializer(prefetchTranslations),
     provideRouter(
       routes,
       withInMemoryScrolling({
