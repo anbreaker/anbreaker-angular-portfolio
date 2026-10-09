@@ -25,8 +25,10 @@
                     <img
                       class="projects__card-screenshot"
                       loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 600px"
                       [alt]="project.id"
                       [src]="project.imageUrl[langStore.currentLang()]"
+                      [srcset]="imageSrcset(project.imageUrl[langStore.currentLang()])"
                     />
                   } @else {
                     <span class="projects__card-image-placeholder">

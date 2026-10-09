@@ -9,6 +9,7 @@ import { MagneticButtonDirective } from '@shared/directives/magnetic-button.dire
 import { RevealDirective } from '@shared/directives/reveal.directive';
 import { TiltDirective } from '@shared/directives/tilt.directive';
 
+import { projectImageSrcset } from './project-image';
 import { PROJECTS_DATA } from './projects.data';
 
 @Component({
@@ -29,6 +30,7 @@ import { PROJECTS_DATA } from './projects.data';
 export class ProjectsComponent {
   readonly #router = inject(Router);
   protected readonly langStore = inject(LanguageStore);
+  readonly imageSrcset = projectImageSrcset;
 
   protected readonly projects = PROJECTS_DATA;
 
