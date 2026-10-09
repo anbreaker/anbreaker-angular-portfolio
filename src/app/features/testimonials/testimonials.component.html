@@ -18,12 +18,16 @@
             {{ t('testimonials.heading') }}
           </h2>
         </div>
-        <div class="testimonials__dots" aria-label="Testimonials navigation" role="tablist">
+        <div
+          class="testimonials__dots"
+          role="tablist"
+          [attr.aria-label]="t('testimonials.aria.navigation')"
+        >
           @for (item of testimonials; track item.id; let i = $index) {
             <button
               class="testimonials__dot"
               role="tab"
-              [attr.aria-label]="'Testimonial ' + (i + 1)"
+              [attr.aria-label]="t('testimonials.aria.dot', { number: i + 1 })"
               [attr.aria-selected]="activeIndex() === i"
               [class.testimonials__dot--active]="activeIndex() === i"
               (click)="goTo(i)"
@@ -83,7 +87,7 @@
         <div class="testimonials__pager">
           <button
             class="testimonials__pager-btn"
-            aria-label="Previous testimonial"
+            [attr.aria-label]="t('testimonials.aria.previous')"
             (click)="prev()"
           >
             ←
@@ -91,12 +95,17 @@
           <div
             class="testimonials__progress"
             role="progressbar"
+            [attr.aria-label]="t('testimonials.aria.progress')"
             [attr.aria-valuemax]="testimonials.length"
             [attr.aria-valuenow]="activeIndex() + 1"
           >
             <div class="testimonials__progress-fill" [style.width]="progress()"></div>
           </div>
-          <button class="testimonials__pager-btn" aria-label="Next testimonial" (click)="next()">
+          <button
+            class="testimonials__pager-btn"
+            [attr.aria-label]="t('testimonials.aria.next')"
+            (click)="next()"
+          >
             →
           </button>
         </div>

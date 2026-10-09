@@ -293,6 +293,13 @@
     "workStyleAccent": "Moderno"
   },
   "testimonials": {
+    "aria": {
+      "dot": "Depoimento {{ number }}",
+      "navigation": "Navegação de depoimentos",
+      "next": "Próximo depoimento",
+      "previous": "Depoimento anterior",
+      "progress": "Progresso dos depoimentos"
+    },
     "heading": "O que dizem.",
     "label": "FEEDBACK",
     "t1": {
