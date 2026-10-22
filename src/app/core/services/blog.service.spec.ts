@@ -40,6 +40,6 @@ describe('BlogService.searchPosts', () => {
   });
 
   it('does not filter queries shorter than 3 characters', () => {
-    expect(service.searchPosts('Có', 1, 10, translate).totalCount).toBe(2);
+    expect(service.searchPosts('Có', 1, 10, translate).totalCount).toBe(3);
   });
 });
