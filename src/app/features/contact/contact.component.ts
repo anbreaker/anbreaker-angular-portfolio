@@ -9,6 +9,10 @@ type ProjectType = 'collaboration' | 'consulting' | 'other';
 type FormStatus = 'error' | 'idle' | 'loading' | 'success';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+/** The same limits `api/contact.ts` checks, so the form never sends what the server refuses. */
+const MAX_NAME_LENGTH = 100;
+const MAX_EMAIL_LENGTH = 254;
+const MAX_MESSAGE_LENGTH = 5000;
 
 @Component({
   standalone: true,
@@ -26,6 +30,12 @@ export class ContactComponent {
   protected readonly name = signal('');
   protected readonly status = signal<FormStatus>('idle');
   protected readonly touched = signal(false);
+  /** A field people never see: only bots fill it in, and the server drops their messages. */
+  protected readonly website = signal('');
+
+  protected readonly maxEmailLength = MAX_EMAIL_LENGTH;
+  protected readonly maxMessageLength = MAX_MESSAGE_LENGTH;
+  protected readonly maxNameLength = MAX_NAME_LENGTH;
 
   protected readonly nameError = computed(() =>
     this.touched() && !this.name().trim() ? 'name' : null
@@ -74,6 +84,7 @@ export class ContactComponent {
           message: this.message(),
           name: this.name(),
           projectType: this.activeType(),
+          website: this.website(),
         }),
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',

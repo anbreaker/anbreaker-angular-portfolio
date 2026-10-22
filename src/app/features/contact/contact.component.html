@@ -92,6 +92,7 @@
                   class="contact__input"
                   id="contact-name"
                   type="text"
+                  [attr.maxlength]="maxNameLength"
                   [class.contact__input--error]="nameError()"
                   [class.contact__input--focused]="focusedField() === 'name'"
                   [placeholder]="t('contact.form.namePlaceholder')"
@@ -114,6 +115,7 @@
                   class="contact__input"
                   id="contact-email"
                   type="email"
+                  [attr.maxlength]="maxEmailLength"
                   [class.contact__input--error]="emailError()"
                   [class.contact__input--focused]="focusedField() === 'email'"
                   [placeholder]="t('contact.form.emailPlaceholder')"
@@ -161,6 +163,7 @@
                   class="contact__input contact__textarea"
                   id="contact-msg"
                   rows="4"
+                  [attr.maxlength]="maxMessageLength"
                   [class.contact__input--error]="messageError()"
                   [class.contact__input--focused]="focusedField() === 'msg'"
                   [placeholder]="t('contact.form.messagePlaceholder')"
@@ -172,6 +175,20 @@
                 @if (messageError()) {
                   <span class="contact__field-error">{{ t('contact.form.messageRequired') }}</span>
                 }
+              </div>
+
+              <!-- People never see this field; bots fill it in, and the server drops their messages. -->
+              <div class="contact__trap" aria-hidden="true">
+                <label for="contact-website">{{ t('contact.form.website') }}</label>
+                <input
+                  autocomplete="off"
+                  id="contact-website"
+                  name="website"
+                  tabindex="-1"
+                  type="text"
+                  [value]="website()"
+                  (input)="website.set($any($event.target).value)"
+                />
               </div>
 
               <!-- Submit -->
