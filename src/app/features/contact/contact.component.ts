@@ -1,4 +1,14 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  ElementRef,
+  inject,
+  Injector,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslocoDirective } from '@jsverse/transloco';
 
@@ -23,11 +33,16 @@ const MAX_MESSAGE_LENGTH = 5000;
   templateUrl: './contact.component.html',
 })
 export class ContactComponent {
+  private readonly injector = inject(Injector);
+  private readonly nameInput = viewChild<ElementRef<HTMLInputElement>>('nameInput');
+
   protected readonly activeType = signal<ProjectType>('collaboration');
   protected readonly email = signal('');
   protected readonly focusedField = signal<string | null>(null);
   protected readonly message = signal('');
   protected readonly name = signal('');
+  /** The first name of whoever just wrote, to thank them by name. */
+  protected readonly sentName = computed(() => this.name().trim().split(/\s+/)[0] ?? '');
   protected readonly status = signal<FormStatus>('idle');
   protected readonly touched = signal(false);
   /** A field people never see: only bots fill it in, and the server drops their messages. */
@@ -107,6 +122,23 @@ export class ContactComponent {
   retry(): void {
     this.status.set('idle');
     this.touched.set(false);
+  }
+
+  /** Clears the form and brings it back, with the focus on the first field. */
+  writeAnother(): void {
+    this.name.set('');
+    this.email.set('');
+    this.message.set('');
+    this.website.set('');
+    this.activeType.set('collaboration');
+    this.retry();
+
+    afterNextRender(
+      { write: () => this.nameInput()?.nativeElement.focus() },
+      {
+        injector: this.injector,
+      }
+    );
   }
 
   setType(type: ProjectType): void {
