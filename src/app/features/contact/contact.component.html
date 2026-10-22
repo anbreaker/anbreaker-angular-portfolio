@@ -64,10 +64,31 @@
         <!-- Right column: form card -->
         <div class="contact__form-card" appReveal [revealDelay]="200">
           @if (status() === 'success') {
-            <div class="contact__success">
-              <span class="contact__success-icon">✓</span>
+            <div class="contact__sent" role="status">
+              <svg class="contact__sent-check" aria-hidden="true" viewBox="0 0 52 52">
+                <circle class="contact__sent-ring" cx="26" cy="26" r="24" />
+                <path class="contact__sent-tick" d="M15 27 L23 34 L37 19" />
+              </svg>
+              <p class="contact__sent-cmd" aria-hidden="true">
+                <span class="contact__terminal-path">~/contacto</span>
+                <span class="contact__terminal-sep">❯</span>
+                <span>{{ t('contact.form.successCmd') }}</span>
+              </p>
               <p class="contact__success-title">{{ t('contact.form.successTitle') }}</p>
-              <p class="contact__success-msg">{{ t('contact.form.successMsg') }}</p>
+              <p class="contact__success-msg">
+                {{ t('contact.form.successMsg', { name: sentName() }) }}
+              </p>
+              <button
+                class="mag-btn mag-btn--primary contact__sent-again"
+                appMagneticButton
+                type="button"
+                (click)="writeAnother()"
+              >
+                <span class="mag-btn__label">{{ t('contact.form.sendAnother') }}</span>
+                <span class="mag-btn__fill" aria-hidden="true">
+                  {{ t('contact.form.sendAnother') }}
+                </span>
+              </button>
             </div>
           } @else if (status() === 'error') {
             <div class="contact__success">
@@ -90,6 +111,7 @@
                 </label>
                 <input
                   class="contact__input"
+                  #nameInput
                   id="contact-name"
                   type="text"
                   [attr.maxlength]="maxNameLength"
