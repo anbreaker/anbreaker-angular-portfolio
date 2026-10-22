@@ -51,6 +51,28 @@
       cursor: pointer;
     }
 
+    // The newest project spans both columns, image beside the text.
+    &--featured {
+      @media (min-width: 1024px) {
+        grid-column: 1 / -1;
+
+        .projects__card {
+          align-items: center;
+          display: grid;
+          gap: 2.5rem;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .projects__card-title {
+          font-size: 1.5rem;
+        }
+
+        .projects__card-desc {
+          font-size: 1rem;
+        }
+      }
+    }
+
     @media (hover: none) {
       transform: none !important;
     }
@@ -112,6 +134,7 @@
 
     &-actions {
       display: flex;
+      flex-wrap: wrap;
       gap: 0.75rem;
       margin-top: 0.25rem;
     }
