@@ -267,6 +267,14 @@
     text-transform: uppercase;
   }
 
+  &__trap {
+    height: 1px;
+    left: -10000px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+  }
+
   &__input {
     background: transparent;
     border: none;

@@ -212,7 +212,8 @@
       "submit": "Send message",
       "successMsg": "I'll get back to you as soon as possible.",
       "successTitle": "Message sent!",
-      "title": "CONTACT FORM"
+      "title": "CONTACT FORM",
+      "website": "Website"
     },
     "heading1": "Tell me about your",
     "heading2": "next project",
