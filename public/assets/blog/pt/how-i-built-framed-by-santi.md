@@ -6,15 +6,15 @@ Começou como um presente para um amigo, mas este artigo não é sobre isso: é 
 
 Os números, tirados do repositório:
 
-- 📅 **8 dias com commits**, de 13 a 22 de outubro de 2026.
+- 📅 **9 dias com commits**, de 13 a 26 de outubro de 2026.
 - 🚀 **Em produção ao dia 3**: site público e painel privado.
-- 🔀 **177 commits** e **35 pull requests**, todos revistos antes de chegarem a produção.
-- 🧪 **117 ficheiros de teste** com **740 casos**.
+- 🔀 **189 commits** e **35 pull requests**.
+- 🧪 **117 ficheiros de teste** com **857 casos**.
 - 🌍 **Três idiomas**: inglês, espanhol e português.
 - 💯 **100 nas quatro categorias do Lighthouse** (desktop, rede 4G).
 
-<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/commits_PT_dark.webp" alt="Gráfico de barras de commits por dia de 13 a 22 de outubro de 2026: 1, 43, 75 (o dia da entrada em produção), 3, nenhum no fim de semana, 22, 7, 23 e 3">
-<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/commits_PT_light.webp" alt="Gráfico de barras de commits por dia de 13 a 22 de outubro de 2026: 1, 43, 75 (o dia da entrada em produção), 3, nenhum no fim de semana, 22, 7, 23 e 3">
+<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/commits_PT_dark.webp" alt="Gráfico de barras de commits por dia de 13 a 26 de outubro de 2026: 1, 43, 75 (o dia da entrada em produção), 3, nenhum no fim de semana, 22, 7, 23, 3, nenhum de 23 a 25 e 12">
+<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/commits_PT_light.webp" alt="Gráfico de barras de commits por dia de 13 a 26 de outubro de 2026: 1, 43, 75 (o dia da entrada em produção), 3, nenhum no fim de semana, 22, 7, 23, 3, nenhum de 23 a 25 e 12">
 
 ---
 
@@ -100,6 +100,7 @@ O painel vive em `/admin` e não tem nenhuma ligação pública: só se chega l�
 - **Temas:** criam-se e apagam-se a partir do painel.
 - **Limpeza automática:** ao abrir a biblioteca, as fotos da Cloudinary que já nenhuma série usa são apagadas em segundo plano.
 - **Definições:** foto de perfil e alteração da palavra-passe.
+- **Também no telemóvel:** o painel adapta-se ao ecrã do telemóvel, e no login pode-se mostrar ou ocultar a palavra-passe.
 - **E um *easter egg*** só para o admin: um cantinho para continuar com força. 💪
 
 <p align="center"><img src="/assets/images/blog/framedBySanti/dashboard-library_PT.webp" alt="Biblioteca do painel privado: as séries com a sua capa, o filtro por publicadas e rascunhos, e o interruptor para publicar" width="720"><br><em>A biblioteca: cada série é publicada ou passa a rascunho com um interruptor.</em></p>
@@ -215,7 +216,7 @@ Não é dogma: nos templates uso `@switch` quando cada caso pinta algo diferente
 
 **E os testes:**
 
-- **740 casos** em 117 ficheiros, com Vitest e JSDOM, também para as funções de `api/`.
+- **857 casos** em 117 ficheiros, com Vitest e JSDOM, também para as funções de `api/`.
 - **Commits convencionais** validados por um script.
 
 ---
@@ -263,6 +264,7 @@ Ao guardar a foto de perfil com uma ligação lenta, se o guardar demorasse dema
 | 20 out | 7 | A história do Sobre e ajustes em telemóvel. |
 | 21 out | 23 | Ícone do Instagram, o cantinho do admin e o formulário de contacto. |
 | 22 out | 3 | Afinação do email de contacto. |
+| 26 out | 12 | Painel adaptado ao telemóvel, mostrar a palavra-passe no login e melhorias no cantinho do admin. |
 
 ---
 

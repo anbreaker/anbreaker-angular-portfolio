@@ -6,15 +6,15 @@ Empezó como un regalo para un amigo, pero este post no va de eso: va de **cómo
 
 Las cifras, sacadas del repositorio:
 
-- 📅 **8 días con commits**, del 13 al 22 de octubre de 2026.
+- 📅 **9 días con commits**, del 13 al 26 de octubre de 2026.
 - 🚀 **En producción el día 3**: web pública y panel privado.
-- 🔀 **177 commits** y **35 pull requests**, todos revisados antes de llegar a producción.
-- 🧪 **117 archivos de test** con **740 casos**.
+- 🔀 **189 commits** y **35 pull requests**.
+- 🧪 **117 archivos de test** con **857 casos**.
 - 🌍 **Tres idiomas**: inglés, español y portugués.
 - 💯 **100 en las cuatro categorías de Lighthouse** (escritorio, red 4G).
 
-<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/commits_ES_dark.webp" alt="Gráfico de barras de commits por día del 13 al 22 de octubre de 2026: 1, 43, 75 (día de la subida a producción), 3, ninguno el fin de semana, 22, 7, 23 y 3">
-<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/commits_ES_light.webp" alt="Gráfico de barras de commits por día del 13 al 22 de octubre de 2026: 1, 43, 75 (día de la subida a producción), 3, ninguno el fin de semana, 22, 7, 23 y 3">
+<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/commits_ES_dark.webp" alt="Gráfico de barras de commits por día del 13 al 26 de octubre de 2026: 1, 43, 75 (día de la subida a producción), 3, ninguno el fin de semana, 22, 7, 23, 3, ninguno del 23 al 25 y 12">
+<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/commits_ES_light.webp" alt="Gráfico de barras de commits por día del 13 al 26 de octubre de 2026: 1, 43, 75 (día de la subida a producción), 3, ninguno el fin de semana, 22, 7, 23, 3, ninguno del 23 al 25 y 12">
 
 ---
 
@@ -100,6 +100,7 @@ El panel vive en `/admin` y no tiene ningún enlace público: se llega solo escr
 - **Temas:** se crean y se borran desde el panel.
 - **Limpieza automática:** al abrir la biblioteca, se borran en segundo plano las fotos de Cloudinary que ya no usa ninguna serie.
 - **Ajustes:** foto de perfil y cambio de contraseña.
+- **También en el móvil:** el panel se adapta a la pantalla del teléfono, y en el login se puede mostrar u ocultar la contraseña.
 - **Y un *easter egg*** solo para el admin: un rincón para seguir con fuerzas. 💪
 
 <p align="center"><img src="/assets/images/blog/framedBySanti/dashboard-library_ES.webp" alt="Biblioteca del panel privado: las series con su portada, el filtro por publicadas y borradores, y el interruptor para publicar" width="720"><br><em>La biblioteca: cada serie se publica o se pasa a borrador con un interruptor.</em></p>
@@ -215,7 +216,7 @@ No es dogma: en las plantillas uso `@switch` cuando cada caso pinta algo distint
 
 **Y los tests:**
 
-- **740 casos** en 117 archivos, con Vitest y JSDOM, también para las funciones de `api/`.
+- **857 casos** en 117 archivos, con Vitest y JSDOM, también para las funciones de `api/`.
 - **Commits convencionales** validados por un script.
 
 ---
@@ -263,6 +264,7 @@ Al guardar la foto de perfil con una conexión lenta, si el guardado tardaba dem
 | 20 oct | 7 | Historia de Sobre mí y ajustes en móvil. |
 | 21 oct | 23 | Icono de Instagram, el rincón del admin y el formulario de contacto. |
 | 22 oct | 3 | Pulido del email de contacto. |
+| 26 oct | 12 | Panel adaptado al móvil, mostrar la contraseña en el login y mejoras en el rincón del admin. |
 
 ---
 

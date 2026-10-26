@@ -6,15 +6,15 @@ It started as a gift for a friend, but this post isn't about that: it's about **
 
 The numbers, straight from the repository:
 
-- 📅 **8 days with commits**, from October 13 to 22, 2026.
+- 📅 **9 days with commits**, from October 13 to 26, 2026.
 - 🚀 **In production on day 3**: public site and private dashboard.
-- 🔀 **177 commits** and **35 pull requests**, all reviewed before reaching production.
-- 🧪 **117 test files** with **740 cases**.
+- 🔀 **189 commits** and **35 pull requests**.
+- 🧪 **117 test files** with **857 cases**.
 - 🌍 **Three languages**: English, Spanish and Portuguese.
 - 💯 **100 in all four Lighthouse categories** (desktop, 4G network).
 
-<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/commits_EN_dark.webp" alt="Bar chart of commits per day from October 13 to 22, 2026: 1, 43, 75 (the day it went to production), 3, none over the weekend, 22, 7, 23 and 3">
-<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/commits_EN_light.webp" alt="Bar chart of commits per day from October 13 to 22, 2026: 1, 43, 75 (the day it went to production), 3, none over the weekend, 22, 7, 23 and 3">
+<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/commits_EN_dark.webp" alt="Bar chart of commits per day from October 13 to 26, 2026: 1, 43, 75 (the day it went to production), 3, none over the weekend, 22, 7, 23, 3, none from the 23rd to the 25th and 12">
+<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/commits_EN_light.webp" alt="Bar chart of commits per day from October 13 to 26, 2026: 1, 43, 75 (the day it went to production), 3, none over the weekend, 22, 7, 23, 3, none from the 23rd to the 25th and 12">
 
 ---
 
@@ -100,6 +100,7 @@ The dashboard lives at `/admin` and has no public link: you only get there by ty
 - **Themes:** created and deleted from the dashboard.
 - **Automatic cleanup:** when the library opens, the Cloudinary photos no set uses anymore are deleted in the background.
 - **Settings:** profile photo and password change.
+- **On the phone too:** the dashboard fits the phone screen, and the sign-in form lets you show or hide the password.
 - **And an *easter egg*** just for the admin: a corner to keep going strong. 💪
 
 <p align="center"><img src="/assets/images/blog/framedBySanti/dashboard-library_EN.webp" alt="Private dashboard library: the sets with their cover, the published and drafts filter, and the publish switch" width="720"><br><em>The library: each set is published or moved to draft with a switch.</em></p>
@@ -215,7 +216,7 @@ It isn't dogma: in templates I use `@switch` when each case renders something di
 
 **And the tests:**
 
-- **740 cases** in 117 files, with Vitest and JSDOM, the `api/` functions included.
+- **857 cases** in 117 files, with Vitest and JSDOM, the `api/` functions included.
 - **Conventional commits** validated by a script.
 
 ---
@@ -263,6 +264,7 @@ When saving the profile photo on a slow connection, if the save took too long th
 | Oct 20 | 7 | The About story and mobile tweaks. |
 | Oct 21 | 23 | Instagram icon, the admin's corner and the contact form. |
 | Oct 22 | 3 | Polishing the contact email. |
+| Oct 26 | 12 | Dashboard fitted to phones, show the password on sign-in and improvements to the admin's corner. |
 
 ---
 
