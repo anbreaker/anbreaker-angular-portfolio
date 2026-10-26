@@ -8,7 +8,7 @@ The numbers, straight from the repository:
 
 - 📅 **9 days with commits**, from October 13 to 26, 2026.
 - 🚀 **In production on day 3**: public site and private dashboard.
-- 🔀 **189 commits** and **35 pull requests**.
+- 🔀 **189 commits** and **35 pull requests**; I tested every change myself, as a visitor and as the admin, before it reached production.
 - 🧪 **117 test files** with **857 cases**.
 - 🌍 **Three languages**: English, Spanish and Portuguese.
 - 💯 **100 in all four Lighthouse categories** (desktop, 4G network).

@@ -8,7 +8,7 @@ Las cifras, sacadas del repositorio:
 
 - 📅 **9 días con commits**, del 13 al 26 de octubre de 2026.
 - 🚀 **En producción el día 3**: web pública y panel privado.
-- 🔀 **189 commits** y **35 pull requests**.
+- 🔀 **189 commits** y **35 pull requests**; cada cambio lo probé yo, como visitante y como admin, antes de llegar a producción.
 - 🧪 **117 archivos de test** con **857 casos**.
 - 🌍 **Tres idiomas**: inglés, español y portugués.
 - 💯 **100 en las cuatro categorías de Lighthouse** (escritorio, red 4G).
