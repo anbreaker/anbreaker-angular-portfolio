@@ -267,7 +267,7 @@
     "framed-by-santi": {
       "description": "Photography portfolio with a private dashboard, in three languages and with a perfect Lighthouse score, in production on day three.",
       "detail": {
-        "impact": "In production on day three, with 177 commits, 35 pull requests and 740 tests in eight days. Public pages don't load the Firebase SDK and score 100 in all four Lighthouse categories on desktop.",
+        "impact": "In production on day three, with 189 commits, 35 pull requests and 857 tests in nine days. Public pages don't load the Firebase SDK and score 100 in all four Lighthouse categories on desktop.",
         "longDescription": "Framed by Santi is the website of an amateur photographer in New York: a public gallery of photo sets and a private dashboard to publish them without depending on anyone. It's built with zoneless Angular 22 and Signals, native CSS and Vite, with Firebase (Auth and Firestore), Cloudinary for the photos, DeepL to translate automatically into English, Spanish and Portuguese, Resend for the contact form and serverless functions on Vercel. I built it assisted by Claude Code and with a strict method: tests first, custom ESLint rules and a review of every change before it reached production."
       },
       "title": "Framed by Santi"
