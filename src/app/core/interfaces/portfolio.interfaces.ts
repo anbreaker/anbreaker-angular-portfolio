@@ -23,6 +23,8 @@ export interface Project {
   detail?: ProjectDetail;
   id: string;
   imageUrl?: Record<SupportedLang, string>;
+  /** Slug of a blog post about the project; the card links to it when set. */
+  postSlug?: string;
   tags: string[];
   titleKey: string;
 }

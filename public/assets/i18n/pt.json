@@ -264,6 +264,14 @@
       },
       "notFound": "Projeto não encontrado."
     },
+    "framed-by-santi": {
+      "description": "Portfólio de fotografia com painel privado, em três idiomas e com 100 no Lighthouse, em produção ao terceiro dia.",
+      "detail": {
+        "impact": "Em produção ao terceiro dia, com 189 commits, 35 pull requests e 857 testes em nove dias. As páginas públicas não carregam o SDK do Firebase e têm 100 nas quatro categorias do Lighthouse em desktop.",
+        "longDescription": "O Framed by Santi é o site de um fotógrafo amador de Nova Iorque: uma galeria pública de séries de fotos e um painel privado para as publicar sem depender de ninguém. Foi feito com Angular 22 zoneless e Signals, CSS nativo e Vite, com Firebase (Auth e Firestore), Cloudinary para as fotos, DeepL para traduzir automaticamente para inglês, espanhol e português, Resend para o formulário de contacto e funções serverless na Vercel. Construí-o com a ajuda do Claude Code e com um método rigoroso: testes primeiro, regras de ESLint próprias e revisão de cada alteração antes de chegar a produção."
+      },
+      "title": "Framed by Santi"
+    },
     "label": "TRABALHO",
     "mimacrame": {
       "description": "E-commerce artesanal com Clean Architecture, catálogo multilingue e experiência visual premium focada no detalhe.",
@@ -281,6 +289,7 @@
       },
       "title": "Portfolio Pessoal"
     },
+    "readPost": "Ler o artigo",
     "title": "Projetos em Destaque",
     "viewCode": "Código",
     "viewDemo": "Demo",

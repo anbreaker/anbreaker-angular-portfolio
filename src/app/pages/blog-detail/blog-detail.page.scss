@@ -662,6 +662,12 @@
   }
 }
 
+// The container is in this template, so no ::ng-deep is needed: overflow-wrap is inherited by the
+// injected post. A long path or URL breaks onto the next line instead of pushing the page sideways on a phone
+.article__content {
+  overflow-wrap: anywhere;
+}
+
 // ::ng-deep is required to reach HTML injected via [innerHTML]
 // Angular's scoping attributes don't apply to that content
 :host ::ng-deep .article__content {

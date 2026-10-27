@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TranslocoDirective } from '@jsverse/transloco';
 
 import { LanguageStore } from '@core/store/language.store';
@@ -20,6 +20,7 @@ import { PROJECTS_DATA } from './projects.data';
     MagneticButtonDirective,
     NeonCardComponent,
     RevealDirective,
+    RouterLink,
     TiltDirective,
     TranslocoDirective,
   ],
