@@ -144,6 +144,10 @@
         "excerpt": "Protegiendo tus aplicaciones con OIDC, JWT y mejores prácticas para 2026.",
         "title": "Seguridad Web Moderna"
       },
+      "framed-by-santi": {
+        "excerpt": "Un portfolio de fotografía con panel privado, tres idiomas y 100 en Lighthouse, construido con Claude Code como asistente: el stack, las features, los problemas reales y el método para ir rápido sin perder calidad.",
+        "title": "Cómo construí Framed by Santi: de cero a producción en <em>tres días</em>."
+      },
       "graffiti-ui": {
         "excerpt": "Una inmersión profunda en el glassmorphism de CSS, efectos de neón y patrones de diseño urbano.",
         "title": "Construyendo UI Urbana y Graffiti"

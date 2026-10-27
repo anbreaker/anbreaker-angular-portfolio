@@ -14,6 +14,25 @@ export class BlogService {
   private readonly posts: BlogPost[] = [
     {
       author: this.AUTHOR,
+      date: '2026-10-27',
+      excerptKey: 'blog.posts.framed-by-santi.excerpt',
+      id: '3',
+      imageUrl: {
+        en: '/assets/images/blog/framedBySanti/infographic_EN_dark.webp',
+        es: '/assets/images/blog/framedBySanti/infographic_ES_dark.webp',
+        pt: '/assets/images/blog/framedBySanti/infographic_PT_dark.webp',
+      },
+      imageUrlLight: {
+        en: '/assets/images/blog/framedBySanti/infographic_EN_light.webp',
+        es: '/assets/images/blog/framedBySanti/infographic_ES_light.webp',
+        pt: '/assets/images/blog/framedBySanti/infographic_PT_light.webp',
+      },
+      slug: 'how-i-built-framed-by-santi',
+      tags: ['Angular', 'Firebase', 'Performance', 'AI'],
+      titleKey: 'blog.posts.framed-by-santi.title',
+    },
+    {
+      author: this.AUTHOR,
       date: '2026-09-30',
       excerptKey: 'blog.posts.youtube-hdmi-audio.excerpt',
       id: '2',
