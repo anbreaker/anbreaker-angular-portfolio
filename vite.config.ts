@@ -1,7 +1,11 @@
+import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import angular from '@analogjs/vite-plugin-angular';
 
-import { defineConfig } from 'vite';
+import { defineConfig, Plugin } from 'vite';
+
+import { BLOG_POSTS } from './src/app/core/const/blog-posts';
+import { buildRssFeed, RSS_FEED_LANGS, rssFeedPath } from './src/app/core/utils/rss-feed';
 
 const environmentFileByMode: Record<string, string> = {
   demo: 'environment.demo.ts',
@@ -12,6 +16,29 @@ const environmentFileByMode: Record<string, string> = {
   production: 'environment.prod.ts',
   test: 'environment.test.ts',
 };
+
+const SITE_URL = 'https://rootdevs.es';
+
+/** Emits one RSS feed per language (dist/rss/<lang>.xml) from the blog posts and their translations. */
+function rssFeeds(): Plugin {
+  return {
+    apply: 'build',
+    name: 'rss-feeds',
+    generateBundle() {
+      for (const lang of RSS_FEED_LANGS) {
+        const translations = JSON.parse(
+          readFileSync(resolve(__dirname, `public/assets/i18n/${lang}.json`), 'utf8')
+        ) as object;
+
+        this.emitFile({
+          fileName: rssFeedPath(lang),
+          source: buildRssFeed({ lang, posts: BLOG_POSTS, siteUrl: SITE_URL, translations }),
+          type: 'asset',
+        });
+      }
+    },
+  };
+}
 
 export default defineConfig(({ mode }) => {
   const environmentFile = resolve(
@@ -39,6 +66,7 @@ export default defineConfig(({ mode }) => {
       angular({
         tsconfig: '../tsconfig.json',
       }),
+      rssFeeds(),
     ],
 
     resolve: {
