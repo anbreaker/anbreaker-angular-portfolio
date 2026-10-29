@@ -1,7 +1,8 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
 import angular from '@analogjs/vite-plugin-angular';
 
+import { Marked } from 'marked';
 import { defineConfig, Plugin } from 'vite';
 
 import { BLOG_POSTS } from './src/app/core/const/blog-posts';
@@ -25,6 +26,8 @@ function rssFeeds(): Plugin {
     apply: 'build',
     name: 'rss-feeds',
     generateBundle() {
+      const markdown = new Marked();
+
       for (const lang of RSS_FEED_LANGS) {
         const translations = JSON.parse(
           readFileSync(resolve(__dirname, `public/assets/i18n/${lang}.json`), 'utf8')
@@ -32,7 +35,21 @@ function rssFeeds(): Plugin {
 
         this.emitFile({
           fileName: rssFeedPath(lang),
-          source: buildRssFeed({ lang, posts: BLOG_POSTS, siteUrl: SITE_URL, translations }),
+          source: buildRssFeed({
+            contentHtml: (post) =>
+              markdown.parse(
+                readFileSync(
+                  resolve(__dirname, `public/assets/blog/${lang}/${post.slug}.md`),
+                  'utf8'
+                ),
+                { async: false }
+              ),
+            imageLength: (path) => statSync(resolve(__dirname, 'public', `.${path}`)).size,
+            lang,
+            posts: BLOG_POSTS,
+            siteUrl: SITE_URL,
+            translations,
+          }),
           type: 'asset',
         });
       }
