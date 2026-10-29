@@ -76,6 +76,47 @@ describe('buildRssFeed', () => {
     expect(xml).toContain('<lastBuildDate>Tue, 27 Oct 2026 00:00:00 GMT</lastBuildDate>');
   });
 
+  it('also sends the cover as an enclosure and as an image in the post content', () => {
+    const xml = buildRssFeed({
+      imageLength: (path) => (path === '/img/new_EN.webp' ? 72000 : 0),
+      lang: 'en',
+      posts: POSTS,
+      siteUrl: 'https://rootdevs.es',
+      translations: TRANSLATIONS,
+    });
+
+    expect(xml).toContain('xmlns:content="http://purl.org/rss/1.0/modules/content/"');
+    expect(xml).toContain(
+      '<enclosure length="72000" type="image/webp" url="https://rootdevs.es/img/new_EN.webp"/>'
+    );
+    expect(xml).toContain(
+      '<content:encoded><![CDATA[<p><img alt="How I built it in three days." src="https://rootdevs.es/img/new_EN.webp"></p><p>Fast &amp; &quot;safe&quot; builds</p>]]></content:encoded>'
+    );
+    expect(xml.match(/<enclosure/g)).toHaveLength(1);
+  });
+
+  it('sends the full post with absolute links and only the dark variant of themed images', () => {
+    const xml = buildRssFeed({
+      contentHtml: (post) =>
+        post.slug === 'new-post'
+          ? '<p>Body with a <a href="/blog/old-post">link</a>.</p>' +
+            '<img class="theme-img theme-img--dark" src="/img/chart_dark.webp" alt="Chart">\n' +
+            '<img class="theme-img theme-img--light" src="/img/chart_light.webp" alt="Chart">'
+          : undefined,
+      lang: 'en',
+      posts: POSTS,
+      siteUrl: 'https://rootdevs.es',
+      translations: TRANSLATIONS,
+    });
+
+    expect(xml).toContain(
+      '<p>Body with a <a href="https://rootdevs.es/blog/old-post">link</a>.</p><img class="theme-img theme-img--dark" src="https://rootdevs.es/img/chart_dark.webp" alt="Chart">'
+    );
+    expect(xml).not.toContain('chart_light.webp');
+    expect(xml).not.toContain('<p>Fast &amp; &quot;safe&quot; builds</p>');
+    expect(xml).toContain('<content:encoded><![CDATA[<p>Old excerpt</p>]]></content:encoded>');
+  });
+
   it('builds one feed per supported language', () => {
     expect(RSS_FEED_LANGS).toEqual(['es', 'en', 'pt']);
     expect(rssFeedPath('pt')).toBe('rss/pt.xml');
