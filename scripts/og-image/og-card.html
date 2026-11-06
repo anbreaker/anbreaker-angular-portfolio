@@ -18,10 +18,9 @@
       }
 
       @font-face {
-        font-family: 'Instrument Serif';
-        font-style: italic;
-        src: url('../../public/assets/fonts/instrument-serif/instrument-serif-latin-italic.woff2')
-          format('woff2');
+        font-family: 'Caveat';
+        font-weight: 400 700;
+        src: url('../../public/assets/fonts/caveat/caveat-latin.woff2') format('woff2');
       }
 
       @font-face {
@@ -83,15 +82,23 @@
       }
 
       h1 {
-        font-size: 64px;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        line-height: 1.02;
+        display: flex;
+        flex-direction: column;
       }
 
-      h1 em {
-        font-family: 'Instrument Serif', serif;
+      .signature {
+        color: var(--pink);
+        font-family: 'Caveat', cursive;
+        font-size: 84px;
         font-weight: 400;
+        line-height: 1;
+      }
+
+      .surnames {
+        font-size: 56px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.05;
       }
 
       .role {
@@ -127,8 +134,8 @@
       <img class="logo" alt="Rootdevs" src="../../public/assets/images/logoRootdevs.webp" />
       <p class="eyebrow">Portfolio &amp; blog</p>
       <h1>
-        Francisco Javier
-        <em>Antúnez</em>
+        <span class="signature">Francisco Javier</span>
+        <span class="surnames">Antúnez Durán</span>
       </h1>
       <p class="role">Senior Frontend Developer</p>
       <p class="stack">
