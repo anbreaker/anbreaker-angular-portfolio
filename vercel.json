@@ -1,6 +1,6 @@
 {
   "buildCommand": "vite build",
-  "framework": null,
+  "framework": "vite",
   "outputDirectory": "dist",
   "redirects": [
     { "destination": "/blog/spotless-code-multi-vendor-teams", "permanent": true, "source": "/blog/codigo-impecable-equipos-multi-consultora" },
