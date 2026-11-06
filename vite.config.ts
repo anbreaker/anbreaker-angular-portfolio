@@ -6,6 +6,7 @@ import { Marked } from 'marked';
 import { defineConfig, Plugin } from 'vite';
 
 import { BLOG_POSTS } from './src/app/core/const/blog-posts';
+import { buildLlmsTxt, LLMS_TXT_PATH } from './src/app/core/utils/llms-txt';
 import { buildRssFeed, RSS_FEED_LANGS, rssFeedPath } from './src/app/core/utils/rss-feed';
 
 const environmentFileByMode: Record<string, string> = {
@@ -57,6 +58,27 @@ function rssFeeds(): Plugin {
   };
 }
 
+/** Emits dist/llms.txt (https://llmstxt.org) listing the blog posts and main pages for AI agents. */
+function llmsTxt(): Plugin {
+  return {
+    apply: 'build',
+    name: 'llms-txt',
+    generateBundle(): void {
+      this.emitFile({
+        fileName: LLMS_TXT_PATH,
+        source: buildLlmsTxt({
+          posts: BLOG_POSTS,
+          siteUrl: SITE_URL,
+          translations: JSON.parse(
+            readFileSync(resolve(__dirname, 'public/assets/i18n/en.json'), 'utf8')
+          ) as object,
+        }),
+        type: 'asset',
+      });
+    },
+  };
+}
+
 export default defineConfig(({ mode }) => {
   const environmentFile = resolve(
     __dirname,
@@ -84,6 +106,7 @@ export default defineConfig(({ mode }) => {
         tsconfig: '../tsconfig.json',
       }),
       rssFeeds(),
+      llmsTxt(),
     ],
 
     resolve: {
