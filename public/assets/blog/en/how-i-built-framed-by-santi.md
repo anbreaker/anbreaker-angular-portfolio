@@ -13,8 +13,8 @@ The numbers, straight from the repository:
 - 🌍 **Three languages**: English, Spanish and Portuguese.
 - 💯 **100 in all four Lighthouse categories** (desktop, 4G network).
 
-<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/commits_EN_dark.webp" alt="Bar chart of commits per day from October 13 to 26, 2026: 1, 43, 75 (the day it went to production), 3, none over the weekend, 22, 7, 23, 3, none from the 23rd to the 25th and 12">
-<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/commits_EN_light.webp" alt="Bar chart of commits per day from October 13 to 26, 2026: 1, 43, 75 (the day it went to production), 3, none over the weekend, 22, 7, 23, 3, none from the 23rd to the 25th and 12">
+<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/commits_EN_dark.webp" srcset="/assets/images/blog/framedBySanti/commits_EN_dark-800.webp 800w, /assets/images/blog/framedBySanti/commits_EN_dark.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="Bar chart of commits per day from October 13 to 26, 2026: 1, 43, 75 (the day it went to production), 3, none over the weekend, 22, 7, 23, 3, none from the 23rd to the 25th and 12">
+<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/commits_EN_light.webp" srcset="/assets/images/blog/framedBySanti/commits_EN_light-800.webp 800w, /assets/images/blog/framedBySanti/commits_EN_light.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="Bar chart of commits per day from October 13 to 26, 2026: 1, 43, 75 (the day it went to production), 3, none over the weekend, 22, 7, 23, 3, none from the 23rd to the 25th and 12">
 
 ---
 
@@ -38,8 +38,8 @@ The split was clear:
 
 ## 🧱 Stack and architecture
 
-<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/architecture_EN_dark.webp" alt="Framed by Santi architecture diagram: the browser gets the static app from Vercel, reads Firestore over REST on public pages and uses Firebase Auth and the SDK only in the dashboard; photos come from the Cloudinary CDN and the dashboard uploads them directly with a signature; the Vercel functions clean up Cloudinary, send the email with Resend, translate with DeepL and sign the uploads, and all the dashboard ones check in Firestore that the user is an admin with their own token">
-<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/architecture_EN_light.webp" alt="Framed by Santi architecture diagram: the browser gets the static app from Vercel, reads Firestore over REST on public pages and uses Firebase Auth and the SDK only in the dashboard; photos come from the Cloudinary CDN and the dashboard uploads them directly with a signature; the Vercel functions clean up Cloudinary, send the email with Resend, translate with DeepL and sign the uploads, and all the dashboard ones check in Firestore that the user is an admin with their own token">
+<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/architecture_EN_dark.webp" srcset="/assets/images/blog/framedBySanti/architecture_EN_dark-800.webp 800w, /assets/images/blog/framedBySanti/architecture_EN_dark.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="Framed by Santi architecture diagram: the browser gets the static app from Vercel, reads Firestore over REST on public pages and uses Firebase Auth and the SDK only in the dashboard; photos come from the Cloudinary CDN and the dashboard uploads them directly with a signature; the Vercel functions clean up Cloudinary, send the email with Resend, translate with DeepL and sign the uploads, and all the dashboard ones check in Firestore that the user is an admin with their own token">
+<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/architecture_EN_light.webp" srcset="/assets/images/blog/framedBySanti/architecture_EN_light-800.webp 800w, /assets/images/blog/framedBySanti/architecture_EN_light.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="Framed by Santi architecture diagram: the browser gets the static app from Vercel, reads Firestore over REST on public pages and uses Firebase Auth and the SDK only in the dashboard; photos come from the Cloudinary CDN and the dashboard uploads them directly with a signature; the Vercel functions clean up Cloudinary, send the email with Resend, translate with DeepL and sign the uploads, and all the dashboard ones check in Firestore that the user is an admin with their own token">
 
 **Frontend**
 
@@ -81,11 +81,11 @@ The three dashboard functions check that the user is an admin the same way: they
 - **Real languages:** dates, numbers and plurals follow the active language (`en-US`, `es-ES`, `pt-PT`).
 - With `prefers-reduced-motion`, nothing animates.
 
-<p align="center"><a href="https://framedbysanti.rootdevs.es/" target="_blank" rel="noopener"><img src="/assets/images/blog/framedBySanti/home_EN.webp" alt="Framed by Santi home page: a full-screen photo of the Flatiron with Santi's name and the buttons to the gallery and Instagram" width="720"></a><br><em>The home page. Click to see it live.</em></p>
+<p align="center"><a href="https://framedbysanti.rootdevs.es/" target="_blank" rel="noopener"><img src="/assets/images/blog/framedBySanti/home_EN.webp" srcset="/assets/images/blog/framedBySanti/home_EN-800.webp 800w, /assets/images/blog/framedBySanti/home_EN.webp 1200w" sizes="min(100vw - 3rem, 720px)" alt="Framed by Santi home page: a full-screen photo of the Flatiron with Santi's name and the buttons to the gallery and Instagram" width="720"></a><br><em>The home page. Click to see it live.</em></p>
 
-<p align="center"><a href="https://framedbysanti.rootdevs.es/gallery" target="_blank" rel="noopener"><img src="/assets/images/blog/framedBySanti/gallery_EN.webp" alt="Framed by Santi gallery: theme filter and a set with its photo carousel" width="720"></a><br><em>The gallery with the theme filter.</em></p>
+<p align="center"><a href="https://framedbysanti.rootdevs.es/gallery" target="_blank" rel="noopener"><img src="/assets/images/blog/framedBySanti/gallery_EN.webp" srcset="/assets/images/blog/framedBySanti/gallery_EN-800.webp 800w, /assets/images/blog/framedBySanti/gallery_EN.webp 1200w" sizes="min(100vw - 3rem, 720px)" alt="Framed by Santi gallery: theme filter and a set with its photo carousel" width="720"></a><br><em>The gallery with the theme filter.</em></p>
 
-<p align="center"><a href="https://framedbysanti.rootdevs.es/gallery" target="_blank" rel="noopener"><img src="/assets/images/blog/framedBySanti/viewer_EN.webp" alt="Framed by Santi viewer: a large photo with arrows, zoom controls and the thumbnail strip" width="720"></a><br><em>The viewer: zoom, arrows and thumbnails.</em></p>
+<p align="center"><a href="https://framedbysanti.rootdevs.es/gallery" target="_blank" rel="noopener"><img src="/assets/images/blog/framedBySanti/viewer_EN.webp" srcset="/assets/images/blog/framedBySanti/viewer_EN-800.webp 800w, /assets/images/blog/framedBySanti/viewer_EN.webp 1200w" sizes="min(100vw - 3rem, 720px)" alt="Framed by Santi viewer: a large photo with arrows, zoom controls and the thumbnail strip" width="720"></a><br><em>The viewer: zoom, arrows and thumbnails.</em></p>
 
 ---
 
@@ -103,9 +103,9 @@ The dashboard lives at `/admin` and has no public link: you only get there by ty
 - **On the phone too:** the dashboard fits the phone screen, and the sign-in form lets you show or hide the password.
 - **And an *easter egg*** just for the admin: a corner to keep going strong. 💪
 
-<p align="center"><img src="/assets/images/blog/framedBySanti/dashboard-library_EN.webp" alt="Private dashboard library: the sets with their cover, the published and drafts filter, and the publish switch" width="720"><br><em>The library: each set is published or moved to draft with a switch.</em></p>
+<p align="center"><img src="/assets/images/blog/framedBySanti/dashboard-library_EN.webp" srcset="/assets/images/blog/framedBySanti/dashboard-library_EN-800.webp 800w, /assets/images/blog/framedBySanti/dashboard-library_EN.webp 1090w" sizes="min(100vw - 3rem, 720px)" alt="Private dashboard library: the sets with their cover, the published and drafts filter, and the publish switch" width="720"><br><em>The library: each set is published or moved to draft with a switch.</em></p>
 
-<p align="center"><img src="/assets/images/blog/framedBySanti/dashboard-editor_EN.webp" alt="Private dashboard set editor: the set's photos on the left and, on the right, the texts with one tab per language and the Translate button" width="720"><br><em>The editor: photos on the left, texts per language and the translate button on the right.</em></p>
+<p align="center"><img src="/assets/images/blog/framedBySanti/dashboard-editor_EN.webp" srcset="/assets/images/blog/framedBySanti/dashboard-editor_EN-800.webp 800w, /assets/images/blog/framedBySanti/dashboard-editor_EN.webp 1200w" sizes="min(100vw - 3rem, 720px)" alt="Private dashboard set editor: the set's photos on the left and, on the right, the texts with one tab per language and the Translate button" width="720"><br><em>The editor: photos on the left, texts per language and the translate button on the right.</em></p>
 
 ---
 
@@ -278,4 +278,4 @@ When saving the profile photo on a slow connection, if the save took too long th
 
 > ⭐ **gentle-ai on GitHub:** [github.com/Gentleman-Programming/gentle-ai](https://github.com/Gentleman-Programming/gentle-ai). If you find it useful, give it a star.
 
-<p align="center"><a href="https://github.com/Gentleman-Programming/gentle-ai"><img width="220" src="https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/docs/assets/brand/built-with-gentle-ai.png" alt="Built with Gentle-AI" /></a></p>
+<p align="center"><a href="https://github.com/Gentleman-Programming/gentle-ai"><img width="220" height="95" loading="lazy" src="/assets/images/built-with-gentle-ai.webp" alt="Built with Gentle-AI" /></a></p>

@@ -4,15 +4,15 @@ O meu MacBook da empresa funcionava na perfeição há quatro anos com este esqu
 
 Esta é a minha secretária:
 
-<img class="theme-img theme-img--dark" src="/assets/images/blog/youtubeHdmiAudio/illustration_PT_dark.webp" alt="Ilustração da minha secretária: MacBook Pro com hub USB-C, monitor VS278 por HDMI com o áudio bloqueado e uma televisão como segundo ecrã">
-<img class="theme-img theme-img--light" src="/assets/images/blog/youtubeHdmiAudio/illustration_PT_light.webp" alt="Ilustração da minha secretária: MacBook Pro com hub USB-C, monitor VS278 por HDMI com o áudio bloqueado e uma televisão como segundo ecrã">
+<img class="theme-img theme-img--dark" src="/assets/images/blog/youtubeHdmiAudio/illustration_PT_dark.webp" srcset="/assets/images/blog/youtubeHdmiAudio/illustration_PT_dark-800.webp 800w, /assets/images/blog/youtubeHdmiAudio/illustration_PT_dark.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="Ilustração da minha secretária: MacBook Pro com hub USB-C, monitor VS278 por HDMI com o áudio bloqueado e uma televisão como segundo ecrã">
+<img class="theme-img theme-img--light" src="/assets/images/blog/youtubeHdmiAudio/illustration_PT_light.webp" srcset="/assets/images/blog/youtubeHdmiAudio/illustration_PT_light-800.webp 800w, /assets/images/blog/youtubeHdmiAudio/illustration_PT_light.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="Ilustração da minha secretária: MacBook Pro com hub USB-C, monitor VS278 por HDMI com o áudio bloqueado e uma televisão como segundo ecrã">
 
 O padrão era o que mais desconcertava. Acontecia em casa, mas não na minha segunda habitação, com outro ISP. E um PC com Linux na mesma rede doméstica, com o mesmo navegador, funcionava sem problemas. Tudo apontava para a **rede ou o fornecedor de internet**, juntamente com um Mac gerido pela empresa (MDM, um cliente SASE de *secure web gateway*, um perfil de DNS cifrado gerido e um agente de segurança de endpoint). Suspeitos a mais.
 
 > 💡 Spoiler: a rede era inocente. Mas demorei horas a aceitá-lo, e o caminho é o que vale a pena contar.
 
-<img class="theme-img theme-img--dark" src="/assets/images/blog/youtubeHdmiAudio/layers_PT_dark.webp" alt="As camadas que suspeitámos e a que realmente falhava">
-<img class="theme-img theme-img--light" src="/assets/images/blog/youtubeHdmiAudio/layers_PT_light.webp" alt="As camadas que suspeitámos e a que realmente falhava">
+<img class="theme-img theme-img--dark" src="/assets/images/blog/youtubeHdmiAudio/layers_PT_dark.webp" srcset="/assets/images/blog/youtubeHdmiAudio/layers_PT_dark-800.webp 800w, /assets/images/blog/youtubeHdmiAudio/layers_PT_dark.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="As camadas que suspeitámos e a que realmente falhava">
+<img class="theme-img theme-img--light" src="/assets/images/blog/youtubeHdmiAudio/layers_PT_light.webp" srcset="/assets/images/blog/youtubeHdmiAudio/layers_PT_light-800.webp 800w, /assets/images/blog/youtubeHdmiAudio/layers_PT_light.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="As camadas que suspeitámos e a que realmente falhava">
 
 ---
 
@@ -30,7 +30,7 @@ O gentle-ai foi criado por [Alan Buscaglia](https://www.linkedin.com/in/alanbusc
 
 > ⭐ **gentle-ai no GitHub:** [github.com/Gentleman-Programming/gentle-ai](https://github.com/Gentleman-Programming/gentle-ai). Se te for útil, dá-lhe uma estrela: ajuda mais pessoas a encontrá-lo.
 
-<p align="center"><a href="https://github.com/Gentleman-Programming/gentle-ai"><img width="220" src="https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/docs/assets/brand/built-with-gentle-ai.png" alt="Built with Gentle-AI" /></a></p>
+<p align="center"><a href="https://github.com/Gentleman-Programming/gentle-ai"><img width="220" height="95" loading="lazy" src="/assets/images/built-with-gentle-ai.webp" alt="Built with Gentle-AI" /></a></p>
 
 O método foi sempre o mesmo, e enganámo-nos os dois: o agente também defendeu teorias erradas (a do cliente SASE e da cache do ISP foi dele) e a evidência corrigiu-o tal como a mim.
 
@@ -106,8 +106,8 @@ Ao ligar o hub, o macOS reconfigura os ecrãs e os dispositivos de áudio, e o �
 
 Esta é a minha montagem, com o ponto exato onde falhou:
 
-<img class="theme-img theme-img--dark" src="/assets/images/blog/youtubeHdmiAudio/setup_PT_dark.webp" alt="A minha montagem: onde estava a falha">
-<img class="theme-img theme-img--light" src="/assets/images/blog/youtubeHdmiAudio/setup_PT_light.webp" alt="A minha montagem: onde estava a falha">
+<img class="theme-img theme-img--dark" src="/assets/images/blog/youtubeHdmiAudio/setup_PT_dark.webp" srcset="/assets/images/blog/youtubeHdmiAudio/setup_PT_dark-800.webp 800w, /assets/images/blog/youtubeHdmiAudio/setup_PT_dark.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="A minha montagem: onde estava a falha">
+<img class="theme-img theme-img--light" src="/assets/images/blog/youtubeHdmiAudio/setup_PT_light.webp" srcset="/assets/images/blog/youtubeHdmiAudio/setup_PT_light-800.webp 800w, /assets/images/blog/youtubeHdmiAudio/setup_PT_light.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="A minha montagem: onde estava a falha">
 
 Isto explica também o resto do mistério:
 

@@ -13,8 +13,8 @@ Os números, tirados do repositório:
 - 🌍 **Três idiomas**: inglês, espanhol e português.
 - 💯 **100 nas quatro categorias do Lighthouse** (desktop, rede 4G).
 
-<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/commits_PT_dark.webp" alt="Gráfico de barras de commits por dia de 13 a 26 de outubro de 2026: 1, 43, 75 (o dia da entrada em produção), 3, nenhum no fim de semana, 22, 7, 23, 3, nenhum de 23 a 25 e 12">
-<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/commits_PT_light.webp" alt="Gráfico de barras de commits por dia de 13 a 26 de outubro de 2026: 1, 43, 75 (o dia da entrada em produção), 3, nenhum no fim de semana, 22, 7, 23, 3, nenhum de 23 a 25 e 12">
+<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/commits_PT_dark.webp" srcset="/assets/images/blog/framedBySanti/commits_PT_dark-800.webp 800w, /assets/images/blog/framedBySanti/commits_PT_dark.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="Gráfico de barras de commits por dia de 13 a 26 de outubro de 2026: 1, 43, 75 (o dia da entrada em produção), 3, nenhum no fim de semana, 22, 7, 23, 3, nenhum de 23 a 25 e 12">
+<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/commits_PT_light.webp" srcset="/assets/images/blog/framedBySanti/commits_PT_light-800.webp 800w, /assets/images/blog/framedBySanti/commits_PT_light.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="Gráfico de barras de commits por dia de 13 a 26 de outubro de 2026: 1, 43, 75 (o dia da entrada em produção), 3, nenhum no fim de semana, 22, 7, 23, 3, nenhum de 23 a 25 e 12">
 
 ---
 
@@ -38,8 +38,8 @@ A divisão foi clara:
 
 ## 🧱 Stack e arquitetura
 
-<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/architecture_PT_dark.webp" alt="Diagrama de arquitetura do Framed by Santi: o navegador recebe a app estática da Vercel, lê o Firestore por REST nas páginas públicas e usa o Auth e o SDK do Firebase só no painel; as fotos chegam pela CDN da Cloudinary e o painel envia-as diretamente com uma assinatura; as funções da Vercel limpam a Cloudinary, enviam o email com o Resend, traduzem com o DeepL e assinam os uploads, e todas as do painel verificam no Firestore que o utilizador é admin com o seu próprio token">
-<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/architecture_PT_light.webp" alt="Diagrama de arquitetura do Framed by Santi: o navegador recebe a app estática da Vercel, lê o Firestore por REST nas páginas públicas e usa o Auth e o SDK do Firebase só no painel; as fotos chegam pela CDN da Cloudinary e o painel envia-as diretamente com uma assinatura; as funções da Vercel limpam a Cloudinary, enviam o email com o Resend, traduzem com o DeepL e assinam os uploads, e todas as do painel verificam no Firestore que o utilizador é admin com o seu próprio token">
+<img class="theme-img theme-img--dark" src="/assets/images/blog/framedBySanti/architecture_PT_dark.webp" srcset="/assets/images/blog/framedBySanti/architecture_PT_dark-800.webp 800w, /assets/images/blog/framedBySanti/architecture_PT_dark.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="Diagrama de arquitetura do Framed by Santi: o navegador recebe a app estática da Vercel, lê o Firestore por REST nas páginas públicas e usa o Auth e o SDK do Firebase só no painel; as fotos chegam pela CDN da Cloudinary e o painel envia-as diretamente com uma assinatura; as funções da Vercel limpam a Cloudinary, enviam o email com o Resend, traduzem com o DeepL e assinam os uploads, e todas as do painel verificam no Firestore que o utilizador é admin com o seu próprio token">
+<img class="theme-img theme-img--light" src="/assets/images/blog/framedBySanti/architecture_PT_light.webp" srcset="/assets/images/blog/framedBySanti/architecture_PT_light-800.webp 800w, /assets/images/blog/framedBySanti/architecture_PT_light.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" alt="Diagrama de arquitetura do Framed by Santi: o navegador recebe a app estática da Vercel, lê o Firestore por REST nas páginas públicas e usa o Auth e o SDK do Firebase só no painel; as fotos chegam pela CDN da Cloudinary e o painel envia-as diretamente com uma assinatura; as funções da Vercel limpam a Cloudinary, enviam o email com o Resend, traduzem com o DeepL e assinam os uploads, e todas as do painel verificam no Firestore que o utilizador é admin com o seu próprio token">
 
 **Frontend**
 
@@ -81,11 +81,11 @@ As três do painel verificam que o utilizador é admin da mesma forma: leem o do
 - **Idiomas a sério:** datas, números e plurais seguem o idioma ativo (`en-US`, `es-ES`, `pt-PT`).
 - Com `prefers-reduced-motion`, nada é animado.
 
-<p align="center"><a href="https://framedbysanti.rootdevs.es/" target="_blank" rel="noopener"><img src="/assets/images/blog/framedBySanti/home_PT.webp" alt="Página inicial do Framed by Santi: foto do Flatiron em ecrã inteiro com o nome do Santi e os botões para a galeria e para o Instagram" width="720"></a><br><em>A página inicial. Clica para a veres ao vivo.</em></p>
+<p align="center"><a href="https://framedbysanti.rootdevs.es/" target="_blank" rel="noopener"><img src="/assets/images/blog/framedBySanti/home_PT.webp" srcset="/assets/images/blog/framedBySanti/home_PT-800.webp 800w, /assets/images/blog/framedBySanti/home_PT.webp 1200w" sizes="min(100vw - 3rem, 720px)" alt="Página inicial do Framed by Santi: foto do Flatiron em ecrã inteiro com o nome do Santi e os botões para a galeria e para o Instagram" width="720"></a><br><em>A página inicial. Clica para a veres ao vivo.</em></p>
 
-<p align="center"><a href="https://framedbysanti.rootdevs.es/gallery" target="_blank" rel="noopener"><img src="/assets/images/blog/framedBySanti/gallery_PT.webp" alt="Galeria do Framed by Santi: filtro por temas e uma série com o seu carrossel de fotos" width="720"></a><br><em>A galeria com o filtro por temas.</em></p>
+<p align="center"><a href="https://framedbysanti.rootdevs.es/gallery" target="_blank" rel="noopener"><img src="/assets/images/blog/framedBySanti/gallery_PT.webp" srcset="/assets/images/blog/framedBySanti/gallery_PT-800.webp 800w, /assets/images/blog/framedBySanti/gallery_PT.webp 1200w" sizes="min(100vw - 3rem, 720px)" alt="Galeria do Framed by Santi: filtro por temas e uma série com o seu carrossel de fotos" width="720"></a><br><em>A galeria com o filtro por temas.</em></p>
 
-<p align="center"><a href="https://framedbysanti.rootdevs.es/gallery" target="_blank" rel="noopener"><img src="/assets/images/blog/framedBySanti/viewer_PT.webp" alt="Visor do Framed by Santi: uma foto em grande com setas, controlos de zoom e a fita de miniaturas" width="720"></a><br><em>O visor: zoom, setas e miniaturas.</em></p>
+<p align="center"><a href="https://framedbysanti.rootdevs.es/gallery" target="_blank" rel="noopener"><img src="/assets/images/blog/framedBySanti/viewer_PT.webp" srcset="/assets/images/blog/framedBySanti/viewer_PT-800.webp 800w, /assets/images/blog/framedBySanti/viewer_PT.webp 1200w" sizes="min(100vw - 3rem, 720px)" alt="Visor do Framed by Santi: uma foto em grande com setas, controlos de zoom e a fita de miniaturas" width="720"></a><br><em>O visor: zoom, setas e miniaturas.</em></p>
 
 ---
 
@@ -103,9 +103,9 @@ O painel vive em `/admin` e não tem nenhuma ligação pública: só se chega l�
 - **Também no telemóvel:** o painel adapta-se ao ecrã do telemóvel, e no login pode-se mostrar ou ocultar a palavra-passe.
 - **E um *easter egg*** só para o admin: um cantinho para continuar com força. 💪
 
-<p align="center"><img src="/assets/images/blog/framedBySanti/dashboard-library_PT.webp" alt="Biblioteca do painel privado: as séries com a sua capa, o filtro por publicadas e rascunhos, e o interruptor para publicar" width="720"><br><em>A biblioteca: cada série é publicada ou passa a rascunho com um interruptor.</em></p>
+<p align="center"><img src="/assets/images/blog/framedBySanti/dashboard-library_PT.webp" srcset="/assets/images/blog/framedBySanti/dashboard-library_PT-800.webp 800w, /assets/images/blog/framedBySanti/dashboard-library_PT.webp 1090w" sizes="min(100vw - 3rem, 720px)" alt="Biblioteca do painel privado: as séries com a sua capa, o filtro por publicadas e rascunhos, e o interruptor para publicar" width="720"><br><em>A biblioteca: cada série é publicada ou passa a rascunho com um interruptor.</em></p>
 
-<p align="center"><img src="/assets/images/blog/framedBySanti/dashboard-editor_PT.webp" alt="Editor de séries do painel privado: as fotos da série à esquerda e, à direita, os textos com um separador por idioma e o botão Traduzir" width="720"><br><em>O editor: fotos à esquerda, textos por idioma e o botão para traduzir à direita.</em></p>
+<p align="center"><img src="/assets/images/blog/framedBySanti/dashboard-editor_PT.webp" srcset="/assets/images/blog/framedBySanti/dashboard-editor_PT-800.webp 800w, /assets/images/blog/framedBySanti/dashboard-editor_PT.webp 1200w" sizes="min(100vw - 3rem, 720px)" alt="Editor de séries do painel privado: as fotos da série à esquerda e, à direita, os textos com um separador por idioma e o botão Traduzir" width="720"><br><em>O editor: fotos à esquerda, textos por idioma e o botão para traduzir à direita.</em></p>
 
 ---
 
@@ -278,4 +278,4 @@ Ao guardar a foto de perfil com uma ligação lenta, se o guardar demorasse dema
 
 > ⭐ **gentle-ai no GitHub:** [github.com/Gentleman-Programming/gentle-ai](https://github.com/Gentleman-Programming/gentle-ai). Se te for útil, dá-lhe uma estrela.
 
-<p align="center"><a href="https://github.com/Gentleman-Programming/gentle-ai"><img width="220" src="https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/docs/assets/brand/built-with-gentle-ai.png" alt="Built with Gentle-AI" /></a></p>
+<p align="center"><a href="https://github.com/Gentleman-Programming/gentle-ai"><img width="220" height="95" loading="lazy" src="/assets/images/built-with-gentle-ai.webp" alt="Built with Gentle-AI" /></a></p>
