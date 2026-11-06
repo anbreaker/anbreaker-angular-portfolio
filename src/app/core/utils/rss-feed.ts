@@ -1,4 +1,5 @@
 import type { BlogPost, SupportedLang } from '../interfaces/portfolio.interfaces';
+import { translationText } from './translation-text';
 
 export const RSS_FEED_LANGS: SupportedLang[] = ['es', 'en', 'pt'];
 
@@ -50,7 +51,7 @@ export function buildRssFeed({
   siteUrl,
   translations,
 }: RssFeedOptions): string {
-  const translate = (key: string): string => stripTags(lookup(translations, key));
+  const translate = (key: string): string => translationText(translations, key);
   const newestFirst = [...posts].sort((a, b) => b.date.localeCompare(a.date));
   const items = newestFirst.map((post) => {
     const url = `${siteUrl}/blog/${post.slug}`;
@@ -105,18 +106,6 @@ function toFeedHtml(html: string, siteUrl: string): string {
   return html
     .replace(/\n?<img[^>]*theme-img--light[^>]*>/g, '')
     .replace(/(src|href)="\/(?!\/)/g, `$1="${siteUrl}/`);
-}
-
-function lookup(source: object, key: string): string {
-  const value = key
-    .split('.')
-    .reduce<unknown>((node, part) => (node as Record<string, unknown> | undefined)?.[part], source);
-
-  return typeof value === 'string' ? value : key;
-}
-
-function stripTags(text: string): string {
-  return text.replace(/<[^>]*>/g, '');
 }
 
 function escapeXml(text: string): string {
