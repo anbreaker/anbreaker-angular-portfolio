@@ -22,6 +22,7 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { BlogPost, SupportedLang } from '@core/interfaces/portfolio.interfaces';
 import { BlogService } from '@core/services/blog.service';
 import { MarkdownService } from '@core/services/markdown.service';
+import { BLOG_IMAGE_SIZES, blogImageSrcset } from '@core/utils/responsive-image';
 import { FooterComponent } from '@features/footer/footer.component';
 import { NavComponent } from '@features/nav/nav.component';
 import { YoutubePlayerComponent } from '@shared/components/youtube-player/youtube-player.component';
@@ -119,6 +120,9 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
     const imageMap = this.post()?.imageUrlLight;
     return imageMap ? imageMap[this.currentLang()] : undefined;
   });
+
+  readonly blogImageSizes = BLOG_IMAGE_SIZES;
+  readonly blogImageSrcset = blogImageSrcset;
 
   readonly currentVideoId = computed(() => {
     const videoMap = this.post()?.videoId;
