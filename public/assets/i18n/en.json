@@ -148,6 +148,10 @@
         "excerpt": "A photography portfolio with a private dashboard, three languages and a perfect Lighthouse score, built with Claude Code as my assistant: the stack, the features, the real problems and the method to move fast without losing quality.",
         "title": "How I built Framed by Santi: from zero to production in <em>three days</em>."
       },
+      "google-timeline-gps": {
+        "excerpt": "1,928 photos without location, a 19 MB JSON file and a Python script: 96% back on the map, without touching the originals.",
+        "title": "How Google Timeline put the location back on my <em>New York</em> photos"
+      },
       "graffiti-ui": {
         "excerpt": "A deep dive into CSS glassmorphism, neon effects, and urban design patterns.",
         "title": "Building Urban & Graffiti UI"
