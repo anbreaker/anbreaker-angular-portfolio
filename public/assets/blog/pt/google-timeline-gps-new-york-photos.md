@@ -198,6 +198,8 @@ E fui com cuidado:
 
 Verifiquei amostras ao acaso contra sítios de que me lembrava: Times Square, o Financial District, a Estátua da Liberdade e a Grand Central, onde uma foto e um vídeo tirados com 30 minutos de diferença caíram na mesma visita. Tudo batia certo.
 
+<img src="/assets/images/blog/googleTimelineGps/map-after.webp" srcset="/assets/images/blog/googleTimelineGps/map-after-800.webp 800w, /assets/images/blog/googleTimelineGps/map-after.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" loading="lazy" alt="Mapa do Immich com Nova Iorque e arredores cheios de grupos de fotos depois de recuperar a localização">
+
 Uma curiosidade para quem usa o Immich: a geocodificação inversa dá a cada sítio o nome da **cidade mais próxima** na sua base de dados (GeoNames), por isso uma foto de Times Square aparece como *"Weehawken"*, do outro lado do rio. O pin está certo; só o nome engana.
 
 ---

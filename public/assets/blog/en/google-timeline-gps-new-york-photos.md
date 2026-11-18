@@ -198,6 +198,8 @@ And I went carefully:
 
 I checked random samples against places I remembered: Times Square, the Financial District, the Statue of Liberty and Grand Central, where a photo and a video taken 30 minutes apart landed in the same visit. Everything matched.
 
+<img src="/assets/images/blog/googleTimelineGps/map-after.webp" srcset="/assets/images/blog/googleTimelineGps/map-after-800.webp 800w, /assets/images/blog/googleTimelineGps/map-after.webp 1600w" sizes="(min-width: 1100px) 920px, min(100vw - 3rem, 752px)" loading="lazy" alt="Immich map with New York and its surroundings full of photo clusters after restoring the locations">
+
 A quirk for Immich users: reverse geocoding names each place after the **nearest city** in its database (GeoNames), so a Times Square photo shows up as *"Weehawken"*, across the river. The pin is right; only the name is misleading.
 
 ---
