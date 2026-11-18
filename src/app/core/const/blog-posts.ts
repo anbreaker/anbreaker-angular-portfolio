@@ -12,6 +12,11 @@ export const BLOG_POSTS: BlogPost[] = [
     date: '2026-11-18',
     excerptKey: 'blog.posts.google-timeline-gps.excerpt',
     id: '4',
+    imageUrl: {
+      en: '/assets/images/blog/googleTimelineGps/cover.webp',
+      es: '/assets/images/blog/googleTimelineGps/cover.webp',
+      pt: '/assets/images/blog/googleTimelineGps/cover.webp',
+    },
     slug: 'google-timeline-gps-new-york-photos',
     tags: ['Python', 'Google Maps', 'Immich', 'Self-hosting'],
     titleKey: 'blog.posts.google-timeline-gps.title',
