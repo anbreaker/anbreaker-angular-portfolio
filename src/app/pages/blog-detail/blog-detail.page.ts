@@ -1,4 +1,4 @@
-import { fromEvent, map, NEVER, startWith, throttleTime } from 'rxjs';
+import { fromEvent, map, NEVER, of, startWith, switchMap, throttleTime } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import {
   afterEveryRender,
@@ -14,14 +14,15 @@ import {
   Signal,
   signal,
 } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 import { BlogPost, SupportedLang } from '@core/interfaces/portfolio.interfaces';
 import { BlogService } from '@core/services/blog.service';
 import { MarkdownService } from '@core/services/markdown.service';
+import { postPageTitle, SITE_TITLE } from '@core/utils/post-html';
 import { BLOG_IMAGE_SIZES, blogImageSrcset } from '@core/utils/responsive-image';
 import { FooterComponent } from '@features/footer/footer.component';
 import { NavComponent } from '@features/nav/nav.component';
@@ -58,6 +59,7 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
   private readonly markdownService = inject(MarkdownService);
   private readonly sanitizer = inject(DomSanitizer);
   private readonly transloco = inject(TranslocoService);
+  private readonly title = inject(Title);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
 
   readonly activeHeadingId = signal('');
@@ -150,6 +152,19 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
     }));
   });
 
+  /** The post's title in the active language, updated when the language changes. */
+  private readonly translatedTitle = toSignal(
+    toObservable(this.post).pipe(
+      switchMap((post) => (post ? this.transloco.selectTranslate<string>(post.titleKey) : of('')))
+    ),
+    { initialValue: '' }
+  );
+
+  private readonly syncDocumentTitle = effect(() => {
+    const title = this.translatedTitle();
+    if (title) this.title.setTitle(postPageTitle(title));
+  });
+
   private readonly syncHeadingWithScroll = effect(() => {
     this.scrollProgress();
     if (this.isBrowser) this.updateActiveHeading();
@@ -186,6 +201,7 @@ export class BlogDetailPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.videoSectionObserver?.disconnect();
+    this.title.setTitle(SITE_TITLE);
   }
 
   protected goToBlog(): void {
