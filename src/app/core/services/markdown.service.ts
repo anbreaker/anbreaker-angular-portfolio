@@ -4,8 +4,10 @@ import { SupportedLang } from '@core/interfaces/portfolio.interfaces';
 
 import hljs from 'highlight.js/lib/core';
 import bash from 'highlight.js/lib/languages/bash';
+import http from 'highlight.js/lib/languages/http';
 import javascript from 'highlight.js/lib/languages/javascript';
 import json from 'highlight.js/lib/languages/json';
+import python from 'highlight.js/lib/languages/python';
 import scss from 'highlight.js/lib/languages/scss';
 import swift from 'highlight.js/lib/languages/swift';
 import typescript from 'highlight.js/lib/languages/typescript';
@@ -14,9 +16,12 @@ import { marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 
 hljs.registerLanguage('bash', bash);
+hljs.registerLanguage('http', http);
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('js', javascript);
 hljs.registerLanguage('json', json);
+hljs.registerLanguage('py', python);
+hljs.registerLanguage('python', python);
 hljs.registerLanguage('scss', scss);
 hljs.registerLanguage('sh', bash);
 hljs.registerLanguage('swift', swift);
