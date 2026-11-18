@@ -9,6 +9,20 @@ export const BLOG_AUTHOR: BlogAuthor = {
 export const BLOG_POSTS: BlogPost[] = [
   {
     author: BLOG_AUTHOR,
+    date: '2026-11-18',
+    excerptKey: 'blog.posts.google-timeline-gps.excerpt',
+    id: '4',
+    imageUrl: {
+      en: '/assets/images/blog/googleTimelineGps/cover.webp',
+      es: '/assets/images/blog/googleTimelineGps/cover.webp',
+      pt: '/assets/images/blog/googleTimelineGps/cover.webp',
+    },
+    slug: 'google-timeline-gps-new-york-photos',
+    tags: ['Python', 'Google Maps', 'Immich', 'Self-hosting'],
+    titleKey: 'blog.posts.google-timeline-gps.title',
+  },
+  {
+    author: BLOG_AUTHOR,
     date: '2026-10-27',
     excerptKey: 'blog.posts.framed-by-santi.excerpt',
     id: '3',

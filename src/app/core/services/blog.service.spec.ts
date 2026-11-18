@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
+import { BLOG_POSTS } from '../const/blog-posts';
 import { BlogService } from './blog.service';
 
 import { describe, expect, it } from 'vitest';
@@ -40,6 +41,6 @@ describe('BlogService.searchPosts', () => {
   });
 
   it('does not filter queries shorter than 3 characters', () => {
-    expect(service.searchPosts('Có', 1, 10, translate).totalCount).toBe(3);
+    expect(service.searchPosts('Có', 1, 10, translate).totalCount).toBe(BLOG_POSTS.length);
   });
 });
