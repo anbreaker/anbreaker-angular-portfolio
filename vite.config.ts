@@ -1,5 +1,5 @@
-import { readFileSync, statSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
 import angular from '@analogjs/vite-plugin-angular';
 
 import { Marked } from 'marked';
@@ -7,7 +7,10 @@ import { defineConfig, Plugin } from 'vite';
 
 import { BLOG_POSTS } from './src/app/core/const/blog-posts';
 import { buildLlmsTxt, LLMS_TXT_PATH } from './src/app/core/utils/llms-txt';
+import { buildPostHtml, postHtmlPath } from './src/app/core/utils/post-html';
 import { buildRssFeed, RSS_FEED_LANGS, rssFeedPath } from './src/app/core/utils/rss-feed';
+import { buildSitemap, SITEMAP_PATH } from './src/app/core/utils/sitemap';
+import { PROJECTS_DATA } from './src/app/features/projects/projects.data';
 
 const environmentFileByMode: Record<string, string> = {
   demo: 'environment.demo.ts',
@@ -79,6 +82,52 @@ function llmsTxt(): Plugin {
   };
 }
 
+/** Emits dist/sitemap.xml, the sitemap robots.txt points to. */
+function sitemap(): Plugin {
+  return {
+    apply: 'build',
+    name: 'sitemap',
+    generateBundle(): void {
+      this.emitFile({
+        fileName: SITEMAP_PATH,
+        source: buildSitemap({
+          posts: BLOG_POSTS,
+          projectIds: PROJECTS_DATA.filter((project) => project.detail).map(
+            (project) => project.id
+          ),
+          siteUrl: SITE_URL,
+        }),
+        type: 'asset',
+      });
+    },
+  };
+}
+
+/**
+ * Writes dist/blog/<slug>/index.html for every post: the built index.html with the post's
+ * title, description, Open Graph and BlogPosting, for crawlers that do not run JavaScript.
+ * Runs after the bundle is written so it starts from the final index.html.
+ */
+function postPages(): Plugin {
+  return {
+    apply: 'build',
+    name: 'post-pages',
+    writeBundle({ dir }): void {
+      if (!dir) return;
+      const indexHtml = readFileSync(resolve(dir, 'index.html'), 'utf8');
+      const translations = JSON.parse(
+        readFileSync(resolve(__dirname, 'public/assets/i18n/en.json'), 'utf8')
+      ) as object;
+
+      for (const post of BLOG_POSTS) {
+        const file = resolve(dir, postHtmlPath(post));
+        mkdirSync(dirname(file), { recursive: true });
+        writeFileSync(file, buildPostHtml({ indexHtml, post, siteUrl: SITE_URL, translations }));
+      }
+    },
+  };
+}
+
 export default defineConfig(({ mode }) => {
   const environmentFile = resolve(
     __dirname,
@@ -107,6 +156,8 @@ export default defineConfig(({ mode }) => {
       }),
       rssFeeds(),
       llmsTxt(),
+      sitemap(),
+      postPages(),
     ],
 
     resolve: {
