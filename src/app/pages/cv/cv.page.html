@@ -1,0 +1,237 @@
+<app-nav />
+
+<main class="cv" id="main-content">
+  <div class="cv__wrap">
+    <div class="cv__bar">
+      <div class="cv__bar-start">
+        <button class="cv__back" type="button" (click)="goBack()">
+          <span aria-hidden="true">←</span>
+          Volver
+        </button>
+        <span class="cv__mono cv__bar-path">
+          rootdevs.es /
+          <b>cv</b>
+          · actualizado 11/2026
+        </span>
+      </div>
+      <div class="cv__downloads">
+        @for (link of cv.downloads; track link.href; let first = $first) {
+        <a class="cv__download" download [class.cv__download--primary]="first" [href]="link.href">
+          {{ link.label }}
+        </a>
+        }
+      </div>
+    </div>
+
+    <header class="cv__hero">
+      <div class="cv__hero-text">
+        <p class="cv__eyebrow cv__mono">{{ cv.headlineMeta }}</p>
+        <h1 class="cv__name">
+          {{ cv.name.given }}
+          <em>{{ cv.name.family }}</em>
+        </h1>
+        <p class="cv__role">{{ cv.role }}</p>
+        <p class="cv__thesis">
+          {{ cv.thesis.intro }}
+          <strong>{{ cv.thesis.emphasis }}</strong>
+          {{ cv.thesis.outro }}
+        </p>
+        <p class="cv__contact cv__mono">
+          @for (item of cv.contact; track item) {
+          <span>{{ item }}</span>
+          }
+        </p>
+        <ul class="cv__profiles cv__mono">
+          @for (link of cv.profiles; track link.href) {
+          <li>
+            <span>{{ link.label }}</span>
+            <a rel="noopener noreferrer" target="_blank" [href]="link.href">
+              {{ link.displayText ?? link.href }}
+            </a>
+          </li>
+          }
+        </ul>
+      </div>
+      <figure class="cv__portrait">
+        <img
+          alt="Retrato de Francisco Javier Antúnez"
+          fetchpriority="high"
+          height="600"
+          sizes="(max-width: 760px) 92vw, 460px"
+          src="assets/images/fj-900.webp"
+          srcset="assets/images/fj-640.webp 640w, assets/images/fj-900.webp 900w"
+          width="900"
+        />
+        <figcaption>{{ cv.portraitCaption }}</figcaption>
+      </figure>
+    </header>
+
+    <section class="cv__section" aria-labelledby="cv-perfil">
+      <div class="cv__sec-head"><h2 id="cv-perfil">Perfil</h2></div>
+      <p class="cv__lede">{{ cv.profile }}</p>
+    </section>
+
+    <section class="cv__section" aria-labelledby="cv-trabajo">
+      <div class="cv__sec-head">
+        <h2 id="cv-trabajo">Trabajo público</h2>
+        <p class="cv__mono">Código abierto y en producción. Se puede comprobar.</p>
+      </div>
+      <div class="cv__proof">
+        @for (project of cv.projects; track project.title) { @if (project.isFeatured) {
+        <ng-container
+          [ngTemplateOutlet]="projectCard"
+          [ngTemplateOutletContext]="{ $implicit: project }"
+        />
+        } }
+        <div class="cv__side">
+          @for (project of cv.projects; track project.title) { @if (!project.isFeatured) {
+          <ng-container
+            [ngTemplateOutlet]="projectCard"
+            [ngTemplateOutletContext]="{ $implicit: project }"
+          />
+          } }
+        </div>
+      </div>
+    </section>
+
+    <section class="cv__section" aria-labelledby="cv-capacidades">
+      <div class="cv__sec-head">
+        <h2 id="cv-capacidades">Qué hago</h2>
+        <p class="cv__mono">Por capacidad, no por framework.</p>
+      </div>
+      <div class="cv__caps">
+        @for (cap of cv.capabilities; track cap.title) {
+        <div class="cv__cap" [class.cv__cap--lead]="cap.isHighlighted">
+          <h3>
+            {{ cap.title }}
+            <small>{{ cap.subtitle }}</small>
+          </h3>
+          <div>
+            <p>{{ cap.description }}</p>
+            <ul class="cv__tags">
+              @for (tag of cap.tags; track tag) {
+              <li>{{ tag }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+        }
+      </div>
+    </section>
+
+    <section class="cv__section" aria-labelledby="cv-experiencia">
+      <div class="cv__sec-head">
+        <h2 id="cv-experiencia">Experiencia</h2>
+        <p class="cv__mono">git log, lo último arriba.</p>
+      </div>
+      <div class="cv__log">
+        @for (job of cv.experience; track job.startDate) {
+        <article class="cv__commit" [class.cv__commit--past]="job.isBeforeSoftware">
+          <p class="cv__when cv__mono">
+            {{ job.startDate }} – {{ job.endDate }}
+            <span class="cv__type">{{ job.commitLabel }}</span>
+          </p>
+          <div>
+            <h3>{{ job.role }}</h3>
+            @if (job.clientAndLocation) {
+            <p class="cv__org">{{ job.clientAndLocation }}</p>
+            }
+            <ul>
+              @for (bullet of job.bullets; track bullet) {
+              <li>{{ bullet }}</li>
+              }
+            </ul>
+            @if (job.handwrittenNote) {
+            <p class="cv__moral">{{ job.handwrittenNote }}</p>
+            }
+          </div>
+        </article>
+        }
+      </div>
+    </section>
+
+    <section class="cv__section" aria-labelledby="cv-voces">
+      <div class="cv__sec-head">
+        <h2 id="cv-voces">Lo que dicen</h2>
+        <p class="cv__mono">Recomendaciones públicas en LinkedIn.</p>
+      </div>
+      <div class="cv__voices">
+        @for (voice of cv.testimonials; track voice.author) {
+        <blockquote>
+          <p>“{{ voice.quote }}”</p>
+          <cite>
+            <b>{{ voice.author }}</b>
+            {{ voice.role }}
+          </cite>
+        </blockquote>
+        }
+      </div>
+    </section>
+
+    <div class="cv__facts">
+      <div>
+        <h2>Formación</h2>
+        <ul>
+          @for (item of cv.education; track item.title) {
+          <li>
+            <b>{{ item.title }}</b>
+            <br />
+            {{ item.detail }}
+          </li>
+          }
+        </ul>
+      </div>
+      <div>
+        <h2>Idiomas</h2>
+        <ul>
+          @for (item of cv.languages; track item.title) {
+          <li>
+            <b>{{ item.title }}</b>
+            · {{ item.detail }}
+          </li>
+          }
+        </ul>
+      </div>
+      <div>
+        <h2>Cómo trabajo</h2>
+        <ul>
+          @for (item of cv.workStyle; track item) {
+          <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+<app-footer />
+
+<ng-template #projectCard let-project>
+  <article class="cv__card">
+    @if (project.kicker) {
+    <p class="cv__eyebrow cv__mono">{{ project.kicker }}</p>
+    }
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.description }}</p>
+    @if (project.stats) {
+    <div class="cv__stats">
+      @for (stat of project.stats; track stat.label) {
+      <div class="cv__stat">
+        <b>{{ stat.value }}</b>
+        <span>{{ stat.label }}</span>
+      </div>
+      }
+    </div>
+    }
+    <ul class="cv__tags">
+      @for (tag of project.tags; track tag) {
+      <li>{{ tag }}</li>
+      }
+    </ul>
+    <p class="cv__links cv__mono">
+      @for (link of project.links; track link.href) {
+      <a rel="noopener noreferrer" target="_blank" [href]="link.href">{{ link.label }}</a>
+      }
+    </p>
+  </article>
+</ng-template>

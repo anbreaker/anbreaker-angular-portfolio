@@ -2,7 +2,7 @@ import type { BlogPost } from '../interfaces/portfolio.interfaces';
 
 export const SITEMAP_PATH = 'sitemap.xml';
 
-const MAIN_PAGES = ['/', '/about-me', '/blog', '/contact'];
+const MAIN_PAGES = ['/', '/about-me', '/blog', '/contact', '/cv'];
 
 export interface SitemapOptions {
   posts: BlogPost[];

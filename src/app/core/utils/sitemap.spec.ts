@@ -42,12 +42,13 @@ describe('buildSitemap', () => {
     expect(xml.trimEnd().endsWith('</urlset>')).toBe(true);
   });
 
-  it('lists the main pages, the projects and every post, newest post first', () => {
+  it('lists the main pages, the CV, the projects and every post, newest post first', () => {
     expect(locs(xml)).toEqual([
       'https://example.com/',
       'https://example.com/about-me',
       'https://example.com/blog',
       'https://example.com/contact',
+      'https://example.com/cv',
       'https://example.com/projects/portfolio',
       'https://example.com/blog/new-post',
       'https://example.com/blog/old-post',

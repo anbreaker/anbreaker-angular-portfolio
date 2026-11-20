@@ -71,6 +71,20 @@ describe('buildLlmsTxt', () => {
     }
   });
 
+  it('describes the author with the current role', () => {
+    expect(llmsTxt().split('\n')[2]).toContain('Senior Frontend Developer');
+  });
+
+  // The /cv route is rendered in the browser, so agents need the plain-text version to read the CV.
+  it('links the CV as plain-text markdown and as a web page, before the blog', () => {
+    const text = llmsTxt();
+
+    expect(text).toContain('## CV');
+    expect(text).toContain('](https://example.dev/cv.md)');
+    expect(text).toContain('](https://example.dev/cv)');
+    expect(text.indexOf('## CV')).toBeLessThan(text.indexOf('## Blog'));
+  });
+
   it('ends with a newline and contains no HTML', () => {
     const text = llmsTxt();
 
