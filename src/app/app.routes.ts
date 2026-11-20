@@ -23,6 +23,10 @@ export const routes: Routes = [
     loadComponent: async () => (await import('@pages/contact/contact.page')).ContactPageComponent,
   },
   {
+    path: 'cv',
+    loadComponent: async () => (await import('@pages/cv/cv.page')).CvPageComponent,
+  },
+  {
     path: 'card',
     loadComponent: async () => (await import('@pages/card/card.page')).CardPageComponent,
   },
