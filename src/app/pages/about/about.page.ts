@@ -9,6 +9,7 @@ import {
   untracked,
   viewChild,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { TranslocoDirective } from '@jsverse/transloco';
 
 import { FooterComponent } from '@features/footer/footer.component';
@@ -45,6 +46,7 @@ interface TabPanel {
     FooterComponent,
     NavComponent,
     RevealDirective,
+    RouterLink,
     SectionDividerComponent,
     TranslocoDirective,
     UpperCasePipe,
@@ -86,12 +88,36 @@ export class AboutMePageComponent implements OnDestroy {
       indexClass: 'cy',
       indexNum: '01.',
       items: [
-        { accent: 'cy', nameKey: 'about.domainSw.items.angular21.name', tagKey: 'about.domainSw.items.angular21.tag' },
-        { accent: 'cy', nameKey: 'about.domainSw.items.jsTs.name', tagKey: 'about.domainSw.items.jsTs.tag' },
-        { accent: 'cy', nameKey: 'about.domainSw.items.vue3.name', tagKey: 'about.domainSw.items.vue3.tag' },
-        { accent: 'cy', nameKey: 'about.domainSw.items.react.name', tagKey: 'about.domainSw.items.react.tag' },
-        { accent: 'cy', nameKey: 'about.domainSw.items.lit.name', tagKey: 'about.domainSw.items.lit.tag' },
-        { accent: 'cy', nameKey: 'about.domainSw.items.node.name', tagKey: 'about.domainSw.items.node.tag' },
+        {
+          accent: 'cy',
+          nameKey: 'about.domainSw.items.angular21.name',
+          tagKey: 'about.domainSw.items.angular21.tag',
+        },
+        {
+          accent: 'cy',
+          nameKey: 'about.domainSw.items.jsTs.name',
+          tagKey: 'about.domainSw.items.jsTs.tag',
+        },
+        {
+          accent: 'cy',
+          nameKey: 'about.domainSw.items.vue3.name',
+          tagKey: 'about.domainSw.items.vue3.tag',
+        },
+        {
+          accent: 'cy',
+          nameKey: 'about.domainSw.items.react.name',
+          tagKey: 'about.domainSw.items.react.tag',
+        },
+        {
+          accent: 'cy',
+          nameKey: 'about.domainSw.items.lit.name',
+          tagKey: 'about.domainSw.items.lit.tag',
+        },
+        {
+          accent: 'cy',
+          nameKey: 'about.domainSw.items.node.name',
+          tagKey: 'about.domainSw.items.node.tag',
+        },
       ],
       promptKey: 'about.domainSw.prompt',
       promptPath: '~/software',
@@ -104,13 +130,41 @@ export class AboutMePageComponent implements OnDestroy {
       indexClass: 'ro',
       indexNum: '02.',
       items: [
-        { accent: 'ro', nameKey: 'about.domainIn.items.linux.name', tagKey: 'about.domainIn.items.linux.tag' },
-        { accent: 'ro', nameKey: 'about.domainIn.items.homelab.name', tagKey: 'about.domainIn.items.homelab.tag' },
-        { accent: 'ro', nameKey: 'about.domainIn.items.docker.name', tagKey: 'about.domainIn.items.docker.tag' },
-        { accent: 'ro', nameKey: 'about.domainIn.items.homeAssistant.name', tagKey: 'about.domainIn.items.homeAssistant.tag' },
-        { accent: 'ro', nameKey: 'about.domainIn.items.gemini.name', tagKey: 'about.domainIn.items.gemini.tag' },
-        { accent: 'ro', nameKey: 'about.domainIn.items.gentleAI.name', tagKey: 'about.domainIn.items.gentleAI.tag' },
-        { accent: 'ro', nameKey: 'about.domainIn.items.claude.name', tagKey: 'about.domainIn.items.claude.tag' },
+        {
+          accent: 'ro',
+          nameKey: 'about.domainIn.items.linux.name',
+          tagKey: 'about.domainIn.items.linux.tag',
+        },
+        {
+          accent: 'ro',
+          nameKey: 'about.domainIn.items.homelab.name',
+          tagKey: 'about.domainIn.items.homelab.tag',
+        },
+        {
+          accent: 'ro',
+          nameKey: 'about.domainIn.items.docker.name',
+          tagKey: 'about.domainIn.items.docker.tag',
+        },
+        {
+          accent: 'ro',
+          nameKey: 'about.domainIn.items.homeAssistant.name',
+          tagKey: 'about.domainIn.items.homeAssistant.tag',
+        },
+        {
+          accent: 'ro',
+          nameKey: 'about.domainIn.items.gemini.name',
+          tagKey: 'about.domainIn.items.gemini.tag',
+        },
+        {
+          accent: 'ro',
+          nameKey: 'about.domainIn.items.gentleAI.name',
+          tagKey: 'about.domainIn.items.gentleAI.tag',
+        },
+        {
+          accent: 'ro',
+          nameKey: 'about.domainIn.items.claude.name',
+          tagKey: 'about.domainIn.items.claude.tag',
+        },
       ],
       promptKey: 'about.domainIn.prompt',
       promptPath: '~/infra',
@@ -123,12 +177,36 @@ export class AboutMePageComponent implements OnDestroy {
       indexClass: 'em',
       indexNum: '03.',
       items: [
-        { accent: 'em', nameKey: 'about.domainTi.items.naranjos.name', tagKey: 'about.domainTi.items.naranjos.tag' },
-        { accent: 'em', nameKey: 'about.domainTi.items.olivos.name', tagKey: 'about.domainTi.items.olivos.tag' },
-        { accent: 'em', nameKey: 'about.domainTi.items.huerta.name', tagKey: 'about.domainTi.items.huerta.tag' },
-        { accent: 'em', nameKey: 'about.domainTi.items.vinedo.name', tagKey: 'about.domainTi.items.vinedo.tag' },
-        { accent: 'em', nameKey: 'about.domainTi.items.permacultura.name', tagKey: 'about.domainTi.items.permacultura.tag' },
-        { accent: 'em', nameKey: 'about.domainTi.items.sueloVivo.name', tagKey: 'about.domainTi.items.sueloVivo.tag' },
+        {
+          accent: 'em',
+          nameKey: 'about.domainTi.items.naranjos.name',
+          tagKey: 'about.domainTi.items.naranjos.tag',
+        },
+        {
+          accent: 'em',
+          nameKey: 'about.domainTi.items.olivos.name',
+          tagKey: 'about.domainTi.items.olivos.tag',
+        },
+        {
+          accent: 'em',
+          nameKey: 'about.domainTi.items.huerta.name',
+          tagKey: 'about.domainTi.items.huerta.tag',
+        },
+        {
+          accent: 'em',
+          nameKey: 'about.domainTi.items.vinedo.name',
+          tagKey: 'about.domainTi.items.vinedo.tag',
+        },
+        {
+          accent: 'em',
+          nameKey: 'about.domainTi.items.permacultura.name',
+          tagKey: 'about.domainTi.items.permacultura.tag',
+        },
+        {
+          accent: 'em',
+          nameKey: 'about.domainTi.items.sueloVivo.name',
+          tagKey: 'about.domainTi.items.sueloVivo.tag',
+        },
       ],
       promptKey: 'about.domainTi.prompt',
       promptPath: '~/tierra',

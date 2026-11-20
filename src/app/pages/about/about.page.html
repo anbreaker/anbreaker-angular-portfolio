@@ -67,6 +67,11 @@
         <p class="about__bio-p">{{ t('about.bio.p4') }}</p>
         <p class="about__bio-founder">{{ t('about.bio.p4Founder') }}</p>
         <div class="about__bio-sig">{{ t('about.bio.sig') }}</div>
+        <a class="about__bio-cv" routerLink="/cv">
+          <span class="about__bio-cv-dot" aria-hidden="true"></span>
+          {{ t('about.bio.cvLink') }}
+          <span class="about__bio-cv-arrow" aria-hidden="true">→</span>
+        </a>
       </div>
 
       <div class="about__bio-side" appReveal [revealDelay]="200">
