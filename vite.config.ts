@@ -6,10 +6,12 @@ import { Marked } from 'marked';
 import { defineConfig, Plugin } from 'vite';
 
 import { BLOG_POSTS } from './src/app/core/const/blog-posts';
+import { buildCvMarkdown, CV_MARKDOWN_PATH } from './src/app/core/utils/cv-markdown';
 import { buildLlmsTxt, LLMS_TXT_PATH } from './src/app/core/utils/llms-txt';
 import { buildPostHtml, postHtmlPath } from './src/app/core/utils/post-html';
 import { buildRssFeed, RSS_FEED_LANGS, rssFeedPath } from './src/app/core/utils/rss-feed';
 import { buildSitemap, SITEMAP_PATH } from './src/app/core/utils/sitemap';
+import { CV_DATA } from './src/app/features/cv/cv.data';
 import { PROJECTS_DATA } from './src/app/features/projects/projects.data';
 
 const environmentFileByMode: Record<string, string> = {
@@ -76,6 +78,21 @@ function llmsTxt(): Plugin {
             readFileSync(resolve(__dirname, 'public/assets/i18n/en.json'), 'utf8')
           ) as object,
         }),
+        type: 'asset',
+      });
+    },
+  };
+}
+
+/** Emits dist/cv.md, the plain-text CV that llms.txt links for AI agents. */
+function cvMarkdown(): Plugin {
+  return {
+    apply: 'build',
+    name: 'cv-markdown',
+    generateBundle(): void {
+      this.emitFile({
+        fileName: CV_MARKDOWN_PATH,
+        source: buildCvMarkdown({ cv: CV_DATA, siteUrl: SITE_URL }),
         type: 'asset',
       });
     },
@@ -156,6 +173,7 @@ export default defineConfig(({ mode }) => {
       }),
       rssFeeds(),
       llmsTxt(),
+      cvMarkdown(),
       sitemap(),
       postPages(),
     ],

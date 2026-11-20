@@ -1,4 +1,5 @@
 import type { BlogPost, SupportedLang } from '../interfaces/portfolio.interfaces';
+import { CV_MARKDOWN_PATH } from './cv-markdown';
 import { RSS_FEED_LANGS, rssFeedPath } from './rss-feed';
 import { translationText } from './translation-text';
 
@@ -26,9 +27,14 @@ export function buildLlmsTxt({ posts, siteUrl, translations }: LlmsTxtOptions): 
   return [
     '# Rootdevs',
     '',
-    '> Portfolio and technical blog of Francisco Javier Antúnez Durán, a Creative Technologist and full-stack web developer writing about Angular, performance, tooling and AI.',
+    '> Portfolio, CV and technical blog of Francisco Javier Antúnez Durán, a Senior Frontend Developer writing about architecture, testing, performance and AI-assisted development.',
     '',
     'The site is available in English, Spanish and Portuguese. Blog posts are linked below as their English Markdown source; the same posts in Spanish and Portuguese live under /assets/blog/es/ and /assets/blog/pt/.',
+    '',
+    '## CV',
+    '',
+    `- [CV in Markdown](${siteUrl}/${CV_MARKDOWN_PATH}): Experience, skills, public work and contact details as plain text (Spanish), with links to the PDF versions`,
+    `- [CV page](${siteUrl}/cv): The same CV as a web page, printable to PDF`,
     '',
     '## Blog',
     '',
